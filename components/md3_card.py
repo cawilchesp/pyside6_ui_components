@@ -102,7 +102,8 @@ class MD3Card(QtWidgets.QFrame):
                 f'border: {thickness}px solid {border_color};'
                 f'border-radius: 12px;'
                 f'background-color: {background_color} }}'
-                f'QLabel {{ background-color: {background_color}; color: {color} }}')
+                f'QLabel {{ background-color: {background_color}; '
+                f'color: {color} }}')
 
 
     def setLanguage(self, language: int) -> None:
