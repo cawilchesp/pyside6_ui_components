@@ -3,36 +3,7 @@ PyQt Main Window
 
 """
 
-light = {
-    'background': '#3785F5',
-    'on_background': '#000000',
-    'surface': '#FFFFFF',
-    'on_surface': '#000000',
-    'primary': '#3785F5',
-    'on_primary': '#000000',
-    'secondary': '#7FB0F5',
-    'on_secondary': '#000000',
-    'disable': '#B2B2B2',
-    'on_disable': '#000000',
-    'error': '#B3261E',
-    'on_error': '#FFB4AB'
-}
-
-dark = {
-    'background': '#3B4253',
-    'on_background': '#E5E9F0',
-    'surface': '#2E3441',
-    'on_surface': '#E5E9F0',
-    'primary': '#7FB0F5',
-    'on_primary': '#000000',
-    'secondary': '#3785F5',
-    'on_secondary': '#000000',
-    'disable': '#B2B2B2',
-    'on_disable': '#000000',
-    'error': 'B3261E',
-    'on_error': '#FFB4AB'
-}
-
+from components.style_color import colors
 
 # ------
 # Window
@@ -56,24 +27,21 @@ class MD3Window:
 
     def setThemeStyle(self, theme: bool) -> None:
         """ Apply theme style sheet to component """
-        if theme:
-            background_color = light["background"]
-            color = light["on_surface"]
-            border_color = light['on_background']
-            combo_color = light['surface']
-        else:
-            background_color = dark["background"]
-            color = dark["on_surface"]
-            border_color = dark['on_background']
-            combo_color = dark['surface']
+        
+        background_color = colors(theme, 'background')
+        color = colors(theme, 'on_background')
+        menu_color = colors(theme, 'on_surface')
+        menu_border_color = colors(theme, 'on_background')
+        menu_background_color = colors(theme, 'surface')
 
         self.parent.setStyleSheet(f'QWidget {{ '
-                f'background-color: {background_color}; color: #000000 }}'
+                f'background-color: {background_color};'
+                f'color: {color} }}'
                 f'QComboBox QListView {{ '
-                f'border: 1px solid {border_color}; '
+                f'border: 1px solid {menu_border_color}; '
                 f'border-radius: 4;'
-                f'background-color: {combo_color}; '
-                f'color: {color} }}')
+                f'background-color: {menu_background_color}; '
+                f'color: {menu_color} }}')
 
 
     def setLanguage(self, language: int) -> None:
