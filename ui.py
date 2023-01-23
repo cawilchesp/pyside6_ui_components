@@ -14,6 +14,7 @@ from components.md3_textfield import MD3TextField
 from components.md3_slider import MD3Slider
 from components.md3_imagelabel import MD3ImageLabel
 from components.md3_segmentedbutton import MD3SegmentedButton
+from components.md3_segmented import MD3Segmented
 
 import sys
 
@@ -180,10 +181,8 @@ class UI(QWidget):
             'location': 'right',
             'state': True,
             'theme': self.theme_value,
-            'language': self.language_value } ) 
-
-
-
+            'language': self.language_value } )
+        
 
 
 
