@@ -7,6 +7,7 @@ from components.md3_window import MD3Window
 from components.md3_card import MD3Card
 from components.md3_menu import MD3Menu
 from components.md3_iconbutton import MD3IconButton
+from components.md3_button import MD3Button
 from components.md3_switch import MD3Switch
 from components.md3_label import MD3Label
 from components.md3_textfield import MD3TextField
@@ -37,32 +38,6 @@ class UI(QWidget):
             2: ('Archivo de Video', 'Video File')
         }
 
-        self.model_configuration_options = {
-            0: ('yolor_p6.cfg', 'yolor_p6.cfg'),
-            1: ('yolor_w6.cfg', 'yolor_w6.cfg')
-        }
-
-        self.model_weights_options = {
-            0: ('yolor_p6.pt', 'yolor_p6.pt'),
-            1: ('yolor_w6.pt', 'yolor_w6.pt'),
-            2: ('best_drones.pt', 'best_drones.pt')
-        }
-
-        self.size_options = {
-            0: ('640', '640'),
-            1: ('1280', '1280')
-        }
-
-        self.gpu_options = {
-            0: ('CPU', 'CPU'),
-            1: ('GPU', 'GPU')
-        }
-
-        self.names_options = {
-            0: ('coco.names', 'coco.names'),
-            1: ('drones.names', 'drones.names')
-        }
-
         self.gui_widgets = {}
 
         # -----------
@@ -77,21 +52,145 @@ class UI(QWidget):
             'language': self.language_value } )
 
         # -----------
-        # Card Título
+        # Card Filled
         # -----------
-        self.gui_widgets['titulo_card'] = MD3Card(parent, {
-            'name': 'titulo_card',
+        self.gui_widgets['filled_card'] = MD3Card(parent, { 
+            'name': 'filled_card',
             'position': (8, 8), 
-            'size': (width-16, 48),
-            'labels': ('Título','Title'), 
+            'size': ((width / 2) - 16, height - 16),
             'type': 'filled',
             'theme': self.theme_value, 
+            'labels': ('Tarjeta Llena', 'Filled Card'), 
             'language': self.language_value } )
 
+        # ------------
+        # Icon Buttons
+        # ------------
+        self.gui_widgets['icon1_button'] = MD3IconButton(self.gui_widgets['filled_card'], {
+            'name': 'icon1_button',
+            'position': (8,48),
+            'type': 'filled',
+            'icon': 'delete', 
+            'theme': self.theme_value } )
 
-        # Espacio para título de la aplicación, logo, etc.
-
+        self.gui_widgets['icon2_button'] = MD3IconButton(self.gui_widgets['filled_card'], {
+            'name': 'icon2_button',
+            'position': (48,48),
+            'type': 'tonal',
+            'icon': 'delete', 
+            'theme': self.theme_value } )
         
+        self.gui_widgets['icon3_button'] = MD3IconButton(self.gui_widgets['filled_card'], {
+            'name': 'icon3_button',
+            'position': (88,48),
+            'type': 'outlined',
+            'icon': 'delete', 
+            'theme': self.theme_value } )
+        
+        self.gui_widgets['icon4_button'] = MD3IconButton(self.gui_widgets['filled_card'], {
+            'name': 'icon4_button',
+            'position': (128,48),
+            'type': 'standard',
+            'icon': 'delete', 
+            'theme': self.theme_value } )
+        
+        # -------
+        # Buttons
+        # -------
+        self.gui_widgets['boton1_button'] = MD3Button(self.gui_widgets['filled_card'], {
+            'name': 'boton1_button',
+            'position': (8,88),
+            'width': 100,
+            'type': 'filled',
+            'icon': 'delete',
+            'labels': ('Borrar','Delete'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
+
+        self.gui_widgets['boton2_button'] = MD3Button(self.gui_widgets['filled_card'], {
+            'name': 'boton2_button',
+            'position': (116,88),
+            'width': 100,
+            'type': 'tonal',
+            'icon': 'delete',
+            'labels': ('Borrar','Delete'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
+        
+        self.gui_widgets['boton3_button'] = MD3Button(self.gui_widgets['filled_card'], {
+            'name': 'boton3_button',
+            'position': (224,88),
+            'width': 100,
+            'type': 'outlined',
+            'icon': 'delete',
+            'labels': ('Borrar','Delete'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
+        
+        self.gui_widgets['boton4_button'] = MD3Button(self.gui_widgets['filled_card'], {
+            'name': 'boton4_button',
+            'position': (332,88),
+            'width': 100,
+            'type': 'text',
+            'icon': 'delete',
+            'labels': ('Borrar','Delete'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
+
+        # -----------------
+        # Segmented Buttons
+        # -----------------
+        self.gui_widgets['left_segmented1_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
+            'name': 'left_segmented1_button',
+            'position': (8, 128),
+            'width': 100,
+            'labels': ('Izquierda', 'Left'),
+            'location': 'left',
+            'state': False,
+            'theme': self.theme_value,
+            'language': self.language_value } )
+        
+        self.gui_widgets['center1_segmented1_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
+            'name': 'center1_segmented1_button',
+            'position': (108, 128),
+            'width': 100,
+            'labels': ('Centro 1', 'Center 1'),
+            'location': 'center',
+            'state': False,
+            'icon': 'delete',
+            'theme': self.theme_value,
+            'language': self.language_value } ) 
+
+        self.gui_widgets['center2_segmented1_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
+            'name': 'center2_segmented1_button',
+            'position': (208, 128),
+            'width': 100,
+            'labels': ('Centro 2', 'Center 2'),
+            'icon': 'delete',
+            'location': 'center',
+            'state': True,
+            'theme': self.theme_value,
+            'language': self.language_value } ) 
+
+        self.gui_widgets['right_segmented1_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
+            'name': 'right_segmented1_button',
+            'position': (308, 128),
+            'width': 100,
+            'labels': ('Derecha', 'Right'),
+            'location': 'right',
+            'state': True,
+            'theme': self.theme_value,
+            'language': self.language_value } ) 
+
+
+
+
+
+
+
+
+
+
         # self.gui_widgets['idioma_menu'] = MD3Menu(self.gui_widgets['titulo_card'], {
         #     'name': 'idioma_menu',
         #     'size': (72, 32),
@@ -108,13 +207,6 @@ class UI(QWidget):
         #     'state': self.theme_value,
         #     'language': self.language_value,
         #     'theme': self.theme_value } )
-
-
-
-
-
-
-
 
 
 
@@ -136,46 +228,109 @@ class UI(QWidget):
         # #     'theme': self.theme_value } )
         # # self.gui_widgets['tema_switch_dark'].clicked.connect(parent.on_tema_switch_dark_clicked)
 
-        # self.gui_widgets['database_button'] = MD3IconButton(self.gui_widgets['titulo_card'], {
-        #     'name': 'database_button',
-        #     'position': (300,8),
-        #     'type': 'filled',
-        #     'icon': 'database', 
-        #     'theme': self.theme_value } )
-        # self.database_button.clicked.connect(self.on_database_button_clicked)
+        
 
-        # self.gui_widgets['manual_button'] = MD3IconButton(self.gui_widgets['titulo_card'], {
-        #     'name': 'manual_button',
-        #     'type': 'filled',
-        #     'icon': 'help', 
-        #     'theme': self.theme_value } )
-        # # self.manual_button.clicked.connect(self.on_manual_button_clicked)
-
-        # self.gui_widgets['about_button'] = MD3IconButton(self.gui_widgets['titulo_card'], {
-        #     'name': 'about_button',
-        #     'type': 'filled',
-        #     'icon': 'mail', 
-        #     'theme': self.theme_value } )
-        # # self.gui_widgets['about_button'].clicked.connect(parent.on_about_button_clicked)
-
-        # self.gui_widgets['aboutQt_button'] = MD3IconButton(self.gui_widgets['titulo_card'], {
-        #     'name': 'aboutQt_button',
-        #     'type': 'filled',
-        #     'icon': 'about_qt', 
-        #     'theme': self.theme_value } )
-        # # self.gui_widgets['aboutQt_button'].clicked.connect(parent.on_aboutQt_button_clicked)
-
-        # -----------
-        # Card Source
-        # -----------
-        self.gui_widgets['source_card'] = MD3Card(parent, { 
-            'name': 'source_card',
-            'position': (8, self.gui_widgets['titulo_card'].y() + self.gui_widgets['titulo_card'].height() + 8), 
-            'size': (180, 128),
+        # -------------
+        # Card Outlined
+        # -------------
+        self.gui_widgets['outlined_card'] = MD3Card(parent, { 
+            'name': 'outlined_card',
+            'position': ((width / 2) + 8, 8), 
+            'size': ((width / 2) - 16, height - 16),
             'type': 'outlined',
             'theme': self.theme_value, 
-            'labels': ('Origen del Video', 'Video Source'), 
+            'labels': ('Tarjeta con Borde', 'Outlined Card'), 
             'language': self.language_value } )
+
+        # ------------
+        # Icon Buttons
+        # ------------
+        self.gui_widgets['icon5_button'] = MD3IconButton(self.gui_widgets['outlined_card'], {
+            'name': 'icon5_button',
+            'position': (8,48),
+            'type': 'filled',
+            'icon': 'delete', 
+            'theme': self.theme_value } )
+
+        self.gui_widgets['icon6_button'] = MD3IconButton(self.gui_widgets['outlined_card'], {
+            'name': 'icon6_button',
+            'position': (48,48),
+            'type': 'tonal',
+            'icon': 'delete', 
+            'theme': self.theme_value } )
+        
+        self.gui_widgets['icon7_button'] = MD3IconButton(self.gui_widgets['outlined_card'], {
+            'name': 'icon7_button',
+            'position': (88,48),
+            'type': 'outlined',
+            'icon': 'delete', 
+            'theme': self.theme_value } )
+        
+        self.gui_widgets['icon8_button'] = MD3IconButton(self.gui_widgets['outlined_card'], {
+            'name': 'icon8_button',
+            'position': (128,48),
+            'type': 'standard',
+            'icon': 'delete', 
+            'theme': self.theme_value } )
+        
+        # -------
+        # Buttons
+        # -------
+        self.gui_widgets['boton5_button'] = MD3Button(self.gui_widgets['outlined_card'], {
+            'name': 'boton5_button',
+            'position': (8,88),
+            'width': 100,
+            'type': 'filled',
+            'icon': 'delete',
+            'labels': ('Borrar','Delete'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
+
+        self.gui_widgets['boton6_button'] = MD3Button(self.gui_widgets['outlined_card'], {
+            'name': 'boton6_button',
+            'position': (116,88),
+            'width': 100,
+            'type': 'tonal',
+            'icon': 'delete',
+            'labels': ('Borrar','Delete'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
+        
+        self.gui_widgets['boton7_button'] = MD3Button(self.gui_widgets['outlined_card'], {
+            'name': 'boton7_button',
+            'position': (224,88),
+            'width': 100,
+            'type': 'outlined',
+            'icon': 'delete',
+            'labels': ('Borrar','Delete'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
+        
+        self.gui_widgets['boton8_button'] = MD3Button(self.gui_widgets['outlined_card'], {
+            'name': 'boton8_button',
+            'position': (332,88),
+            'width': 100,
+            'type': 'text',
+            'icon': 'delete',
+            'labels': ('Borrar','Delete'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
+
+        # -----------------
+        # Segmented Buttons
+        # -----------------
+
+
+
+
+
+
+
+
+
+
+
+
 
         # self.gui_widgets['source_menu'] = MD3Menu(self.gui_widgets['source_card'], {
         #     'name': 'source_menu',
@@ -186,25 +341,6 @@ class UI(QWidget):
         #     'theme': self.theme_value } )
         # # self.gui_widgets['source_menu'].textActivated.connect(parent.on_source_menu_textActivated)
 
-        # self.gui_widgets['source_add_button'] = MD3IconButton(self.gui_widgets['source_card'], {
-        #     'name': 'source_add_button',
-        #     'type': 'filled',
-        #     'position': (140, 88),
-        #     'icon': 'new', 
-        #     'theme': self.theme_value } )
-        # self.gui_widgets['source_add_button'].setEnabled(False)
-        # # self.gui_widgets['source_add_button'].clicked.connect(parent.on_source_add_button_clicked)
-
-        # # ----------------
-        # # Card Information
-        # # ----------------
-        # self.gui_widgets['info_card'] = MD3Card(parent, { 
-        #     'name': 'info_card',
-        #     'position': (8, self.gui_widgets['source_card'].y() + self.gui_widgets['source_card'].height() + 8), 
-        #     'size': (180, 248), 
-        #     'theme': self.theme_value, 
-        #     'labels': ('Información', 'Information'), 
-        #     'language': self.language_value } )
 
         # self.gui_widgets['source_icon'] = MD3Label(self.gui_widgets['info_card'], {
         #     'name': 'id_icon', 
