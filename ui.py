@@ -32,7 +32,10 @@ class UI(QWidget):
 
         self.regExp1 = QRegularExpressionValidator(QRegularExpression('[0-9]{1,7}'), self)
 
-        self.idioma_dict = {0: ('ESP', 'SPA'), 1: ('ING', 'ENG')}
+        self.test_options = {
+            0: ('Opción 1', 'Option 1'),
+            1: ('Opción 2', 'Option 2')
+        }
 
         self.source_options = {
             0: ('Webcam', 'Webcam'),
@@ -256,29 +259,21 @@ class UI(QWidget):
             'state': False,
             'theme': self.theme_value } )
 
-        
+        # ----
+        # Menu
+        # ----
+        self.gui_widgets['test1_menu'] = MD3Menu(self.gui_widgets['filled_card'], {
+            'name': 'test1_menu',
+            'position': (8, 288),
+            'width': 72,
+            'options': self.test_options,
+            'set': -1,
+            'theme': self.theme_value,
+            'language': self.language_value } )
 
-
-
-
-
-
-
-
-
-
-
-
-        # self.gui_widgets['idioma_menu'] = MD3Menu(self.gui_widgets['titulo_card'], {
-        #     'name': 'idioma_menu',
-        #     'size': (72, 32),
-        #     'options': self.idioma_dict,
-        #     'language': self.language_value,
-        #     'theme': self.theme_value } )
-        # self.gui_widgets['idioma_menu'].setCurrentIndex(self.language_value)
-        # # self.gui_widgets['idioma_menu'].currentIndexChanged.connect(parent.on_idioma_menu_currentIndexChanged)
-
-
+        # -----------
+        # Date Picker
+        # -----------
 
 
         
@@ -489,27 +484,22 @@ class UI(QWidget):
             'theme': self.theme_value,
             'language': self.language_value } )
 
+        # ----
+        # Menu
+        # ----
+        self.gui_widgets['test2_menu'] = MD3Menu(self.gui_widgets['outlined_card'], {
+            'name': 'test2_menu',
+            'position': (8, 288),
+            'width': 72,
+            'options': self.test_options,
+            'set': 0,
+            'theme': self.theme_value,
+            'language': self.language_value } )
 
 
 
 
 
-
-
-
-
-
-
-
-
-        # self.gui_widgets['source_menu'] = MD3Menu(self.gui_widgets['source_card'], {
-        #     'name': 'source_menu',
-        #     'position': (8, 48),
-        #     'size': (164, 32),
-        #     'options': self.source_options,
-        #     'language': self.language_value,
-        #     'theme': self.theme_value } )
-        # # self.gui_widgets['source_menu'].textActivated.connect(parent.on_source_menu_textActivated)
 
 
         # self.gui_widgets['source_icon'] = MD3Label(self.gui_widgets['info_card'], {
