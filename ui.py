@@ -247,16 +247,14 @@ class UI(QWidget):
             'position': (8, 248),
             'side': 'left',
             'state': False,
-            'theme': self.theme_value,
-            'language': self.language_value } )
+            'theme': self.theme_value } )
         
         self.gui_widgets['test1_on_switch'] = MD3Switch(self.gui_widgets['filled_card'], {
             'name': 'test1_on_switch',
             'position': (34, 248),
             'side': 'right',
             'state': False,
-            'theme': self.theme_value,
-            'language': self.language_value } )
+            'theme': self.theme_value } )
 
         
 
