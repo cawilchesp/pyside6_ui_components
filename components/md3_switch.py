@@ -29,18 +29,12 @@ class MD3Switch(QtWidgets.QToolButton):
             side: str
                 Switch button side
                 'left', 'right'
-            icons: tuple
-                Icon files with extension.
-                (icon_on, icon_off) -> icon_on: On state icon, icon_off: Off state icon
             state: bool
                 State of activation
                 True: On, False: Off
             theme: bool
                 App theme
                 True: Light theme, False: Dark theme
-            language: int
-                App language
-                0: Spanish, 1: English
         
         Returns
         -------
