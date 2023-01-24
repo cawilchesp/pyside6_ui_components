@@ -30,17 +30,9 @@ class UI(QWidget):
         self.language_value = 0
         self.theme_value = False
 
-        self.regExp1 = QRegularExpressionValidator(QRegularExpression('[0-9]{1,7}'), self)
-
         self.test_options = {
             0: ('Opción 1', 'Option 1'),
             1: ('Opción 2', 'Option 2')
-        }
-
-        self.source_options = {
-            0: ('Webcam', 'Webcam'),
-            1: ('Cámara IP', 'IP Camera'),
-            2: ('Archivo de Video', 'Video File')
         }
 
         self.gui_widgets = {}
@@ -270,6 +262,24 @@ class UI(QWidget):
             'set': -1,
             'theme': self.theme_value,
             'language': self.language_value } )
+
+        # ----------
+        # Text Field
+        # ----------
+        self.gui_widgets['field_text'] = MD3TextField(self.gui_widgets['filled_card'], {
+            'name': 'field_text',
+            'position': (8, 328),
+            'width': 100,
+            'labels': ('Cuadro', 'Frame'),
+            'type': 'numbers',
+            'size': 9,
+            'theme': self.theme_value,
+            'language': self.language_value } )
+        # # self.gui_widgets['frame_value_text'].text_field.textEdited.connect(parent.on_frame_value_text_textEdited)
+
+
+
+
 
         # -----------
         # Date Picker
@@ -699,15 +709,7 @@ class UI(QWidget):
         # # self.gui_widgets['video_slider'].sliderMoved.connect(parent.on_video_slider_sliderMoved)
         # # self.gui_widgets['video_slider'].sliderReleased.connect(parent.on_video_slider_sliderReleased)
 
-        # self.gui_widgets['frame_value_text'] = MD3TextField(self.gui_widgets['video_toolbar_card'], {
-        #     'name': 'frame_value_text',
-        #     'position': (self.gui_widgets['video_toolbar_card'].width() - 108, 8),
-        #     'width': 100,
-        #     'labels': ('Cuadro', 'Frame'),
-        #     'regular_expression': self.regExp1,
-        #     'theme': self.theme_value,
-        #     'language': self.language_value } )
-        # # self.gui_widgets['frame_value_text'].text_field.textEdited.connect(parent.on_frame_value_text_textEdited)
+        
 
 
         # # ----------------
