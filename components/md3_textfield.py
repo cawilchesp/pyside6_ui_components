@@ -5,7 +5,8 @@ PyQt Text Field component adapted to follow Material Design 3 guidelines
 """
 
 from PyQt6 import QtGui, QtWidgets, QtCore
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QSettings, QRegularExpression
+from PyQt6.QtGui import QRegularExpressionValidator
 
 from components.style_color import colors
 
@@ -54,14 +55,12 @@ class MD3TextField(QtWidgets.QFrame):
 
         if attributes['type'] == 'numbers':
             text_type = '[0-9]'
-        elif:
+        elif attributes['type'] == 'text':
+            text_type = '[^0-9]'
             
-
-
         text_size = f'1,{attributes["size"]}'
-        QRegularExpressionValidator(QRegularExpression(f'{text_type}{text_size}'), self)
-        if 'regular_expression' in attributes: 
-            self.text_field.setValidator(attributes['regular_expression'])
+        
+        self.text_field.setValidator(QRegularExpressionValidator(QRegularExpression(f'{text_type}{text_size}'), self))
 
 
 
@@ -79,27 +78,30 @@ class MD3TextField(QtWidgets.QFrame):
     def apply_styleSheet(self, theme: bool) -> None:
         """ Apply theme style sheet to component """
 
-        if theme:
-            background_color = light["surface"]
-            color = light["on_surface"]
-        else:
-            background_color = dark["surface"]
-            color = dark["on_surface"]
+        if self.parent.attributes['type'] == 'filled':
+            background_color = colors(theme, 'surface_tint')
+        elif self.parent.attributes['type'] == 'outlined':
+            background_color = colors(theme, 'transparent_background')
+        label_color = colors(theme, 'on_surface_variant')
+        color = colors(theme, 'on_surface')
             
         self.setStyleSheet(f'QFrame {{ '
-                f'background-color: {background_color} }}'
+                f'background-color: {background_color} '
+                f'}}'
+                f'QLabel {{ '
+                f'border: 0px solid; '
+                f'padding: 0 4 0 4;'
+                f'background-color: {background_color}; '
+                f'color: {label_color} '
+                f'}}'
                 f'QLineEdit {{ '
                 f'border: 1px solid {color}; '
                 f'border-radius: 4;'
                 f'padding: 0 8 0 8; '
                 f'background-color: {background_color}; '
-                f'color: {color} }}'
-                f'QLabel {{ '
-                f'border: 0px solid; '
-                f'padding: 0 4 0 4;'
-                f'background-color: {background_color}; '
-                f'color: {color} }}')
-
+                f'color: {color} '
+                f'}}')
+            
 
     def language_text(self, language: int) -> None:
         """ Change language of label text """
