@@ -269,10 +269,10 @@ class UI(QWidget):
         self.gui_widgets['field_text'] = MD3TextField(self.gui_widgets['filled_card'], {
             'name': 'field_text',
             'position': (8, 328),
-            'width': 100,
+            'width': 200,
             'labels': ('Cuadro', 'Frame'),
-            'type': 'numbers',
-            'size': 9,
+            'type': 'email',
+            'size': '9',
             'theme': self.theme_value,
             'language': self.language_value } )
         # # self.gui_widgets['frame_value_text'].text_field.textEdited.connect(parent.on_frame_value_text_textEdited)
