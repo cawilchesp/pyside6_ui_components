@@ -41,6 +41,7 @@ class MD3IconButton(QtWidgets.QToolButton):
         super(MD3IconButton, self).__init__(parent)
 
         self.attributes = attributes
+        self.parent = parent
 
         self.name = attributes['name']
         self.setObjectName(self.name)
@@ -64,10 +65,16 @@ class MD3IconButton(QtWidgets.QToolButton):
             background_color = colors(theme, 'secondary_container')
             hover_background_color = colors(theme, 'hover_secondary_container')
         elif self.attributes['type'] == 'outlined':
-            background_color = colors(theme, 'transparent_background')
+            if self.parent.attributes['type'] == 'filled':
+                background_color = colors(theme, 'surface_tint')
+            elif self.parent.attributes['type'] == 'outlined':
+                background_color = colors(theme, 'background')
             hover_background_color = colors(theme, 'primary_container')
         elif self.attributes['type'] == 'standard':
-            background_color = colors(theme, 'transparent_background')
+            if self.parent.attributes['type'] == 'filled':
+                background_color = colors(theme, 'surface_tint')
+            elif self.parent.attributes['type'] == 'outlined':
+                background_color = colors(theme, 'background')
             hover_background_color = colors(theme, 'primary_container')
         thickness = 2 if self.attributes['type'] == 'outlined' else 0
         border_color = colors(theme, 'outline') if self.attributes['type'] == 'outlined' else None
