@@ -36,8 +36,7 @@ def colors(theme: bool, role: str) -> str:
         'shadow': '#000000',
         'surface_tint': '#a2c9ff',
         'outline_variant': '#c3c6cf',
-        'scrim': '#000000',
-        'transparent_background': '#00000000'
+        'scrim': '#000000'
     }
 
     dark = {
@@ -77,8 +76,7 @@ def colors(theme: bool, role: str) -> str:
         'shadow': '#000000',
         'surface_tint': '#0060a8',
         'outline_variant': '#43474e',
-        'scrim': '#000000',
-        'transparent_background': '#00000000'
+        'scrim': '#000000'
     }
 
     if theme:
