@@ -48,6 +48,7 @@ class MD3Menu(QtWidgets.QComboBox):
         super(MD3Menu, self).__init__(parent)
 
         self.attributes = attributes
+        self.parent = parent
 
         self.name = attributes['name']
         self.setObjectName(self.name)
@@ -75,7 +76,10 @@ class MD3Menu(QtWidgets.QComboBox):
     def apply_styleSheet(self, theme: bool) -> None:
         """ Apply theme style sheet to component """
 
-        background_color = colors(theme, 'transparent_background')
+        if self.parent.attributes['type'] == 'filled':
+            background_color = colors(theme, 'surface_tint')
+        elif self.parent.attributes['type'] == 'outlined':
+            background_color = colors(theme, 'background')
         color = colors(theme, 'on_surface')
         border_color = colors(theme, 'outline')
         disable_color = colors(theme, 'surface_variant')
