@@ -506,7 +506,18 @@ class UI(QWidget):
             'theme': self.theme_value,
             'language': self.language_value } )
 
-
+        # ----------
+        # Text Field
+        # ----------
+        self.gui_widgets['field_text'] = MD3TextField(self.gui_widgets['outlined_card'], {
+            'name': 'field_text',
+            'position': (8, 328),
+            'width': 100,
+            'labels': ('Cuadro', 'Frame'),
+            'type': 'numbers',
+            'size': 9,
+            'theme': self.theme_value,
+            'language': self.language_value } )
 
 
 
