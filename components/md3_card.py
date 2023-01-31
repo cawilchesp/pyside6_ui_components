@@ -71,7 +71,7 @@ class MD3Card(QtWidgets.QFrame):
         elif self.attributes['type'] == 'outlined':
             thickness = 2
             border_color = colors(theme, 'outline')
-            background_color = colors(theme, 'transparent_background')
+            background_color = colors(theme, 'background')
         color = colors(theme, 'on_surface')
                     
         self.setStyleSheet(f'QFrame#{self.name} {{ '
