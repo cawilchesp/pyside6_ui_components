@@ -55,19 +55,28 @@ class MD3TextField(QtWidgets.QFrame):
         self.text_field.setClearButtonEnabled(True)
 
         if 'type' in attributes:
-            if attributes['type'] == 'numbers':
-                text_type = '[0-9]'
+            if attributes['type'] == 'integer':
+                pattern = r"^[-+]?\d+$"
+            elif attributes['type'] == 'double':
+                pattern = r"^[-+]?\d+\.\d{2}$"
+            
             elif attributes['type'] == 'text':
-                text_type = '[\p{L}\s]'
+                pattern = r"[\p{L}\s]"
             elif attributes['type'] == 'email':
-                text_type = '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+                pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
             elif attributes['type'] == 'ip':
-                text_type = '^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
-            
+                pattern = r"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
 
-            text_size = f'1,{attributes["size"]}'# if attributes['type'] != 'ip' else None
+
+
+            if 'size' in attributes:
+                pattern_size = f'{{1,{attributes["size"]}}}'
+            else:
+                pattern_size = ''
+
+            regExp = QRegularExpressionValidator(QRegularExpression(f'{pattern}{pattern_size}'))
             
-            self.text_field.setValidator(QRegularExpressionValidator(QRegularExpression(f'{text_type}{{{text_size}}}'), self))
+            self.text_field.setValidator(regExp)
 
 
 
