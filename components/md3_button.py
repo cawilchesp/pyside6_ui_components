@@ -58,11 +58,11 @@ class MD3Button(QtWidgets.QPushButton):
         w = attributes['width'] if 'width' in attributes else 32
         self.setGeometry(x, y, w, 32)
 
-        self.apply_styleSheet(attributes['theme'])
-        self.language_text(attributes['language'])
+        self.setThemeStyle(attributes['theme'])
+        self.setLanguage(attributes['language'])
 
 
-    def apply_styleSheet(self, theme: bool) -> None:
+    def setThemeStyle(self, theme: bool) -> None:
         """ Apply theme style sheet to component """
 
         if self.attributes['type'] == 'filled':
@@ -118,7 +118,7 @@ class MD3Button(QtWidgets.QPushButton):
                 f'}}')
               
 
-    def language_text(self, language: int) -> None:
+    def setLanguage(self, language: int) -> None:
         """ Change language of title text """
         if 'labels' in self.attributes:
             if language == 0:   self.setText(self.attributes['labels'][0])
