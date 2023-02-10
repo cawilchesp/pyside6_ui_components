@@ -28,7 +28,8 @@ class UI(QWidget):
         # --------
         # Settings
         # --------
-        self.language_value = 0
+        self.settings = QSettings(f'{sys.path[0]}/settings.ini', QSettings.Format.IniFormat)
+        self.language_value = int(self.settings.value('language'))
         self.theme_value = False
 
         self.test_options = {
@@ -263,12 +264,14 @@ class UI(QWidget):
             'set': -1,
             'theme': self.theme_value,
             'language': self.language_value } )
+        self.gui_widgets['test1_menu'].setCurrentIndex(self.language_value)
+        self.gui_widgets['test1_menu'].currentIndexChanged.connect(parent.on_language_changed)
 
         # ----------
         # Text Field
         # ----------
-        self.gui_widgets['field_text'] = MD3TextField(self.gui_widgets['filled_card'], {
-            'name': 'field_text',
+        self.gui_widgets['test1_textfield'] = MD3TextField(self.gui_widgets['filled_card'], {
+            'name': 'test1_textfield',
             'position': (8, 328),
             'width': 200,
             'labels': ('Cuadro', 'Frame'),
@@ -276,16 +279,15 @@ class UI(QWidget):
             # 'size': '9',
             'theme': self.theme_value,
             'language': self.language_value } )
-        # # self.gui_widgets['frame_value_text'].text_field.textEdited.connect(parent.on_frame_value_text_textEdited)
 
         # -----------
         # Date Picker
         # -----------
-        self.gui_widgets['test_date'] = MD3DatePicker(self.gui_widgets['filled_card'], {
-            'name': 'test_date',
-            'position': (8, 368),
+        self.gui_widgets['test1_date'] = MD3DatePicker(self.gui_widgets['filled_card'], {
+            'name': 'test1_date',
+            'position': (8, 388),
             'width': 200,
-            'labels': ('Fecha de Nacimiento', 'Birth Date'),
+            'labels': ('Fecha', 'Date'),
             'theme': self.theme_value,
             'language': self.language_value } )
 
@@ -512,8 +514,8 @@ class UI(QWidget):
         # ----------
         # Text Field
         # ----------
-        self.gui_widgets['field_text'] = MD3TextField(self.gui_widgets['outlined_card'], {
-            'name': 'field_text',
+        self.gui_widgets['test2_textfield'] = MD3TextField(self.gui_widgets['outlined_card'], {
+            'name': 'test2_textfield',
             'position': (8, 328),
             'width': 200,
             'labels': ('Cuadro', 'Frame'),
@@ -522,7 +524,16 @@ class UI(QWidget):
             'theme': self.theme_value,
             'language': self.language_value } )
 
-
+        # -----------
+        # Date Picker
+        # -----------
+        self.gui_widgets['test2_date'] = MD3DatePicker(self.gui_widgets['outlined_card'], {
+            'name': 'test2_date',
+            'position': (8, 388),
+            'width': 200,
+            'labels': ('Fecha', 'Date'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
 
 
 
