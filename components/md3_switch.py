@@ -53,11 +53,11 @@ class MD3Switch(QtWidgets.QToolButton):
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonIconOnly)
         self.setCheckable(True)
 
-        self.apply_styleSheet(attributes['theme'])
-        self.set_state(attributes['state'], attributes['theme'])
+        self.setThemeStyle(attributes['theme'])
+        self.setState(attributes['state'], attributes['theme'])
         
 
-    def set_state(self, state: bool, theme: bool) -> None:
+    def setState(self, state: bool, theme: bool) -> None:
         """ Set button state and corresponding icon """
 
         if theme: icon_theme = 'L'
@@ -78,10 +78,10 @@ class MD3Switch(QtWidgets.QToolButton):
             self.setChecked(False)
         self.setIconSize(QtCore.QSize(16,16))
 
-        self.apply_styleSheet(self.attributes['theme'])
+        self.setThemeStyle(self.attributes['theme'])
 
 
-    def apply_styleSheet(self, theme: bool) -> None:
+    def setThemeStyle(self, theme: bool) -> None:
         """ Apply theme style sheet to component """
         
         background_color = colors(theme, 'surface_variant')
@@ -106,6 +106,6 @@ class MD3Switch(QtWidgets.QToolButton):
                            f'}}')
 
 
-    def language_text(self, language: int) -> None:
+    def setLanguage(self, language: int) -> None:
         """ Change language of switch text """
         return 0
