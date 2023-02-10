@@ -15,15 +15,43 @@ class App(QWidget):
         # --------
         # Settings
         # --------
-        # self.settings = QSettings(f'{sys.path[0]}/settings.ini', QSettings.Format.IniFormat)
-        # self.language_value = int(self.settings.value('language'))
-        # self.theme_value = eval(self.settings.value('theme'))
+        self.settings = QSettings(f'{sys.path[0]}/settings.ini', QSettings.Format.IniFormat)
+        self.language_value = int(self.settings.value('language'))
+        self.theme_value = eval(self.settings.value('theme'))
         # self.default_path = self.settings.value('default_path')
 
         # ----------------
         # Generación de UI
         # ----------------
         self.ui = UI(self)
+
+
+    # -----
+    # Title
+    # -----
+    def on_language_changed(self, index: int) -> None:
+        """ Language menu control to change components text language
+        
+        Parameters
+        ----------
+        index: int
+            Index of language menu control
+        
+        Returns
+        -------
+        None
+        """
+        for key in self.ui.gui_widgets.keys():
+            if hasattr(self.ui.gui_widgets[key], 'setLanguage'):
+                self.ui.gui_widgets[key].setLanguage(index)
+
+        self.settings.setValue('language', str(index))
+        self.language_value = int(self.settings.value('language'))
+
+
+
+
+
 
 
 if __name__=="__main__":
