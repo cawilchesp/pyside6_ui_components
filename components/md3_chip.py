@@ -61,9 +61,9 @@ class MD3Chip(QtWidgets.QToolButton):
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setCheckable(True)
 
-        self.apply_styleSheet(attributes['theme'])
+        self.setThemeStyle(attributes['theme'])
         self.set_state(attributes['state'], attributes['theme'])
-        self.language_text(attributes['language'])
+        self.setLanguage(attributes['language'])
 
         
     def set_state(self, state: bool, theme: bool) -> None:
