@@ -10,9 +10,35 @@ from components.style_color import colors
 # ------
 class MD3Window:
     def __init__(self, attributes):
-        self.attributes = attributes
+        """ Main Window
 
+        Parameters
+        ----------
+        attributes: dict
+            parent:
+                UI Parent object 
+            size: tuple
+                Window width and height
+                (width, height)
+            position: tuple (Optional)
+                Window position, centered by default
+                (x, y) -> x, y: upper left corner
+            labels: tuple
+                Window title text
+                (label_es, label_en) -> label_es: label in spanish, label_en: label in english
+            theme: bool
+                App theme
+                True: Light theme, False: Dark theme
+            language: int
+                App language
+                0: Spanish, 1: English
+        
+        Returns
+        -------
+        None
+        """
         self.parent = attributes['parent']
+        self.attributes = attributes
 
         w, h = attributes['size'] if 'size' in attributes else (1300, 700)
         screen_x = int(self.parent.screen().availableGeometry().width() / 2 - (w / 2))
