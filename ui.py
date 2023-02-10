@@ -13,6 +13,7 @@ from components.md3_switch import MD3Switch
 from components.md3_menu import MD3Menu
 from components.md3_label import MD3Label
 from components.md3_textfield import MD3TextField
+from components.md3_datepicker import MD3DatePicker
 from components.md3_slider import MD3Slider
 from components.md3_imagelabel import MD3ImageLabel
 
@@ -277,14 +278,16 @@ class UI(QWidget):
             'language': self.language_value } )
         # # self.gui_widgets['frame_value_text'].text_field.textEdited.connect(parent.on_frame_value_text_textEdited)
 
-
-
-
-
         # -----------
         # Date Picker
         # -----------
-
+        self.gui_widgets['test_date'] = MD3DatePicker(self.gui_widgets['filled_card'], {
+            'name': 'test_date',
+            'position': (8, 368),
+            'width': 200,
+            'labels': ('Fecha de Nacimiento', 'Birth Date'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
 
         
         
