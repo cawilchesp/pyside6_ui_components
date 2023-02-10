@@ -64,12 +64,12 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setCheckable(True)
 
-        self.apply_styleSheet(attributes['theme'])
-        self.set_state(attributes['state'], attributes['theme'])
-        self.language_text(attributes['language'])
+        self.setThemeStyle(attributes['theme'])
+        self.setState(attributes['state'], attributes['theme'])
+        self.setLanguage(attributes['language'])
         
 
-    def set_state(self, state: bool, theme: bool) -> None:
+    def setState(self, state: bool, theme: bool) -> None:
         """ Set button state and corresponding icon """
 
         if theme: icon_theme = 'L'
@@ -87,7 +87,7 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
             self.setChecked(False)
 
 
-    def apply_styleSheet(self, theme: bool) -> None:
+    def setThemeStyle(self, theme: bool) -> None:
         """ Apply theme style sheet to component """
 
         if self.parent.attributes['type'] == 'filled':
@@ -128,7 +128,7 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
                 f'}}')
 
 
-    def language_text(self, language: int) -> None:
+    def setLanguage(self, language: int) -> None:
         """ Change language of label text """
         if 'labels' in self.attributes:
             if language == 0:   self.setText(self.attributes['labels'][0])
