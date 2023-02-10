@@ -55,6 +55,7 @@ class MD3TextField(QtWidgets.QFrame):
         self.text_field.setClearButtonEnabled(True)
 
         if 'type' in attributes:
+            pattern = None
             if attributes['type'] == 'integer':
                 pattern = r"^[-+]?\d+$"
             elif attributes['type'] == 'double':
@@ -68,11 +69,10 @@ class MD3TextField(QtWidgets.QFrame):
                 pattern = r"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
 
 
-
+            pattern_size = ''
             if 'size' in attributes:
                 pattern_size = f'{{1,{attributes["size"]}}}'
-            else:
-                pattern_size = ''
+                
 
             regExp = QRegularExpressionValidator(QRegularExpression(f'{pattern}{pattern_size}'))
             
