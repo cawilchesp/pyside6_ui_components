@@ -40,6 +40,7 @@ class MD3DatePicker(QtWidgets.QFrame):
         super(MD3DatePicker, self).__init__(parent)
 
         self.attributes = attributes
+        self.parent = parent
 
         self.name = attributes['name']
         self.setObjectName(self.name)
@@ -50,6 +51,7 @@ class MD3DatePicker(QtWidgets.QFrame):
 
         self.text_field = QtWidgets.QDateEdit(self)
         self.text_field.setGeometry(0, 8, w, 44)
+        
         self.text_field.setCalendarPopup(True)
         self.text_field.setFrame(False)
         self.text_field.setSpecialValueText('')
