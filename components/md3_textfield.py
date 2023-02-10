@@ -87,11 +87,11 @@ class MD3TextField(QtWidgets.QFrame):
         self.label_field.setGeometry(8, 0, 16, 16)
         self.label_field.setFont(QtGui.QFont('Segoe UI', 9))
 
-        self.apply_styleSheet(attributes['theme'])
-        self.language_text(attributes['language'])
+        self.setThemeStyle(attributes['theme'])
+        self.setLanguage(attributes['language'])
 
 
-    def apply_styleSheet(self, theme: bool) -> None:
+    def setThemeStyle(self, theme: bool) -> None:
         """ Apply theme style sheet to component """
 
         if self.parent.attributes['type'] == 'filled':
@@ -115,7 +115,7 @@ class MD3TextField(QtWidgets.QFrame):
                 f'color: {color} }}')
 
 
-    def language_text(self, language: int) -> None:
+    def setLanguage(self, language: int) -> None:
         """ Change language of label text """
         if language == 0:   self.label_field.setText(self.attributes['labels'][0])
         elif language == 1: self.label_field.setText(self.attributes['labels'][1])
