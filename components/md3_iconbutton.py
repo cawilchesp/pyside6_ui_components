@@ -52,10 +52,10 @@ class MD3IconButton(QtWidgets.QToolButton):
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonIconOnly)
         self.setAutoRaise(True)
         
-        self.apply_styleSheet(attributes['theme'])
+        self.setThemeStyle(attributes['theme'])
 
 
-    def apply_styleSheet(self, theme: bool) -> None:
+    def setThemeStyle(self, theme: bool) -> None:
         """ Apply theme style sheet to component """
 
         if self.attributes['type'] == 'filled':
@@ -95,7 +95,7 @@ class MD3IconButton(QtWidgets.QToolButton):
                 f'}}')
 
               
-    def language_text(self, language: int) -> None:
+    def setLanguage(self, language: int) -> None:
         """ Change language of title text """
         return 0
         
