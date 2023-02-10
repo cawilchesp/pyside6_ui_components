@@ -59,7 +59,7 @@ class MD3Menu(QtWidgets.QComboBox):
 
         if 'options' in attributes:
             self.max_items = len(attributes['options']) if len(attributes['options']) < 6 else 10
-            self.language_text(attributes['language'])
+            self.setLanguage(attributes['language'])
         else:
             self.max_items = 10
 
@@ -70,10 +70,10 @@ class MD3Menu(QtWidgets.QComboBox):
         self.view().window().setWindowFlags(Qt.WindowType.Popup | Qt.WindowType.FramelessWindowHint | Qt.WindowType.NoDropShadowWindowHint)
         self.view().window().setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         
-        self.apply_styleSheet(attributes['theme'])
+        self.setThemeStyle(attributes['theme'])
 
 
-    def apply_styleSheet(self, theme: bool) -> None:
+    def setThemeStyle(self, theme: bool) -> None:
         """ Apply theme style sheet to component """
 
         if self.parent.attributes['type'] == 'filled':
@@ -112,7 +112,7 @@ class MD3Menu(QtWidgets.QComboBox):
                            f'color: {color} '
                            f'}}')
 
-    def language_text(self, language: int) -> None:
+    def setLanguage(self, language: int) -> None:
         """ Change language of label text """
         if 'options' in self.attributes:
             for key, value in self.attributes['options'].items():
