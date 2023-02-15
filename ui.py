@@ -46,7 +46,7 @@ class UI(QWidget):
         self.gui_widgets['main_window'] = MD3Window( {
             'parent': parent, 
             'size': (width, height),
-            'labels': ('Seguidor de Objetos en Video', 'Video Object Tracker'),
+            'labels': ('Componentes de Material 3 UI', 'Material 3 UI Components'),
             'theme': self.theme_value, 
             'language': self.language_value } )
 
