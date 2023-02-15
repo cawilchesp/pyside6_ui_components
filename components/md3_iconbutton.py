@@ -93,9 +93,3 @@ class MD3IconButton(QtWidgets.QToolButton):
                 f'QToolButton#{self.name}:hover {{ '
                 f'background-color: {hover_background_color};'
                 f'}}')
-
-              
-    def setLanguage(self, language: int) -> None:
-        """ Change language of title text """
-        return 0
-        
