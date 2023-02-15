@@ -104,8 +104,3 @@ class MD3Switch(QtWidgets.QToolButton):
                            f'{border_position};'
                            f'background-color: {checked_background_color};'
                            f'}}')
-
-
-    def setLanguage(self, language: int) -> None:
-        """ Change language of switch text """
-        return 0
