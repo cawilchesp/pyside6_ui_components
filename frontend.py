@@ -26,9 +26,9 @@ class App(QWidget):
         self.ui = UI(self)
 
 
-    # -----
-    # Title
-    # -----
+    # ---------
+    # Functions
+    # ---------
     def on_language_changed(self, index: int) -> None:
         """ Language menu control to change components text language
         
@@ -47,6 +47,51 @@ class App(QWidget):
 
         self.settings.setValue('language', str(index))
         self.language_value = int(self.settings.value('language'))
+
+
+    def on_dark_theme_clicked(self, state: bool) -> None:
+        """ Dark theme segmented control to change components stylesheet
+        
+        Parameters
+        ----------
+        state: bool
+            State of dark theme segmented control
+        
+        Returns
+        -------
+        None
+        """
+        if state: 
+            for key in self.ui.gui_widgets.keys():
+                self.ui.gui_widgets[key].setThemeStyle(False)
+            self.ui.gui_widgets['light_theme_button'].setState(False, False)
+            self.ui.gui_widgets['dark_theme_button'].setState(True, False)
+
+            self.settings.setValue('theme', f'{False}')
+            self.theme_value = eval(self.settings.value('theme'))
+
+
+    def on_light_theme_clicked(self, state: bool) -> None:
+        """ Light theme segmented control to change components stylesheet
+        
+        Parameters
+        ----------
+        state: bool
+            State of light theme segmented control
+        
+        Returns
+        -------
+        None
+        """
+        if state: 
+            for key in self.ui.gui_widgets.keys():
+                self.ui.gui_widgets[key].setThemeStyle(True)
+            self.ui.gui_widgets['light_theme_button'].setState(True, True)
+            self.ui.gui_widgets['dark_theme_button'].setState(False, True)
+    
+            self.settings.setValue('theme', f'{True}')
+            self.theme_value = eval(self.settings.value('theme'))
+
 
 
 
