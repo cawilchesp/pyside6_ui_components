@@ -193,6 +193,7 @@ class UI(QWidget):
             'state': False,
             'theme': self.theme_value,
             'language': self.language_value } )
+        self.gui_widgets['light_theme_button'].clicked.connect(parent.on_light_theme_clicked)
 
         self.gui_widgets['dark_theme_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
             'name': 'dark_theme_button',
@@ -203,6 +204,7 @@ class UI(QWidget):
             'state': False,
             'theme': self.theme_value,
             'language': self.language_value } )
+        self.gui_widgets['dark_theme_button'].clicked.connect(parent.on_dark_theme_clicked)
 
         # -----
         # Chips
