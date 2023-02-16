@@ -70,28 +70,32 @@ class UI(QWidget):
             'position': (8,48),
             'type': 'filled',
             'icon': 'delete', 
-            'theme': self.theme_value } )
+            'theme': self.theme_value,
+            'clicked': parent.on_icon1_button_clicked } )
 
         self.gui_widgets['icon2_button'] = MD3IconButton(self.gui_widgets['filled_card'], {
             'name': 'icon2_button',
             'position': (48,48),
             'type': 'tonal',
             'icon': 'delete', 
-            'theme': self.theme_value } )
+            'theme': self.theme_value,
+            'clicked': parent.on_icon2_button_clicked } )
         
         self.gui_widgets['icon3_button'] = MD3IconButton(self.gui_widgets['filled_card'], {
             'name': 'icon3_button',
             'position': (88,48),
             'type': 'outlined',
             'icon': 'delete', 
-            'theme': self.theme_value } )
+            'theme': self.theme_value,
+            'clicked': parent.on_icon3_button_clicked } )
         
         self.gui_widgets['icon4_button'] = MD3IconButton(self.gui_widgets['filled_card'], {
             'name': 'icon4_button',
             'position': (128,48),
             'type': 'standard',
             'icon': 'delete', 
-            'theme': self.theme_value } )
+            'theme': self.theme_value,
+            'clicked': parent.on_icon4_button_clicked } )
         
         # -------
         # Buttons
@@ -104,7 +108,8 @@ class UI(QWidget):
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_boton1_button_clicked } )
 
         self.gui_widgets['boton2_button'] = MD3Button(self.gui_widgets['filled_card'], {
             'name': 'boton2_button',
@@ -114,7 +119,8 @@ class UI(QWidget):
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_boton2_button_clicked } )
         
         self.gui_widgets['boton3_button'] = MD3Button(self.gui_widgets['filled_card'], {
             'name': 'boton3_button',
@@ -124,7 +130,8 @@ class UI(QWidget):
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_boton3_button_clicked } )
         
         self.gui_widgets['boton4_button'] = MD3Button(self.gui_widgets['filled_card'], {
             'name': 'boton4_button',
@@ -134,7 +141,8 @@ class UI(QWidget):
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_boton4_button_clicked } )
 
         # -----------------
         # Segmented Buttons
@@ -148,7 +156,8 @@ class UI(QWidget):
             'location': 'left',
             'state': False,
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_left_segmented1_button_clicked } )
         
         self.gui_widgets['center1_segmented1_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
             'name': 'center1_segmented1_button',
@@ -160,7 +169,8 @@ class UI(QWidget):
             'icon': 'delete',
             'check_icon': True,
             'theme': self.theme_value,
-            'language': self.language_value } ) 
+            'language': self.language_value,
+            'clicked': parent.on_center1_segmented1_button_clicked } ) 
 
         self.gui_widgets['center2_segmented1_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
             'name': 'center2_segmented1_button',
@@ -172,7 +182,8 @@ class UI(QWidget):
             'location': 'center',
             'state': True,
             'theme': self.theme_value,
-            'language': self.language_value } ) 
+            'language': self.language_value,
+            'clicked': parent.on_center2_segmented1_button_clicked } ) 
 
         self.gui_widgets['right_segmented1_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
             'name': 'right_segmented1_button',
@@ -183,11 +194,12 @@ class UI(QWidget):
             'location': 'right',
             'state': True,
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_right_segmented1_button_clicked } )
         
-        # -----------------
-        # Segmented Buttons
-        # -----------------
+        # -----------------------
+        # Theme Segmented Buttons
+        # -----------------------
         self.gui_widgets['light_theme_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
             'name': 'light_theme_button',
             'position': (8, 168),
@@ -197,8 +209,8 @@ class UI(QWidget):
             'location': 'left',
             'state': self.theme_value,
             'theme': self.theme_value,
-            'language': self.language_value } )
-        self.gui_widgets['light_theme_button'].clicked.connect(parent.on_light_theme_clicked)
+            'language': self.language_value,
+            'clicked': parent.on_light_theme_clicked } )
 
         self.gui_widgets['dark_theme_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
             'name': 'dark_theme_button',
@@ -209,8 +221,8 @@ class UI(QWidget):
             'location': 'right',
             'state': not self.theme_value,
             'theme': self.theme_value,
-            'language': self.language_value } )
-        self.gui_widgets['dark_theme_button'].clicked.connect(parent.on_dark_theme_clicked)
+            'language': self.language_value,
+            'clicked': parent.on_dark_theme_clicked } )
 
         # -----
         # Chips
@@ -223,7 +235,9 @@ class UI(QWidget):
             'icon': 'delete',
             'state': False,
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_chip1_clicked } )
+        
         
         self.gui_widgets['chip2_button'] = MD3Chip(self.gui_widgets['filled_card'], {
             'name': 'chip2_button',
@@ -233,7 +247,8 @@ class UI(QWidget):
             'icon': 'mail',
             'state': True,
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_chip2_clicked } )
         
         self.gui_widgets['chip3_button'] = MD3Chip(self.gui_widgets['filled_card'], {
             'name': 'chip3_button',
@@ -242,7 +257,8 @@ class UI(QWidget):
             'labels': ('Mejorar', 'Improve'),
             'state': False,
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_chip3_clicked } )
         
         # ------
         # Switch
@@ -322,28 +338,32 @@ class UI(QWidget):
             'position': (8,48),
             'type': 'filled',
             'icon': 'delete', 
-            'theme': self.theme_value } )
+            'theme': self.theme_value,
+            'clicked': parent.on_icon5_button_clicked } )
 
         self.gui_widgets['icon6_button'] = MD3IconButton(self.gui_widgets['outlined_card'], {
             'name': 'icon6_button',
             'position': (48,48),
             'type': 'tonal',
             'icon': 'delete', 
-            'theme': self.theme_value } )
+            'theme': self.theme_value,
+            'clicked': parent.on_icon6_button_clicked } )
         
         self.gui_widgets['icon7_button'] = MD3IconButton(self.gui_widgets['outlined_card'], {
             'name': 'icon7_button',
             'position': (88,48),
             'type': 'outlined',
             'icon': 'delete', 
-            'theme': self.theme_value } )
+            'theme': self.theme_value,
+            'clicked': parent.on_icon7_button_clicked } )
         
         self.gui_widgets['icon8_button'] = MD3IconButton(self.gui_widgets['outlined_card'], {
             'name': 'icon8_button',
             'position': (128,48),
             'type': 'standard',
             'icon': 'delete', 
-            'theme': self.theme_value } )
+            'theme': self.theme_value,
+            'clicked': parent.on_icon8_button_clicked } )
         
         # -------
         # Buttons
@@ -356,7 +376,8 @@ class UI(QWidget):
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_boton5_button_clicked } )
 
         self.gui_widgets['boton6_button'] = MD3Button(self.gui_widgets['outlined_card'], {
             'name': 'boton6_button',
@@ -366,7 +387,8 @@ class UI(QWidget):
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_boton6_button_clicked } )
         
         self.gui_widgets['boton7_button'] = MD3Button(self.gui_widgets['outlined_card'], {
             'name': 'boton7_button',
@@ -376,7 +398,8 @@ class UI(QWidget):
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_boton7_button_clicked } )
         
         self.gui_widgets['boton8_button'] = MD3Button(self.gui_widgets['outlined_card'], {
             'name': 'boton8_button',
@@ -386,7 +409,8 @@ class UI(QWidget):
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_boton8_button_clicked } )
 
         # -----------------
         # Segmented Buttons
@@ -400,7 +424,8 @@ class UI(QWidget):
             'location': 'left',
             'state': False,
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_left_segmented2_button_clicked } )
         
         self.gui_widgets['center1_segmented2_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
             'name': 'center1_segmented2_button',
@@ -412,7 +437,8 @@ class UI(QWidget):
             'icon': 'delete',
             'check_icon': True,
             'theme': self.theme_value,
-            'language': self.language_value } ) 
+            'language': self.language_value,
+            'clicked': parent.on_center1_segmented2_button_clicked } ) 
 
         self.gui_widgets['center2_segmented2_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
             'name': 'center2_segmented2_button',
@@ -424,7 +450,8 @@ class UI(QWidget):
             'location': 'center',
             'state': True,
             'theme': self.theme_value,
-            'language': self.language_value } ) 
+            'language': self.language_value,
+            'clicked': parent.on_center2_segmented2_button_clicked } ) 
 
         self.gui_widgets['right_segmented2_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
             'name': 'right_segmented2_button',
@@ -435,11 +462,12 @@ class UI(QWidget):
             'location': 'right',
             'state': True,
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_right_segmented2_button_clicked } )
 
-        # -----------------
-        # Segmented Buttons
-        # -----------------
+        # -----------------------
+        # Theme Segmented Buttons
+        # -----------------------
         self.gui_widgets['light2_theme_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
             'name': 'light2_theme_button',
             'position': (8, 168),
@@ -447,9 +475,10 @@ class UI(QWidget):
             'icon': 'light_mode',
             'check_icon': False,
             'location': 'left',
-            'state': False,
+            'state': self.theme_value,
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_light_theme_clicked } )
 
         self.gui_widgets['dark2_theme_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
             'name': 'dark2_theme_button',
@@ -458,41 +487,45 @@ class UI(QWidget):
             'icon': 'dark_mode',
             'check_icon': False,
             'location': 'right',
-            'state': False,
+            'state': not self.theme_value,
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_dark_theme_clicked } )
 
         # -----
         # Chips
         # -----
-        self.gui_widgets['chip5_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
-            'name': 'chip5_button',
+        self.gui_widgets['chip4_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
+            'name': 'chip4_button',
             'position': (8, 208),
             'width': 100,
             'labels': ('Borrar', 'Delete'),
             'icon': 'delete',
             'state': True,
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_chip4_clicked } )
         
-        self.gui_widgets['chip6_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
-            'name': 'chip6_button',
+        self.gui_widgets['chip5_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
+            'name': 'chip5_button',
             'position': (116, 208),
             'width': 100,
             'labels': ('Correo', 'Mail'),
             'icon': 'mail',
             'state': False,
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_chip5_clicked } )
 
-        self.gui_widgets['chip7_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
-            'name': 'chip7_button',
+        self.gui_widgets['chip6_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
+            'name': 'chip6_button',
             'position': (224, 208),
             'width': 100,
             'labels': ('Mejorar', 'Improve'),
             'state': True,
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_chip6_clicked } )
 
         # ------
         # Switch
