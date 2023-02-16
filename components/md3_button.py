@@ -61,6 +61,8 @@ class MD3Button(QtWidgets.QPushButton):
         self.setThemeStyle(attributes['theme'])
         self.setLanguage(attributes['language'])
 
+        self.clicked.connect(attributes['clicked'])
+
 
     def setThemeStyle(self, theme: bool) -> None:
         """ Apply theme style sheet to component """
