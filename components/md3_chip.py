@@ -65,6 +65,8 @@ class MD3Chip(QtWidgets.QToolButton):
         self.setState(attributes['state'], attributes['theme'])
         self.setLanguage(attributes['language'])
 
+        self.clicked.connect(attributes['clicked'])
+
         
     def setState(self, state: bool, theme: bool) -> None:
         """ Set button state and corresponding icon """
@@ -73,15 +75,15 @@ class MD3Chip(QtWidgets.QToolButton):
         else: icon_theme = 'D'
         current_path = sys.path[0].replace("\\","/")
         images_path = f'{current_path}/icons'
-        if state:
-            self.setIcon(QtGui.QIcon(f'{images_path}/done_{icon_theme}.png'))
-            self.setChecked(True)
+
+        if 'icon' in self.attributes:
+            icon_image = self.attributes['icon']
         else:
-            if 'icon' in self.attributes:
-                self.setIcon(QtGui.QIcon(f'{images_path}/{self.attributes["icon"]}_{icon_theme}.png'))
-            else:
-                self.setIcon(QtGui.QIcon(f'{images_path}/none_{icon_theme}.png'))
-            self.setChecked(False)
+            icon_image = 'none'
+        if state:
+            icon_image = 'done'
+        self.setChecked(state)
+        self.setIcon(QtGui.QIcon(f'{images_path}/{icon_image}_{icon_theme}.png'))
 
 
     def setThemeStyle(self, theme: bool) -> None:
@@ -101,9 +103,12 @@ class MD3Chip(QtWidgets.QToolButton):
         current_path = sys.path[0].replace("\\","/")
         images_path = f'{current_path}/icons'
         if 'icon' in self.attributes:
-            self.setIcon(QtGui.QIcon(f'{images_path}/{self.attributes["icon"]}_{icon_theme}.png'))
+            icon_image = self.attributes['icon']
         else:
-            self.setIcon(QtGui.QIcon(f'{images_path}/none_{icon_theme}.png'))
+            icon_image = 'none'
+        if self.isChecked():
+            icon_image = 'done'
+        self.setIcon(QtGui.QIcon(f'{images_path}/{icon_image}_{icon_theme}.png'))
         
         self.setStyleSheet(f'QToolButton#{self.name} {{ '
                 f'border: 1px solid {border_color};'
