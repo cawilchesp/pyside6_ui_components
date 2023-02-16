@@ -69,6 +69,8 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
         self.setThemeStyle(attributes['theme'])
         self.setState(attributes['state'], attributes['theme'])
         self.setLanguage(attributes['language'])
+
+        self.clicked.connect(attributes['clicked'])
         
 
     def setState(self, state: bool, theme: bool) -> None:
