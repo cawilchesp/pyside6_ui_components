@@ -268,14 +268,16 @@ class UI(QWidget):
             'position': (8, 248),
             'side': 'left',
             'state': False,
-            'theme': self.theme_value } )
+            'theme': self.theme_value,
+            'clicked': parent.on_test1_off_clicked } )
         
         self.gui_widgets['test1_on_switch'] = MD3Switch(self.gui_widgets['filled_card'], {
             'name': 'test1_on_switch',
             'position': (34, 248),
             'side': 'right',
             'state': False,
-            'theme': self.theme_value } )
+            'theme': self.theme_value,
+            'clicked': parent.on_test1_on_clicked } )
 
         # ----
         # Menu
@@ -536,7 +538,8 @@ class UI(QWidget):
             'side': 'left',
             'state': True,
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_test2_off_clicked } )
         
         self.gui_widgets['test2_on_switch'] = MD3Switch(self.gui_widgets['outlined_card'], {
             'name': 'test2_on_switch',
@@ -544,7 +547,8 @@ class UI(QWidget):
             'side': 'right',
             'state': True,
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'clicked': parent.on_test2_on_clicked } )
 
         # ----
         # Menu
