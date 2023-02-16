@@ -226,6 +226,40 @@ class App(QWidget):
             self.ui.gui_widgets['chip6_button'].setState(False, self.theme_value)
 
 
+    # ----------------
+    # Switch Functions
+    # ----------------
+    def on_test1_off_clicked(self, state: bool) -> None:
+        if state:
+            self.ui.gui_widgets['test1_on_switch'].setState(True, self.theme_value)
+            self.ui.gui_widgets['test1_off_switch'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['test1_on_switch'].setState(False, self.theme_value)
+            self.ui.gui_widgets['test1_off_switch'].setState(False, self.theme_value)
+
+    def on_test1_on_clicked(self, state: bool) -> None:
+        if state:
+            self.ui.gui_widgets['test1_on_switch'].setState(True, self.theme_value)
+            self.ui.gui_widgets['test1_off_switch'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['test1_on_switch'].setState(False, self.theme_value)
+            self.ui.gui_widgets['test1_off_switch'].setState(False, self.theme_value)
+
+    def on_test2_off_clicked(self, state: bool) -> None:
+        if state:
+            self.ui.gui_widgets['test2_on_switch'].setState(True, self.theme_value)
+            self.ui.gui_widgets['test2_off_switch'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['test2_on_switch'].setState(False, self.theme_value)
+            self.ui.gui_widgets['test2_off_switch'].setState(False, self.theme_value)
+
+    def on_test2_on_clicked(self, state: bool) -> None:
+        if state:
+            self.ui.gui_widgets['test2_on_switch'].setState(True, self.theme_value)
+            self.ui.gui_widgets['test2_off_switch'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['test2_on_switch'].setState(False, self.theme_value)
+            self.ui.gui_widgets['test2_off_switch'].setState(False, self.theme_value)
 
 
 
