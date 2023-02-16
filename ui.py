@@ -30,7 +30,7 @@ class UI(QWidget):
         # --------
         self.settings = QSettings(f'{sys.path[0]}/settings.ini', QSettings.Format.IniFormat)
         self.language_value = int(self.settings.value('language'))
-        self.theme_value = False
+        self.theme_value = eval(self.settings.value('theme'))
 
         self.test_options = {
             0: ('Opción 1', 'Option 1'),
@@ -144,6 +144,7 @@ class UI(QWidget):
             'position': (8, 128),
             'width': 100,
             'labels': ('Izquierda', 'Left'),
+            'check_icon': True,
             'location': 'left',
             'state': False,
             'theme': self.theme_value,
@@ -157,6 +158,7 @@ class UI(QWidget):
             'location': 'center',
             'state': False,
             'icon': 'delete',
+            'check_icon': True,
             'theme': self.theme_value,
             'language': self.language_value } ) 
 
@@ -166,6 +168,7 @@ class UI(QWidget):
             'width': 100,
             'labels': ('Centro 2', 'Center 2'),
             'icon': 'delete',
+            'check_icon': True,
             'location': 'center',
             'state': True,
             'theme': self.theme_value,
@@ -176,6 +179,7 @@ class UI(QWidget):
             'position': (308, 128),
             'width': 100,
             'labels': ('Derecha', 'Right'),
+            'check_icon': True,
             'location': 'right',
             'state': True,
             'theme': self.theme_value,
@@ -189,8 +193,9 @@ class UI(QWidget):
             'position': (8, 168),
             'width': 40,
             'icon': 'light_mode',
+            'check_icon': False,
             'location': 'left',
-            'state': False,
+            'state': self.theme_value,
             'theme': self.theme_value,
             'language': self.language_value } )
         self.gui_widgets['light_theme_button'].clicked.connect(parent.on_light_theme_clicked)
@@ -200,8 +205,9 @@ class UI(QWidget):
             'position': (48, 168),
             'width': 40,
             'icon': 'dark_mode',
+            'check_icon': False,
             'location': 'right',
-            'state': False,
+            'state': not self.theme_value,
             'theme': self.theme_value,
             'language': self.language_value } )
         self.gui_widgets['dark_theme_button'].clicked.connect(parent.on_dark_theme_clicked)
@@ -390,6 +396,7 @@ class UI(QWidget):
             'position': (8, 128),
             'width': 100,
             'labels': ('Izquierda', 'Left'),
+            'check_icon': True,
             'location': 'left',
             'state': False,
             'theme': self.theme_value,
@@ -403,6 +410,7 @@ class UI(QWidget):
             'location': 'center',
             'state': False,
             'icon': 'delete',
+            'check_icon': True,
             'theme': self.theme_value,
             'language': self.language_value } ) 
 
@@ -412,6 +420,7 @@ class UI(QWidget):
             'width': 100,
             'labels': ('Centro 2', 'Center 2'),
             'icon': 'delete',
+            'check_icon': True,
             'location': 'center',
             'state': True,
             'theme': self.theme_value,
@@ -422,6 +431,7 @@ class UI(QWidget):
             'position': (308, 128),
             'width': 100,
             'labels': ('Derecha', 'Right'),
+            'check_icon': True,
             'location': 'right',
             'state': True,
             'theme': self.theme_value,
@@ -430,21 +440,23 @@ class UI(QWidget):
         # -----------------
         # Segmented Buttons
         # -----------------
-        self.gui_widgets['light_theme_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
-            'name': 'light_theme_button',
+        self.gui_widgets['light2_theme_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
+            'name': 'light2_theme_button',
             'position': (8, 168),
             'width': 40,
             'icon': 'light_mode',
+            'check_icon': False,
             'location': 'left',
             'state': False,
             'theme': self.theme_value,
             'language': self.language_value } )
 
-        self.gui_widgets['dark_theme_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
-            'name': 'dark_theme_button',
+        self.gui_widgets['dark2_theme_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
+            'name': 'dark2_theme_button',
             'position': (48, 168),
             'width': 40,
             'icon': 'dark_mode',
+            'check_icon': False,
             'location': 'right',
             'state': False,
             'theme': self.theme_value,
