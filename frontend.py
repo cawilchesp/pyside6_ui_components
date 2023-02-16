@@ -86,28 +86,52 @@ class App(QWidget):
     # Segmented Button Functions
     # --------------------------
     def on_left_segmented1_button_clicked(self, state:bool) -> None:
-        print(f'Left segmented 1: {state}')
+        if state:
+            self.ui.gui_widgets['left_segmented1_button'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['left_segmented1_button'].setState(False, self.theme_value)
 
     def on_center1_segmented1_button_clicked(self, state:bool) -> None:
-        print(f'Center 1 segmented 1: {state}')
+        if state:
+            self.ui.gui_widgets['center1_segmented1_button'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['center1_segmented1_button'].setState(False, self.theme_value)
 
     def on_center2_segmented1_button_clicked(self, state:bool) -> None:
-        print(f'Center 2 segmented 1: {state}')
+        if state:
+            self.ui.gui_widgets['center2_segmented1_button'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['center2_segmented1_button'].setState(False, self.theme_value)
 
     def on_right_segmented1_button_clicked(self, state:bool) -> None:
-        print(f'Right segmented 1: {state}')
+        if state:
+            self.ui.gui_widgets['right_segmented1_button'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['right_segmented1_button'].setState(False, self.theme_value)
 
     def on_left_segmented2_button_clicked(self, state:bool) -> None:
-        print(f'Left segmented 2: {state}')
+        if state:
+            self.ui.gui_widgets['left_segmented2_button'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['left_segmented2_button'].setState(False, self.theme_value)
 
     def on_center1_segmented2_button_clicked(self, state:bool) -> None:
-        print(f'Center 1 segmented 2: {state}')
+        if state:
+            self.ui.gui_widgets['center1_segmented2_button'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['center1_segmented2_button'].setState(False, self.theme_value)
 
     def on_center2_segmented2_button_clicked(self, state:bool) -> None:
-        print(f'Center 2 segmented 2: {state}')
+        if state:
+            self.ui.gui_widgets['center2_segmented2_button'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['center2_segmented2_button'].setState(False, self.theme_value)
 
     def on_right_segmented2_button_clicked(self, state:bool) -> None:
-        print(f'Right segmented 2: {state}')
+        if state:
+            self.ui.gui_widgets['right_segmented2_button'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['right_segmented2_button'].setState(False, self.theme_value)
 
 
     # ---------------------------------
