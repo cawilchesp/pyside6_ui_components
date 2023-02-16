@@ -72,6 +72,9 @@ class MD3Menu(QtWidgets.QComboBox):
         
         self.setThemeStyle(attributes['theme'])
 
+        self.setCurrentIndex(attributes['current_index'])
+        self.currentIndexChanged.connect(attributes['index_changed'])
+
 
     def setThemeStyle(self, theme: bool) -> None:
         """ Apply theme style sheet to component """
