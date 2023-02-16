@@ -32,6 +32,8 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
             (label_es, label_en) -> label_es: label in spanish, label_en: label in english
         icon: str
             Icon file without extension ('icon')
+        check_icon: bool
+            Use check icon for selected option
         location: str
             Position of the segmented button in the group
             Options: 'left', 'center', 'right'
@@ -76,15 +78,15 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
         else: icon_theme = 'D'
         current_path = sys.path[0].replace("\\","/")
         images_path = f'{current_path}/icons'
-        if state:
-            self.setIcon(QtGui.QIcon(f'{images_path}/done_{icon_theme}.png'))
-            self.setChecked(True)
+
+        if 'icon' in self.attributes:
+            icon_image = self.attributes['icon']
         else:
-            if 'icon' in self.attributes:
-                self.setIcon(QtGui.QIcon(f'{images_path}/{self.attributes["icon"]}_{icon_theme}.png'))
-            else:
-                self.setIcon(QtGui.QIcon(f'{images_path}/none_{icon_theme}.png'))
-            self.setChecked(False)
+            icon_image = 'none'
+        if state and self.attributes['check_icon']:
+            icon_image = 'done'
+        self.setChecked(state)
+        self.setIcon(QtGui.QIcon(f'{images_path}/{icon_image}_{icon_theme}.png'))
 
 
     def setThemeStyle(self, theme: bool) -> None:
@@ -104,9 +106,12 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
         current_path = sys.path[0].replace("\\","/")
         images_path = f'{current_path}/icons'
         if 'icon' in self.attributes:
-            self.setIcon(QtGui.QIcon(f'{images_path}/{self.attributes["icon"]}_{icon_theme}.png'))
+            icon_image = self.attributes['icon']
         else:
-            self.setIcon(QtGui.QIcon(f'{images_path}/none_{icon_theme}.png'))
+            icon_image = 'none'
+        if self.isChecked() and self.attributes['check_icon']:
+            icon_image = 'done'
+        self.setIcon(QtGui.QIcon(f'{images_path}/{icon_image}_{icon_theme}.png'))
 
         if self.attributes['location'] == 'left':
             border_position = 'border-top-left-radius: 16; border-bottom-left-radius: 16'
