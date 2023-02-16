@@ -26,9 +26,190 @@ class App(QWidget):
         self.ui = UI(self)
 
 
-    # ---------
-    # Functions
-    # ---------
+    # ---------------------
+    # Icon Button Functions
+    # ---------------------
+    def on_icon1_button_clicked(self) -> None:
+        print(f'icon button 1 clicked')
+
+    def on_icon2_button_clicked(self) -> None:
+        print(f'icon button 2 clicked')
+
+    def on_icon3_button_clicked(self) -> None:
+        print(f'icon button 3 clicked')
+
+    def on_icon4_button_clicked(self) -> None:
+        print(f'icon button 4 clicked')
+
+    def on_icon5_button_clicked(self) -> None:
+        print(f'icon button 5 clicked')
+
+    def on_icon6_button_clicked(self) -> None:
+        print(f'icon button 6 clicked')
+
+    def on_icon7_button_clicked(self) -> None:
+        print(f'icon button 7 clicked')
+
+    def on_icon8_button_clicked(self) -> None:
+        print(f'icon button 8 clicked')
+
+
+    # ----------------
+    # Button Functions
+    # ----------------
+    def on_boton1_button_clicked(self) -> None:
+        print(f'icon button 1 clicked')
+
+    def on_boton2_button_clicked(self) -> None:
+        print(f'icon button 2 clicked')
+
+    def on_boton3_button_clicked(self) -> None:
+        print(f'icon button 3 clicked')
+
+    def on_boton4_button_clicked(self) -> None:
+        print(f'icon button 4 clicked')
+
+    def on_boton5_button_clicked(self) -> None:
+        print(f'icon button 5 clicked')
+
+    def on_boton6_button_clicked(self) -> None:
+        print(f'icon button 6 clicked')
+
+    def on_boton7_button_clicked(self) -> None:
+        print(f'icon button 7 clicked')
+
+    def on_boton8_button_clicked(self) -> None:
+        print(f'icon button 8 clicked')
+
+
+    # --------------------------
+    # Segmented Button Functions
+    # --------------------------
+    def on_left_segmented1_button_clicked(self, state:bool) -> None:
+        print(f'Left segmented 1: {state}')
+
+    def on_center1_segmented1_button_clicked(self, state:bool) -> None:
+        print(f'Center 1 segmented 1: {state}')
+
+    def on_center2_segmented1_button_clicked(self, state:bool) -> None:
+        print(f'Center 2 segmented 1: {state}')
+
+    def on_right_segmented1_button_clicked(self, state:bool) -> None:
+        print(f'Right segmented 1: {state}')
+
+    def on_left_segmented2_button_clicked(self, state:bool) -> None:
+        print(f'Left segmented 2: {state}')
+
+    def on_center1_segmented2_button_clicked(self, state:bool) -> None:
+        print(f'Center 1 segmented 2: {state}')
+
+    def on_center2_segmented2_button_clicked(self, state:bool) -> None:
+        print(f'Center 2 segmented 2: {state}')
+
+    def on_right_segmented2_button_clicked(self, state:bool) -> None:
+        print(f'Right segmented 2: {state}')
+
+
+    # ---------------------------------
+    # Theme Segmented Buttons Functions
+    # ---------------------------------
+    def on_light_theme_clicked(self, state: bool) -> None:
+        """ Light theme segmented control to change components stylesheet
+        
+        Parameters
+        ----------
+        state: bool
+            State of light theme segmented control
+        
+        Returns
+        -------
+        None
+        """
+        if state: 
+            for key in self.ui.gui_widgets.keys():
+                self.ui.gui_widgets[key].setThemeStyle(True)
+            self.ui.gui_widgets['dark_theme_button'].setState(False, True)
+            self.ui.gui_widgets['dark2_theme_button'].setState(False, True)
+    
+            self.settings.setValue('theme', f'{True}')
+            self.theme_value = eval(self.settings.value('theme'))
+        
+        self.ui.gui_widgets['light_theme_button'].setState(True, True)
+        self.ui.gui_widgets['light2_theme_button'].setState(True, True)
+
+    def on_dark_theme_clicked(self, state: bool) -> None:
+        """ Dark theme segmented control to change components stylesheet
+        
+        Parameters
+        ----------
+        state: bool
+            State of dark theme segmented control
+        
+        Returns
+        -------
+        None
+        """
+        if state: 
+            for key in self.ui.gui_widgets.keys():
+                self.ui.gui_widgets[key].setThemeStyle(False)
+            self.ui.gui_widgets['light_theme_button'].setState(False, False)
+            self.ui.gui_widgets['light2_theme_button'].setState(False, False)
+
+            self.settings.setValue('theme', f'{False}')
+            self.theme_value = eval(self.settings.value('theme'))
+
+        self.ui.gui_widgets['dark_theme_button'].setState(True, False)
+        self.ui.gui_widgets['dark2_theme_button'].setState(True, False)
+
+
+    # ---------------
+    # Chips Functions
+    # ---------------
+    def on_chip1_clicked(self, state: bool) -> None:
+        if state:
+            self.ui.gui_widgets['chip1_button'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['chip1_button'].setState(False, self.theme_value)
+
+    def on_chip2_clicked(self, state: bool) -> None:
+        if state:
+            self.ui.gui_widgets['chip2_button'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['chip2_button'].setState(False, self.theme_value)
+
+    def on_chip3_clicked(self, state: bool) -> None:
+        if state:
+            self.ui.gui_widgets['chip3_button'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['chip3_button'].setState(False, self.theme_value)
+
+    def on_chip4_clicked(self, state: bool) -> None:
+        if state:
+            self.ui.gui_widgets['chip4_button'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['chip4_button'].setState(False, self.theme_value)
+
+    def on_chip5_clicked(self, state: bool) -> None:
+        if state:
+            self.ui.gui_widgets['chip5_button'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['chip5_button'].setState(False, self.theme_value)
+
+    def on_chip6_clicked(self, state: bool) -> None:
+        if state:
+            self.ui.gui_widgets['chip6_button'].setState(True, self.theme_value)
+        else:
+            self.ui.gui_widgets['chip6_button'].setState(False, self.theme_value)
+
+
+
+
+
+
+
+
+
+
     def on_language_changed(self, index: int) -> None:
         """ Language menu control to change components text language
         
@@ -49,50 +230,9 @@ class App(QWidget):
         self.language_value = int(self.settings.value('language'))
 
 
-    def on_light_theme_clicked(self, state: bool) -> None:
-        """ Light theme segmented control to change components stylesheet
-        
-        Parameters
-        ----------
-        state: bool
-            State of light theme segmented control
-        
-        Returns
-        -------
-        None
-        """
-        if state: 
-            for key in self.ui.gui_widgets.keys():
-                self.ui.gui_widgets[key].setThemeStyle(True)
-            self.ui.gui_widgets['dark_theme_button'].setState(False, True)
     
-            self.settings.setValue('theme', f'{True}')
-            self.theme_value = eval(self.settings.value('theme'))
-        
-        self.ui.gui_widgets['light_theme_button'].setState(True, True)
 
-    def on_dark_theme_clicked(self, state: bool) -> None:
-        """ Dark theme segmented control to change components stylesheet
-        
-        Parameters
-        ----------
-        state: bool
-            State of dark theme segmented control
-        
-        Returns
-        -------
-        None
-        """
-        if state: 
-            for key in self.ui.gui_widgets.keys():
-                self.ui.gui_widgets[key].setThemeStyle(False)
-            self.ui.gui_widgets['light_theme_button'].setState(False, False)
-
-            self.settings.setValue('theme', f'{False}')
-            self.theme_value = eval(self.settings.value('theme'))
-
-        self.ui.gui_widgets['dark_theme_button'].setState(True, False)
-
+    
     
 
 
