@@ -55,6 +55,8 @@ class MD3Switch(QtWidgets.QToolButton):
 
         self.setThemeStyle(attributes['theme'])
         self.setState(attributes['state'], attributes['theme'])
+
+        self.clicked.connect(attributes['clicked'])
         
 
     def setState(self, state: bool, theme: bool) -> None:
@@ -64,21 +66,20 @@ class MD3Switch(QtWidgets.QToolButton):
         else: icon_theme = 'D'
         current_path = sys.path[0].replace("\\","/")
         images_path = f'{current_path}/icons'
+
         if state:
             if self.attributes['side'] == 'left':
-                self.setIcon(QtGui.QIcon(f'{images_path}/none_{icon_theme}.png'))
+                icon_image = 'none'
             else:
-                self.setIcon(QtGui.QIcon(f'{images_path}/circle_checked_{icon_theme}.png'))
-            self.setChecked(True)
+                icon_image = 'circle_checked'
         else:
             if self.attributes['side'] == 'left':
-                self.setIcon(QtGui.QIcon(f'{images_path}/circle_{icon_theme}.png'))
+                icon_image = 'circle'
             else:
-                self.setIcon(QtGui.QIcon(f'{images_path}/none_{icon_theme}.png'))
-            self.setChecked(False)
+                icon_image = 'none'
+        self.setChecked(state)
+        self.setIcon(QtGui.QIcon(f'{images_path}/{icon_image}_{icon_theme}.png'))
         self.setIconSize(QtCore.QSize(16,16))
-
-        self.setThemeStyle(self.attributes['theme'])
 
 
     def setThemeStyle(self, theme: bool) -> None:
@@ -87,6 +88,23 @@ class MD3Switch(QtWidgets.QToolButton):
         background_color = colors(theme, 'surface_variant')
         checked_background_color = colors(theme, 'secondary_container')
         border_color = colors(theme, 'outline')
+
+        if theme: icon_theme = 'L'
+        else: icon_theme = 'D'
+        current_path = sys.path[0].replace("\\","/")
+        images_path = f'{current_path}/icons'
+        if self.isChecked():
+            if self.attributes['side'] == 'left':
+                icon_image = 'none'
+            else:
+                icon_image = 'circle_checked'
+        else:
+            if self.attributes['side'] == 'left':
+                icon_image = 'circle'
+            else:
+                icon_image = 'none'
+        self.setIcon(QtGui.QIcon(f'{images_path}/{icon_image}_{icon_theme}.png'))
+        self.setIconSize(QtCore.QSize(16,16))
 
         border_outline = (f'border-top: 2px solid {border_color}; '
                           f'border-{self.attributes["side"]}: 2px solid {border_color}; '
