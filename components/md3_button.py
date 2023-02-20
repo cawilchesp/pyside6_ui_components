@@ -47,9 +47,8 @@ class MD3Button(QtWidgets.QPushButton):
         """
         super(MD3Button, self).__init__(parent)
 
-        self.parent = parent
-        
         self.attributes = attributes
+        self.parent = parent
 
         self.name = attributes['name']
         self.setObjectName(self.name)
@@ -77,15 +76,7 @@ class MD3Button(QtWidgets.QPushButton):
             color = colors(theme, 'on_secondary_container')
             hover_background_color = colors(theme, 'hover_secondary_container')
             hover_color = colors(theme, 'on_secondary_container')
-        elif self.attributes['type'] == 'outlined':
-            if self.parent.attributes['type'] == 'filled':
-                background_color = colors(theme, 'surface_tint')
-            elif self.parent.attributes['type'] == 'outlined':
-                background_color = colors(theme, 'background')
-            color = colors(theme, 'primary')
-            hover_background_color = colors(theme, 'primary_container')
-            hover_color = colors(theme, 'primary')
-        elif self.attributes['type'] == 'text':
+        elif self.attributes['type'] in ('outlined', 'text'):
             if self.parent.attributes['type'] == 'filled':
                 background_color = colors(theme, 'surface_tint')
             elif self.parent.attributes['type'] == 'outlined':
