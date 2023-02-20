@@ -287,11 +287,12 @@ class UI(QWidget):
             'position': (8, 288),
             'width': 72,
             'options': self.test_options,
-            'set': -1,
+            'set': self.language_value,
             'theme': self.theme_value,
-            'language': self.language_value } )
-        self.gui_widgets['test1_menu'].setCurrentIndex(self.language_value)
-        self.gui_widgets['test1_menu'].currentIndexChanged.connect(parent.on_language_changed)
+            'language': self.language_value,
+            'index_changed': parent.on_language_changed } )
+        # self.gui_widgets['test1_menu'].setCurrentIndex(self.language_value)
+        # self.gui_widgets['test1_menu'].currentIndexChanged.connect(parent.on_language_changed)
 
         # ----------
         # Text Field
@@ -558,9 +559,10 @@ class UI(QWidget):
             'position': (8, 288),
             'width': 72,
             'options': self.test_options,
-            'set': 0,
+            'set': self.language_value,
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'index_changed': parent.on_language_changed } )
 
         # ----------
         # Text Field
