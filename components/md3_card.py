@@ -34,9 +34,6 @@ class MD3Card(QtWidgets.QFrame):
             theme: bool
                 App theme
                 True: Light theme, False: Dark theme
-            language: int
-                App language (Optional if no labels)
-                0: Spanish, 1: English
         
         Returns
         -------
@@ -45,6 +42,7 @@ class MD3Card(QtWidgets.QFrame):
         super(MD3Card, self).__init__(parent)
 
         self.attributes = attributes
+        self.parent = parent
 
         self.name = attributes['name']
         self.setObjectName(self.name)
