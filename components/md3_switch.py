@@ -43,6 +43,7 @@ class MD3Switch(QtWidgets.QToolButton):
         super(MD3Switch, self).__init__(parent)
 
         self.attributes = attributes
+        self.parent = parent
 
         self.name = attributes['name']
         self.setObjectName(self.name)
