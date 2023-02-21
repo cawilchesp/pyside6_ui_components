@@ -3,8 +3,7 @@ PyQt Divider component adapted to follow Material Design 3 guidelines
 
 """
 
-from PyQt6 import QtGui, QtWidgets, QtCore
-from PyQt6.QtCore import Qt
+from PyQt6 import QtWidgets
 
 from components.style_color import colors
 
