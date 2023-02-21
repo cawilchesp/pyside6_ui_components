@@ -58,80 +58,56 @@ class App(QWidget):
     # Button Functions
     # ----------------
     def on_boton1_button_clicked(self) -> None:
-        print(f'icon button 1 clicked')
+        print(f'Button 1 clicked')
 
     def on_boton2_button_clicked(self) -> None:
-        print(f'icon button 2 clicked')
+        print(f'Button 2 clicked')
 
     def on_boton3_button_clicked(self) -> None:
-        print(f'icon button 3 clicked')
+        print(f'Button 3 clicked')
 
     def on_boton4_button_clicked(self) -> None:
-        print(f'icon button 4 clicked')
+        print(f'Button 4 clicked')
 
     def on_boton5_button_clicked(self) -> None:
-        print(f'icon button 5 clicked')
+        print(f'Button 5 clicked')
 
     def on_boton6_button_clicked(self) -> None:
-        print(f'icon button 6 clicked')
+        print(f'Button 6 clicked')
 
     def on_boton7_button_clicked(self) -> None:
-        print(f'icon button 7 clicked')
+        print(f'Button 7 clicked')
 
     def on_boton8_button_clicked(self) -> None:
-        print(f'icon button 8 clicked')
+        print(f'Button 8 clicked')
 
 
     # --------------------------
     # Segmented Button Functions
     # --------------------------
-    def on_left_segmented1_button_clicked(self, state:bool) -> None:
-        if state:
-            self.ui.gui_widgets['left_segmented1_button'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['left_segmented1_button'].setState(False, self.theme_value)
+    def on_left_segmented1_button_clicked(self, state: bool) -> None:
+        self.ui.gui_widgets['left_segmented1_button'].setState(state, self.theme_value)
+        
+    def on_center1_segmented1_button_clicked(self, state: bool) -> None:
+        self.ui.gui_widgets['center1_segmented1_button'].setState(state, self.theme_value)
 
-    def on_center1_segmented1_button_clicked(self, state:bool) -> None:
-        if state:
-            self.ui.gui_widgets['center1_segmented1_button'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['center1_segmented1_button'].setState(False, self.theme_value)
+    def on_center2_segmented1_button_clicked(self, state: bool) -> None:
+        self.ui.gui_widgets['center2_segmented1_button'].setState(state, self.theme_value)
 
-    def on_center2_segmented1_button_clicked(self, state:bool) -> None:
-        if state:
-            self.ui.gui_widgets['center2_segmented1_button'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['center2_segmented1_button'].setState(False, self.theme_value)
+    def on_right_segmented1_button_clicked(self, state: bool) -> None:
+        self.ui.gui_widgets['right_segmented1_button'].setState(state, self.theme_value)
 
-    def on_right_segmented1_button_clicked(self, state:bool) -> None:
-        if state:
-            self.ui.gui_widgets['right_segmented1_button'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['right_segmented1_button'].setState(False, self.theme_value)
+    def on_left_segmented2_button_clicked(self, state: bool) -> None:
+        self.ui.gui_widgets['left_segmented2_button'].setState(state, self.theme_value)
 
-    def on_left_segmented2_button_clicked(self, state:bool) -> None:
-        if state:
-            self.ui.gui_widgets['left_segmented2_button'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['left_segmented2_button'].setState(False, self.theme_value)
+    def on_center1_segmented2_button_clicked(self, state: bool) -> None:
+        self.ui.gui_widgets['center1_segmented2_button'].setState(state, self.theme_value)
 
-    def on_center1_segmented2_button_clicked(self, state:bool) -> None:
-        if state:
-            self.ui.gui_widgets['center1_segmented2_button'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['center1_segmented2_button'].setState(False, self.theme_value)
-
-    def on_center2_segmented2_button_clicked(self, state:bool) -> None:
-        if state:
-            self.ui.gui_widgets['center2_segmented2_button'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['center2_segmented2_button'].setState(False, self.theme_value)
+    def on_center2_segmented2_button_clicked(self, state: bool) -> None:
+        self.ui.gui_widgets['center2_segmented2_button'].setState(state, self.theme_value)
 
     def on_right_segmented2_button_clicked(self, state:bool) -> None:
-        if state:
-            self.ui.gui_widgets['right_segmented2_button'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['right_segmented2_button'].setState(False, self.theme_value)
+        self.ui.gui_widgets['right_segmented2_button'].setState(state, self.theme_value)
 
 
     # ---------------------------------
@@ -190,84 +166,38 @@ class App(QWidget):
     # Chips Functions
     # ---------------
     def on_chip1_clicked(self, state: bool) -> None:
-        if state:
-            self.ui.gui_widgets['chip1_button'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['chip1_button'].setState(False, self.theme_value)
+        self.ui.gui_widgets['chip1_button'].setState(state, self.theme_value)
 
     def on_chip2_clicked(self, state: bool) -> None:
-        if state:
-            self.ui.gui_widgets['chip2_button'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['chip2_button'].setState(False, self.theme_value)
+        self.ui.gui_widgets['chip2_button'].setState(state, self.theme_value)
 
     def on_chip3_clicked(self, state: bool) -> None:
-        if state:
-            self.ui.gui_widgets['chip3_button'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['chip3_button'].setState(False, self.theme_value)
+        self.ui.gui_widgets['chip3_button'].setState(state, self.theme_value)
 
     def on_chip4_clicked(self, state: bool) -> None:
-        if state:
-            self.ui.gui_widgets['chip4_button'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['chip4_button'].setState(False, self.theme_value)
+        self.ui.gui_widgets['chip4_button'].setState(state, self.theme_value)
 
     def on_chip5_clicked(self, state: bool) -> None:
-        if state:
-            self.ui.gui_widgets['chip5_button'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['chip5_button'].setState(False, self.theme_value)
+        self.ui.gui_widgets['chip5_button'].setState(state, self.theme_value)
 
     def on_chip6_clicked(self, state: bool) -> None:
-        if state:
-            self.ui.gui_widgets['chip6_button'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['chip6_button'].setState(False, self.theme_value)
+        self.ui.gui_widgets['chip6_button'].setState(state, self.theme_value)
 
 
     # ----------------
     # Switch Functions
     # ----------------
-    def on_test1_off_clicked(self, state: bool) -> None:
-        if state:
-            self.ui.gui_widgets['test1_on_switch'].setState(True, self.theme_value)
-            self.ui.gui_widgets['test1_off_switch'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['test1_on_switch'].setState(False, self.theme_value)
-            self.ui.gui_widgets['test1_off_switch'].setState(False, self.theme_value)
+    def on_test1_switch_clicked(self, state: bool) -> None:
+        self.ui.gui_widgets['test1_on_switch'].setState(state, self.theme_value)
+        self.ui.gui_widgets['test1_off_switch'].setState(state, self.theme_value)
+        
+    def on_test2_switch_clicked(self, state: bool) -> None:
+        self.ui.gui_widgets['test2_on_switch'].setState(state, self.theme_value)
+        self.ui.gui_widgets['test2_off_switch'].setState(state, self.theme_value)
 
-    def on_test1_on_clicked(self, state: bool) -> None:
-        if state:
-            self.ui.gui_widgets['test1_on_switch'].setState(True, self.theme_value)
-            self.ui.gui_widgets['test1_off_switch'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['test1_on_switch'].setState(False, self.theme_value)
-            self.ui.gui_widgets['test1_off_switch'].setState(False, self.theme_value)
-
-    def on_test2_off_clicked(self, state: bool) -> None:
-        if state:
-            self.ui.gui_widgets['test2_on_switch'].setState(True, self.theme_value)
-            self.ui.gui_widgets['test2_off_switch'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['test2_on_switch'].setState(False, self.theme_value)
-            self.ui.gui_widgets['test2_off_switch'].setState(False, self.theme_value)
-
-    def on_test2_on_clicked(self, state: bool) -> None:
-        if state:
-            self.ui.gui_widgets['test2_on_switch'].setState(True, self.theme_value)
-            self.ui.gui_widgets['test2_off_switch'].setState(True, self.theme_value)
-        else:
-            self.ui.gui_widgets['test2_on_switch'].setState(False, self.theme_value)
-            self.ui.gui_widgets['test2_off_switch'].setState(False, self.theme_value)
-
-
-
-
-
-
-
-
+    # -------------
+    # Menu Function
+    # -------------
     def on_language_changed(self, index: int) -> None:
         """ Language menu control to change components text language
         
