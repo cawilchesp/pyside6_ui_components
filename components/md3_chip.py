@@ -3,7 +3,7 @@ PyQt Chip component adapted to follow Material Design 3 guidelines
 
 """
 
-from PyQt6 import QtGui, QtWidgets, QtCore
+from PyQt6 import QtGui, QtWidgets
 from PyQt6.QtCore import Qt
 
 from components.style_color import colors
@@ -25,7 +25,7 @@ class MD3Chip(QtWidgets.QToolButton):
             position: tuple
                 Button position
                 (x, y) -> x, y: upper left corner
-            width: tuple
+            width: int
                 Button width
             labels: tuple
                 Chip button text
