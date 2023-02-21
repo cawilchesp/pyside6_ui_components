@@ -26,7 +26,7 @@ class MD3Menu(QtWidgets.QComboBox):
             position: tuple
                 Button position
                 (x, y) -> x, y: upper left corner
-            width: tuple
+            width: int
                 Menu width
             options: dict
                 Menu options with translations
