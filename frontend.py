@@ -58,10 +58,12 @@ class App(QWidget):
     # Button Functions
     # ----------------
     def on_boton1_button_clicked(self) -> None:
-        print(f'Button 1 clicked')
+        self.ui.gui_widgets['icon1_label'].setIconLabel('calendar', self.theme_value)
 
     def on_boton2_button_clicked(self) -> None:
-        print(f'Button 2 clicked')
+        selected_color = QtWidgets.QColorDialog.getColor()
+        color = selected_color.name()
+        self.ui.gui_widgets['color1_label'].setColorLabel(color, self.theme_value)
 
     def on_boton3_button_clicked(self) -> None:
         print(f'Button 3 clicked')
