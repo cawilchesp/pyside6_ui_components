@@ -25,7 +25,7 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
         position: tuple
                 Button position
                 (x, y) -> x, y: upper left corner
-        width: tuple
+        width: int
             Button width
         labels: tuple
             Segmented button text
