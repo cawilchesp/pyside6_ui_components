@@ -29,7 +29,7 @@ class MD3IconButton(QtWidgets.QToolButton):
                 Label type
                 'filled', 'tonal', 'outlined', 'standard'
             icon: str
-                Icon file without extension ('icon')
+                Icon file without extension
             theme: bool
                 App theme
                 True: Light theme, False: Dark theme
