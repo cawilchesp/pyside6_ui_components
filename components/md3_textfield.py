@@ -4,8 +4,8 @@ PyQt Text Field component adapted to follow Material Design 3 guidelines
 
 """
 
-from PyQt6 import QtGui, QtWidgets, QtCore
-from PyQt6.QtCore import QRegularExpression, Qt
+from PyQt6 import QtGui, QtWidgets
+from PyQt6.QtCore import QRegularExpression
 from PyQt6.QtGui import QRegularExpressionValidator
 
 from components.style_color import colors
@@ -21,18 +21,23 @@ class MD3TextField(QtWidgets.QFrame):
 
         Parameters
         ----------
-        geometry: tuple
-            Text Field position and width
-            (x, y, w) -> x, y: upper left corner, w: width
-        labels: tuple
-            Text Field text
-            (label_es, label_en) -> label_es: label in spanish, label_en: label in english
-        theme: bool
-            App theme
-            True: Light theme, False: Dark theme
-        language: int
-            App language
-            0: Spanish, 1: English
+        attributes: dict
+            name: str
+                Widget name
+            position: tuple
+                Label position
+                (x, y) -> x, y: upper left corner
+            width: int
+                Button width
+            labels: tuple
+                Text Field text
+                (label_es, label_en) -> label_es: label in spanish, label_en: label in english
+            theme: bool
+                App theme
+                True: Light theme, False: Dark theme
+            language: int
+                App language
+                0: Spanish, 1: English
         
         Returns
         -------
