@@ -24,7 +24,7 @@ class MD3Button(QtWidgets.QPushButton):
             position: tuple
                 Button position
                 (x, y) -> x, y: upper left corner
-            width: tuple
+            width: int
                 Button width
             type: str
                 Button type
