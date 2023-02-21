@@ -5,7 +5,6 @@ PyQt Date Picker component adapted to follow Material Design 3 guidelines
 """
 
 from PyQt6 import QtGui, QtWidgets, QtCore
-from PyQt6.QtCore import Qt
 
 from components.style_color import colors
 
@@ -26,7 +25,7 @@ class MD3DatePicker(QtWidgets.QFrame):
             position: tuple
                 Button position
                 (x, y) -> x, y: upper left corner
-            width: tuple
+            width: int
                 Button width
             labels: tuple
                 Date field text
