@@ -269,7 +269,7 @@ class UI(QWidget):
             'side': 'left',
             'state': False,
             'theme': self.theme_value,
-            'clicked': parent.on_test1_off_clicked } )
+            'clicked': parent.on_test1_switch_clicked } )
         
         self.gui_widgets['test1_on_switch'] = MD3Switch(self.gui_widgets['filled_card'], {
             'name': 'test1_on_switch',
@@ -277,7 +277,7 @@ class UI(QWidget):
             'side': 'right',
             'state': False,
             'theme': self.theme_value,
-            'clicked': parent.on_test1_on_clicked } )
+            'clicked': parent.on_test1_switch_clicked } )
 
         # ----
         # Menu
@@ -342,28 +342,60 @@ class UI(QWidget):
             'size': (300, 200),
             'theme': self.theme_value } )
 
+        # ------
+        # Labels
+        # ------
+        self.gui_widgets['icon1_label'] = MD3Label(self.gui_widgets['filled_card'], {
+            'name': 'icon1_label', 
+            'position': (8, 508),
+            'type': 'icon',
+            'icon': 'delete',
+            'theme': self.theme_value } )
 
+        self.gui_widgets['subtitle1_label'] = MD3Label(self.gui_widgets['filled_card'], {
+            'name': 'subtitle1_label',
+            'position': (48, 508),
+            'width': 100,
+            'type': 'subtitle',
+            'align': 'left',
+            'labels': ('Eliminar', 'Delete'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
+        
+        self.gui_widgets['subtitle2_label'] = MD3Label(self.gui_widgets['filled_card'], {
+            'name': 'subtitle2_label',
+            'position': (48, 528),
+            'width': 100,
+            'type': 'subtitle',
+            'align': 'center',
+            'labels': ('Eliminar', 'Delete'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        self.gui_widgets['subtitle3_label'] = MD3Label(self.gui_widgets['filled_card'], {
+            'name': 'subtitle3_label',
+            'position': (48, 548),
+            'width': 100,
+            'type': 'subtitle',
+            'align': 'right',
+            'labels': ('Eliminar', 'Delete'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
+        
+        self.gui_widgets['color1_label'] = MD3Label(self.gui_widgets['filled_card'], {
+            'name': 'color2_label',
+            'position': (8, 568),
+            'type': 'color',
+            'color': '#0000FF',
+            'theme': self.theme_value } )
+        
+        self.gui_widgets['value1_label'] = MD3Label(self.gui_widgets['filled_card'], {
+            'name': 'value2_label', 
+            'position': (48, 568),
+            'width': 100,
+            'type': 'value',
+            'border_color': '#0000FF',
+            'theme': self.theme_value } )
 
 
 
@@ -592,7 +624,7 @@ class UI(QWidget):
             'state': True,
             'theme': self.theme_value,
             'language': self.language_value,
-            'clicked': parent.on_test2_off_clicked } )
+            'clicked': parent.on_test2_switch_clicked } )
         
         self.gui_widgets['test2_on_switch'] = MD3Switch(self.gui_widgets['outlined_card'], {
             'name': 'test2_on_switch',
@@ -601,7 +633,7 @@ class UI(QWidget):
             'state': True,
             'theme': self.theme_value,
             'language': self.language_value,
-            'clicked': parent.on_test2_on_clicked } )
+            'clicked': parent.on_test2_switch_clicked } )
 
         # ----
         # Menu
@@ -653,7 +685,7 @@ class UI(QWidget):
         self.gui_widgets['vertical2_divider'] = MD3Divider(self.gui_widgets['outlined_card'], {
             'name': 'vertical2_divider',
             'position': (104, 456),
-            'length': 52,
+            'length': 44,
             'shape': 'vertical',
             'theme': self.theme_value } )
 
@@ -666,112 +698,65 @@ class UI(QWidget):
             'size': (300, 200),
             'theme': self.theme_value } )
 
+        # ------
+        # Labels
+        # ------
+        self.gui_widgets['icon2_label'] = MD3Label(self.gui_widgets['outlined_card'], {
+            'name': 'icon2_label', 
+            'position': (8, 508),
+            'type': 'icon',
+            'icon': 'delete',
+            'theme': self.theme_value } )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        # self.gui_widgets['source_icon'] = MD3Label(self.gui_widgets['info_card'], {
-        #     'name': 'id_icon', 
-        #     'position': (8, 48),
-        #     'type': 'icon',
-        #     'icon': 'cam',
-        #     'theme': self.theme_value } )
-
-        # self.gui_widgets['source_value'] = MD3Label(self.gui_widgets['info_card'], {
-        #     'name': 'source_value',
-        #     'position': (48, 56),
-        #     'width': 124,
-        #     'type': 'subtitle',
-        #     'labels': ('Origen', 'Source'),
-        #     'theme': self.theme_value,
-        #     'language': self.language_value } )
+        self.gui_widgets['subtitle4_label'] = MD3Label(self.gui_widgets['outlined_card'], {
+            'name': 'subtitle4_label',
+            'position': (48, 508),
+            'width': 100,
+            'type': 'subtitle',
+            'align': 'left',
+            'labels': ('Eliminar', 'Delete'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
         
-        # self.gui_widgets['filename_value'] = MD3Label(self.gui_widgets['info_card'], {
-        #     'name': 'filename_value', 
-        #     'position': (48, 88), 
-        #     'width': 124,
-        #     'type': 'subtitle',
-        #     'labels': ('Nombre del archivo', 'File Name'),
-        #     'theme': self.theme_value,
-        #     'language': self.language_value } )
+        self.gui_widgets['subtitle5_label'] = MD3Label(self.gui_widgets['outlined_card'], {
+            'name': 'subtitle5_label',
+            'position': (48, 528),
+            'width': 100,
+            'type': 'subtitle',
+            'align': 'center',
+            'labels': ('Eliminar', 'Delete'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
 
-        # self.gui_widgets['width_icon'] = MD3Label(self.gui_widgets['info_card'], {
-        #     'name': 'width_icon', 
-        #     'position': (8, 112),
-        #     'type': 'icon',
-        #     'icon': 'width',
-        #     'theme': self.theme_value } )
-
-        # self.gui_widgets['width_value'] = MD3Label(self.gui_widgets['info_card'], {
-        #     'name': 'width_value',
-        #     'position': (48, 120),
-        #     'width': 124,
-        #     'type': 'subtitle',
-        #     'labels': ('Ancho', 'Width'),
-        #     'theme': self.theme_value,
-        #     'language': self.language_value } )
+        self.gui_widgets['subtitle6_label'] = MD3Label(self.gui_widgets['outlined_card'], {
+            'name': 'subtitle6_label',
+            'position': (48, 548),
+            'width': 100,
+            'type': 'subtitle',
+            'align': 'right',
+            'labels': ('Eliminar', 'Delete'),
+            'theme': self.theme_value,
+            'language': self.language_value } )
         
-        # self.gui_widgets['height_icon'] = MD3Label(self.gui_widgets['info_card'], {
-        #     'name': 'height_icon',
-        #     'position': (8, 144),
-        #     'type': 'icon',
-        #     'icon': 'height',
-        #     'theme': self.theme_value } )
+        self.gui_widgets['color2_label'] = MD3Label(self.gui_widgets['outlined_card'], {
+            'name': 'color2_label',
+            'position': (8, 568),
+            'type': 'color',
+            'color': '#FF0000',
+            'theme': self.theme_value } )
+        
+        self.gui_widgets['value2_label'] = MD3Label(self.gui_widgets['outlined_card'], {
+            'name': 'value2_label', 
+            'position': (48, 568),
+            'width': 100,
+            'type': 'value',
+            'border_color': '#FF0000',
+            'theme': self.theme_value } )
 
-        # self.gui_widgets['height_value'] = MD3Label(self.gui_widgets['info_card'], {
-        #     'name': 'height_value', 
-        #     'position': (48, 152), 
-        #     'width': 124,
-        #     'type': 'subtitle',
-        #     'labels': ('Alto', 'Height'),
-        #     'theme': self.theme_value,
-        #     'language': self.language_value } )
+        
 
-        # self.gui_widgets['count_icon'] = MD3Label(self.gui_widgets['info_card'], {
-        #     'name': 'count_icon',
-        #     'position': (8, 176),
-        #     'type': 'icon',
-        #     'icon': 'number',
-        #     'theme': self.theme_value } )
 
-        # self.gui_widgets['count_value'] = MD3Label(self.gui_widgets['info_card'], {
-        #     'name': 'count_value', 
-        #     'position': (48, 184),
-        #     'width': 124,
-        #     'type': 'subtitle',
-        #     'labels': ('Número de Cuadros', 'Frame Count'),
-        #     'theme': self.theme_value,
-        #     'language': self.language_value } )
-
-        # self.gui_widgets['fps_icon'] = MD3Label(self.gui_widgets['info_card'], {
-        #     'name': 'fps_icon', 
-        #     'position': (8, 208),
-        #     'type': 'icon',
-        #     'icon': 'fps',
-        #     'theme': self.theme_value } )
-
-        # self.gui_widgets['fps_value'] = MD3Label(self.gui_widgets['info_card'], {
-        #     'name': 'fps_value', 
-        #     'position': (48, 216), 
-        #     'width': 124,
-        #     'type': 'subtitle',
-        #     'labels': ('CPS', 'FPS'),
-        #     'theme': self.theme_value,
-        #     'language': self.language_value } )
+        
 
 
 
@@ -792,71 +777,3 @@ class UI(QWidget):
         # self.gui_widgets['video_slider'].setValue(1)
         # # self.gui_widgets['video_slider'].sliderMoved.connect(parent.on_video_slider_sliderMoved)
         # # self.gui_widgets['video_slider'].sliderReleased.connect(parent.on_video_slider_sliderReleased)
-
-        
-        
-        # self.gui_widgets['video_label'] = MD3ImageLabel(self.gui_widgets['video_output_card'], {
-        #     'name': 'video_label',
-        #     'theme': self.theme_value } )
-        
-
-    
-        # self.gui_widgets['model_configuration_label'] = MD3Label(self.gui_widgets['yolor_deepsort_card'], {
-        #     'name': 'model_configuration_label', 
-        #     'position': (8, 48), 
-        #     'width': self.gui_widgets['yolor_deepsort_card'].width() - 16,
-        #     'type': 'subtitle',
-        #     'labels': ('Configuración del Modelo', 'Model Configuration'),
-        #     'theme': self.theme_value,
-        #     'language': self.language_value } )
-       
-
-        # self.gui_widgets['model_weights_label'] = MD3Label(self.gui_widgets['yolor_deepsort_card'], {
-        #     'name': 'model_weights_label', 
-        #     'position': (8, 108), 
-        #     'width': self.gui_widgets['yolor_deepsort_card'].width() - 16,
-        #     'type': 'subtitle',
-        #     'labels': ('Pesos del Modelo', 'Model Weights'),
-        #     'theme': self.theme_value,
-        #     'language': self.language_value } )
-       
-
-        # self.gui_widgets['size_label'] = MD3Label(self.gui_widgets['yolor_deepsort_card'], {
-        #     'name': 'size_label', 
-        #     'position': (8, 168), 
-        #     'width': self.gui_widgets['yolor_deepsort_card'].width() - 16,
-        #     'type': 'subtitle',
-        #     'labels': ('Tamaño de Inferencia', 'Inference Size'),
-        #     'theme': self.theme_value,
-        #     'language': self.language_value } )
-
-        # self.gui_widgets['gpu_label'] = MD3Label(self.gui_widgets['yolor_deepsort_card'], {
-        #     'name': 'gpu_label', 
-        #     'position': (8, 228), 
-        #     'width': self.gui_widgets['yolor_deepsort_card'].width() - 16,
-        #     'type': 'subtitle',
-        #     'labels': ('Uso de GPU', 'GPU Usage'),
-        #     'theme': self.theme_value,
-        #     'language': self.language_value } )
-
-
-        # self.gui_widgets['names_label'] = MD3Label(self.gui_widgets['yolor_deepsort_card'], {
-        #     'name': 'names_label', 
-        #     'position': (8, 288), 
-        #     'width': self.gui_widgets['yolor_deepsort_card'].width() - 16,
-        #     'type': 'subtitle',
-        #     'labels': ('Archivo .names', 'File .names'),
-        #     'theme': self.theme_value,
-        #     'language': self.language_value } )
-
-
-        # self.gui_widgets['save_image_label'] = MD3Label(self.gui_widgets['yolor_deepsort_card'], {
-        #     'name': 'save_image_label', 
-        #     'position': (8, 348),
-        #     'width': self.gui_widgets['yolor_deepsort_card'].width() - 16,
-        #     'type': 'subtitle',
-        #     'labels': ('Guardar Imagen', 'Save Image'),
-        #     'theme': self.theme_value,
-        #     'language': self.language_value } )
-
-        
