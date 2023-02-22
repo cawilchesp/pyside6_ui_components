@@ -23,16 +23,20 @@ class MD3IconButton(QtWidgets.QToolButton):
             name: str
                 Widget name
             position: tuple
-                Card position
+                Icon button position
                 (x, y) -> x, y: upper left corner
             type: str
-                Label type
+                Icon button type
                 'filled', 'tonal', 'outlined', 'standard'
             icon: str
                 Icon file without extension
+            enabled: bool
+                Icon button enabled / disabled
             theme: bool
                 App theme
                 True: Light theme, False: Dark theme
+            clicked: def
+                Icon button 'clicked' method name
         
         Returns
         -------
@@ -51,6 +55,8 @@ class MD3IconButton(QtWidgets.QToolButton):
 
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonIconOnly)
         self.setAutoRaise(True)
+
+        self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
         
         self.setThemeStyle(attributes['theme'])
 
@@ -75,6 +81,9 @@ class MD3IconButton(QtWidgets.QToolButton):
         thickness = 2 if self.attributes['type'] == 'outlined' else 0
         border_color = colors(theme, 'outline') if self.attributes['type'] == 'outlined' else None
 
+        disabled_background_color = colors(theme, 'surface_variant')
+        disabled_color = colors(theme, 'on_surface_variant')
+
         if theme: icon_theme = 'L'
         else: icon_theme = 'D'
         current_path = sys.path[0].replace("\\","/")
@@ -88,4 +97,8 @@ class MD3IconButton(QtWidgets.QToolButton):
                 f'}}'
                 f'QToolButton#{self.name}:hover {{ '
                 f'background-color: {hover_background_color};'
+                f'}}'
+                f'QToolButton#{self.name}:!enabled {{ '
+                f'background-color: {disabled_background_color};'
+                f'color: {disabled_color}'
                 f'}}')
