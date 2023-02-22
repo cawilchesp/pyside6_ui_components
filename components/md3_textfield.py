@@ -25,13 +25,15 @@ class MD3TextField(QtWidgets.QFrame):
             name: str
                 Widget name
             position: tuple
-                Label position
+                Text field position
                 (x, y) -> x, y: upper left corner
             width: int
-                Button width
+                Text field width
             labels: tuple
-                Text Field text
+                Text field text
                 (label_es, label_en) -> label_es: label in spanish, label_en: label in english
+            enabled: bool
+                Text field enabled / disabled
             theme: bool
                 App theme
                 True: Light theme, False: Dark theme
@@ -92,6 +94,8 @@ class MD3TextField(QtWidgets.QFrame):
         self.label_field.setGeometry(8, 0, 16, 16)
         self.label_field.setFont(QtGui.QFont('Segoe UI', 9))
 
+        self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
+
         self.setThemeStyle(attributes['theme'])
         self.setLanguage(attributes['language'])
 
@@ -104,15 +108,30 @@ class MD3TextField(QtWidgets.QFrame):
         elif self.parent.attributes['type'] == 'outlined':
             background_color = colors(theme, 'background')
         color = colors(theme, 'on_surface')
+
+        disabled_background_color = colors(theme, 'surface_variant')
+        disabled_color = colors(theme, 'on_surface_variant')
             
         self.setStyleSheet(f'QFrame {{ '
+                f'border: 0px solid; '
+                f'border-radius: 4; '
                 f'background-color: {background_color} }}'
+                f'QFrame:!enabled {{ '
+                f'background-color: {disabled_background_color};'
+                f'color: {disabled_color}'
+                f'}}'
+
                 f'QLineEdit {{ '
                 f'border: 1px solid {color}; '
                 f'border-radius: 4;'
                 f'padding: 0 8 0 8; '
                 f'background-color: {background_color}; '
                 f'color: {color} }}'
+                f'QLineEdit:!enabled {{ '
+                f'background-color: {disabled_background_color};'
+                f'color: {disabled_color}'
+                f'}}'
+
                 f'QLabel {{ '
                 f'border: 0px solid; '
                 f'padding: 0 4 0 4;'
