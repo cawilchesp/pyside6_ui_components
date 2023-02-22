@@ -17,20 +17,27 @@ class MD3Slider(QtWidgets.QSlider):
 
         Parameters
         ----------
-        name: str
-            Widget name
-        position: tuple
-            Button position
-            (x, y) -> x, y: upper left corner
-        width: int
-            Button width
-        range: tuple
-            Slider range (min, step, max)
-        value: int
-            Slider current value
-        theme: bool
-            App theme
-            True: Light theme, False: Dark theme
+        attributes: dict
+            name: str
+                Widget name
+            position: tuple
+                Button position
+                (x, y) -> x, y: upper left corner
+            width: int
+                Button width
+            range: tuple
+                Slider range (min, step, max)
+            value: int
+                Slider current value
+            enabled: bool
+                Slider enabled / disabled
+            theme: bool
+                App theme
+                True: Light theme, False: Dark theme
+            slider_moved: def
+                Slider 'moved' method name
+            slider_released: def
+                Slider 'released' method name
         
         Returns
         -------
@@ -54,6 +61,7 @@ class MD3Slider(QtWidgets.QSlider):
         self.setMaximum(attributes['range'][2])
 
         self.setValue(attributes['value'])
+        self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
         
         self.setThemeStyle(attributes['theme'])
 
