@@ -397,7 +397,18 @@ class UI(QWidget):
             'border_color': '#0000FF',
             'theme': self.theme_value } )
 
-
+        # ------
+        # Slider
+        # ------
+        self.gui_widgets['test1_slider'] = MD3Slider(self.gui_widgets['filled_card'], {
+            'name': 'test1_slider',
+            'position': (8, 608),
+            'width': 200,
+            'range': (0, 1, 100),
+            'value': 50,
+            'slider_moved': parent.on_test1_slider_sliderMoved,
+            'slider_released': parent.on_test1_slider_sliderReleased,
+            'theme': self.theme_value } )
 
 
 
@@ -753,10 +764,24 @@ class UI(QWidget):
             'border_color': '#FF0000',
             'theme': self.theme_value } )
 
+        # ------
+        # Slider
+        # ------
+        self.gui_widgets['test2_slider'] = MD3Slider(self.gui_widgets['outlined_card'], {
+            'name': 'test2_slider',
+            'position': (8, 608),
+            'width': 200,
+            'range': (0, 1, 100),
+            'value': 1,
+            'slider_moved': parent.on_test2_slider_sliderMoved,
+            'slider_released': parent.on_test2_slider_sliderReleased,
+            'theme': self.theme_value } )
         
 
 
-        
+
+
+
 
 
 
@@ -769,11 +794,4 @@ class UI(QWidget):
         # # self.gui_widgets['classes_menu'].textActivated.connect(parent.on_classes_menu_textActivated)
 
 
-        # self.gui_widgets['video_slider'] = MD3Slider(self.gui_widgets['video_toolbar_card'], {
-        #     'name': 'video_slider',
-        #     'position': (288, 20),
-        #     'theme': self.theme_value } )
-        # # self.gui_widgets['video_slider'].setEnabled(False)
-        # self.gui_widgets['video_slider'].setValue(1)
-        # # self.gui_widgets['video_slider'].sliderMoved.connect(parent.on_video_slider_sliderMoved)
-        # # self.gui_widgets['video_slider'].sliderReleased.connect(parent.on_video_slider_sliderReleased)
+        
