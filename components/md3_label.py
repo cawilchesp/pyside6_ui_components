@@ -76,7 +76,7 @@ class MD3Label(QtWidgets.QLabel):
             else: label_alignment = Qt.AlignmentFlag.AlignLeft
         else:
             label_alignment = Qt.AlignmentFlag.AlignLeft
-        self.setAlignment(label_alignment)
+        self.setAlignment(label_alignment | Qt.AlignmentFlag.AlignVCenter)
 
         self.setThemeStyle(attributes['theme'])
         if 'language' in attributes:
