@@ -34,12 +34,16 @@ class MD3Button(QtWidgets.QPushButton):
             labels: tuple
                 Item label text
                 (label_es, label_en) -> label_es: label in spanish, label_en: label in english
+            enabled: bool
+                Button enabled / disabled
             theme: bool
                 App theme
                 True: Light theme, False: Dark theme
             language: int
                 App language
                 0: Spanish, 1: English
+            clicked: def
+                Button 'clicked' method name
         
         Returns
         -------
@@ -56,6 +60,8 @@ class MD3Button(QtWidgets.QPushButton):
         x, y = attributes['position'] if 'position' in attributes else (8,8)
         w = attributes['width'] if 'width' in attributes else 32
         self.setGeometry(x, y, w, 32)
+
+        self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
 
         self.setThemeStyle(attributes['theme'])
         self.setLanguage(attributes['language'])
@@ -84,7 +90,9 @@ class MD3Button(QtWidgets.QPushButton):
             color = colors(theme, 'primary')
             hover_background_color = colors(theme, 'primary_container')
             hover_color = colors(theme, 'primary')
-        disabled_color = colors(theme, 'surface_variant')
+        
+        disabled_background_color = colors(theme, 'surface_variant')
+        disabled_color = colors(theme, 'on_surface_variant')
 
         thickness = 2 if self.attributes['type'] == 'outlined' else 0
         border_color = colors(theme, 'outline') if self.attributes['type'] == 'outlined' else None
@@ -107,12 +115,12 @@ class MD3Button(QtWidgets.QPushButton):
                 f'color: {hover_color};'
                 f'}}'
                 f'QPushButton#{self.name}:!enabled {{ '
+                f'background-color: {disabled_background_color};'
                 f'color: {disabled_color}'
                 f'}}')
               
 
     def setLanguage(self, language: int) -> None:
         """ Change language of title text """
-        if 'labels' in self.attributes:
-            if language == 0:   self.setText(self.attributes['labels'][0])
-            elif language == 1: self.setText(self.attributes['labels'][1])
+        if language == 0:   self.setText(self.attributes['labels'][0])
+        elif language == 1: self.setText(self.attributes['labels'][1])
