@@ -398,6 +398,7 @@ class UI(QWidget):
             'position': (48, 568),
             'width': 100,
             'type': 'value',
+            'align': 'center',
             'border_color': '#0000FF',
             'theme': self.theme_value } )
 
@@ -674,7 +675,27 @@ class UI(QWidget):
         self.gui_widgets['test2_textfield'] = MD3TextField(self.gui_widgets['outlined_card'], {
             'name': 'test2_textfield',
             'position': (8, 328),
-            'width': 200,
+            'width': 120,
+            'labels': ('Cuadro', 'Frame'),
+            # 'type': 'integers',
+            # 'size': 9,
+            'theme': self.theme_value,
+            'language': self.language_value } )
+        
+        self.gui_widgets['test3_textfield'] = MD3TextField(self.gui_widgets['outlined_card'], {
+            'name': 'test3_textfield',
+            'position': (136, 328),
+            'width': 120,
+            'labels': ('Cuadro', 'Frame'),
+            # 'type': 'integers',
+            # 'size': 9,
+            'theme': self.theme_value,
+            'language': self.language_value } )
+        
+        self.gui_widgets['test4_textfield'] = MD3TextField(self.gui_widgets['outlined_card'], {
+            'name': 'test4_textfield',
+            'position': (264, 328),
+            'width': 120,
             'labels': ('Cuadro', 'Frame'),
             # 'type': 'integers',
             # 'size': 9,
@@ -714,7 +735,7 @@ class UI(QWidget):
         # -----------
         self.gui_widgets['image2_label'] = MD3ImageLabel(self.gui_widgets['outlined_card'], {
             'name': 'image2_label',
-            'position': (250, 248),
+            'position': (250, 448),
             'size': (300, 200),
             'theme': self.theme_value } )
 
