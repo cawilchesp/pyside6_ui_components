@@ -23,24 +23,28 @@ class MD3Chip(QtWidgets.QToolButton):
             name: str
                 Widget name
             position: tuple
-                Button position
+                Chip position
                 (x, y) -> x, y: upper left corner
             width: int
-                Button width
+                Chip width
             labels: tuple
-                Chip button text
+                Chip text
                 (label_es, label_en) -> label_es: label in spanish, label_en: label in english
             icon: str (Optional)
                 Icon file without extension ('icon')
             state: bool
                 State of activation
                 True: On, False: Off
+            enabled: bool
+                Chip enabled / disabled
             theme: bool
                 App theme
                 True: Light theme, False: Dark theme
             language: int
                 App language
                 0: Spanish, 1: English
+            clicked: def
+                Chip 'clicked' method name
         
         Returns
         -------
@@ -60,6 +64,8 @@ class MD3Chip(QtWidgets.QToolButton):
 
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setCheckable(True)
+
+        self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
 
         self.setThemeStyle(attributes['theme'])
         self.setState(attributes['state'], attributes['theme'])
@@ -98,6 +104,9 @@ class MD3Chip(QtWidgets.QToolButton):
         checked_color = colors(theme, 'on_secondary_container')
         border_color = colors(theme, 'outline')
 
+        disabled_background_color = colors(theme, 'surface_variant')
+        disabled_color = colors(theme, 'on_surface_variant')
+
         if theme: icon_theme = 'L'
         else: icon_theme = 'D'
         current_path = sys.path[0].replace("\\","/")
@@ -120,6 +129,10 @@ class MD3Chip(QtWidgets.QToolButton):
                 f'QToolButton#{self.name}:checked {{ '
                 f'background-color: {checked_background_color};'
                 f'color: {checked_color}'
+                f'}}'
+                f'QToolButton#{self.name}:!enabled {{ '
+                f'background-color: {disabled_background_color};'
+                f'color: {disabled_color}'
                 f'}}')
 
 
