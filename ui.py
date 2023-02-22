@@ -78,6 +78,7 @@ class UI(QWidget):
             'position': (48,48),
             'type': 'tonal',
             'icon': 'delete', 
+            'enabled': False,
             'theme': self.theme_value,
             'clicked': parent.on_icon2_button_clicked } )
         
@@ -128,6 +129,7 @@ class UI(QWidget):
             'width': 100,
             'type': 'outlined',
             'icon': 'delete',
+            'enabled': False,
             'labels': ('Borrar','Delete'),
             'theme': self.theme_value,
             'language': self.language_value,
@@ -234,10 +236,10 @@ class UI(QWidget):
             'labels': ('Borrar', 'Delete'),
             'icon': 'delete',
             'state': False,
+            'enabled': False,
             'theme': self.theme_value,
             'language': self.language_value,
             'clicked': parent.on_chip1_clicked } )
-        
         
         self.gui_widgets['chip2_button'] = MD3Chip(self.gui_widgets['filled_card'], {
             'name': 'chip2_button',
@@ -300,6 +302,7 @@ class UI(QWidget):
             'position': (8, 328),
             'width': 200,
             'labels': ('Cuadro', 'Frame'),
+            'enabled': False,
             # 'type': 'integers',
             # 'size': '9',
             'theme': self.theme_value,
@@ -313,6 +316,7 @@ class UI(QWidget):
             'position': (8, 388),
             'width': 200,
             'labels': ('Fecha', 'Date'),
+            'enabled': False,
             'theme': self.theme_value,
             'language': self.language_value } )
 
@@ -559,6 +563,7 @@ class UI(QWidget):
             'check_icon': True,
             'location': 'right',
             'state': True,
+            'enabled': False,
             'theme': self.theme_value,
             'language': self.language_value,
             'clicked': parent.on_right_segmented2_button_clicked } )
@@ -633,6 +638,7 @@ class UI(QWidget):
             'position': (8, 248),
             'side': 'left',
             'state': True,
+            'enabled': False,
             'theme': self.theme_value,
             'language': self.language_value,
             'clicked': parent.on_test2_switch_clicked } )
@@ -642,6 +648,7 @@ class UI(QWidget):
             'position': (34, 248),
             'side': 'right',
             'state': True,
+            'enabled': False,
             'theme': self.theme_value,
             'language': self.language_value,
             'clicked': parent.on_test2_switch_clicked } )
@@ -655,9 +662,11 @@ class UI(QWidget):
             'width': 72,
             'options': self.test_options,
             'set': self.language_value,
+            'enabled': False,
             'theme': self.theme_value,
             'language': self.language_value,
-            'index_changed': parent.on_language_changed } )
+            'index_changed': parent.on_language_changed,
+            'text_activated': parent.on_language_changed } )
 
         # ----------
         # Text Field
@@ -773,25 +782,8 @@ class UI(QWidget):
             'width': 200,
             'range': (0, 1, 100),
             'value': 1,
+            'enabled': False,
             'slider_moved': parent.on_test2_slider_sliderMoved,
             'slider_released': parent.on_test2_slider_sliderReleased,
             'theme': self.theme_value } )
-        
-
-
-
-
-
-
-
-
-        # self.gui_widgets['classes_menu'] = MD3Menu(self.gui_widgets['classes_card'], {
-        #     'name': 'classes_menu',
-        #     'position': (8, 48),
-        #     'size': (164, 32),
-        #     'language': self.language_value,
-        #     'theme': self.theme_value } )
-        # # self.gui_widgets['classes_menu'].textActivated.connect(parent.on_classes_menu_textActivated)
-
-
-        
+                
