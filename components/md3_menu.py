@@ -34,12 +34,18 @@ class MD3Menu(QtWidgets.QComboBox):
             set: int
                 Selected option
                 -1: No option selected
+            enabled: bool
+                Menu enabled / disabled
             theme: bool
                 App theme
                 True: Light theme, False: Dark theme
             language: int
                 App language
                 0: Spanish, 1: English
+            index_changed: def
+                Menu 'index changed' method name
+            text_activated: def
+                Menu 'text activated' method name
         
         Returns
         -------
@@ -70,6 +76,8 @@ class MD3Menu(QtWidgets.QComboBox):
         self.view().window().setWindowFlags(Qt.WindowType.Popup | Qt.WindowType.FramelessWindowHint | Qt.WindowType.NoDropShadowWindowHint)
         self.view().window().setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         
+        self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
+
         self.setThemeStyle(attributes['theme'])
 
         self.currentIndexChanged.connect(attributes['index_changed'])
@@ -84,7 +92,9 @@ class MD3Menu(QtWidgets.QComboBox):
             background_color = colors(theme, 'background')
         color = colors(theme, 'on_surface')
         border_color = colors(theme, 'outline')
-        disable_color = colors(theme, 'surface_variant')
+        
+        disabled_background_color = colors(theme, 'surface_variant')
+        disabled_color = colors(theme, 'on_surface_variant')
 
         if theme: icon_theme = 'L'
         else: icon_theme = 'D'
@@ -92,27 +102,28 @@ class MD3Menu(QtWidgets.QComboBox):
         images_path = f'{current_path}/icons'
 
         self.setStyleSheet(f'QComboBox#{self.name} {{ '
-                           f'border: 1px solid {color};'
-                           f'border-radius: 4; '
-                           f'background-color: {background_color}; '
-                           f'color: {color} '
-                           f'}}'
-                           f'QComboBox#{self.name}::drop-down {{ '
-                           f'border-color: {border_color} '
-                           f'}}'
-                           f'QComboBox#{self.name}::down-arrow {{ '
-                           f'width: 16; height: 16;'
-                           f'image: url({images_path}/menu_right_{icon_theme}.png) '
-                           f'}}'
-                           f'QComboBox#{self.name}:!Enabled {{ '
-                           f'background-color: {disable_color} '
-                           f'}}'
-                           f'QComboBox#{self.name} QListView {{ '
-                           f'border: 1px solid {color}; '
-                           f'border-radius: 4;'
-                           f'background-color: {background_color}; '
-                           f'color: {color} '
-                           f'}}')
+                f'border: 1px solid {color};'
+                f'border-radius: 4; '
+                f'background-color: {background_color}; '
+                f'color: {color} '
+                f'}}'
+                f'QComboBox#{self.name}::drop-down {{ '
+                f'border-color: {border_color} '
+                f'}}'
+                f'QComboBox#{self.name}::down-arrow {{ '
+                f'width: 16; height: 16;'
+                f'image: url({images_path}/menu_right_{icon_theme}.png) '
+                f'}}'
+                f'QComboBox#{self.name}:!Enabled {{ '
+                f'background-color: {disabled_background_color};'
+                f'color: {disabled_color}'
+                f'}}'
+                f'QComboBox#{self.name} QListView {{ '
+                f'border: 1px solid {color}; '
+                f'border-radius: 4;'
+                f'background-color: {background_color}; '
+                f'color: {color} '
+                f'}}')
 
     def setLanguage(self, language: int) -> None:
         """ Change language of label text """
