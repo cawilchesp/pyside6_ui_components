@@ -32,9 +32,13 @@ class MD3Switch(QtWidgets.QToolButton):
             state: bool
                 State of activation
                 True: On, False: Off
+            enabled: bool
+                Switch enabled / disabled
             theme: bool
                 App theme
                 True: Light theme, False: Dark theme
+            clicked: def
+                Switch 'clicked' method name
         
         Returns
         -------
@@ -53,6 +57,7 @@ class MD3Switch(QtWidgets.QToolButton):
 
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonIconOnly)
         self.setCheckable(True)
+        self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
 
         self.setThemeStyle(attributes['theme'])
         self.setState(attributes['state'], attributes['theme'])
@@ -90,6 +95,9 @@ class MD3Switch(QtWidgets.QToolButton):
         checked_background_color = colors(theme, 'secondary_container')
         border_color = colors(theme, 'outline')
 
+        disabled_background_color = colors(theme, 'surface_variant')
+        disabled_color = colors(theme, 'on_surface_variant')
+
         if theme: icon_theme = 'L'
         else: icon_theme = 'D'
         current_path = sys.path[0].replace("\\","/")
@@ -114,12 +122,16 @@ class MD3Switch(QtWidgets.QToolButton):
                            f'border-bottom-{self.attributes["side"]}-radius: 16')
         
         self.setStyleSheet(f'QToolButton#{self.name} {{ '
-                           f'{border_outline}; '
-                           f'{border_position};'
-                           f'background-color: {background_color}; '
-                           f'}}'
-                           f'QToolButton#{self.name}:checked {{ '
-                           f'border: 0px solid; '
-                           f'{border_position};'
-                           f'background-color: {checked_background_color};'
-                           f'}}')
+                f'{border_outline}; '
+                f'{border_position};'
+                f'background-color: {background_color}; '
+                f'}}'
+                f'QToolButton#{self.name}:checked {{ '
+                f'border: 0px solid; '
+                f'{border_position};'
+                f'background-color: {checked_background_color};'
+                f'}}'
+                f'QToolButton#{self.name}:!enabled {{ '
+                f'background-color: {disabled_background_color};'
+                f'color: {disabled_color}'
+                f'}}')
