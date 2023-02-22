@@ -1,10 +1,8 @@
-from PyQt6 import QtGui, QtWidgets, QtCore
-from PyQt6.QtWidgets import QWidget, QApplication, QStyle
-from PyQt6.QtGui import QPixmap
-from PyQt6.QtCore import pyqtSignal, pyqtSlot, Qt, QThread, QSettings
+from PyQt6 import QtWidgets
+from PyQt6.QtWidgets import QWidget, QApplication
+from PyQt6.QtCore import QSettings
 
 import sys
-import pathlib
 
 from ui import UI
 
@@ -18,7 +16,6 @@ class App(QWidget):
         self.settings = QSettings(f'{sys.path[0]}/settings.ini', QSettings.Format.IniFormat)
         self.language_value = int(self.settings.value('language'))
         self.theme_value = eval(self.settings.value('theme'))
-        # self.default_path = self.settings.value('default_path')
 
         # ----------------
         # Generación de UI
@@ -30,28 +27,28 @@ class App(QWidget):
     # Icon Button Functions
     # ---------------------
     def on_icon1_button_clicked(self) -> None:
-        print(f'icon button 1 clicked')
+        print(f'Icon button 1 clicked')
 
     def on_icon2_button_clicked(self) -> None:
-        print(f'icon button 2 clicked')
+        print(f'Icon button 2 clicked')
 
     def on_icon3_button_clicked(self) -> None:
-        print(f'icon button 3 clicked')
+        print(f'Icon button 3 clicked')
 
     def on_icon4_button_clicked(self) -> None:
-        print(f'icon button 4 clicked')
+        print(f'Icon button 4 clicked')
 
     def on_icon5_button_clicked(self) -> None:
-        print(f'icon button 5 clicked')
+        print(f'Icon button 5 clicked')
 
     def on_icon6_button_clicked(self) -> None:
-        print(f'icon button 6 clicked')
+        print(f'Icon button 6 clicked')
 
     def on_icon7_button_clicked(self) -> None:
-        print(f'icon button 7 clicked')
+        print(f'Icon button 7 clicked')
 
     def on_icon8_button_clicked(self) -> None:
-        print(f'icon button 8 clicked')
+        print(f'Icon button 8 clicked')
 
 
     # ----------------
@@ -219,17 +216,23 @@ class App(QWidget):
         self.settings.setValue('language', str(index))
         self.language_value = int(self.settings.value('language'))
 
-
+    # ----------------
+    # Slider Functions
+    # ----------------
+    def on_test1_slider_sliderMoved(self, value: int) -> None:
+        self.ui.gui_widgets['value1_label'].setText(str(value))
     
 
+    def on_test1_slider_sliderReleased(self) -> None:
+        print(f'Slider 1 value: {self.ui.gui_widgets["test1_slider"].value()}')
     
+    def on_test2_slider_sliderMoved(self, value: int) -> None:
+        self.ui.gui_widgets['value2_label'].setText(str(value))
     
 
-
-
-
-
-
+    def on_test2_slider_sliderReleased(self) -> None:
+        print(f'Slider 2 value: {self.ui.gui_widgets["test2_slider"].value()}')
+    
 
 
 if __name__=="__main__":
