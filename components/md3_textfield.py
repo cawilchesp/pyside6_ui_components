@@ -29,6 +29,18 @@ class MD3TextField(QtWidgets.QFrame):
                 (x, y) -> x, y: upper left corner
             width: int
                 Text field width
+            type: str (optional, any character allowed if not specified)
+                Text field type
+                    text: only letters and accents
+                    integer: only integer numbers
+                    double: allow decimal point
+                    weight: double values from 0.00 to 999.99
+                    height_si: double values from 0.00 to 2.99
+                    height_us: number in format [ft]'[in]" (ex. 5'12")
+                    email: text in email format
+                    ip: numbers in ip format (0.0.0.0 - 255.255.255.255)
+            size: int
+                Text field size
             labels: tuple
                 Text field text
                 (label_es, label_en) -> label_es: label in spanish, label_en: label in english
@@ -61,34 +73,24 @@ class MD3TextField(QtWidgets.QFrame):
         self.text_field.setGeometry(0, 8, w, 44)
         self.text_field.setClearButtonEnabled(True)
 
-        if 'type' in attributes:
-            pattern = None
-            if attributes['type'] == 'integer':
-                pattern = r"^[-+]?\d+$"
-            elif attributes['type'] == 'double':
-                pattern = r"^[-+]?\d+\.\d{2}$"
-            
-            elif attributes['type'] == 'text':
-                pattern = r"[\p{L}\s]"
-            elif attributes['type'] == 'email':
-                pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-            elif attributes['type'] == 'ip':
-                pattern = r"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+        patterns_dict = {
+            'text': r"[\p{L}\s]+",
+            'integer': r'[+-]?\d+',
+            'double': r'[+-]?\d+\.\d+',
+            'weight': r'([0-9]\d{0,2})\.(\d{1,2})',
+            'height_si': r'[0-3]\.(\d{1,2})',
+            'height_us': r'[0-9]\'([0-9]|10|11|12)\"',
+            'email': r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+',
+            'ip': r'(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'
+        }
 
-
-            pattern_size = ''
-            if 'size' in attributes:
-                pattern_size = f'{{1,{attributes["size"]}}}'
-                
-
-            regExp = QRegularExpressionValidator(QRegularExpression(f'{pattern}{pattern_size}'))
-            
+        if 'type' in attributes and attributes['type'] in patterns_dict:
+            pattern = patterns_dict[attributes['type']]
+            regExp = QRegularExpressionValidator(QRegularExpression(f'{pattern}'))
             self.text_field.setValidator(regExp)
 
-
-
-
-
+        if 'size' in attributes:
+            self.text_field.setMaxLength(attributes['size'])
 
         self.label_field = QtWidgets.QLabel(self)
         self.label_field.setGeometry(8, 0, 16, 16)
@@ -98,6 +100,9 @@ class MD3TextField(QtWidgets.QFrame):
 
         self.setThemeStyle(attributes['theme'])
         self.setLanguage(attributes['language'])
+
+        if 'return_pressed' in attributes:
+            self.text_field.returnPressed.connect(attributes['return_pressed'])
 
 
     def setThemeStyle(self, theme: bool) -> None:
