@@ -1,7 +1,5 @@
-from PyQt6 import QtGui, QtWidgets, QtCore
-from PyQt6.QtWidgets import QWidget, QApplication
-from PyQt6.QtCore import QSettings, Qt, QRegularExpression
-from PyQt6.QtGui import QRegularExpressionValidator
+from PyQt6.QtWidgets import QWidget
+from PyQt6.QtCore import QSettings
 
 from components.md3_button import MD3Button
 from components.md3_card import MD3Card
