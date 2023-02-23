@@ -65,8 +65,10 @@ class MD3Slider(QtWidgets.QSlider):
         
         self.setThemeStyle(attributes['theme'])
 
-        self.sliderMoved.connect(attributes['slider_moved'])
-        self.sliderReleased.connect(attributes['slider_released'])
+        if 'slider_moved' in attributes:
+            self.sliderMoved.connect(attributes['slider_moved'])
+        if 'slider_released' in attributes:
+            self.sliderReleased.connect(attributes['slider_released'])
 
 
     def setThemeStyle(self, theme: bool) -> None:
