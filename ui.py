@@ -313,8 +313,8 @@ class UI(QWidget):
             'position': (136, 328),
             'width': 120,
             'labels': ('Cuadro', 'Frame'),
-            # 'type': 'integers',
-            # 'size': 9,
+            'type': 'integer',
+            'size': 9,
             'theme': self.theme_value,
             'language': self.language_value } )
         
@@ -323,8 +323,8 @@ class UI(QWidget):
             'position': (264, 328),
             'width': 120,
             'labels': ('Cuadro', 'Frame'),
-            # 'type': 'integers',
-            # 'size': 9,
+            'type': 'double',
+            'size': 9,
             'theme': self.theme_value,
             'language': self.language_value } )
         
@@ -333,8 +333,8 @@ class UI(QWidget):
             'position': (392, 328),
             'width': 120,
             'labels': ('Cuadro', 'Frame'),
-            # 'type': 'integers',
-            # 'size': 9,
+            'type': 'text',
+            'size': 9,
             'theme': self.theme_value,
             'language': self.language_value } )
 
@@ -707,8 +707,7 @@ class UI(QWidget):
             'position': (8, 328),
             'width': 120,
             'labels': ('Cuadro', 'Frame'),
-            # 'type': 'integers',
-            # 'size': 9,
+            'type': 'weight',
             'theme': self.theme_value,
             'language': self.language_value } )
         
@@ -717,8 +716,7 @@ class UI(QWidget):
             'position': (136, 328),
             'width': 120,
             'labels': ('Cuadro', 'Frame'),
-            # 'type': 'integers',
-            # 'size': 9,
+            'type': 'height_si',
             'theme': self.theme_value,
             'language': self.language_value } )
         
@@ -727,8 +725,7 @@ class UI(QWidget):
             'position': (264, 328),
             'width': 120,
             'labels': ('Cuadro', 'Frame'),
-            # 'type': 'integers',
-            # 'size': 9,
+            'type': 'height_us',
             'theme': self.theme_value,
             'language': self.language_value } )
         
@@ -737,10 +734,10 @@ class UI(QWidget):
             'position': (392, 328),
             'width': 120,
             'labels': ('Cuadro', 'Frame'),
-            # 'type': 'integers',
-            # 'size': 9,
+            # 'type': 'ip',
             'theme': self.theme_value,
-            'language': self.language_value } )
+            'language': self.language_value,
+            'return_pressed': parent.on_text8_field_return_pressed } )
 
         # -----------
         # Date Picker
