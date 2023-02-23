@@ -52,6 +52,12 @@ class MD3TextField(QtWidgets.QFrame):
             language: int
                 App language
                 0: Spanish, 1: English
+            return_pressed: def
+                Text field 'return pressed' method name
+            text_edited: def
+                Text field 'text edited' method name
+            text_changed: def
+                Text field 'text changed' method name
         
         Returns
         -------
@@ -103,7 +109,11 @@ class MD3TextField(QtWidgets.QFrame):
 
         if 'return_pressed' in attributes:
             self.text_field.returnPressed.connect(attributes['return_pressed'])
-
+        if 'text_edited' in attributes:
+            self.text_field.textEdited.connect(attributes['text_edited'])
+        if 'text_changed' in attributes:
+            self.text_field.textChanged.connect(attributes['text_changed'])
+            
 
     def setThemeStyle(self, theme: bool) -> None:
         """ Apply theme style sheet to component """
