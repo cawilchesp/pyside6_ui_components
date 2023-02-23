@@ -233,6 +233,11 @@ class App(QWidget):
     def on_test2_slider_sliderReleased(self) -> None:
         print(f'Slider 2 value: {self.ui.gui_widgets["test2_slider"].value()}')
     
+    # --------------------
+    # Text Field Functions
+    # --------------------
+    def on_text8_field_return_pressed(self) -> None:
+        print(f'Text 8 Value: {self.ui.gui_widgets["test8_textfield"].text_field.text()}')
 
 
 if __name__=="__main__":
