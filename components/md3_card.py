@@ -34,6 +34,9 @@ class MD3Card(QtWidgets.QFrame):
             theme: bool
                 App theme
                 True: Light theme, False: Dark theme
+            language: int
+                App language
+                0: Spanish, 1: English
         
         Returns
         -------
