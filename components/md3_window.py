@@ -45,7 +45,14 @@ class MD3Window:
         screen_y = int(self.parent.screen().availableGeometry().height() / 2 - (h / 2))
         x, y = attributes['position'] if 'position' in attributes else (screen_x,screen_y)
         self.parent.setGeometry(x, y, w, h)
-        self.parent.setMinimumSize(w, h)
+
+        if 'minimum_size' in attributes:
+            w_min, h_min = attributes['minimum_size']
+            self.parent.setMinimumSize(w_min, h_min)
+
+        if 'maximum_size' in attributes:
+            w_max, h_max = attributes['maximum_size']
+            self.parent.setMaximumSize(w_max, h_max)
 
         self.setThemeStyle(attributes['theme'])
         self.setLanguage(attributes['language'])
