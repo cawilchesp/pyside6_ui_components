@@ -84,6 +84,8 @@ class MD3Menu(QtWidgets.QComboBox):
             self.currentIndexChanged.connect(attributes['index_changed'])
         if 'text_activated' in attributes:
             self.textActivated.connect(attributes['text_activated'])
+        if 'activated' in attributes:
+            self.activated.connect(attributes['activated'])
         
 
     def setThemeStyle(self, theme: bool) -> None:
