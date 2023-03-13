@@ -39,6 +39,7 @@ class MD3TextField(QtWidgets.QFrame):
                     height_us: number in format [ft]'[in]" (ex. 5'12")
                     email: text in email format
                     ip: numbers in ip format (0.0.0.0 - 255.255.255.255)
+                    password: any character with visible/hidden icon
             size: int
                 Text field size
             labels: tuple
@@ -90,10 +91,24 @@ class MD3TextField(QtWidgets.QFrame):
             'ip': r'(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'
         }
 
-        if 'type' in attributes and attributes['type'] in patterns_dict:
-            pattern = patterns_dict[attributes['type']]
-            regExp = QRegularExpressionValidator(QRegularExpression(f'{pattern}'))
-            self.text_field.setValidator(regExp)
+        if 'type' in attributes:
+            if attributes['type'] in patterns_dict:
+                pattern = patterns_dict[attributes['type']]
+                reg_exp = QRegularExpressionValidator(QRegularExpression(f'{pattern}'))
+                self.text_field.setValidator(reg_exp)
+
+            if attributes['type'] == 'password':
+                if attributes['theme']: icon_theme = 'L'
+                else: icon_theme = 'D'
+                current_path = sys.path[0].replace("\\","/")
+                images_path = f'{current_path}/icons'
+                self.visible_icon = QtGui.QIcon(f'{images_path}/eye_{icon_theme}.png')
+                self.hidden_icon = QtGui.QIcon(f'{images_path}/eye_off_{icon_theme}.png')
+                                
+                self.text_field.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
+                self.toggle_password = self.text_field.addAction(self.visible_icon, QtWidgets.QLineEdit.ActionPosition.TrailingPosition)
+                self.toggle_password.triggered.connect(self.password_action)
+                self.toggle_password_state = False
 
         if 'size' in attributes:
             self.text_field.setMaxLength(attributes['size'])
@@ -114,6 +129,17 @@ class MD3TextField(QtWidgets.QFrame):
         if 'text_changed' in attributes:
             self.text_field.textChanged.connect(attributes['text_changed'])
             
+
+    def password_action(self) -> None:
+        if not self.toggle_password_state:
+            self.text_field.setEchoMode(QtWidgets.QLineEdit.EchoMode.Normal)
+            self.toggle_password_state = True
+            self.toggle_password.setIcon(self.hidden_icon)
+        else:
+            self.text_field.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
+            self.toggle_password_state = False
+            self.toggle_password.setIcon(self.visible_icon)
+
 
     def setThemeStyle(self, theme: bool) -> None:
         """ Apply theme style sheet to component """
