@@ -68,21 +68,18 @@ class MD3IconButton(QtWidgets.QToolButton):
 
         if self.attributes['type'] == 'filled':
             background_color = colors(theme, 'primary')
-            hover_background_color = colors(theme, 'hover_primary')
         elif self.attributes['type'] == 'tonal':
-            background_color = colors(theme, 'secondary_container')
-            hover_background_color = colors(theme, 'hover_secondary_container')
+            background_color = colors(theme, 'secondary')
         elif self.attributes['type'] in ('outlined','standard'):
             if self.parent.attributes['type'] == 'filled':
                 background_color = colors(theme, 'surface_tint')
             elif self.parent.attributes['type'] == 'outlined':
                 background_color = colors(theme, 'background')
-            hover_background_color = colors(theme, 'primary_container')
         thickness = 2 if self.attributes['type'] == 'outlined' else 0
         border_color = colors(theme, 'outline') if self.attributes['type'] == 'outlined' else None
 
+        hover_background_color = colors(theme, 'hover')
         disabled_background_color = colors(theme, 'surface_variant')
-        disabled_color = colors(theme, 'on_surface_variant')
 
         if theme: icon_theme = 'L'
         else: icon_theme = 'D'
@@ -100,5 +97,4 @@ class MD3IconButton(QtWidgets.QToolButton):
                 f'}}'
                 f'QToolButton#{self.name}:!enabled {{ '
                 f'background-color: {disabled_background_color};'
-                f'color: {disabled_color}'
                 f'}}')
