@@ -41,11 +41,11 @@ def colors(theme: bool, role: str) -> str:
         'outline': '#73777f',
 
         'primary': '#5e81ac',
-        'on_primary': '#ffffff',
+        'on_primary': '#2e3440',
         'secondary': '#81a1c1',
-        'on_secondary': '#ffffff',
+        'on_secondary': '#2e3440',
         'tertiary': '#8fbcbb',
-        'on_tertiary': '#ffffff',
+        'on_tertiary': '#2e3440',
 
         'hover': '#88c0d0',
 
@@ -76,11 +76,11 @@ def colors(theme: bool, role: str) -> str:
         'outline': '#8d9199',
 
         'primary': '#81a1c1',
-        'on_primary': '#00315b',
+        'on_primary': '#eceff4',
         'secondary': '#5e81ac',
-        'on_secondary': '#003355',
+        'on_secondary': '#eceff4',
         'tertiary': '#8fbcbb',
-        'on_tertiary': '#002780',
+        'on_tertiary': '#eceff4',
 
         'hover': '#88c0d0',
 
