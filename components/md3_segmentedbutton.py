@@ -105,11 +105,13 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
             background_color = colors(theme, 'surface_tint')
         elif self.parent.attributes['type'] == 'outlined':
             background_color = colors(theme, 'background')
-        color = colors(theme, 'on_secondary_container')
-        checked_background_color = colors(theme, 'secondary_container')
-        checked_color = colors(theme, 'on_secondary_container')
+        color = colors(theme, 'on_secondary')
         border_color = colors(theme, 'outline')
 
+        checked_background_color = colors(theme, 'secondary')
+        checked_color = colors(theme, 'on_secondary')
+        hover_background_color = colors(theme, 'hover')
+        hover_color = colors(theme, 'on_primary')
         disabled_background_color = colors(theme, 'surface_variant')
         disabled_color = colors(theme, 'on_surface_variant')
 
@@ -142,6 +144,10 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
                 f'QToolButton#{self.name}:checked {{ '
                 f'background-color: {checked_background_color};'
                 f'color: {checked_color}'
+                f'}}'
+                f'QToolButton#{self.name}:hover {{ '
+                f'background-color: {hover_background_color};'
+                f'color: {hover_color};'
                 f'}}'
                 f'QToolButton#{self.name}:!enabled {{ '
                 f'background-color: {disabled_background_color};'
