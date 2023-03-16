@@ -75,22 +75,18 @@ class MD3Button(QtWidgets.QPushButton):
         if self.attributes['type'] == 'filled':
             background_color = colors(theme, 'primary')
             color = colors(theme, 'on_primary')
-            hover_background_color = colors(theme, 'hover_primary')
-            hover_color = colors(theme, 'on_primary')
         elif self.attributes['type'] == 'tonal':
-            background_color = colors(theme, 'secondary_container')
-            color = colors(theme, 'on_secondary_container')
-            hover_background_color = colors(theme, 'hover_secondary_container')
-            hover_color = colors(theme, 'on_secondary_container')
+            background_color = colors(theme, 'secondary')
+            color = colors(theme, 'on_secondary')
         elif self.attributes['type'] in ('outlined', 'text'):
             if self.parent.attributes['type'] == 'filled':
                 background_color = colors(theme, 'surface_tint')
             elif self.parent.attributes['type'] == 'outlined':
                 background_color = colors(theme, 'background')
             color = colors(theme, 'primary')
-            hover_background_color = colors(theme, 'primary_container')
-            hover_color = colors(theme, 'primary')
         
+        hover_background_color = colors(theme, 'hover')
+        hover_color = colors(theme, 'on_primary')
         disabled_background_color = colors(theme, 'surface_variant')
         disabled_color = colors(theme, 'on_surface_variant')
 
