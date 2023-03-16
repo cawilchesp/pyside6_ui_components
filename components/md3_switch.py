@@ -92,11 +92,10 @@ class MD3Switch(QtWidgets.QToolButton):
         """ Apply theme style sheet to component """
         
         background_color = colors(theme, 'surface_variant')
-        checked_background_color = colors(theme, 'secondary_container')
         border_color = colors(theme, 'outline')
-
+        
+        checked_background_color = colors(theme, 'secondary')
         disabled_background_color = colors(theme, 'surface_variant')
-        disabled_color = colors(theme, 'on_surface_variant')
 
         if theme: icon_theme = 'L'
         else: icon_theme = 'D'
@@ -133,5 +132,4 @@ class MD3Switch(QtWidgets.QToolButton):
                 f'}}'
                 f'QToolButton#{self.name}:!enabled {{ '
                 f'background-color: {disabled_background_color};'
-                f'color: {disabled_color}'
                 f'}}')
