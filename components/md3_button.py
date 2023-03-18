@@ -74,21 +74,21 @@ class MD3Button(QtWidgets.QPushButton):
 
         if self.attributes['type'] == 'filled':
             background_color = colors(theme, 'primary')
-            color = colors(theme, 'on_primary')
+            text_color = colors(theme, 'on_primary')
         elif self.attributes['type'] == 'tonal':
             background_color = colors(theme, 'secondary')
-            color = colors(theme, 'on_secondary')
+            text_color = colors(theme, 'on_secondary')
         elif self.attributes['type'] in ('outlined', 'text'):
             if self.parent.attributes['type'] == 'filled':
                 background_color = colors(theme, 'surface_tint')
             elif self.parent.attributes['type'] == 'outlined':
                 background_color = colors(theme, 'background')
-            color = colors(theme, 'primary')
+            text_color = colors(theme, 'primary')
         
         hover_background_color = colors(theme, 'hover')
-        hover_color = colors(theme, 'on_primary')
-        disabled_background_color = colors(theme, 'surface_variant')
-        disabled_color = colors(theme, 'on_surface_variant')
+        hover_text_color = colors(theme, 'on_primary')
+        disabled_background_color = colors(theme, 'disable')
+        disabled_text_color = colors(theme, 'on_disable')
 
         thickness = 2 if self.attributes['type'] == 'outlined' else 0
         border_color = colors(theme, 'outline') if self.attributes['type'] == 'outlined' else None
@@ -104,15 +104,15 @@ class MD3Button(QtWidgets.QPushButton):
                 f'border: {thickness}px solid {border_color};'
                 f'border-radius: 16;'
                 f'background-color: {background_color};'
-                f'color: {color};'
+                f'color: {text_color};'
                 f'}}'
                 f'QPushButton#{self.name}:hover {{ '
                 f'background-color: {hover_background_color};'
-                f'color: {hover_color};'
+                f'color: {hover_text_color};'
                 f'}}'
                 f'QPushButton#{self.name}:!enabled {{ '
                 f'background-color: {disabled_background_color};'
-                f'color: {disabled_color}'
+                f'color: {disabled_text_color}'
                 f'}}')
               
 
