@@ -38,31 +38,20 @@ def colors(theme: bool, role: str) -> str:
         'on_surface': '#001f2a',
         'surface_variant': '#dfe2eb',
         'on_surface_variant': '#43474e',
+
         'outline': '#73777f',
 
         'primary': '#5e81ac',
         'on_primary': '#2e3440',
         'secondary': '#81a1c1',
         'on_secondary': '#2e3440',
-        'tertiary': '#8fbcbb',
-        'on_tertiary': '#2e3440',
 
         'hover': '#88c0d0',
-
-
-
 
         'error': '#ba1a1a',
         'error_container': '#ffdad6',
         'on_error': '#ffffff',
         'on_error_container': '#410002',
-        
-        'inverse_on_surface': '#e1f4ff',
-        'inverse_surface': '#003547',
-        'inverse_primary': '#a2c9ff',
-        'shadow': '#000000',
-        'outline_variant': '#c3c6cf',
-        'scrim': '#000000'
     }
 
     dark = {
@@ -73,30 +62,20 @@ def colors(theme: bool, role: str) -> str:
         'on_surface': '#bfe9ff',
         'surface_variant': '#43474e',
         'on_surface_variant': '#c3c6cf',
+
         'outline': '#8d9199',
 
         'primary': '#81a1c1',
         'on_primary': '#eceff4',
         'secondary': '#5e81ac',
         'on_secondary': '#eceff4',
-        'tertiary': '#8fbcbb',
-        'on_tertiary': '#eceff4',
 
         'hover': '#88c0d0',
-
-
 
         'error': '#ffb4ab',
         'error_container': '#93000a',
         'on_error': '#690005',
         'on_error_container': '#ffdad6',
-
-        'inverse_on_surface': '#001f2a',
-        'inverse_surface': '#bfe9ff',
-        'inverse_primary': '#0060a8',
-        'shadow': '#000000',
-        'outline_variant': '#43474e',
-        'scrim': '#000000'
     }
 
     if theme:
