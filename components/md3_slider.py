@@ -79,7 +79,7 @@ class MD3Slider(QtWidgets.QSlider):
         elif self.parent.attributes['type'] == 'outlined':
             background_color = colors(theme, 'background')
         color = colors(theme, 'primary')
-        disabled_color = colors(theme, 'surface_variant')
+        disabled_color = colors(theme, 'on_surface_variant')
         groove_color = '#494949'
 
         self.setStyleSheet(f'QSlider#{self.name} {{ '
