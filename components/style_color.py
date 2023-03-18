@@ -47,6 +47,8 @@ def colors(theme: bool, role: str) -> str:
         'on_secondary': '#2e3440',
 
         'hover': '#88c0d0',
+        'disable': '#dfe2eb',
+        'on_disable': '#43474e',
 
         'error': '#ba1a1a',
         'error_container': '#ffdad6',
@@ -71,6 +73,8 @@ def colors(theme: bool, role: str) -> str:
         'on_secondary': '#eceff4',
 
         'hover': '#88c0d0',
+        'disable': '#43474e',
+        'on_disable': '#dfe2eb',
 
         'error': '#ffb4ab',
         'error_container': '#93000a',
