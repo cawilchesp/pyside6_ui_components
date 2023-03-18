@@ -66,9 +66,9 @@ class MD3Divider(QtWidgets.QFrame):
             background_color = colors(theme, 'surface_tint')
         elif self.parent.attributes['type'] == 'outlined':
             background_color = colors(theme, 'background')
-        color = colors(theme, 'outline_variant')
+        border_color = colors(theme, 'outline')
             
         self.setStyleSheet(f'QFrame#{self.name} {{ '
-                f'border: 1px solid {color};'
+                f'border: 1px solid {border_color};'
                 f'background-color: {background_color};'
                 f'}}' )
