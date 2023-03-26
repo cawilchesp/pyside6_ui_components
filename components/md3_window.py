@@ -1,5 +1,5 @@
 """
-PyQt Main Window
+PySide6 Main Window
 
 """
 
