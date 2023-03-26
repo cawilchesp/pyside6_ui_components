@@ -1,13 +1,13 @@
-from PyQt6 import QtWidgets
-from PyQt6.QtWidgets import QWidget, QApplication
-from PyQt6.QtCore import QSettings
+from PySide6 import QtWidgets
+from PySide6.QtWidgets import QWidget, QApplication, QMainWindow
+from PySide6.QtCore import QSettings
 
 import sys
 
 from ui import UI
 
 
-class App(QWidget):
+class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         # --------
@@ -27,28 +27,28 @@ class App(QWidget):
     # Icon Button Functions
     # ---------------------
     def on_icon1_button_clicked(self) -> None:
-        print(f'Icon button 1 clicked')
+        print('Icon button 1 clicked')
 
     def on_icon2_button_clicked(self) -> None:
-        print(f'Icon button 2 clicked')
+        print('Icon button 2 clicked')
 
     def on_icon3_button_clicked(self) -> None:
-        print(f'Icon button 3 clicked')
+        print('Icon button 3 clicked')
 
     def on_icon4_button_clicked(self) -> None:
-        print(f'Icon button 4 clicked')
+        print('Icon button 4 clicked')
 
     def on_icon5_button_clicked(self) -> None:
-        print(f'Icon button 5 clicked')
+        print('Icon button 5 clicked')
 
     def on_icon6_button_clicked(self) -> None:
-        print(f'Icon button 6 clicked')
+        print('Icon button 6 clicked')
 
     def on_icon7_button_clicked(self) -> None:
-        print(f'Icon button 7 clicked')
+        print('Icon button 7 clicked')
 
     def on_icon8_button_clicked(self) -> None:
-        print(f'Icon button 8 clicked')
+        print('Icon button 8 clicked')
 
 
     # ----------------
@@ -63,22 +63,22 @@ class App(QWidget):
         self.ui.gui_widgets['color1_label'].setColorLabel(color, self.theme_value)
 
     def on_boton3_button_clicked(self) -> None:
-        print(f'Button 3 clicked')
+        print('Button 3 clicked')
 
     def on_boton4_button_clicked(self) -> None:
-        print(f'Button 4 clicked')
+        print('Button 4 clicked')
 
     def on_boton5_button_clicked(self) -> None:
-        print(f'Button 5 clicked')
+        print('Button 5 clicked')
 
     def on_boton6_button_clicked(self) -> None:
-        print(f'Button 6 clicked')
+        print('Button 6 clicked')
 
     def on_boton7_button_clicked(self) -> None:
-        print(f'Button 7 clicked')
+        print('Button 7 clicked')
 
     def on_boton8_button_clicked(self) -> None:
-        print(f'Button 8 clicked')
+        print('Button 8 clicked')
 
 
     # --------------------------
@@ -242,6 +242,6 @@ class App(QWidget):
 
 if __name__=="__main__":
     app = QApplication(sys.argv)
-    a = App()
-    a.show()
+    window = MainWindow()
+    window.show()
     sys.exit(app.exec())
