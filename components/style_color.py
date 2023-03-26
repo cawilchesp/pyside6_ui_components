@@ -39,7 +39,7 @@ def colors(theme: bool, role: str) -> str:
         'surface_variant': '#dfe2eb',
         'on_surface_variant': '#43474e',
 
-        'outline': '#73777f',
+        'outline': '#2e3440',
 
         'primary': '#5e81ac',
         'on_primary': '#2e3440',
@@ -65,7 +65,7 @@ def colors(theme: bool, role: str) -> str:
         'surface_variant': '#43474e',
         'on_surface_variant': '#c3c6cf',
 
-        'outline': '#8d9199',
+        'outline': '#d8dee9',
 
         'primary': '#81a1c1',
         'on_primary': '#eceff4',
