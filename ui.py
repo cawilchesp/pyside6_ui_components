@@ -1,5 +1,5 @@
-from PyQt6.QtWidgets import QWidget
-from PyQt6.QtCore import QSettings
+from PySide6.QtWidgets import QWidget
+from PySide6.QtCore import QSettings
 
 from components.md3_button import MD3Button
 from components.md3_card import MD3Card
