@@ -1,11 +1,11 @@
 """
-PyQt Icon Button component adapted to follow Material Design 3 guidelines
+PySide6 Icon Button component adapted to follow Material Design 3 guidelines
 
 
 """
 
-from PyQt6 import QtGui, QtWidgets, QtCore
-from PyQt6.QtCore import Qt
+from PySide6 import QtGui, QtWidgets, QtCore
+from PySide6.QtCore import Qt
 
 from components.style_color import colors
 
