@@ -1,12 +1,12 @@
 """
-PyQt Text Field component adapted to follow Material Design 3 guidelines
+PySide6 Text Field component adapted to follow Material Design 3 guidelines
 
 
 """
 
-from PyQt6 import QtGui, QtWidgets
-from PyQt6.QtCore import QRegularExpression
-from PyQt6.QtGui import QRegularExpressionValidator
+from PySide6 import QtGui, QtWidgets
+from PySide6.QtCore import QRegularExpression
+from PySide6.QtGui import QRegularExpressionValidator
 
 from components.style_color import colors
 
