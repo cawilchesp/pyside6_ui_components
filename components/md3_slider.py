@@ -1,10 +1,10 @@
 """
-PyQt Slider component adapted to follow Material Design 3 guidelines
+PySide6 Slider component adapted to follow Material Design 3 guidelines
 
 """
 
-from PyQt6 import QtWidgets
-from PyQt6.QtCore import Qt
+from PySide6 import QtWidgets
+from PySide6.QtCore import Qt
 
 from components.style_color import colors
 
