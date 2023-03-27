@@ -77,8 +77,7 @@ class MD3Chip(QtWidgets.QToolButton):
     def setState(self, state: bool, theme: bool) -> None:
         """ Set button state and corresponding icon """
         
-        if theme: icon_theme = 'L'
-        else: icon_theme = 'D'
+        icon_theme = 'L' if theme else 'D'
         current_path = sys.path[0].replace("\\","/")
         images_path = f'{current_path}/icons'
 
@@ -106,11 +105,10 @@ class MD3Chip(QtWidgets.QToolButton):
         checked_color = colors(theme, 'on_secondary')
         hover_background_color = colors(theme, 'hover')
         hover_color = colors(theme, 'on_primary')
-        disabled_background_color = colors(theme, 'surface_variant')
-        disabled_color = colors(theme, 'on_surface_variant')
+        disabled_background_color = colors(theme, 'disable')
+        disabled_color = colors(theme, 'on_disable')
 
-        if theme: icon_theme = 'L'
-        else: icon_theme = 'D'
+        icon_theme = 'L' if theme else 'D'
         current_path = sys.path[0].replace("\\","/")
         images_path = f'{current_path}/icons'
         if 'icon' in self.attributes:
