@@ -83,11 +83,10 @@ class MD3DatePicker(QtWidgets.QFrame):
         color = colors(theme, 'on_surface')
         drop_background_color = colors(theme, 'primary')
 
-        disabled_background_color = colors(theme, 'surface_variant')
-        disabled_color = colors(theme, 'on_surface_variant')
+        disabled_background_color = colors(theme, 'disable')
+        disabled_color = colors(theme, 'on_disable')
 
-        if theme: icon_theme = 'L'
-        else: icon_theme = 'D'
+        icon_theme = 'L' if theme else 'D'
         current_path = sys.path[0].replace("\\","/")
         images_path = f'{current_path}/icons'
 
@@ -107,6 +106,7 @@ class MD3DatePicker(QtWidgets.QFrame):
                 f'background-color: {background_color}; '
                 f'color: {color}; }}'
                 f'QDateEdit:!enabled {{ '
+                f'border: 1px solid {disabled_color}; '
                 f'background-color: {disabled_background_color};'
                 f'color: {disabled_color}'
                 f'}}'
