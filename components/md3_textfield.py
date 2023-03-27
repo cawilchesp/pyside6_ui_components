@@ -98,8 +98,7 @@ class MD3TextField(QtWidgets.QFrame):
                 self.text_field.setValidator(reg_exp)
 
             if attributes['type'] == 'password':
-                if attributes['theme']: icon_theme = 'L'
-                else: icon_theme = 'D'
+                icon_theme = 'L' if attributes['theme'] else 'D'
                 current_path = sys.path[0].replace("\\","/")
                 images_path = f'{current_path}/icons'
                 self.visible_icon = QtGui.QIcon(f'{images_path}/eye_{icon_theme}.png')
@@ -150,8 +149,8 @@ class MD3TextField(QtWidgets.QFrame):
             background_color = colors(theme, 'background')
         color = colors(theme, 'on_surface')
 
-        disabled_background_color = colors(theme, 'surface_variant')
-        disabled_color = colors(theme, 'on_surface_variant')
+        disabled_background_color = colors(theme, 'disable')
+        disabled_color = colors(theme, 'on_disable')
             
         self.setStyleSheet(f'QFrame {{ '
                 f'border: 0px solid; '
@@ -169,6 +168,7 @@ class MD3TextField(QtWidgets.QFrame):
                 f'background-color: {background_color}; '
                 f'color: {color} }}'
                 f'QLineEdit:!enabled {{ '
+                f'border: 1px solid {disabled_color}; '
                 f'background-color: {disabled_background_color};'
                 f'color: {disabled_color}'
                 f'}}'
