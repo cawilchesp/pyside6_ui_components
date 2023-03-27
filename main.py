@@ -4,7 +4,7 @@ from PySide6.QtCore import QSettings
 
 import sys
 
-from ui import UI
+from main_ui import UI
 
 
 class MainWindow(QMainWindow):
