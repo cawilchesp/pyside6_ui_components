@@ -98,11 +98,10 @@ class MD3Menu(QtWidgets.QComboBox):
         color = colors(theme, 'on_surface')
         border_color = colors(theme, 'outline')
         
-        disabled_background_color = colors(theme, 'surface_variant')
-        disabled_color = colors(theme, 'on_surface_variant')
+        disabled_background_color = colors(theme, 'disable')
+        disabled_color = colors(theme, 'on_disable')
 
-        if theme: icon_theme = 'L'
-        else: icon_theme = 'D'
+        icon_theme = 'L' if theme else 'D'
         current_path = sys.path[0].replace("\\","/")
         images_path = f'{current_path}/icons'
 
