@@ -68,8 +68,7 @@ class MD3Switch(QtWidgets.QToolButton):
     def setState(self, state: bool, theme: bool) -> None:
         """ Set button state and corresponding icon """
 
-        if theme: icon_theme = 'L'
-        else: icon_theme = 'D'
+        icon_theme = 'L' if theme else 'D'
         current_path = sys.path[0].replace("\\","/")
         images_path = f'{current_path}/icons'
 
@@ -91,11 +90,14 @@ class MD3Switch(QtWidgets.QToolButton):
     def setThemeStyle(self, theme: bool) -> None:
         """ Apply theme style sheet to component """
         
-        background_color = colors(theme, 'surface_variant')
+        if self.parent.attributes['type'] == 'filled':
+            background_color = colors(theme, 'surface_tint')
+        elif self.parent.attributes['type'] == 'outlined':
+            background_color = colors(theme, 'background')
         border_color = colors(theme, 'outline')
         
         checked_background_color = colors(theme, 'secondary')
-        disabled_background_color = colors(theme, 'surface_variant')
+        disabled_background_color = colors(theme, 'disable')
 
         if theme: icon_theme = 'L'
         else: icon_theme = 'D'
