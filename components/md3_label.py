@@ -88,8 +88,7 @@ class MD3Label(QtWidgets.QLabel):
 
         self.attributes['icon'] = icon
 
-        if theme: icon_theme = 'L'
-        else: icon_theme = 'D'
+        icon_theme = 'L' if theme else 'D'
         current_path = sys.path[0].replace("\\","/")
         images_path = f'{current_path}/icons'
         self.setPixmap(QtGui.QIcon(f'{images_path}/{self.attributes["icon"]}_{icon_theme}.png').pixmap(24))
@@ -128,8 +127,7 @@ class MD3Label(QtWidgets.QLabel):
         padding = '4px' if self.attributes['type'] == 'icon' else '0px'
 
         if 'icon' in self.attributes:
-            if theme: icon_theme = 'L'
-            else: icon_theme = 'D'
+            icon_theme = 'L' if theme else 'D'
             current_path = sys.path[0].replace("\\","/")
             images_path = f'{current_path}/icons'
             self.setPixmap(QtGui.QIcon(f'{images_path}/{self.attributes["icon"]}_{icon_theme}.png').pixmap(24))
