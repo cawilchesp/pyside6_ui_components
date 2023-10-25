@@ -24,6 +24,10 @@ class MainWindow(QMainWindow):
         # Generación de UI
         # ----------------
         self.ui = UI(self)
+        theme_file = 'themes/light_theme.qss' if self.theme_value else 'themes/dark_theme.qss'
+        with open(theme_file, "r") as theme_qss:
+            self.setStyleSheet(theme_qss.read())
+
 
 
     # ---------------------
@@ -128,8 +132,10 @@ class MainWindow(QMainWindow):
         None
         """
         if state: 
-            for key in self.ui.gui_widgets.keys():
-                self.ui.gui_widgets[key].setThemeStyle(True)
+            # for key in self.ui.gui_widgets.keys():
+            #     self.ui.gui_widgets[key].setThemeStyle(True)
+            with open('themes/light_theme.qss', "r") as theme_qss:
+                self.setStyleSheet(theme_qss.read())
             self.ui.gui_widgets['dark_theme_button'].setState(False, True)
             self.ui.gui_widgets['dark2_theme_button'].setState(False, True)
     
@@ -155,8 +161,10 @@ class MainWindow(QMainWindow):
         None
         """
         if state: 
-            for key in self.ui.gui_widgets.keys():
-                self.ui.gui_widgets[key].setThemeStyle(False)
+            # for key in self.ui.gui_widgets.keys():
+            #     self.ui.gui_widgets[key].setThemeStyle(False)
+            with open('themes/dark_theme.qss', "r") as theme_qss:
+                self.setStyleSheet(theme_qss.read())
             self.ui.gui_widgets['light_theme_button'].setState(False, False)
             self.ui.gui_widgets['light2_theme_button'].setState(False, False)
 
