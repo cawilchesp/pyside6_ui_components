@@ -1,0 +1,54 @@
+QWidget {
+    background-color: #eceff4;
+    color: #001f2a
+}
+
+/* Card */
+MD3Card[filled=true] {
+    border: 0px solid;
+    border-radius: 12px;
+    background-color: #d8dee9
+}
+MD3Card[outlined=true] {
+    border: 2px solid #2e3440;
+    border-radius: 12px;
+    background-color: #d8dee9
+}
+QLabel {
+    background-color: #d8dee9;
+    color: #001f2a
+}
+
+/* Icon Button */
+MD3IconButton[filled=true] {
+    border: 0px solid;
+    border-radius: 16;
+    background-color: #5e81ac
+}
+MD3IconButton[tonal=true] {
+    border: 0px solid;
+    border-radius: 16;
+    background-color: #81a1c1
+}
+MD3IconButton[outlined=true] {
+    border: 2px solid #d8dee9;
+    border-radius: 16;
+    background-color: #4c566a
+}
+MD3IconButton[standard=true] {
+    border: 0px solid;
+    border-radius: 16;
+    background-color: #4c566a
+}
+MD3IconButton:checked {
+    background-color: #5e81ac;
+    color: #eceff4
+}
+MD3IconButton:hover {
+    background-color: #88c0d0;
+    color: #eceff4
+}
+MD3IconButton:disabled {
+    background-color: #43474e;
+    color: #dfe2eb
+}
