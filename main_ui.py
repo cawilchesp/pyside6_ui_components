@@ -1,5 +1,4 @@
 from PySide6.QtWidgets import QWidget
-from PySide6.QtCore import QSettings
 
 from components.md3_button import MD3Button
 from components.md3_card import MD3Card
@@ -58,13 +57,11 @@ class UI(QWidget):
         # -----------
         # Card Filled
         # -----------
-        self.gui_widgets['filled_card'] = MD3Card(parent, { 
-            'name': 'filled_card',
+        self.gui_widgets['filled_card'] = MD3Card(parent, {
             'position': (8, 8), 
             'size': ((width / 2) - 16, height - 16),
             'type': 'filled',
-            'theme': self.theme_value, 
-            'labels': ('Tarjeta Llena', 'Filled Card'), 
+            'titles': ('Tarjeta Llena', 'Filled Card'), 
             'language': self.language_value } )
 
         # ------------
@@ -456,13 +453,11 @@ class UI(QWidget):
         # -------------
         # Card Outlined
         # -------------
-        self.gui_widgets['outlined_card'] = MD3Card(parent, { 
-            'name': 'outlined_card',
+        self.gui_widgets['outlined_card'] = MD3Card(parent, {
             'position': ((width / 2) + 8, 8), 
             'size': ((width / 2) - 16, height - 16),
             'type': 'outlined',
-            'theme': self.theme_value, 
-            'labels': ('Tarjeta con Borde', 'Outlined Card'), 
+            'titles': ('Tarjeta con Borde', 'Outlined Card'), 
             'language': self.language_value } )
 
         # ------------
