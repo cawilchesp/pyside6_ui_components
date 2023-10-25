@@ -1,0 +1,131 @@
+QWidget {
+    background-color: #2e3441;
+    color: #bfe9ff
+}
+
+/* Card */
+MD3Card[filled=true] {
+    border: 0px solid;
+    border-radius: 12px;
+    background-color: #4c566a
+}
+MD3Card[outlined=true] {
+    border: 2px solid #d8dee9;
+    border-radius: 12px;
+    background-color: #4c566a
+}
+QLabel {
+    background-color: #4c566a;
+    color: #bfe9ff
+}
+
+/* Icon Button */
+MD3IconButton[filled=true] {
+    border: 0px solid;
+    border-radius: 16;
+    background-color: #81a1c1
+}
+MD3IconButton[tonal=true] {
+    border: 0px solid;
+    border-radius: 16;
+    background-color: #5e81ac
+}
+MD3IconButton[outlined=true] {
+    border: 2px solid #d8dee9;
+    border-radius: 16;
+    background-color: #4c566a
+}
+MD3IconButton[standard=true] {
+    border: 0px solid;
+    border-radius: 16;
+    background-color: #4c566a
+}
+MD3IconButton:checked {
+    background-color: #5e81ac;
+    color: #eceff4
+}
+MD3IconButton:hover {
+    background-color: #88c0d0;
+    color: #eceff4
+}
+MD3IconButton:disabled {
+    background-color: #43474e;
+    color: #dfe2eb
+}
+
+
+
+
+
+
+
+
+
+/* Menu */
+/* QComboBox {
+    border: 1px solid #bfe9ff;
+    border-radius: 4; 
+    background-color: #4c566a; 
+    color: #bfe9ff
+}
+QComboBox::drop-down {
+    border-color: #d8dee9
+}
+QComboBox::down-arrow {
+    width: 16; height: 16;
+    image: url(icons/menu_right_D.png)
+}
+QComboBox:disabled {
+    background-color: #43474e;
+    color: #dfe2eb
+}
+QComboBox QListView {
+    border: 1px solid #bfe9ff; 
+    border-radius: 4;
+    background-color: #4c566a; 
+    color: #090e11
+} */
+
+
+
+
+
+
+
+/* Left Segmented Button */
+/* QToolButton[left=true] {
+    border: 1px solid #d8dee9;
+    border-top-left-radius: 16; border-bottom-left-radius: 16;
+    padding: 0 8 0 8;
+    background-color: #2e3440;
+    color: #eceff4
+} */
+/* Center Segmented Button */
+/* QToolButton[center=true] {
+    border: 1px solid #d8dee9;
+    border-radius: 0;
+    padding: 0 8 0 8;
+    background-color: #2e3440;
+    color: #eceff4
+} */
+/* Right Segmented Button */
+/* QToolButton[right=true] {
+    border: 1px solid #d8dee9;
+    border-top-right-radius: 16; border-bottom-right-radius: 16;
+    padding: 0 8 0 8;
+    background-color: #2e3440;
+    color: #eceff4
+}
+QToolButton:checked {
+    background-color: #5e81ac;
+    color: #eceff4
+}
+QToolButton:hover {
+    background-color: #88c0d0;
+    color: #eceff4
+}
+QToolButton:disabled {
+    background-color: #43474e;
+    color: #dfe2eb
+} */
+
