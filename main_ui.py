@@ -17,6 +17,7 @@ from components.md3_textfield import MD3TextField
 from components.md3_window import MD3Window
 
 import sys
+import yaml
 
 
 class UI(QWidget):
@@ -26,10 +27,16 @@ class UI(QWidget):
         # --------
         # Settings
         # --------
-        self.settings = QSettings(f'{sys.path[0]}/settings.ini', QSettings.Format.IniFormat)
-        self.language_value = int(self.settings.value('language'))
-        self.theme_value = eval(self.settings.value('theme'))
+        self.settings_file = 'settings.yaml'
+        with open(self.settings_file, 'r') as file:
+            self.config = yaml.safe_load(file)
 
+        self.language_value = int(self.config['LANGUAGE'])
+        self.theme_value = self.config['THEME']
+
+        # ---------
+        # Variables
+        # ---------
         self.test_options = {
             0: ('Opción 1', 'Option 1'),
             1: ('Opción 2', 'Option 2')
@@ -441,6 +448,7 @@ class UI(QWidget):
             'name': 'image1_label',
             'position': (124, 288),
             'size': (300, 32),
+            'scaled_image': True,
             'theme': self.theme_value } )
 
 
@@ -838,5 +846,6 @@ class UI(QWidget):
             'name': 'image2_label',
             'position': (124, 288),
             'size': (300, 32),
+            'scaled_image': True,
             'theme': self.theme_value } )
         
