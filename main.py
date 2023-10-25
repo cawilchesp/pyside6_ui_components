@@ -1,8 +1,8 @@
 from PySide6 import QtWidgets
 from PySide6.QtWidgets import QWidget, QApplication, QMainWindow
-from PySide6.QtCore import QSettings
 
 import sys
+import yaml
 
 from main_ui import UI
 
@@ -13,9 +13,12 @@ class MainWindow(QMainWindow):
         # --------
         # Settings
         # --------
-        self.settings = QSettings(f'{sys.path[0]}/settings.ini', QSettings.Format.IniFormat)
-        self.language_value = int(self.settings.value('language'))
-        self.theme_value = eval(self.settings.value('theme'))
+        self.settings_file = 'settings.yaml'
+        with open(self.settings_file, 'r') as file:
+            self.config = yaml.safe_load(file)
+
+        self.language_value = int(self.config['LANGUAGE'])
+        self.theme_value = self.config['THEME']
 
         # ----------------
         # Generación de UI
@@ -130,8 +133,11 @@ class MainWindow(QMainWindow):
             self.ui.gui_widgets['dark_theme_button'].setState(False, True)
             self.ui.gui_widgets['dark2_theme_button'].setState(False, True)
     
-            self.settings.setValue('theme', f'{True}')
-            self.theme_value = eval(self.settings.value('theme'))
+            # Save settings
+            self.theme_value = True
+            self.config['THEME'] = True
+            with open(self.settings_file, 'w') as file:
+                yaml.dump(self.config, file)
         
         self.ui.gui_widgets['light_theme_button'].setState(True, True)
         self.ui.gui_widgets['light2_theme_button'].setState(True, True)
@@ -154,8 +160,11 @@ class MainWindow(QMainWindow):
             self.ui.gui_widgets['light_theme_button'].setState(False, False)
             self.ui.gui_widgets['light2_theme_button'].setState(False, False)
 
-            self.settings.setValue('theme', f'{False}')
-            self.theme_value = eval(self.settings.value('theme'))
+            # Save settings
+            self.theme_value = False
+            self.config['THEME'] = False
+            with open(self.settings_file, 'w') as file:
+                yaml.dump(self.config, file)
 
         self.ui.gui_widgets['dark_theme_button'].setState(True, False)
         self.ui.gui_widgets['dark2_theme_button'].setState(True, False)
@@ -212,9 +221,11 @@ class MainWindow(QMainWindow):
         for key in self.ui.gui_widgets.keys():
             if hasattr(self.ui.gui_widgets[key], 'setLanguage'):
                 self.ui.gui_widgets[key].setLanguage(index)
-
-        self.settings.setValue('language', str(index))
-        self.language_value = int(self.settings.value('language'))
+        
+        self.language_value = index
+        self.config['LANGUAGE'] = index
+        with open(self.settings_file, 'w') as file:
+            yaml.dump(self.config, file)
 
     # ----------------
     # Slider Functions
