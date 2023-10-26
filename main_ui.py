@@ -51,7 +51,7 @@ class UI(QWidget):
             'parent': parent, 
             'size': (width, height),
             'labels': ('Componentes de Material 3 UI', 'Material 3 UI Components'),
-            'theme': self.theme_value, 
+            'theme': self.theme_value,
             'language': self.language_value } )
 
         # -----------
@@ -61,7 +61,7 @@ class UI(QWidget):
             'position': (8, 8), 
             'size': ((width / 2) - 16, height - 16),
             'type': 'filled',
-            'titles': ('Tarjeta Llena', 'Filled Card'), 
+            'titles': ('Tarjeta Llena', 'Filled Card'),
             'language': self.language_value } )
 
         # ------------
@@ -457,7 +457,7 @@ class UI(QWidget):
             'position': ((width / 2) + 8, 8), 
             'size': ((width / 2) - 16, height - 16),
             'type': 'outlined',
-            'titles': ('Tarjeta con Borde', 'Outlined Card'), 
+            'titles': ('Tarjeta con Borde', 'Outlined Card'),
             'language': self.language_value } )
 
         # ------------
