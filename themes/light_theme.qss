@@ -51,3 +51,37 @@ MD3IconButton:disabled {
     background-color: #43474e;
     color: #dfe2eb
 }
+
+/* Button */
+MD3Button[filled=true] {
+    border: 0px solid;
+    border-radius: 16;
+    background-color: #5e81ac;
+    color: #2e3440
+}
+MD3Button[tonal=true] {
+    border: 0px solid;
+    border-radius: 16;
+    background-color: #81a1c1;
+    color: #2e3440
+}
+MD3Button[outlined=true] {
+    border: 2px solid #2e3440;
+    border-radius: 16;
+    background-color: transparent;
+    color: #5e81ac
+}
+MD3Button[standard=true] {
+    border: 0px solid;
+    border-radius: 16;
+    background-color: transparent;
+    color: #5e81ac
+}
+MD3Button:hover {
+    background-color: #88c0d0;
+    color: #eceff4
+}
+MD3Button:disabled {
+    background-color: #43474e;
+    color: #dfe2eb
+}
