@@ -86,6 +86,41 @@ MD3Button:disabled {
     color: #dfe2eb
 }
 
+/* Segmented Button */
+MD3SegmentedButton[left=true] {
+    border: 1px solid #d8dee9;
+    border-top-left-radius: 16; border-bottom-left-radius: 16;
+    padding: 0 8 0 8;
+    background-color: transparent;
+    color: #eceff4
+}
+MD3SegmentedButton[center=true] {
+    border: 1px solid #d8dee9;
+    border-radius: 0;
+    padding: 0 8 0 8;
+    background-color: transparent;
+    color: #eceff4
+}
+MD3SegmentedButton[right=true] {
+    border: 1px solid #d8dee9;
+    border-top-right-radius: 16; border-bottom-right-radius: 16;
+    padding: 0 8 0 8;
+    background-color: transparent;
+    color: #eceff4
+}
+MD3SegmentedButton:checked {
+    background-color: #5e81ac;
+    color: #eceff4
+}
+MD3SegmentedButton:hover {
+    background-color: #88c0d0;
+    color: #eceff4
+}
+MD3SegmentedButton:disabled {
+    background-color: #43474e;
+    color: #dfe2eb
+}
+
 
 
 
@@ -122,40 +157,4 @@ QComboBox QListView {
 
 
 
-/* Left Segmented Button */
-/* QToolButton[left=true] {
-    border: 1px solid #d8dee9;
-    border-top-left-radius: 16; border-bottom-left-radius: 16;
-    padding: 0 8 0 8;
-    background-color: #2e3440;
-    color: #eceff4
-} */
-/* Center Segmented Button */
-/* QToolButton[center=true] {
-    border: 1px solid #d8dee9;
-    border-radius: 0;
-    padding: 0 8 0 8;
-    background-color: #2e3440;
-    color: #eceff4
-} */
-/* Right Segmented Button */
-/* QToolButton[right=true] {
-    border: 1px solid #d8dee9;
-    border-top-right-radius: 16; border-bottom-right-radius: 16;
-    padding: 0 8 0 8;
-    background-color: #2e3440;
-    color: #eceff4
-}
-QToolButton:checked {
-    background-color: #5e81ac;
-    color: #eceff4
-}
-QToolButton:hover {
-    background-color: #88c0d0;
-    color: #eceff4
-}
-QToolButton:disabled {
-    background-color: #43474e;
-    color: #dfe2eb
-} */
 
