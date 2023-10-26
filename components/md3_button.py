@@ -28,7 +28,7 @@ class MD3Button(QtWidgets.QPushButton):
                 Button width
             type: str
                 Button type
-                'elevated', 'filled', 'tonal', 'outlined', 'text'
+                'elevated', 'filled', 'tonal', 'outlined', 'standard'
             icon: str (Optional)
                 Icon file without extension ('icon')
             labels: tuple
@@ -61,58 +61,17 @@ class MD3Button(QtWidgets.QPushButton):
         w = attributes['width'] if 'width' in attributes else 32
         self.setGeometry(x, y, w, 32)
 
+        if 'icon' in self.attributes:
+            icon_theme = 'L' if self.attributes['theme'] else 'D'
+            icon_path = f"icons/{self.attributes['icon']}_{icon_theme}.png"
+            self.setIcon(QtGui.QIcon(f"{icon_path}"))
+
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
 
-        self.setThemeStyle(attributes['theme'])
+        self.setProperty(attributes['type'], True)
         self.setLanguage(attributes['language'])
 
         self.clicked.connect(attributes['clicked'])
-
-
-    def setThemeStyle(self, theme: bool) -> None:
-        """ Apply theme style sheet to component """
-
-        if self.attributes['type'] == 'filled':
-            background_color = colors(theme, 'primary')
-            text_color = colors(theme, 'on_primary')
-        elif self.attributes['type'] == 'tonal':
-            background_color = colors(theme, 'secondary')
-            text_color = colors(theme, 'on_secondary')
-        elif self.attributes['type'] in ('outlined', 'text'):
-            if self.parent.attributes['type'] == 'filled':
-                background_color = colors(theme, 'surface_tint')
-            elif self.parent.attributes['type'] == 'outlined':
-                background_color = colors(theme, 'background')
-            text_color = colors(theme, 'primary')
-        
-        hover_background_color = colors(theme, 'hover')
-        hover_text_color = colors(theme, 'on_primary')
-        disabled_background_color = colors(theme, 'disable')
-        disabled_text_color = colors(theme, 'on_disable')
-
-        thickness = 2 if self.attributes['type'] == 'outlined' else 0
-        border_color = colors(theme, 'outline') if self.attributes['type'] == 'outlined' else None
-
-        if 'icon' in self.attributes:
-            icon_theme = 'L' if theme else 'D'
-            current_path = sys.path[0].replace("\\","/")
-            images_path = f'{current_path}/icons'
-            self.setIcon(QtGui.QIcon(f'{images_path}/{self.attributes["icon"]}_{icon_theme}.png'))
-
-        self.setStyleSheet(f'QPushButton#{self.name} {{ '
-                f'border: {thickness}px solid {border_color};'
-                f'border-radius: 16;'
-                f'background-color: {background_color};'
-                f'color: {text_color};'
-                f'}}'
-                f'QPushButton#{self.name}:hover {{ '
-                f'background-color: {hover_background_color};'
-                f'color: {hover_text_color};'
-                f'}}'
-                f'QPushButton#{self.name}:!enabled {{ '
-                f'background-color: {disabled_background_color};'
-                f'color: {disabled_text_color}'
-                f'}}')
               
 
     def setLanguage(self, language: int) -> None:
