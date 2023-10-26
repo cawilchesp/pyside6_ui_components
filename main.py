@@ -1,4 +1,4 @@
-from PySide6 import QtWidgets
+from PySide6 import QtWidgets, QtGui
 from PySide6.QtWidgets import QWidget, QApplication, QMainWindow
 
 import sys
@@ -131,11 +131,19 @@ class MainWindow(QMainWindow):
         -------
         None
         """
-        if state: 
-            # for key in self.ui.gui_widgets.keys():
-            #     self.ui.gui_widgets[key].setThemeStyle(True)
+        if state:
             with open('themes/light_theme.qss', "r") as theme_qss:
                 self.setStyleSheet(theme_qss.read())
+
+            for key in self.ui.gui_widgets.keys():
+                if 'icon' in self.ui.gui_widgets[key].attributes:
+                    icon_name = self.ui.gui_widgets[key].attributes['icon']
+                    icon_path = f"icons/{icon_name}_L.png"
+                    if hasattr(self.ui.gui_widgets[key], 'setIcon'):
+                        self.ui.gui_widgets[key].setIcon(QtGui.QIcon(f"{icon_path}"))
+                    elif hasattr(self.ui.gui_widgets[key], 'setPixmap'):
+                        self.ui.gui_widgets[key].setPixmap(QtGui.QIcon(f"{icon_path}").pixmap(24))
+
             self.ui.gui_widgets['dark_theme_button'].setState(False, True)
             self.ui.gui_widgets['dark2_theme_button'].setState(False, True)
     
@@ -160,11 +168,19 @@ class MainWindow(QMainWindow):
         -------
         None
         """
-        if state: 
-            # for key in self.ui.gui_widgets.keys():
-            #     self.ui.gui_widgets[key].setThemeStyle(False)
+        if state:
             with open('themes/dark_theme.qss', "r") as theme_qss:
                 self.setStyleSheet(theme_qss.read())
+
+            for key in self.ui.gui_widgets.keys():
+                if 'icon' in self.ui.gui_widgets[key].attributes:
+                    icon_name = self.ui.gui_widgets[key].attributes['icon']
+                    icon_path = f"icons/{icon_name}_D.png"
+                    if hasattr(self.ui.gui_widgets[key], 'setIcon'):
+                        self.ui.gui_widgets[key].setIcon(QtGui.QIcon(f"{icon_path}"))
+                    elif hasattr(self.ui.gui_widgets[key], 'setPixmap'):
+                        self.ui.gui_widgets[key].setPixmap(QtGui.QIcon(f"{icon_path}").pixmap(24))
+
             self.ui.gui_widgets['light_theme_button'].setState(False, False)
             self.ui.gui_widgets['light2_theme_button'].setState(False, False)
 
