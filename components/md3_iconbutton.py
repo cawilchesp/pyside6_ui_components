@@ -56,10 +56,4 @@ class MD3IconButton(QtWidgets.QToolButton):
         
         self.setProperty(self.attributes['type'], True)
 
-        if self.attributes['type'] in ('outlined','standard'):
-            if self.parent.attributes['type'] == 'filled':
-                self.setProperty('parent_filled', True)
-            elif self.parent.attributes['type'] == 'outlined':
-                self.setProperty('parent_outlined', True)
-
         self.clicked.connect(attributes['clicked'])
