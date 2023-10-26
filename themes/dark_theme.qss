@@ -1,6 +1,5 @@
 QWidget {
     background-color: #2e3441;
-    color: #bfe9ff
 }
 
 /* Card */
@@ -12,10 +11,10 @@ MD3Card[filled=true] {
 MD3Card[outlined=true] {
     border: 2px solid #d8dee9;
     border-radius: 12px;
-    background-color: #2e3441
+    background-color: transparent
 }
 QLabel {
-    background-color: #4c566a;
+    background-color: transparent;
     color: #bfe9ff
 }
 
@@ -33,19 +32,12 @@ MD3IconButton[tonal=true] {
 MD3IconButton[outlined=true] {
     border: 2px solid #d8dee9;
     border-radius: 16;
+    background-color: transparent
 }
 MD3IconButton[standard=true] {
     border: 0px solid;
     border-radius: 16;
-}
-MD3IconButton[parent_filled=true] {
-    background-color: #4c566a
-}
-MD3IconButton[parent_outlined=true] {
-    background-color: #2e3441
-}
-MD3IconButton {
-    icon: url(icons/menu_right_D.png)
+    background-color: transparent
 }
 MD3IconButton:checked {
     background-color: #5e81ac;
