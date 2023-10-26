@@ -29,7 +29,6 @@ class MainWindow(QMainWindow):
             self.setStyleSheet(theme_qss.read())
 
 
-
     # ---------------------
     # Icon Button Functions
     # ---------------------
