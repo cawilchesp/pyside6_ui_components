@@ -85,3 +85,38 @@ MD3Button:disabled {
     background-color: #43474e;
     color: #dfe2eb
 }
+
+/* Segmented Button */
+MD3SegmentedButton[left=true] {
+    border: 1px solid #2e3440;
+    border-top-left-radius: 16; border-bottom-left-radius: 16;
+    padding: 0 8 0 8;
+    background-color: transparent;
+    color: #2e3440
+}
+MD3SegmentedButton[center=true] {
+    border: 1px solid #2e3440;
+    border-radius: 0;
+    padding: 0 8 0 8;
+    background-color: transparent;
+    color: #2e3440
+}
+MD3SegmentedButton[right=true] {
+    border: 1px solid #2e3440;
+    border-top-right-radius: 16; border-bottom-right-radius: 16;
+    padding: 0 8 0 8;
+    background-color: transparent;
+    color: #2e3440
+}
+MD3SegmentedButton:checked {
+    background-color: #81a1c1;
+    color: #2e3440
+}
+MD3SegmentedButton:hover {
+    background-color: #5e81ac;
+    color: #2e3440
+}
+MD3SegmentedButton:disabled {
+    background-color: #dfe2eb;
+    color: #43474e
+}
