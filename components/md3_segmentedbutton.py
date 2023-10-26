@@ -3,13 +3,8 @@ PySide6 Segmented Button component adapted to follow Material Design 3 guideline
 
 
 """
-
 from PySide6 import QtGui, QtWidgets
 from PySide6.QtCore import Qt
-
-from components.style_color import colors
-
-import sys
 
 # ----------------
 # Segmented Button
@@ -61,9 +56,6 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
         self.attributes = attributes
         self.parent = parent
 
-        self.name = attributes['name']
-        self.setObjectName(self.name)
-
         x, y = attributes['position'] if 'position' in attributes else (8,8)
         w = attributes['width'] if 'width' in attributes else 32
         self.setGeometry(x, y, w, 32)
@@ -71,7 +63,14 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setCheckable(True)
 
-        self.setThemeStyle(attributes['theme'])
+        icon_theme = 'L' if self.attributes['theme'] else 'D'
+        icon_image = self.attributes['icon'] if 'icon' in self.attributes else 'none'
+        if self.isChecked() and self.attributes['check_icon']:
+            icon_image = 'done'
+        icon_path = f"icons/{icon_image}_{icon_theme}.png"
+        self.setIcon(QtGui.QIcon(f"{icon_path}"))
+
+        self.setProperty(self.attributes['location'], True)
         self.setState(attributes['state'], attributes['theme'])
         self.setLanguage(attributes['language'])
 
@@ -83,74 +82,13 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
     def setState(self, state: bool, theme: bool) -> None:
         """ Set button state and corresponding icon """
 
+        self.setChecked(state)
         icon_theme = 'L' if theme else 'D'
-        current_path = sys.path[0].replace("\\","/")
-        images_path = f'{current_path}/icons'
-
-        if 'icon' in self.attributes:
-            icon_image = self.attributes['icon']
-        else:
-            icon_image = 'none'
+        icon_image = self.attributes['icon'] if 'icon' in self.attributes else 'none'
         if state and self.attributes['check_icon']:
             icon_image = 'done'
-        self.setChecked(state)
-        self.setIcon(QtGui.QIcon(f'{images_path}/{icon_image}_{icon_theme}.png'))
-
-
-    def setThemeStyle(self, theme: bool) -> None:
-        """ Apply theme style sheet to component """
-
-        if self.parent.attributes['type'] == 'filled':
-            background_color = colors(theme, 'surface_tint')
-        elif self.parent.attributes['type'] == 'outlined':
-            background_color = colors(theme, 'background')
-        color = colors(theme, 'on_secondary')
-        border_color = colors(theme, 'outline')
-
-        checked_background_color = colors(theme, 'secondary')
-        checked_color = colors(theme, 'on_secondary')
-        hover_background_color = colors(theme, 'hover')
-        hover_color = colors(theme, 'on_primary')
-        disabled_background_color = colors(theme, 'disable')
-        disabled_color = colors(theme, 'on_disable')
-
-        icon_theme = 'L' if theme else 'D'
-        current_path = sys.path[0].replace("\\","/")
-        images_path = f'{current_path}/icons'
-        if 'icon' in self.attributes:
-            icon_image = self.attributes['icon']
-        else:
-            icon_image = 'none'
-        if self.isChecked() and self.attributes['check_icon']:
-            icon_image = 'done'
-        self.setIcon(QtGui.QIcon(f'{images_path}/{icon_image}_{icon_theme}.png'))
-
-        if self.attributes['location'] == 'left':
-            border_position = 'border-top-left-radius: 16; border-bottom-left-radius: 16'
-        elif self.attributes['location'] == 'center':
-            border_position = 'border-radius: 0'
-        elif self.attributes['location'] == 'right':
-            border_position = 'border-top-right-radius: 16; border-bottom-right-radius: 16'
-                
-        self.setStyleSheet(f'QToolButton#{self.name} {{ '
-                f'border: 1px solid {border_color};'
-                f'{border_position};'
-                f'padding: 0 8 0 8;'
-                f'background-color: {background_color}; '
-                f'color: {color} '
-                f'}}'
-                f'QToolButton#{self.name}:checked {{ '
-                f'background-color: {checked_background_color};'
-                f'color: {checked_color}'
-                f'}}'
-                f'QToolButton#{self.name}:hover {{ '
-                f'background-color: {hover_background_color};'
-                f'color: {hover_color};'
-                f'}}'
-                f'QToolButton#{self.name}:!enabled {{ '
-                f'background-color: {disabled_background_color};'
-                f'color: {disabled_color}'
-                f'}}')
+        icon_path = f"icons/{icon_image}_{icon_theme}.png"
+        self.setIcon(QtGui.QIcon(f"{icon_path}"))
 
 
     def setLanguage(self, language: int) -> None:
