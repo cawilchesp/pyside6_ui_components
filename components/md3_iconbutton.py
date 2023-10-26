@@ -2,13 +2,8 @@
 PySide6 Icon Button component adapted to follow Material Design 3 guidelines
 
 """
-
 from PySide6 import QtGui, QtWidgets
 from PySide6.QtCore import Qt
-
-from components.style_color import colors
-
-import sys
 
 # -----------
 # Icon Button
@@ -47,9 +42,6 @@ class MD3IconButton(QtWidgets.QToolButton):
         self.attributes = attributes
         self.parent = parent
 
-        self.name = attributes['name']
-        self.setObjectName(self.name)
-
         x, y = attributes['position'] if 'position' in attributes else (8,8)
         self.setGeometry(x, y, 32, 32)
 
@@ -57,18 +49,17 @@ class MD3IconButton(QtWidgets.QToolButton):
         self.setAutoRaise(True)
 
         icon_theme = 'L' if self.attributes['theme'] else 'D'
-        current_path = sys.path[0].replace("\\","/")
-        images_path = f'{current_path}/icons'
-        self.setIcon(QtGui.QIcon(f'{images_path}/{self.attributes["icon"]}_{icon_theme}.png'))
+        icon_path = f"icons/{self.attributes['icon']}_{icon_theme}.png"
+        self.setIcon(QtGui.QIcon(f"{icon_path}"))
 
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
         
         self.setProperty(self.attributes['type'], True)
 
-        self.clicked.connect(attributes['clicked'])
+        if self.attributes['type'] in ('outlined','standard'):
+            if self.parent.attributes['type'] == 'filled':
+                self.setProperty('parent_filled', True)
+            elif self.parent.attributes['type'] == 'outlined':
+                self.setProperty('parent_outlined', True)
 
-    #     elif self.attributes['type'] in ('outlined','standard'):
-    #         if self.parent.attributes['type'] == 'filled':
-    #             background_color = colors(theme, 'surface_tint')
-    #         elif self.parent.attributes['type'] == 'outlined':
-    #             background_color = colors(theme, 'background')
+        self.clicked.connect(attributes['clicked'])
