@@ -142,6 +142,8 @@ class MainWindow(QMainWindow):
                         self.ui.gui_widgets[key].setIcon(QtGui.QIcon(f"{icon_path}"))
                     elif hasattr(self.ui.gui_widgets[key], 'setPixmap'):
                         self.ui.gui_widgets[key].setPixmap(QtGui.QIcon(f"{icon_path}").pixmap(24))
+                if hasattr(self.ui.gui_widgets[key], 'setState'):
+                    self.ui.gui_widgets[key].setState(self.ui.gui_widgets[key].isChecked(), True)
 
             self.ui.gui_widgets['dark_theme_button'].setState(False, True)
             self.ui.gui_widgets['dark2_theme_button'].setState(False, True)
@@ -179,6 +181,8 @@ class MainWindow(QMainWindow):
                         self.ui.gui_widgets[key].setIcon(QtGui.QIcon(f"{icon_path}"))
                     elif hasattr(self.ui.gui_widgets[key], 'setPixmap'):
                         self.ui.gui_widgets[key].setPixmap(QtGui.QIcon(f"{icon_path}").pixmap(24))
+                if hasattr(self.ui.gui_widgets[key], 'setState'):
+                    self.ui.gui_widgets[key].setState(self.ui.gui_widgets[key].isChecked(), False)
 
             self.ui.gui_widgets['light_theme_button'].setState(False, False)
             self.ui.gui_widgets['light2_theme_button'].setState(False, False)
