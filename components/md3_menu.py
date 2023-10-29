@@ -28,6 +28,9 @@ class MD3Menu(QtWidgets.QComboBox):
                 (x, y) -> x, y: upper left corner
             width: int
                 Menu width
+            type: str
+                Card type
+                'filled', 'outlined'
             options: dict
                 Menu options with translations
                 Format: {0: ('es_1', 'en_1'), 1: ('es_2', 'en_2')}
@@ -56,9 +59,6 @@ class MD3Menu(QtWidgets.QComboBox):
         self.attributes = attributes
         self.parent = parent
 
-        self.name = attributes['name']
-        self.setObjectName(self.name)
-
         x, y = attributes['position'] if 'position' in attributes else (8,8)
         w = attributes['width'] if 'width' in attributes else 32
         self.setGeometry(x, y, w, 32)
@@ -78,7 +78,7 @@ class MD3Menu(QtWidgets.QComboBox):
         
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
 
-        self.setThemeStyle(attributes['theme'])
+        self.setProperty(attributes['type'], True)
 
         if 'index_changed' in attributes:
             self.currentIndexChanged.connect(attributes['index_changed'])
@@ -87,47 +87,6 @@ class MD3Menu(QtWidgets.QComboBox):
         if 'activated' in attributes:
             self.activated.connect(attributes['activated'])
         
-
-    def setThemeStyle(self, theme: bool) -> None:
-        """ Apply theme style sheet to component """
-
-        if self.parent.attributes['type'] == 'filled':
-            background_color = colors(theme, 'surface_tint')
-        elif self.parent.attributes['type'] == 'outlined':
-            background_color = colors(theme, 'background')
-        color = colors(theme, 'on_surface')
-        border_color = colors(theme, 'outline')
-        
-        disabled_background_color = colors(theme, 'disable')
-        disabled_color = colors(theme, 'on_disable')
-
-        icon_theme = 'L' if theme else 'D'
-        current_path = sys.path[0].replace("\\","/")
-        images_path = f'{current_path}/icons'
-
-        self.setStyleSheet(f'QComboBox#{self.name} {{ '
-                f'border: 1px solid {color};'
-                f'border-radius: 4; '
-                f'background-color: {background_color}; '
-                f'color: {color} '
-                f'}}'
-                f'QComboBox#{self.name}::drop-down {{ '
-                f'border-color: {border_color} '
-                f'}}'
-                f'QComboBox#{self.name}::down-arrow {{ '
-                f'width: 16; height: 16;'
-                f'image: url({images_path}/menu_right_{icon_theme}.png) '
-                f'}}'
-                f'QComboBox#{self.name}:!Enabled {{ '
-                f'background-color: {disabled_background_color};'
-                f'color: {disabled_color}'
-                f'}}'
-                f'QComboBox#{self.name} QListView {{ '
-                f'border: 1px solid {color}; '
-                f'border-radius: 4;'
-                f'background-color: {background_color}; '
-                f'color: {color} '
-                f'}}')
 
     def setLanguage(self, language: int) -> None:
         """ Change language of label text """
