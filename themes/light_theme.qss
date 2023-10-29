@@ -120,3 +120,26 @@ MD3SegmentedButton:disabled {
     background-color: #dfe2eb;
     color: #43474e
 }
+
+/* Switch */
+MD3Switch[left=true] {
+    border: 2px solid #2e3440;
+    border-right-width: 0px;
+    border-top-left-radius: 16;
+    border-bottom-left-radius: 16;
+    background-color: transparent;
+}
+MD3Switch[right=true]{
+    border: 2px solid #2e3440;
+    border-left-width: 0px;
+    border-top-right-radius: 16;
+    border-bottom-right-radius: 16;
+    background-color: transparent;
+}
+MD3Switch:checked {
+    border: 0px solid;
+    background-color: #81a1c1;
+}
+MD3Switch:disabled {
+    background-color: #dfe2eb;
+}
