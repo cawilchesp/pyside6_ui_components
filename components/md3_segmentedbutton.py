@@ -63,13 +63,6 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setCheckable(True)
 
-        icon_theme = 'L' if self.attributes['theme'] else 'D'
-        icon_image = self.attributes['icon'] if 'icon' in self.attributes else 'none'
-        if self.isChecked() and self.attributes['check_icon']:
-            icon_image = 'done'
-        icon_path = f"icons/{icon_image}_{icon_theme}.png"
-        self.setIcon(QtGui.QIcon(f"{icon_path}"))
-
         self.setProperty(self.attributes['location'], True)
         self.setState(attributes['state'], attributes['theme'])
         self.setLanguage(attributes['language'])
