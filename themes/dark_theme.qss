@@ -13,7 +13,7 @@ MD3Card[outlined=true] {
     border-radius: 12px;
     background-color: transparent
 }
-QLabel {
+MD3Card QLabel {
     background-color: transparent;
     color: #bfe9ff
 }
@@ -89,7 +89,8 @@ MD3Button:disabled {
 /* Segmented Button */
 MD3SegmentedButton[left=true] {
     border: 1px solid #d8dee9;
-    border-top-left-radius: 16; border-bottom-left-radius: 16;
+    border-top-left-radius: 16;
+    border-bottom-left-radius: 16;
     padding: 0 8 0 8;
     background-color: transparent;
     color: #eceff4
@@ -103,7 +104,8 @@ MD3SegmentedButton[center=true] {
 }
 MD3SegmentedButton[right=true] {
     border: 1px solid #d8dee9;
-    border-top-right-radius: 16; border-bottom-right-radius: 16;
+    border-top-right-radius: 16;
+    border-bottom-right-radius: 16;
     padding: 0 8 0 8;
     background-color: transparent;
     color: #eceff4
@@ -144,41 +146,89 @@ MD3Switch:disabled {
     background-color: #43474e;
 }
 
-
-
-
-
-
-
-/* Menu */
-/* QComboBox {
-    border: 1px solid #bfe9ff;
-    border-radius: 4; 
-    background-color: #4c566a; 
-    color: #bfe9ff
+/* Chip */
+MD3Chip {
+    border: 1px solid #d8dee9;
+    border-radius: 8;
+    padding: 0 8 0 8;
+    background-color: transparent;
+    color: #eceff4
 }
-QComboBox::drop-down {
-    border-color: #d8dee9
+MD3Chip:checked {
+    background-color: #5e81ac;
+    color: #eceff4
 }
-QComboBox::down-arrow {
-    width: 16; height: 16;
-    image: url(icons/menu_right_D.png)
+MD3Chip:hover {
+    background-color: #88c0d0;
+    color: #eceff4;
 }
-QComboBox:disabled {
+MD3Chip:disabled {
     background-color: #43474e;
     color: #dfe2eb
 }
-QComboBox QListView {
-    border: 1px solid #bfe9ff; 
+
+/* Menu */
+MD3Menu {
+    border: 1px solid #d8dee9;
+    border-radius: 4; 
+    background-color: transparent; 
+    color: #e5e9f0
+}
+MD3Menu::down-arrow {
+    width: 16;
+    height: 16;
+    image: url(icons/menu_right_D.png)
+}
+MD3Menu:disabled {
+    background-color: #43474e;
+    color: #dfe2eb
+}
+MD3Menu[filled=true] QListView {
+    border: 1px solid #d8dee9; 
     border-radius: 4;
-    background-color: #4c566a; 
-    color: #090e11
-} */
+    background-color: #4c566a;
+    color: #e5e9f0
+}
+MD3Menu[outlined=true] QListView {
+    border: 1px solid #d8dee9; 
+    border-radius: 4;
+    background-color: #2e3441;
+    color: #e5e9f0
+}
 
-
-
-
-
-
-
-
+/* TextField */
+MD3TextField {
+    border: 0px solid;
+    border-radius: 4;
+    background-color: transparent
+}
+MD3TextField:disabled {
+    background-color: #43474e;
+    color: #dfe2eb
+}
+MD3TextField QLineEdit {
+    border: 1px solid #d8dee9;
+    border-radius: 4;
+    padding: 0 8 0 8;
+    background-color: transparent;
+    color: #e5e9f0
+}
+MD3TextField QLineEdit:disabled {
+    background-color: #43474e;
+    color: #dfe2eb
+}
+MD3TextField QLabel {
+    border: 0px solid;
+    padding: 0 4 0 4;
+    color: #e5e9f0
+}
+MD3TextField[filled=true] QLabel {
+    background-color: #4c566a;
+}
+MD3TextField[outlined=true] QLabel {
+    background-color: #2e3441;
+}
+MD3TextField QLabel:disabled {
+    background-color: #43474e;
+    color: #dfe2eb
+}
