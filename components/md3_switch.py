@@ -49,9 +49,6 @@ class MD3Switch(QtWidgets.QToolButton):
         self.attributes = attributes
         self.parent = parent
 
-        self.name = attributes['name']
-        self.setObjectName(self.name)
-
         x, y = attributes['position'] if 'position' in attributes else (0, 0)
         self.setGeometry(x, y, 26, 32)
 
