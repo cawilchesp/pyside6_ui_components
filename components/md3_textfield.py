@@ -30,7 +30,7 @@ class MD3TextField(QtWidgets.QFrame):
             width: int
                 Text field width
             type: str
-                Card type
+                Text field type
                 'filled', 'outlined'
             input: str (optional, any character allowed if not specified)
                 Text field type
