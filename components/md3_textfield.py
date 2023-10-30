@@ -113,7 +113,8 @@ class MD3TextField(QtWidgets.QFrame):
             self.text_field.setMaxLength(attributes['size'])
 
         self.label_field = QtWidgets.QLabel(self)
-        self.label_field.setGeometry(8, 0, 16, 16)
+        self.label_field.move(8, 0)
+        self.label_field.setMargin(4)
         self.label_field.setFont(QtGui.QFont('Segoe UI', 9))
 
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
@@ -127,6 +128,7 @@ class MD3TextField(QtWidgets.QFrame):
             self.text_field.textEdited.connect(attributes['text_edited'])
         if 'text_changed' in attributes:
             self.text_field.textChanged.connect(attributes['text_changed'])
+        
             
 
     def password_action(self) -> None:
@@ -145,3 +147,4 @@ class MD3TextField(QtWidgets.QFrame):
         if language == 0:   self.label_field.setText(self.attributes['labels'][0])
         elif language == 1: self.label_field.setText(self.attributes['labels'][1])
         self.label_field.adjustSize()
+        self.label_field.resize(self.label_field.width(), 20)
