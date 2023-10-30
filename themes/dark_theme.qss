@@ -280,3 +280,28 @@ MD3DatePicker QLabel:disabled {
     background-color: #43474e;
     color: #dfe2eb
 }
+
+/* Label */
+MD3Label {
+    border-radius: 16px;
+    background-color: transparent;
+    color: #81a1c1;
+    padding: 0
+}
+MD3Label[subtitle=true] {
+    border: 0px solid;
+    padding: 0
+}
+MD3Label[icon=true] {
+    border: 0px solid;
+    padding: 4
+}
+MD3Label[value=true] {
+    border: 2px solid #ff8888;
+    padding: 0
+}
+MD3Label[color=true] {
+    border: 2px solid #d8dee9;
+    background-color: #ff8888;
+    padding: 0
+}
