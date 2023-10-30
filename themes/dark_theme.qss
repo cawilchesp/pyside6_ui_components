@@ -219,7 +219,6 @@ MD3TextField QLineEdit:disabled {
 }
 MD3TextField QLabel {
     border: 0px solid;
-    padding: 0 4 0 4;
     color: #e5e9f0
 }
 MD3TextField[filled=true] QLabel {
