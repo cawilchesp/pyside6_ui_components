@@ -231,3 +231,52 @@ MD3TextField QLabel:disabled {
     background-color: #43474e;
     color: #dfe2eb
 }
+
+/* Date Picker */
+MD3DatePicker {
+    border: 0px solid; 
+    border-radius: 4; 
+    background-color: transparent
+}
+MD3DatePicker:disabled {
+    background-color: #43474e;
+    color: #dfe2eb
+}
+MD3DatePicker QDateEdit {
+    border: 1px solid #d8dee9;
+    border-radius: 4;
+    padding: 0 8 0 8;
+    background-color: transparent;
+    color: #e5e9f0;
+}
+MD3DatePicker QDateEdit:disabled {
+    background-color: #43474e;
+    color: #dfe2eb
+}
+MD3DatePicker QDateEdit::drop-down {
+    background-color: #81a1c1;
+    width: 32; 
+    height: 32; 
+    subcontrol-position: center right; 
+    left: -4;
+    border-radius: 16
+}
+MD3DatePicker QDateEdit::down-arrow {
+    image: url(icons/calendar_D.png);
+    width: 16;
+    height: 16
+}
+MD3DatePicker QLabel {
+    border: 0px solid;
+    color: #e5e9f0
+}
+MD3DatePicker[filled=true] QLabel {
+    background-color: #4c566a;
+}
+MD3DatePicker[outlined=true] QLabel {
+    background-color: #2e3441;
+}
+MD3DatePicker QLabel:disabled {
+    background-color: #43474e;
+    color: #dfe2eb
+}
