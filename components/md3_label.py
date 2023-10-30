@@ -62,9 +62,6 @@ class MD3Label(QtWidgets.QLabel):
         self.attributes = attributes
         self.parent = parent
 
-        self.name = attributes['name']
-        self.setObjectName(self.name)
-
         x, y = attributes['position'] if 'position' in attributes else (8,8)
         w = attributes['width'] if 'width' in attributes else 32
         h = 16 if attributes['type'] == 'subtitle' else 32
@@ -78,7 +75,9 @@ class MD3Label(QtWidgets.QLabel):
             label_alignment = Qt.AlignmentFlag.AlignLeft
         self.setAlignment(label_alignment | Qt.AlignmentFlag.AlignVCenter)
 
-        self.setThemeStyle(attributes['theme'])
+        self.setProperty(attributes['type'], True)
+        if 'icon' in attributes:
+            self.setIconLabel(attributes['icon'], attributes['theme'])
         if 'language' in attributes:
             self.setLanguage(attributes['language'])
         
@@ -87,57 +86,19 @@ class MD3Label(QtWidgets.QLabel):
         """ Update icon corresponding to the theme """
 
         self.attributes['icon'] = icon
-
         icon_theme = 'L' if theme else 'D'
-        current_path = sys.path[0].replace("\\","/")
-        images_path = f'{current_path}/icons'
-        self.setPixmap(QtGui.QIcon(f'{images_path}/{self.attributes["icon"]}_{icon_theme}.png').pixmap(24))
+        self.setPixmap(QtGui.QIcon(f'icons/{self.attributes["icon"]}_{icon_theme}.png').pixmap(24))
         
 
-    def setColorLabel(self, color: str, theme: bool) -> None:
-        """ Apply custom color to component """
+    # def setColorLabel(self, color: str, theme: bool) -> None:
+    #     """ Apply custom color to component """
 
-        border_color = colors(theme, 'outline')
-        self.setStyleSheet(f'QLabel#{self.name} {{ '
-                f'border: 2px solid {border_color};'
-                f'border-radius: 16px;'
-                f'background-color: {color} '
-                f'}}')
-
-
-    def setThemeStyle(self, theme: bool) -> None:
-        """ Apply theme style sheet to component """
-        
-        if self.parent.attributes['type'] == 'filled':
-            background_color = colors(theme, 'surface_tint')
-        elif self.parent.attributes['type'] == 'outlined':
-            background_color = colors(theme, 'background')
-        color = colors(theme, 'primary')
-            
-        if self.attributes['type'] in ('subtitle', 'icon'):
-            thickness = 0
-            border_color = None
-        elif self.attributes['type'] == 'value':
-            thickness = 2
-            border_color = self.attributes['border_color']
-        elif self.attributes['type'] == 'color':
-            thickness = 2
-            border_color = colors(theme, 'outline')
-            background_color = self.attributes['color']
-        padding = '4px' if self.attributes['type'] == 'icon' else '0px'
-
-        if 'icon' in self.attributes:
-            icon_theme = 'L' if theme else 'D'
-            current_path = sys.path[0].replace("\\","/")
-            images_path = f'{current_path}/icons'
-            self.setPixmap(QtGui.QIcon(f'{images_path}/{self.attributes["icon"]}_{icon_theme}.png').pixmap(24))
-
-        self.setStyleSheet(f'QLabel#{self.name} {{ '
-                f'border: {thickness}px solid {border_color};'
-                f'border-radius: 16px;'
-                f'background-color: {background_color};'
-                f'color: {color};'
-                f'padding: {padding} }}' )
+    #     border_color = colors(theme, 'outline')
+    #     self.setStyleSheet(f'QLabel#{self.name} {{ '
+    #             f'border: 2px solid {border_color};'
+    #             f'border-radius: 16px;'
+    #             f'background-color: {color} '
+    #             f'}}')
 
 
     def setLanguage(self, language: int) -> None:
