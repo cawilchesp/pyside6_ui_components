@@ -6,8 +6,6 @@ PySide6 Chip component adapted to follow Material Design 3 guidelines
 from PySide6 import QtGui, QtWidgets
 from PySide6.QtCore import Qt
 
-from components.style_color import colors
-
 import sys
 
 # ----
