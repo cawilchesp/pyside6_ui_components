@@ -8,8 +8,6 @@ from PySide6 import QtGui, QtWidgets
 from PySide6.QtCore import QRegularExpression
 from PySide6.QtGui import QRegularExpressionValidator
 
-from components.style_color import colors
-
 import sys
 
 # ----------
