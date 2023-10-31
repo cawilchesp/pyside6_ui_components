@@ -41,9 +41,6 @@ class MD3ImageLabel(QtWidgets.QLabel):
         self.attributes = attributes
         self.parent = parent
 
-        self.name = attributes['name']
-        self.setObjectName(self.name)
-
         x, y = attributes['position'] if 'position' in attributes else (8,8)
         w, h = attributes['size'] if 'size' in attributes else (96, 96)
         self.setGeometry(x, y, w, h)
@@ -51,20 +48,3 @@ class MD3ImageLabel(QtWidgets.QLabel):
         self.setScaledContents(attributes['scaled_image'])
         
         self.setFrameStyle(QtWidgets.QFrame.Shape.Box)
-
-        self.setThemeStyle(attributes['theme'])
-    
-
-    def setThemeStyle(self, theme: bool) -> None:
-        """ Apply theme style sheet to component """
-        
-        if self.parent.attributes['type'] == 'filled':
-            background_color = colors(theme, 'surface_tint')
-        elif self.parent.attributes['type'] == 'outlined':
-            background_color = colors(theme, 'background')
-        border_color = colors(theme, 'outline')
-        
-        self.setStyleSheet(f'QLabel#{self.name} {{ '
-                f'border: 1px solid {border_color};'
-                f'background-color: {background_color};'
-                f'}}' )
