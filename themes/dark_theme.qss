@@ -305,3 +305,31 @@ MD3Label[color=true] {
     background-color: #ff8888;
     padding: 0
 }
+
+/* Slider */
+MD3Slider { 
+    background-color: transparent
+}
+MD3Slider::groove:horizontal {
+    background: #494949;
+    height: 4px
+}
+MD3Slider::handle:horizontal {
+    background-color: #81a1c1; 
+    width: 20px; 
+    height: 20px; 
+    margin: -8px 0;
+    border-radius: 10px
+}
+MD3Slider::handle:disabled {
+    background-color: #dfe2eb
+}
+MD3Slider::add-page:horizontal {
+    background: #494949
+}
+MD3Slider::sub-page:horizontal {
+    background: #81a1c1
+}
+MD3Slider::sub-page:disabled {
+    background: #dfe2eb
+}
