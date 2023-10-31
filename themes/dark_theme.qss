@@ -339,3 +339,9 @@ MD3Divider {
     border: 1px solid #d8dee9;
     background-color: transparent
 }
+
+/* Image Label */
+MD3ImageLabel {
+    border: 1px solid #d8dee9;
+    background-color: transparent
+}
