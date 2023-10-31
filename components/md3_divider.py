@@ -5,8 +5,6 @@ PySide6 Divider component adapted to follow Material Design 3 guidelines
 
 from PySide6 import QtWidgets
 
-from components.style_color import colors
-
 import sys
 
 # -------
