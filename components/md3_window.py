@@ -3,8 +3,6 @@ PySide6 Main Window
 
 """
 
-from components.style_color import colors
-
 # ------
 # Window
 # ------
@@ -54,27 +52,7 @@ class MD3Window:
             w_max, h_max = attributes['maximum_size']
             self.parent.setMaximumSize(w_max, h_max)
 
-        self.setThemeStyle(attributes['theme'])
         self.setLanguage(attributes['language'])
-            
-
-    def setThemeStyle(self, theme: bool) -> None:
-        """ Apply theme style sheet to component """
-        
-        background_color = colors(theme, 'background')
-        color = colors(theme, 'on_background')
-        menu_color = colors(theme, 'on_surface')
-        menu_border_color = colors(theme, 'on_background')
-        menu_background_color = colors(theme, 'surface')
-
-        self.parent.setStyleSheet(f'QWidget {{ '
-                f'background-color: {background_color};'
-                f'color: {color} }}'
-                f'QComboBox QListView {{ '
-                f'border: 1px solid {menu_border_color}; '
-                f'border-radius: 4;'
-                f'background-color: {menu_background_color}; '
-                f'color: {menu_color} }}')
 
 
     def setLanguage(self, language: int) -> None:
