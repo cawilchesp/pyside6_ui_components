@@ -333,3 +333,9 @@ MD3Slider::sub-page:horizontal {
 MD3Slider::sub-page:disabled {
     background: #dfe2eb
 }
+
+/* Divider */
+MD3Divider {
+    border: 1px solid #d8dee9;
+    background-color: transparent
+}
