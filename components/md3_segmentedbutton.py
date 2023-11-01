@@ -65,7 +65,7 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
 
         self.setProperty(self.attributes['location'], True)
         self.setState(attributes['state'], attributes['theme'])
-        self.setLanguage(attributes['language'])
+        self.set_language(attributes['language'])
 
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
 
@@ -84,7 +84,7 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
         self.setIcon(QtGui.QIcon(f"{icon_path}"))
 
 
-    def setLanguage(self, language: int) -> None:
+    def set_language(self, language: int) -> None:
         """ Change language of label text """
         if 'labels' in self.attributes:
             if language == 0:   self.setText(self.attributes['labels'][0])
