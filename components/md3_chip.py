@@ -63,7 +63,7 @@ class MD3Chip(QtWidgets.QToolButton):
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
 
         self.setState(attributes['state'], attributes['theme'])
-        self.setLanguage(attributes['language'])
+        self.set_language(attributes['language'])
 
         self.clicked.connect(attributes['clicked'])
 
@@ -79,7 +79,7 @@ class MD3Chip(QtWidgets.QToolButton):
         self.setIcon(QtGui.QIcon(f'icons/{icon_image}_{icon_theme}.png'))
 
 
-    def setLanguage(self, language: int) -> None:
+    def set_language(self, language: int) -> None:
         """ Change language of label text """
         if language == 0:   self.setText(self.attributes['labels'][0])
         elif language == 1: self.setText(self.attributes['labels'][1])
