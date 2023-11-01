@@ -5,6 +5,7 @@ import sys
 import yaml
 
 from main_ui import UI
+from icon_color import icon_color
 
 
 class MainWindow(QMainWindow):
@@ -19,12 +20,13 @@ class MainWindow(QMainWindow):
 
         self.language_value = int(self.config['LANGUAGE'])
         self.theme_value = self.config['THEME']
+        self.theme_color = self.config['COLOR']
 
         # ----------------
         # Generación de UI
         # ----------------
         self.ui = UI(self)
-        theme_file = 'themes/blue_light_theme.qss' if self.theme_value else 'themes/blue_dark_theme.qss'
+        theme_file = f"themes/{self.theme_color}_light_theme.qss" if self.theme_value else f"themes/{self.theme_color}_dark_theme.qss"
         with open(theme_file, "r") as theme_qss:
             self.setStyleSheet(theme_qss.read())
 
@@ -69,7 +71,12 @@ class MainWindow(QMainWindow):
         self.ui.gui_widgets['color1_label'].set_color_label(color)
 
     def on_boton3_button_clicked(self) -> None:
-        print('Button 3 clicked')
+        selected_color = QtGui.QColor.fromHslF(0.13, 1.0, 0.67)
+        colorized_icon = icon_color(selected_color, 'car_L')
+
+        self.ui.gui_widgets['icon4_button'].setIcon(colorized_icon)
+
+
 
     def on_boton4_button_clicked(self) -> None:
         print('Button 4 clicked')
@@ -131,7 +138,7 @@ class MainWindow(QMainWindow):
         None
         """
         if state:
-            with open('themes/blue_light_theme.qss', "r") as theme_qss:
+            with open(f"themes/{self.theme_color}_light_theme.qss", "r") as theme_qss:
                 self.setStyleSheet(theme_qss.read())
 
             for key in self.ui.gui_widgets.keys():
@@ -170,7 +177,7 @@ class MainWindow(QMainWindow):
         None
         """
         if state:
-            with open('themes/blue_dark_theme.qss', "r") as theme_qss:
+            with open(f"themes/{self.theme_color}_dark_theme.qss", "r") as theme_qss:
                 self.setStyleSheet(theme_qss.read())
 
             for key in self.ui.gui_widgets.keys():
