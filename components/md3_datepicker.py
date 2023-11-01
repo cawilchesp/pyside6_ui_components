@@ -69,10 +69,10 @@ class MD3DatePicker(QtWidgets.QFrame):
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
 
         self.setProperty(attributes['type'], True)
-        self.setLanguage(attributes['language'])
+        self.set_language(attributes['language'])
 
 
-    def setLanguage(self, language: int) -> None:
+    def set_language(self, language: int) -> None:
         """ Change language of label text """
         if language == 0:   self.label_field.setText(self.attributes['labels'][0])
         elif language == 1: self.label_field.setText(self.attributes['labels'][1])
