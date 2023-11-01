@@ -52,10 +52,10 @@ class MD3Window:
             w_max, h_max = attributes['maximum_size']
             self.parent.setMaximumSize(w_max, h_max)
 
-        self.setLanguage(attributes['language'])
+        self.set_language(attributes['language'])
 
 
-    def setLanguage(self, language: int) -> None:
+    def set_language(self, language: int) -> None:
         """ Change language of title text """
         if 'labels' in self.attributes:
             if language == 0:   self.parent.setWindowTitle(self.attributes['labels'][0])
