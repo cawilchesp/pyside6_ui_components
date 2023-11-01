@@ -64,7 +64,7 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
         self.setCheckable(True)
 
         self.setProperty(self.attributes['location'], True)
-        self.setState(attributes['state'], attributes['theme'])
+        self.set_state(attributes['state'], attributes['theme'])
         self.set_language(attributes['language'])
 
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
@@ -72,7 +72,7 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
         self.clicked.connect(attributes['clicked'])
         
 
-    def setState(self, state: bool, theme: bool) -> None:
+    def set_state(self, state: bool, theme: bool) -> None:
         """ Set button state and corresponding icon """
 
         self.setChecked(state)
