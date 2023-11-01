@@ -112,47 +112,45 @@ MD3SegmentedButton:disabled {
 }
 
 /* Switch */
+MD3Switch {
+    border: 2px solid hsl(229, 53%, 53%);
+    background-color: transparent;
+}
 MD3Switch[left=true] {
-    border: 2px solid #d8dee9;
     border-right-width: 0px;
     border-top-left-radius: 16;
     border-bottom-left-radius: 16;
-    background-color: transparent;
 }
 MD3Switch[right=true]{
-    border: 2px solid #d8dee9;
     border-left-width: 0px;
     border-top-right-radius: 16;
     border-bottom-right-radius: 16;
-    background-color: transparent;
 }
 MD3Switch:checked {
-    border: 0px solid;
-    background-color: #5e81ac;
+    background-color: hsl(229, 53%, 53%);
 }
 MD3Switch:disabled {
-    background-color: #43474e;
+    background-color: hsl(0, 0%, 71%);
 }
 
 /* Chip */
 MD3Chip {
-    border: 1px solid #d8dee9;
+    border: 1px solid hsl(229, 53%, 53%);
     border-radius: 8;
     padding: 0 8 0 8;
     background-color: transparent;
-    color: #eceff4
+    color: hsl(229, 53%, 86%)
 }
 MD3Chip:checked {
-    background-color: #5e81ac;
-    color: #eceff4
+    background-color: hsl(229, 53%, 53%);
+    color: hsl(229, 53%, 86%)
 }
 MD3Chip:hover {
-    background-color: #88c0d0;
-    color: #eceff4;
+    background-color: hsl(348, 100%, 61%);
 }
 MD3Chip:disabled {
-    background-color: #43474e;
-    color: #dfe2eb
+    background-color: hsl(0, 0%, 71%);
+    color: hsl(0, 0%, 29%)
 }
 
 /* Menu */
