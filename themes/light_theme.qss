@@ -1,7 +1,5 @@
-$background = #eceff4;
-
 QWidget {
-    background-color: $background;
+    background-color: #eceff4;
 }
 
 /* Card */
