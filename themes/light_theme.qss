@@ -1,124 +1,114 @@
 QWidget {
-    background-color: #eceff4;
+    background-color: hsl(0, 0%, 100%);
 }
 
 /* Card */
 MD3Card[filled=true] {
     border: 0px solid;
     border-radius: 12px;
-    background-color: #d8dee9
+    background-color: hsl(0, 0%, 86%)
 }
 MD3Card[outlined=true] {
-    border: 2px solid #2e3440;
+    border: 2px solid hsl(229, 53%, 53%);
     border-radius: 12px;
     background-color: transparent
 }
 MD3Card QLabel {
     background-color: transparent;
-    color: #001f2a
+    color: hsl(0, 0%, 21%)
 }
 
 /* Icon Button */
-MD3IconButton[filled=true] {
-    border: 0px solid;
+MD3IconButton {
+    border-style: solid;
     border-radius: 16;
-    background-color: #5e81ac
+}
+MD3IconButton[filled=true] {
+    border-width: 0px;
+    background-color: hsl(229, 53%, 53%);
 }
 MD3IconButton[tonal=true] {
-    border: 0px solid;
-    border-radius: 16;
-    background-color: #81a1c1
+    border-width: 0px;
+    background-color: hsl(229, 53%, 86%)
 }
 MD3IconButton[outlined=true] {
-    border: 2px solid #2e3440;
-    border-radius: 16;
+    border-width: 2px;
+    border-color: hsl(229, 53%, 53%);
     background-color: transparent
 }
 MD3IconButton[standard=true] {
-    border: 0px solid;
-    border-radius: 16;
+    border-width: 0px;
     background-color: transparent
 }
-MD3IconButton:checked {
-    background-color: #5e81ac;
-    color: #eceff4
-}
 MD3IconButton:hover {
-    background-color: #88c0d0;
-    color: #eceff4
+    background-color: hsl(348, 100%, 61%);
 }
 MD3IconButton:disabled {
-    background-color: #43474e;
-    color: #dfe2eb
+    background-color: hsl(0, 0%, 71%);
 }
 
 /* Button */
-MD3Button[filled=true] {
-    border: 0px solid;
+MD3Button {
+    border-style: solid;
     border-radius: 16;
-    background-color: #5e81ac;
-    color: #2e3440
+}
+MD3Button[filled=true] {
+    border-width: 0px;
+    background-color: hsl(229, 53%, 53%);
+    color: hsl(229, 53%, 86%)
 }
 MD3Button[tonal=true] {
-    border: 0px solid;
-    border-radius: 16;
-    background-color: #81a1c1;
-    color: #2e3440
+    border-width: 0px;
+    background-color: hsl(229, 53%, 86%);
+    color: hsl(229, 53%, 53%)
 }
 MD3Button[outlined=true] {
-    border: 2px solid #2e3440;
-    border-radius: 16;
+    border-width: 2px;
+    border-color: hsl(229, 53%, 53%);
     background-color: transparent;
-    color: #5e81ac
+    color: hsl(229, 53%, 53%)
 }
 MD3Button[standard=true] {
-    border: 0px solid;
-    border-radius: 16;
+    border-width: 0px;
     background-color: transparent;
-    color: #5e81ac
+    color: hsl(229, 53%, 53%)
 }
 MD3Button:hover {
-    background-color: #88c0d0;
-    color: #eceff4
+    background-color: hsl(348, 100%, 61%);
 }
 MD3Button:disabled {
-    background-color: #43474e;
-    color: #dfe2eb
+    background-color: hsl(0, 0%, 71%);
+    color: hsl(0, 0%, 29%)
 }
 
 /* Segmented Button */
-MD3SegmentedButton[left=true] {
-    border: 1px solid #2e3440;
-    border-top-left-radius: 16; border-bottom-left-radius: 16;
+MD3SegmentedButton {
+    border: 1px solid hsl(229, 53%, 53%);
     padding: 0 8 0 8;
     background-color: transparent;
-    color: #2e3440
+    color: hsl(229, 53%, 53%)
+}
+MD3SegmentedButton[left=true] {
+    border-top-left-radius: 16;
+    border-bottom-left-radius: 16;
 }
 MD3SegmentedButton[center=true] {
-    border: 1px solid #2e3440;
     border-radius: 0;
-    padding: 0 8 0 8;
-    background-color: transparent;
-    color: #2e3440
 }
 MD3SegmentedButton[right=true] {
-    border: 1px solid #2e3440;
-    border-top-right-radius: 16; border-bottom-right-radius: 16;
-    padding: 0 8 0 8;
-    background-color: transparent;
-    color: #2e3440
+    border-top-right-radius: 16;
+    border-bottom-right-radius: 16;
 }
 MD3SegmentedButton:checked {
-    background-color: #81a1c1;
-    color: #2e3440
+    background-color: hsl(229, 53%, 53%);
+    color: hsl(229, 53%, 86%)
 }
 MD3SegmentedButton:hover {
-    background-color: #5e81ac;
-    color: #2e3440
+    background-color: hsl(348, 100%, 61%);
 }
 MD3SegmentedButton:disabled {
-    background-color: #dfe2eb;
-    color: #43474e
+    background-color: hsl(0, 0%, 71%);
+    color: hsl(0, 0%, 29%)
 }
 
 /* Switch */
