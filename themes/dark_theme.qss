@@ -297,12 +297,14 @@ MD3Label[icon=true] {
     padding: 4
 }
 MD3Label[value=true] {
-    border: 2px solid #ff8888;
+    border-width: 2px;
+    border-style: solid;
     padding: 0
 }
 MD3Label[color=true] {
-    border: 2px solid #d8dee9;
-    background-color: #ff8888;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #d8dee9;
     padding: 0
 }
 
