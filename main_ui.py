@@ -80,7 +80,7 @@ class UI(QWidget):
             'position': (48,48),
             'type': 'tonal',
             'icon': 'delete', 
-            'enabled': False,
+            'enabled': True,
             'theme': self.theme_value,
             'clicked': parent.on_icon2_button_clicked } )
         
@@ -131,7 +131,7 @@ class UI(QWidget):
             'width': 100,
             'type': 'outlined',
             'icon': 'delete',
-            'enabled': False,
+            'enabled': True,
             'labels': ('Borrar','Delete'),
             'theme': self.theme_value,
             'language': self.language_value,
@@ -492,7 +492,7 @@ class UI(QWidget):
             'position': (48,48),
             'type': 'tonal',
             'icon': 'delete', 
-            'enabled': False,
+            'enabled': True,
             'theme': self.theme_value,
             'clicked': parent.on_icon6_button_clicked } )
         
