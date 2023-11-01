@@ -24,7 +24,7 @@ class MainWindow(QMainWindow):
         # Generación de UI
         # ----------------
         self.ui = UI(self)
-        theme_file = 'themes/light_theme.qss' if self.theme_value else 'themes/dark_theme.qss'
+        theme_file = 'themes/blue_light_theme.qss' if self.theme_value else 'themes/blue_dark_theme.qss'
         with open(theme_file, "r") as theme_qss:
             self.setStyleSheet(theme_qss.read())
 
@@ -131,7 +131,7 @@ class MainWindow(QMainWindow):
         None
         """
         if state:
-            with open('themes/light_theme.qss', "r") as theme_qss:
+            with open('themes/blue_light_theme.qss', "r") as theme_qss:
                 self.setStyleSheet(theme_qss.read())
 
             for key in self.ui.gui_widgets.keys():
@@ -170,7 +170,7 @@ class MainWindow(QMainWindow):
         None
         """
         if state:
-            with open('themes/dark_theme.qss', "r") as theme_qss:
+            with open('themes/blue_dark_theme.qss', "r") as theme_qss:
                 self.setStyleSheet(theme_qss.read())
 
             for key in self.ui.gui_widgets.keys():
