@@ -62,13 +62,13 @@ class MD3Chip(QtWidgets.QToolButton):
 
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
 
-        self.setState(attributes['state'], attributes['theme'])
+        self.set_state(attributes['state'], attributes['theme'])
         self.set_language(attributes['language'])
 
         self.clicked.connect(attributes['clicked'])
 
         
-    def setState(self, state: bool, theme: bool) -> None:
+    def set_state(self, state: bool, theme: bool) -> None:
         """ Set button state and corresponding icon """
         
         self.setChecked(state)
