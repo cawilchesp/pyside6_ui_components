@@ -63,7 +63,7 @@ class MD3Menu(QtWidgets.QComboBox):
 
         if 'options' in attributes:
             self.max_items = len(attributes['options']) if len(attributes['options']) < 6 else 10
-            self.setLanguage(attributes['language'])
+            self.set_language(attributes['language'])
         else:
             self.max_items = 10
 
@@ -86,7 +86,7 @@ class MD3Menu(QtWidgets.QComboBox):
             self.activated.connect(attributes['activated'])
         
 
-    def setLanguage(self, language: int) -> None:
+    def set_language(self, language: int) -> None:
         """ Change language of label text """
         if 'options' in self.attributes:
             for key, value in self.attributes['options'].items():
