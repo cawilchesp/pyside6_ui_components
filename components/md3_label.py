@@ -77,7 +77,7 @@ class MD3Label(QtWidgets.QLabel):
         if 'icon' in attributes:
             self.setIconLabel(attributes['icon'], attributes['theme'])
         if 'language' in attributes:
-            self.setLanguage(attributes['language'])
+            self.set_language(attributes['language'])
         
 
     def setIconLabel(self, icon: str, theme: bool) -> None:
@@ -99,7 +99,7 @@ class MD3Label(QtWidgets.QLabel):
     #             f'}}')
 
 
-    def setLanguage(self, language: int) -> None:
+    def set_language(self, language: int) -> None:
         """ Change language of title text """
         if 'labels' in self.attributes:
             if language == 0:   self.setText(self.attributes['labels'][0])
