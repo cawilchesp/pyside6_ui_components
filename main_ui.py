@@ -423,6 +423,7 @@ class UI(QWidget):
             'width': 100,
             'range': (0, 1, 100),
             'value': 50,
+            'enabled': False,
             'slider_moved': parent.on_test1_slider_sliderMoved,
             'slider_released': parent.on_test1_slider_sliderReleased,
             'theme': self.theme_value } )
