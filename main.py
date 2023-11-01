@@ -91,28 +91,28 @@ class MainWindow(QMainWindow):
     # Segmented Button Functions
     # --------------------------
     def on_left_segmented1_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['left_segmented1_button'].setState(state, self.theme_value)
+        self.ui.gui_widgets['left_segmented1_button'].set_state(state, self.theme_value)
         
     def on_center1_segmented1_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['center1_segmented1_button'].setState(state, self.theme_value)
+        self.ui.gui_widgets['center1_segmented1_button'].set_state(state, self.theme_value)
 
     def on_center2_segmented1_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['center2_segmented1_button'].setState(state, self.theme_value)
+        self.ui.gui_widgets['center2_segmented1_button'].set_state(state, self.theme_value)
 
     def on_right_segmented1_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['right_segmented1_button'].setState(state, self.theme_value)
+        self.ui.gui_widgets['right_segmented1_button'].set_state(state, self.theme_value)
 
     def on_left_segmented2_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['left_segmented2_button'].setState(state, self.theme_value)
+        self.ui.gui_widgets['left_segmented2_button'].set_state(state, self.theme_value)
 
     def on_center1_segmented2_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['center1_segmented2_button'].setState(state, self.theme_value)
+        self.ui.gui_widgets['center1_segmented2_button'].set_state(state, self.theme_value)
 
     def on_center2_segmented2_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['center2_segmented2_button'].setState(state, self.theme_value)
+        self.ui.gui_widgets['center2_segmented2_button'].set_state(state, self.theme_value)
 
     def on_right_segmented2_button_clicked(self, state:bool) -> None:
-        self.ui.gui_widgets['right_segmented2_button'].setState(state, self.theme_value)
+        self.ui.gui_widgets['right_segmented2_button'].set_state(state, self.theme_value)
 
 
     # ---------------------------------
@@ -142,11 +142,11 @@ class MainWindow(QMainWindow):
                         self.ui.gui_widgets[key].setIcon(QtGui.QIcon(f"{icon_path}"))
                     elif hasattr(self.ui.gui_widgets[key], 'setPixmap'):
                         self.ui.gui_widgets[key].setPixmap(QtGui.QIcon(f"{icon_path}").pixmap(24))
-                if hasattr(self.ui.gui_widgets[key], 'setState'):
-                    self.ui.gui_widgets[key].setState(self.ui.gui_widgets[key].isChecked(), True)
+                if hasattr(self.ui.gui_widgets[key], 'set_state'):
+                    self.ui.gui_widgets[key].set_state(self.ui.gui_widgets[key].isChecked(), True)
 
-            self.ui.gui_widgets['dark_theme_button'].setState(False, True)
-            self.ui.gui_widgets['dark2_theme_button'].setState(False, True)
+            self.ui.gui_widgets['dark_theme_button'].set_state(False, True)
+            self.ui.gui_widgets['dark2_theme_button'].set_state(False, True)
     
             # Save settings
             self.theme_value = True
@@ -154,8 +154,8 @@ class MainWindow(QMainWindow):
             with open(self.settings_file, 'w') as file:
                 yaml.dump(self.config, file)
         
-        self.ui.gui_widgets['light_theme_button'].setState(True, True)
-        self.ui.gui_widgets['light2_theme_button'].setState(True, True)
+        self.ui.gui_widgets['light_theme_button'].set_state(True, True)
+        self.ui.gui_widgets['light2_theme_button'].set_state(True, True)
 
     def on_dark_theme_clicked(self, state: bool) -> None:
         """ Dark theme segmented control to change components stylesheet
@@ -181,11 +181,11 @@ class MainWindow(QMainWindow):
                         self.ui.gui_widgets[key].setIcon(QtGui.QIcon(f"{icon_path}"))
                     elif hasattr(self.ui.gui_widgets[key], 'setPixmap'):
                         self.ui.gui_widgets[key].setPixmap(QtGui.QIcon(f"{icon_path}").pixmap(24))
-                if hasattr(self.ui.gui_widgets[key], 'setState'):
-                    self.ui.gui_widgets[key].setState(self.ui.gui_widgets[key].isChecked(), False)
+                if hasattr(self.ui.gui_widgets[key], 'set_state'):
+                    self.ui.gui_widgets[key].set_state(self.ui.gui_widgets[key].isChecked(), False)
 
-            self.ui.gui_widgets['light_theme_button'].setState(False, False)
-            self.ui.gui_widgets['light2_theme_button'].setState(False, False)
+            self.ui.gui_widgets['light_theme_button'].set_state(False, False)
+            self.ui.gui_widgets['light2_theme_button'].set_state(False, False)
 
             # Save settings
             self.theme_value = False
@@ -193,42 +193,42 @@ class MainWindow(QMainWindow):
             with open(self.settings_file, 'w') as file:
                 yaml.dump(self.config, file)
 
-        self.ui.gui_widgets['dark_theme_button'].setState(True, False)
-        self.ui.gui_widgets['dark2_theme_button'].setState(True, False)
+        self.ui.gui_widgets['dark_theme_button'].set_state(True, False)
+        self.ui.gui_widgets['dark2_theme_button'].set_state(True, False)
 
 
     # ---------------
     # Chips Functions
     # ---------------
     def on_chip1_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip1_button'].setState(state, self.theme_value)
+        self.ui.gui_widgets['chip1_button'].set_state(state, self.theme_value)
 
     def on_chip2_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip2_button'].setState(state, self.theme_value)
+        self.ui.gui_widgets['chip2_button'].set_state(state, self.theme_value)
 
     def on_chip3_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip3_button'].setState(state, self.theme_value)
+        self.ui.gui_widgets['chip3_button'].set_state(state, self.theme_value)
 
     def on_chip4_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip4_button'].setState(state, self.theme_value)
+        self.ui.gui_widgets['chip4_button'].set_state(state, self.theme_value)
 
     def on_chip5_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip5_button'].setState(state, self.theme_value)
+        self.ui.gui_widgets['chip5_button'].set_state(state, self.theme_value)
 
     def on_chip6_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip6_button'].setState(state, self.theme_value)
+        self.ui.gui_widgets['chip6_button'].set_state(state, self.theme_value)
 
 
     # ----------------
     # Switch Functions
     # ----------------
     def on_test1_switch_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['test1_on_switch'].setState(state, self.theme_value)
-        self.ui.gui_widgets['test1_off_switch'].setState(state, self.theme_value)
+        self.ui.gui_widgets['test1_on_switch'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['test1_off_switch'].set_state(state, self.theme_value)
         
     def on_test2_switch_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['test2_on_switch'].setState(state, self.theme_value)
-        self.ui.gui_widgets['test2_off_switch'].setState(state, self.theme_value)
+        self.ui.gui_widgets['test2_on_switch'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['test2_off_switch'].set_state(state, self.theme_value)
 
     # -------------
     # Menu Function
