@@ -48,10 +48,10 @@ class MD3Card(QtWidgets.QFrame):
         self.title.setFont(QtGui.QFont('Segoe UI', 14))
 
         self.setProperty(self.attributes['type'], True)
-        self.setLanguage(attributes['language'])
+        self.set_language(attributes['language'])
 
 
-    def setLanguage(self, language: int) -> None:
+    def set_language(self, language: int) -> None:
         """ Change language of title text """
         if 'titles' in self.attributes:
             if language == 0:   self.title.setText(self.attributes['titles'][0])
