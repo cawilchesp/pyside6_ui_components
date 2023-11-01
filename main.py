@@ -19,14 +19,14 @@ class MainWindow(QMainWindow):
             self.config = yaml.safe_load(file)
 
         self.language_value = int(self.config['LANGUAGE'])
-        self.theme_value = self.config['THEME']
-        self.theme_color = self.config['COLOR']
+        self.theme_style = self.config['THEME_STYLE']
+        self.theme_color = self.config['THEME_COLOR']
 
         # ----------------
         # Generación de UI
         # ----------------
         self.ui = UI(self)
-        theme_file = f"themes/{self.theme_color}_light_theme.qss" if self.theme_value else f"themes/{self.theme_color}_dark_theme.qss"
+        theme_file = f"themes/{self.theme_color}_light_theme.qss" if self.theme_style else f"themes/{self.theme_color}_dark_theme.qss"
         with open(theme_file, "r") as theme_qss:
             self.setStyleSheet(theme_qss.read())
 
@@ -63,7 +63,7 @@ class MainWindow(QMainWindow):
     # Button Functions
     # ----------------
     def on_boton1_button_clicked(self) -> None:
-        self.ui.gui_widgets['icon1_label'].set_icon_label('calendar', self.theme_value)
+        self.ui.gui_widgets['icon1_label'].set_icon_label('calendar', self.theme_style)
 
     def on_boton2_button_clicked(self) -> None:
         selected_color = QtWidgets.QColorDialog.getColor()
@@ -98,28 +98,28 @@ class MainWindow(QMainWindow):
     # Segmented Button Functions
     # --------------------------
     def on_left_segmented1_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['left_segmented1_button'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['left_segmented1_button'].set_state(state, self.theme_style)
         
     def on_center1_segmented1_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['center1_segmented1_button'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['center1_segmented1_button'].set_state(state, self.theme_style)
 
     def on_center2_segmented1_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['center2_segmented1_button'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['center2_segmented1_button'].set_state(state, self.theme_style)
 
     def on_right_segmented1_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['right_segmented1_button'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['right_segmented1_button'].set_state(state, self.theme_style)
 
     def on_left_segmented2_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['left_segmented2_button'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['left_segmented2_button'].set_state(state, self.theme_style)
 
     def on_center1_segmented2_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['center1_segmented2_button'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['center1_segmented2_button'].set_state(state, self.theme_style)
 
     def on_center2_segmented2_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['center2_segmented2_button'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['center2_segmented2_button'].set_state(state, self.theme_style)
 
     def on_right_segmented2_button_clicked(self, state:bool) -> None:
-        self.ui.gui_widgets['right_segmented2_button'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['right_segmented2_button'].set_state(state, self.theme_style)
 
 
     # ---------------------------------
@@ -156,8 +156,8 @@ class MainWindow(QMainWindow):
             self.ui.gui_widgets['dark2_theme_button'].set_state(False, True)
     
             # Save settings
-            self.theme_value = True
-            self.config['THEME'] = True
+            self.theme_style = True
+            self.config['THEME_STYLE'] = True
             with open(self.settings_file, 'w') as file:
                 yaml.dump(self.config, file)
         
@@ -195,8 +195,8 @@ class MainWindow(QMainWindow):
             self.ui.gui_widgets['light2_theme_button'].set_state(False, False)
 
             # Save settings
-            self.theme_value = False
-            self.config['THEME'] = False
+            self.theme_style = False
+            self.config['THEME_STYLE'] = False
             with open(self.settings_file, 'w') as file:
                 yaml.dump(self.config, file)
 
@@ -208,34 +208,34 @@ class MainWindow(QMainWindow):
     # Chips Functions
     # ---------------
     def on_chip1_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip1_button'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['chip1_button'].set_state(state, self.theme_style)
 
     def on_chip2_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip2_button'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['chip2_button'].set_state(state, self.theme_style)
 
     def on_chip3_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip3_button'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['chip3_button'].set_state(state, self.theme_style)
 
     def on_chip4_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip4_button'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['chip4_button'].set_state(state, self.theme_style)
 
     def on_chip5_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip5_button'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['chip5_button'].set_state(state, self.theme_style)
 
     def on_chip6_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip6_button'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['chip6_button'].set_state(state, self.theme_style)
 
 
     # ----------------
     # Switch Functions
     # ----------------
     def on_test1_switch_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['test1_on_switch'].set_state(state, self.theme_value)
-        self.ui.gui_widgets['test1_off_switch'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['test1_on_switch'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['test1_off_switch'].set_state(state, self.theme_style)
         
     def on_test2_switch_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['test2_on_switch'].set_state(state, self.theme_value)
-        self.ui.gui_widgets['test2_off_switch'].set_state(state, self.theme_value)
+        self.ui.gui_widgets['test2_on_switch'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['test2_off_switch'].set_state(state, self.theme_style)
 
     # -------------
     # Menu Function
