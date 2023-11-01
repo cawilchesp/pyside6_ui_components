@@ -74,13 +74,17 @@ class MD3Label(QtWidgets.QLabel):
         self.setAlignment(label_alignment | Qt.AlignmentFlag.AlignVCenter)
 
         self.setProperty(attributes['type'], True)
+        if attributes['type'] == 'value':
+            self.setStyleSheet(f"MD3Label[value=true] {{ border-color: {attributes['border_color']} }}")
+        if attributes['type'] == 'color':
+            self.set_color_label(attributes['color'])
         if 'icon' in attributes:
-            self.setIconLabel(attributes['icon'], attributes['theme'])
+            self.set_icon_label(attributes['icon'], attributes['theme'])
         if 'language' in attributes:
             self.set_language(attributes['language'])
         
 
-    def setIconLabel(self, icon: str, theme: bool) -> None:
+    def set_icon_label(self, icon: str, theme: bool) -> None:
         """ Update icon corresponding to the theme """
 
         self.attributes['icon'] = icon
@@ -88,15 +92,10 @@ class MD3Label(QtWidgets.QLabel):
         self.setPixmap(QtGui.QIcon(f'icons/{self.attributes["icon"]}_{icon_theme}.png').pixmap(24))
         
 
-    # def setColorLabel(self, color: str, theme: bool) -> None:
-    #     """ Apply custom color to component """
+    def set_color_label(self, color: str) -> None:
+        """ Apply custom color to component """
 
-    #     border_color = colors(theme, 'outline')
-    #     self.setStyleSheet(f'QLabel#{self.name} {{ '
-    #             f'border: 2px solid {border_color};'
-    #             f'border-radius: 16px;'
-    #             f'background-color: {color} '
-    #             f'}}')
+        self.setStyleSheet(f"MD3Label[color=true] {{ background-color: {color} }}")
 
 
     def set_language(self, language: int) -> None:
