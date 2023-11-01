@@ -61,12 +61,12 @@ class MD3Button(QtWidgets.QPushButton):
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
 
         self.setProperty(attributes['type'], True)
-        self.setLanguage(attributes['language'])
+        self.set_language(attributes['language'])
 
         self.clicked.connect(attributes['clicked'])
               
 
-    def setLanguage(self, language: int) -> None:
+    def set_language(self, language: int) -> None:
         """ Change language of title text """
         if language == 0:   self.setText(self.attributes['labels'][0])
         elif language == 1: self.setText(self.attributes['labels'][1])
