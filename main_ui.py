@@ -402,7 +402,7 @@ class UI(QWidget):
             'name': 'color1_label',
             'position': (284, 228),
             'type': 'color',
-            'color': '#0000FF',
+            'color': '#ff8888',
             'theme': self.theme_value } )
         
         self.gui_widgets['value1_label'] = MD3Label(self.gui_widgets['filled_card'], {
@@ -411,7 +411,7 @@ class UI(QWidget):
             'width': 100,
             'type': 'value',
             'align': 'center',
-            'border_color': '#0000FF',
+            'border_color': '#ff8888',
             'theme': self.theme_value } )
 
         # ------
@@ -453,6 +453,15 @@ class UI(QWidget):
             'size': (300, 32),
             'scaled_image': True,
             'theme': self.theme_value } )
+
+
+
+
+
+
+
+
+
 
 
 
