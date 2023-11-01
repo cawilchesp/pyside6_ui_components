@@ -246,8 +246,8 @@ class MainWindow(QMainWindow):
         None
         """
         for key in self.ui.gui_widgets.keys():
-            if hasattr(self.ui.gui_widgets[key], 'setLanguage'):
-                self.ui.gui_widgets[key].setLanguage(index)
+            if hasattr(self.ui.gui_widgets[key], 'set_language'):
+                self.ui.gui_widgets[key].set_language(index)
         
         self.language_value = index
         self.config['LANGUAGE'] = index
