@@ -10,7 +10,7 @@ light_colors = {
 }
 
 
-def icon_color(color: QColor, icon_name: str) -> QIcon:
+def icon_color(color: str, icon_name: str) -> QIcon:
     icon_pixmap = QPixmap(f"icons/{icon_name}.png")
     painter = QPainter(icon_pixmap)
     painter.setCompositionMode(QPainter.CompositionMode.CompositionMode_SourceIn)
