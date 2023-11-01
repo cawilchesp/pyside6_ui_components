@@ -4,6 +4,8 @@ PySide6 Button component adapted to follow Material Design 3 guidelines
 """
 from PySide6 import QtGui, QtWidgets
 
+from icon_color import icon_color
+
 # --------------
 # Common Buttons
 # --------------
