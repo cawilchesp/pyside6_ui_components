@@ -55,12 +55,12 @@ class MD3Switch(QtWidgets.QToolButton):
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
 
         self.setProperty(attributes['side'], True)
-        self.setState(attributes['state'], attributes['theme'])
+        self.set_state(attributes['state'], attributes['theme'])
 
         self.clicked.connect(attributes['clicked'])
         
 
-    def setState(self, state: bool, theme: bool) -> None:
+    def set_state(self, state: bool, theme: bool) -> None:
         """ Set button state and corresponding icon """
         self.setChecked(state)
         
