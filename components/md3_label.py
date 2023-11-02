@@ -40,6 +40,8 @@ class MD3Label(QLabel):
             labels: tuple
                 Label labels
                 (label_spanish, label_english)
+            theme_color: str
+                App theme color name
             language: int
                 App language
                 0: Spanish, 1: English
