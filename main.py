@@ -5,7 +5,6 @@ import sys
 import yaml
 
 from main_ui import UI
-from icon_color import icon_color
 
 
 class MainWindow(QMainWindow):
@@ -71,12 +70,7 @@ class MainWindow(QMainWindow):
         self.ui.gui_widgets['color1_label'].set_color_label(color)
 
     def on_boton3_button_clicked(self) -> None:
-        selected_color = QtGui.QColor.fromHslF(0.13, 1.0, 0.67)
-        colorized_icon = icon_color(selected_color, 'car_L')
-
-        self.ui.gui_widgets['icon4_button'].setIcon(colorized_icon)
-
-
+        print('Button 3 clicked')
 
     def on_boton4_button_clicked(self) -> None:
         print('Button 4 clicked')
@@ -98,28 +92,28 @@ class MainWindow(QMainWindow):
     # Segmented Button Functions
     # --------------------------
     def on_left_segmented1_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['left_segmented1_button'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['left_segmented1_button'].set_state(state, self.theme_color)
         
     def on_center1_segmented1_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['center1_segmented1_button'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['center1_segmented1_button'].set_state(state, self.theme_color)
 
     def on_center2_segmented1_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['center2_segmented1_button'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['center2_segmented1_button'].set_state(state, self.theme_color)
 
     def on_right_segmented1_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['right_segmented1_button'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['right_segmented1_button'].set_state(state, self.theme_color)
 
     def on_left_segmented2_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['left_segmented2_button'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['left_segmented2_button'].set_state(state, self.theme_color)
 
     def on_center1_segmented2_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['center1_segmented2_button'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['center1_segmented2_button'].set_state(state, self.theme_color)
 
     def on_center2_segmented2_button_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['center2_segmented2_button'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['center2_segmented2_button'].set_state(state, self.theme_color)
 
     def on_right_segmented2_button_clicked(self, state:bool) -> None:
-        self.ui.gui_widgets['right_segmented2_button'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['right_segmented2_button'].set_state(state, self.theme_color)
 
 
     # ---------------------------------
@@ -144,16 +138,16 @@ class MainWindow(QMainWindow):
             for key in self.ui.gui_widgets.keys():
                 if 'icon' in self.ui.gui_widgets[key].attributes:
                     icon_name = self.ui.gui_widgets[key].attributes['icon']
-                    icon_path = f"icons/{icon_name}_L.png"
-                    if hasattr(self.ui.gui_widgets[key], 'setIcon'):
-                        self.ui.gui_widgets[key].setIcon(QtGui.QIcon(f"{icon_path}"))
-                    elif hasattr(self.ui.gui_widgets[key], 'setPixmap'):
-                        self.ui.gui_widgets[key].setPixmap(QtGui.QIcon(f"{icon_path}").pixmap(24))
+                    # if hasattr(self.ui.gui_widgets[key], 'set_icon'):
+                    #     color_name = self.ui.gui_widgets[key].attributes['theme_color']
+                    #     self.ui.gui_widgets[key].set_icon(True, color_name, icon_name)
+                    # elif hasattr(self.ui.gui_widgets[key], 'setPixmap'):
+                    #     self.ui.gui_widgets[key].setPixmap(QtGui.QIcon(f"{icon_path}").pixmap(24))
                 if hasattr(self.ui.gui_widgets[key], 'set_state'):
-                    self.ui.gui_widgets[key].set_state(self.ui.gui_widgets[key].isChecked(), True)
-
-            self.ui.gui_widgets['dark_theme_button'].set_state(False, True)
-            self.ui.gui_widgets['dark2_theme_button'].set_state(False, True)
+                    self.ui.gui_widgets[key].set_state(self.ui.gui_widgets[key].isChecked(), self.theme_color)
+                    
+            self.ui.gui_widgets['dark_theme_button'].set_state(False, self.theme_color)
+            self.ui.gui_widgets['dark2_theme_button'].set_state(False, self.theme_color)
     
             # Save settings
             self.theme_style = True
@@ -161,8 +155,8 @@ class MainWindow(QMainWindow):
             with open(self.settings_file, 'w') as file:
                 yaml.dump(self.config, file)
         
-        self.ui.gui_widgets['light_theme_button'].set_state(True, True)
-        self.ui.gui_widgets['light2_theme_button'].set_state(True, True)
+        self.ui.gui_widgets['light_theme_button'].set_state(True, self.theme_color)
+        self.ui.gui_widgets['light2_theme_button'].set_state(True, self.theme_color)
 
     def on_dark_theme_clicked(self, state: bool) -> None:
         """ Dark theme segmented control to change components stylesheet
@@ -183,16 +177,16 @@ class MainWindow(QMainWindow):
             for key in self.ui.gui_widgets.keys():
                 if 'icon' in self.ui.gui_widgets[key].attributes:
                     icon_name = self.ui.gui_widgets[key].attributes['icon']
-                    icon_path = f"icons/{icon_name}_D.png"
-                    if hasattr(self.ui.gui_widgets[key], 'setIcon'):
-                        self.ui.gui_widgets[key].setIcon(QtGui.QIcon(f"{icon_path}"))
-                    elif hasattr(self.ui.gui_widgets[key], 'setPixmap'):
-                        self.ui.gui_widgets[key].setPixmap(QtGui.QIcon(f"{icon_path}").pixmap(24))
+                    # if hasattr(self.ui.gui_widgets[key], 'set_icon'):
+                    #     color_name = self.ui.gui_widgets[key].attributes['theme_color']
+                    #     self.ui.gui_widgets[key].set_icon(False, color_name, icon_name)
+                    # elif hasattr(self.ui.gui_widgets[key], 'setPixmap'):
+                    #     self.ui.gui_widgets[key].setPixmap(QtGui.QIcon(f"{icon_path}").pixmap(24))
                 if hasattr(self.ui.gui_widgets[key], 'set_state'):
-                    self.ui.gui_widgets[key].set_state(self.ui.gui_widgets[key].isChecked(), False)
+                    self.ui.gui_widgets[key].set_state(self.ui.gui_widgets[key].isChecked(), self.theme_color)
 
-            self.ui.gui_widgets['light_theme_button'].set_state(False, False)
-            self.ui.gui_widgets['light2_theme_button'].set_state(False, False)
+            self.ui.gui_widgets['light_theme_button'].set_state(False, self.theme_color)
+            self.ui.gui_widgets['light2_theme_button'].set_state(False, self.theme_color)
 
             # Save settings
             self.theme_style = False
@@ -200,8 +194,8 @@ class MainWindow(QMainWindow):
             with open(self.settings_file, 'w') as file:
                 yaml.dump(self.config, file)
 
-        self.ui.gui_widgets['dark_theme_button'].set_state(True, False)
-        self.ui.gui_widgets['dark2_theme_button'].set_state(True, False)
+        self.ui.gui_widgets['dark_theme_button'].set_state(True, self.theme_color)
+        self.ui.gui_widgets['dark2_theme_button'].set_state(True, self.theme_color)
 
 
     # ---------------
@@ -230,12 +224,12 @@ class MainWindow(QMainWindow):
     # Switch Functions
     # ----------------
     def on_test1_switch_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['test1_on_switch'].set_state(state, self.theme_style)
-        self.ui.gui_widgets['test1_off_switch'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['test1_on_switch'].set_state(state, self.theme_color)
+        self.ui.gui_widgets['test1_off_switch'].set_state(state, self.theme_color)
         
     def on_test2_switch_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['test2_on_switch'].set_state(state, self.theme_style)
-        self.ui.gui_widgets['test2_off_switch'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['test2_on_switch'].set_state(state, self.theme_color)
+        self.ui.gui_widgets['test2_off_switch'].set_state(state, self.theme_color)
 
     # -------------
     # Menu Function
