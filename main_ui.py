@@ -309,11 +309,12 @@ class UI(QWidget):
         self.gui_widgets['test1_menu'] = MD3Menu(self.gui_widgets['filled_card'], {
             'name': 'test1_menu',
             'position': (332, 128),
-            'width': 72,
+            'width': 100,
             'type': 'filled',
             'options': self.test_options,
             'set': self.language_value,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'index_changed': parent.on_language_changed } )
 
@@ -744,7 +745,8 @@ class UI(QWidget):
             'type': 'outlined',
             'options': self.test_options,
             'set': self.language_value,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'index_changed': parent.on_language_changed } )
 
