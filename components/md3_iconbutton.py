@@ -17,16 +17,14 @@ class MD3IconButton(QtWidgets.QToolButton):
         Parameters
         ----------
         attributes: dict
-            name: str
-                Widget name
             position: tuple
-                Icon button position
-                (x, y) -> x, y: upper left corner
+                Icon button top left corner position
+                (x, y)
             type: str
                 Icon button type
                 'filled', 'tonal', 'outlined', 'standard'
             icon: str
-                Icon file without extension
+                Icon name
             enabled: bool
                 Icon button enabled / disabled
             theme_style: bool
@@ -43,22 +41,24 @@ class MD3IconButton(QtWidgets.QToolButton):
         """
         super(MD3IconButton, self).__init__(parent)
 
-        self.attributes = attributes
         self.parent = parent
+        self.attributes = attributes
         x, y = attributes['position'] if 'position' in attributes else (8,8)
         self.setGeometry(x, y, 32, 32)
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonIconOnly)
         self.setAutoRaise(True)
-
-        # Icon Button Styling
-        if attributes['type'] in ['filled', 'tonal']:
-            color = 'black'
-        elif attributes['type'] in ['outlined', 'standard']:
-            color = self.attributes['theme_style']
-        colorized_icon = icon_color(color, self.attributes['icon'])
-
-        self.setIcon(QtGui.QIcon(f"{icon_path}"))
-        self.setProperty(self.attributes['type'], True)
-        
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
+
+        self.set_icon(attributes['theme_color'], attributes['icon'])
+        self.setProperty(attributes['type'], True)
+
         self.clicked.connect(attributes['clicked'])
+
+    
+    def set_icon(self, color_name: str, icon_name: str):
+        if self.attributes['type'] in ['filled', 'tonal']:
+            color = 'black'
+        elif self.attributes['type'] in ['outlined', 'standard']:
+            color = color_name
+        colorized_icon = icon_color(color, icon_name)
+        self.setIcon(colorized_icon)
