@@ -140,13 +140,6 @@ class MainWindow(QMainWindow):
                 self.setStyleSheet(theme_qss.read())
 
             for key in self.ui.gui_widgets.keys():
-                if 'icon' in self.ui.gui_widgets[key].attributes:
-                    icon_name = self.ui.gui_widgets[key].attributes['icon']
-                    # if hasattr(self.ui.gui_widgets[key], 'set_icon'):
-                    #     color_name = self.ui.gui_widgets[key].attributes['theme_color']
-                    #     self.ui.gui_widgets[key].set_icon(True, color_name, icon_name)
-                    # elif hasattr(self.ui.gui_widgets[key], 'setPixmap'):
-                    #     self.ui.gui_widgets[key].setPixmap(QtGui.QIcon(f"{icon_path}").pixmap(24))
                 if hasattr(self.ui.gui_widgets[key], 'set_state'):
                     self.ui.gui_widgets[key].set_state(self.ui.gui_widgets[key].isChecked(), self.theme_color)
                     
@@ -179,13 +172,6 @@ class MainWindow(QMainWindow):
                 self.setStyleSheet(theme_qss.read())
 
             for key in self.ui.gui_widgets.keys():
-                if 'icon' in self.ui.gui_widgets[key].attributes:
-                    icon_name = self.ui.gui_widgets[key].attributes['icon']
-                    # if hasattr(self.ui.gui_widgets[key], 'set_icon'):
-                    #     color_name = self.ui.gui_widgets[key].attributes['theme_color']
-                    #     self.ui.gui_widgets[key].set_icon(False, color_name, icon_name)
-                    # elif hasattr(self.ui.gui_widgets[key], 'setPixmap'):
-                    #     self.ui.gui_widgets[key].setPixmap(QtGui.QIcon(f"{icon_path}").pixmap(24))
                 if hasattr(self.ui.gui_widgets[key], 'set_state'):
                     self.ui.gui_widgets[key].set_state(self.ui.gui_widgets[key].isChecked(), self.theme_color)
 
