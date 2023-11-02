@@ -2,32 +2,26 @@
 PySide6 Divider component adapted to follow Material Design 3 guidelines
 
 """
-
-from PySide6 import QtWidgets
-
-import sys
+from PySide6.QtWidgets import QFrame
 
 # -------
 # Divider
 # -------
-class MD3Divider(QtWidgets.QFrame):
+class MD3Divider(QFrame):
     def __init__(self, parent, attributes: dict) -> None:
         """ Material Design 3 Component: Divider
 
         Parameters
         ----------
         attributes: dict
-            name: str
-                Widget name
             position: tuple
-                Divider position
-                (x, y) -> x, y: upper left corner
-            size: tuple
-                Divider size
-                (w, h) -> w: width, h: height
-            theme: bool
-                App theme
-                True: Light theme, False: Dark theme
+                Divider top left corner position
+                (x, y)
+            length: int
+                Divider length
+            shape: str
+                Divider shape
+                'horizontal', 'vertical'
         
         Returns
         -------
@@ -42,11 +36,11 @@ class MD3Divider(QtWidgets.QFrame):
         if attributes['shape'] == 'horizontal':
             w = attributes['length'] if 'length' in attributes else 32
             h = 1
-            self.setFrameShape(QtWidgets.QFrame.Shape.HLine)
+            self.setFrameShape(QFrame.Shape.HLine)
         elif attributes['shape'] == 'vertical':
             w = 1
             h = attributes['length'] if 'length' in attributes else 32
-            self.setFrameShape(QtWidgets.QFrame.Shape.VLine)
+            self.setFrameShape(QFrame.Shape.VLine)
         self.setGeometry(x, y, w, h)
 
-        self.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
+        self.setFrameShadow(QFrame.Shadow.Sunken)
