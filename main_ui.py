@@ -67,7 +67,6 @@ class UI(QWidget):
         # Icon Buttons
         # ------------
         self.gui_widgets['icon1_button'] = MD3IconButton(self.gui_widgets['filled_card'], {
-            'name': 'icon1_button',
             'position': (8,48),
             'type': 'filled',
             'icon': 'delete',
@@ -75,7 +74,6 @@ class UI(QWidget):
             'clicked': parent.on_icon1_button_clicked } )
 
         self.gui_widgets['icon2_button'] = MD3IconButton(self.gui_widgets['filled_card'], {
-            'name': 'icon2_button',
             'position': (48,48),
             'type': 'tonal',
             'icon': 'delete',
@@ -84,7 +82,6 @@ class UI(QWidget):
             'clicked': parent.on_icon2_button_clicked } )
         
         self.gui_widgets['icon3_button'] = MD3IconButton(self.gui_widgets['filled_card'], {
-            'name': 'icon3_button',
             'position': (88,48),
             'type': 'outlined',
             'icon': 'delete',
@@ -92,7 +89,6 @@ class UI(QWidget):
             'clicked': parent.on_icon3_button_clicked } )
         
         self.gui_widgets['icon4_button'] = MD3IconButton(self.gui_widgets['filled_card'], {
-            'name': 'icon4_button',
             'position': (128,48),
             'type': 'standard',
             'icon': 'delete',
@@ -103,7 +99,6 @@ class UI(QWidget):
         # Buttons
         # -------
         self.gui_widgets['boton1_button'] = MD3Button(self.gui_widgets['filled_card'], {
-            'name': 'boton1_button',
             'position': (168,48),
             'width': 100,
             'type': 'filled',
@@ -114,7 +109,6 @@ class UI(QWidget):
             'clicked': parent.on_boton1_button_clicked } )
 
         self.gui_widgets['boton2_button'] = MD3Button(self.gui_widgets['filled_card'], {
-            'name': 'boton2_button',
             'position': (276,48),
             'width': 100,
             'type': 'tonal',
@@ -125,7 +119,6 @@ class UI(QWidget):
             'clicked': parent.on_boton2_button_clicked } )
         
         self.gui_widgets['boton3_button'] = MD3Button(self.gui_widgets['filled_card'], {
-            'name': 'boton3_button',
             'position': (394,48),
             'width': 100,
             'type': 'outlined',
@@ -137,7 +130,6 @@ class UI(QWidget):
             'clicked': parent.on_boton3_button_clicked } )
         
         self.gui_widgets['boton4_button'] = MD3Button(self.gui_widgets['filled_card'], {
-            'name': 'boton4_button',
             'position': (502,48),
             'width': 100,
             'type': 'standard',
@@ -151,7 +143,6 @@ class UI(QWidget):
         # Segmented Buttons
         # -----------------
         self.gui_widgets['left_segmented1_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
-            'name': 'left_segmented1_button',
             'position': (8, 88),
             'width': 100,
             'labels': ('Izquierda', 'Left'),
@@ -164,7 +155,6 @@ class UI(QWidget):
             'clicked': parent.on_left_segmented1_button_clicked } )
         
         self.gui_widgets['center1_segmented1_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
-            'name': 'center1_segmented1_button',
             'position': (108, 88),
             'width': 100,
             'labels': ('Centro 1', 'Center 1'),
@@ -178,7 +168,6 @@ class UI(QWidget):
             'clicked': parent.on_center1_segmented1_button_clicked } ) 
 
         self.gui_widgets['center2_segmented1_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
-            'name': 'center2_segmented1_button',
             'position': (208, 88),
             'width': 100,
             'labels': ('Centro 2', 'Center 2'),
@@ -192,7 +181,6 @@ class UI(QWidget):
             'clicked': parent.on_center2_segmented1_button_clicked } ) 
 
         self.gui_widgets['right_segmented1_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
-            'name': 'right_segmented1_button',
             'position': (308, 88),
             'width': 100,
             'labels': ('Derecha', 'Right'),
@@ -208,7 +196,6 @@ class UI(QWidget):
         # Theme Segmented Buttons
         # -----------------------
         self.gui_widgets['light_theme_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
-            'name': 'light_theme_button',
             'position': (416, 88),
             'width': 40,
             'icon': 'light_mode',
@@ -221,7 +208,6 @@ class UI(QWidget):
             'clicked': parent.on_light_theme_clicked } )
 
         self.gui_widgets['dark_theme_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
-            'name': 'dark_theme_button',
             'position': (456, 88),
             'width': 40,
             'icon': 'dark_mode',
@@ -237,7 +223,6 @@ class UI(QWidget):
         # Switch
         # ------
         self.gui_widgets['test1_off_switch'] = MD3Switch(self.gui_widgets['filled_card'], {
-            'name': 'test1_off_switch',
             'position': (504, 88),
             'side': 'left',
             'state': False,
@@ -246,7 +231,6 @@ class UI(QWidget):
             'clicked': parent.on_test1_switch_clicked } )
         
         self.gui_widgets['test1_on_switch'] = MD3Switch(self.gui_widgets['filled_card'], {
-            'name': 'test1_on_switch',
             'position': (530, 88),
             'side': 'right',
             'state': False,
@@ -258,7 +242,6 @@ class UI(QWidget):
         # Chips
         # -----
         self.gui_widgets['chip1_button'] = MD3Chip(self.gui_widgets['filled_card'], {
-            'name': 'chip1_button',
             'position': (8, 128),
             'width': 100,
             'labels': ('Borrar', 'Delete'),
@@ -270,7 +253,6 @@ class UI(QWidget):
             'clicked': parent.on_chip1_clicked } )
         
         self.gui_widgets['chip2_button'] = MD3Chip(self.gui_widgets['filled_card'], {
-            'name': 'chip2_button',
             'position': (116, 128),
             'width': 100,
             'labels': ('Correo', 'Mail'),
@@ -281,7 +263,6 @@ class UI(QWidget):
             'clicked': parent.on_chip2_clicked } )
         
         self.gui_widgets['chip3_button'] = MD3Chip(self.gui_widgets['filled_card'], {
-            'name': 'chip3_button',
             'position': (224, 128),
             'width': 100,
             'labels': ('Mejorar', 'Improve'),
@@ -294,7 +275,6 @@ class UI(QWidget):
         # Menu
         # ----
         self.gui_widgets['test1_menu'] = MD3Menu(self.gui_widgets['filled_card'], {
-            'name': 'test1_menu',
             'position': (332, 128),
             'width': 100,
             'type': 'filled',
@@ -309,7 +289,6 @@ class UI(QWidget):
         # Text Field
         # ----------
         self.gui_widgets['test1_textfield'] = MD3TextField(self.gui_widgets['filled_card'], {
-            'name': 'test1_textfield',
             'position': (8, 168),
             'width': 120,
             'type': 'filled',
@@ -321,7 +300,6 @@ class UI(QWidget):
             'language': self.language_value } )
 
         self.gui_widgets['test2_textfield'] = MD3TextField(self.gui_widgets['filled_card'], {
-            'name': 'test2_textfield',
             'position': (136, 168),
             'width': 120,
             'type': 'filled',
@@ -332,7 +310,6 @@ class UI(QWidget):
             'language': self.language_value } )
         
         self.gui_widgets['test3_textfield'] = MD3TextField(self.gui_widgets['filled_card'], {
-            'name': 'test3_textfield',
             'position': (264, 168),
             'width': 120,
             'type': 'filled',
@@ -343,7 +320,6 @@ class UI(QWidget):
             'language': self.language_value } )
         
         self.gui_widgets['test4_textfield'] = MD3TextField(self.gui_widgets['filled_card'], {
-            'name': 'test4_textfield',
             'position': (392, 168),
             'width': 120,
             'type': 'filled',
@@ -357,7 +333,6 @@ class UI(QWidget):
         # Date Picker
         # -----------
         self.gui_widgets['test1_date'] = MD3DatePicker(self.gui_widgets['filled_card'], {
-            'name': 'test1_date',
             'position': (8, 228),
             'width': 120,
             'type': 'filled',
@@ -369,14 +344,12 @@ class UI(QWidget):
         # Labels
         # ------
         self.gui_widgets['icon1_label'] = MD3Label(self.gui_widgets['filled_card'], {
-            'name': 'icon1_label', 
             'position': (136, 228),
             'type': 'icon',
             'icon': 'delete',
             'theme_color': self.theme_color } )
 
         self.gui_widgets['subtitle1_label'] = MD3Label(self.gui_widgets['filled_card'], {
-            'name': 'subtitle1_label',
             'position': (176, 228),
             'width': 100,
             'type': 'subtitle',
@@ -386,7 +359,6 @@ class UI(QWidget):
             'language': self.language_value } )
         
         self.gui_widgets['subtitle2_label'] = MD3Label(self.gui_widgets['filled_card'], {
-            'name': 'subtitle2_label',
             'position': (176, 248),
             'width': 100,
             'type': 'subtitle',
@@ -396,7 +368,6 @@ class UI(QWidget):
             'language': self.language_value } )
 
         self.gui_widgets['subtitle3_label'] = MD3Label(self.gui_widgets['filled_card'], {
-            'name': 'subtitle3_label',
             'position': (176, 268),
             'width': 100,
             'type': 'subtitle',
@@ -406,14 +377,12 @@ class UI(QWidget):
             'language': self.language_value } )
         
         self.gui_widgets['color1_label'] = MD3Label(self.gui_widgets['filled_card'], {
-            'name': 'color1_label',
             'position': (284, 228),
             'type': 'color',
             'color': '#ff8888',
             'theme_color': self.theme_color } )
         
         self.gui_widgets['value1_label'] = MD3Label(self.gui_widgets['filled_card'], {
-            'name': 'value1_label', 
             'position': (324, 228),
             'width': 100,
             'type': 'value',
@@ -425,7 +394,6 @@ class UI(QWidget):
         # Slider
         # ------
         self.gui_widgets['test1_slider'] = MD3Slider(self.gui_widgets['filled_card'], {
-            'name': 'test1_slider',
             'position': (432, 228),
             'width': 100,
             'range': (0, 1, 100),
@@ -439,13 +407,11 @@ class UI(QWidget):
         # Dividers
         # --------
         self.gui_widgets['horizontal1_divider'] = MD3Divider(self.gui_widgets['filled_card'], {
-            'name': 'horizontal1_divider',
             'position': (8, 288),
             'length': 100,
             'shape': 'horizontal' } )
         
         self.gui_widgets['vertical1_divider'] = MD3Divider(self.gui_widgets['filled_card'], {
-            'name': 'vertical1_divider',
             'position': (116, 288),
             'length': 32,
             'shape': 'vertical' } )
@@ -454,7 +420,6 @@ class UI(QWidget):
         # Image Label
         # -----------
         self.gui_widgets['image1_label'] = MD3ImageLabel(self.gui_widgets['filled_card'], {
-            'name': 'image1_label',
             'position': (124, 288),
             'size': (300, 32),
             'scaled_image': True,
@@ -485,7 +450,6 @@ class UI(QWidget):
         # Icon Buttons
         # ------------
         self.gui_widgets['icon5_button'] = MD3IconButton(self.gui_widgets['outlined_card'], {
-            'name': 'icon5_button',
             'position': (8,48),
             'type': 'filled',
             'icon': 'delete',
@@ -493,7 +457,6 @@ class UI(QWidget):
             'clicked': parent.on_icon5_button_clicked } )
 
         self.gui_widgets['icon6_button'] = MD3IconButton(self.gui_widgets['outlined_card'], {
-            'name': 'icon6_button',
             'position': (48,48),
             'type': 'tonal',
             'icon': 'delete',
@@ -502,7 +465,6 @@ class UI(QWidget):
             'clicked': parent.on_icon6_button_clicked } )
         
         self.gui_widgets['icon7_button'] = MD3IconButton(self.gui_widgets['outlined_card'], {
-            'name': 'icon7_button',
             'position': (88,48),
             'type': 'outlined',
             'icon': 'delete',
@@ -510,7 +472,6 @@ class UI(QWidget):
             'clicked': parent.on_icon7_button_clicked } )
         
         self.gui_widgets['icon8_button'] = MD3IconButton(self.gui_widgets['outlined_card'], {
-            'name': 'icon8_button',
             'position': (128,48),
             'type': 'standard',
             'icon': 'delete',
@@ -521,7 +482,6 @@ class UI(QWidget):
         # Buttons
         # -------
         self.gui_widgets['boton5_button'] = MD3Button(self.gui_widgets['outlined_card'], {
-            'name': 'boton5_button',
             'position': (168,48),
             'width': 100,
             'type': 'filled',
@@ -532,7 +492,6 @@ class UI(QWidget):
             'clicked': parent.on_boton5_button_clicked } )
 
         self.gui_widgets['boton6_button'] = MD3Button(self.gui_widgets['outlined_card'], {
-            'name': 'boton6_button',
             'position': (276,48),
             'width': 100,
             'type': 'tonal',
@@ -543,7 +502,6 @@ class UI(QWidget):
             'clicked': parent.on_boton6_button_clicked } )
         
         self.gui_widgets['boton7_button'] = MD3Button(self.gui_widgets['outlined_card'], {
-            'name': 'boton7_button',
             'position': (394,48),
             'width': 100,
             'type': 'outlined',
@@ -555,7 +513,6 @@ class UI(QWidget):
             'clicked': parent.on_boton7_button_clicked } )
         
         self.gui_widgets['boton8_button'] = MD3Button(self.gui_widgets['outlined_card'], {
-            'name': 'boton8_button',
             'position': (502,48),
             'width': 100,
             'type': 'standard',
@@ -569,7 +526,6 @@ class UI(QWidget):
         # Segmented Buttons
         # -----------------
         self.gui_widgets['left_segmented2_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
-            'name': 'left_segmented2_button',
             'position': (8, 88),
             'width': 100,
             'labels': ('Izquierda', 'Left'),
@@ -582,7 +538,6 @@ class UI(QWidget):
             'clicked': parent.on_left_segmented2_button_clicked } )
         
         self.gui_widgets['center1_segmented2_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
-            'name': 'center1_segmented2_button',
             'position': (108, 88),
             'width': 100,
             'labels': ('Centro 1', 'Center 1'),
@@ -596,7 +551,6 @@ class UI(QWidget):
             'clicked': parent.on_center1_segmented2_button_clicked } ) 
 
         self.gui_widgets['center2_segmented2_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
-            'name': 'center2_segmented2_button',
             'position': (208, 88),
             'width': 100,
             'labels': ('Centro 2', 'Center 2'),
@@ -610,7 +564,6 @@ class UI(QWidget):
             'clicked': parent.on_center2_segmented2_button_clicked } ) 
 
         self.gui_widgets['right_segmented2_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
-            'name': 'right_segmented2_button',
             'position': (308, 88),
             'width': 100,
             'labels': ('Derecha', 'Right'),
@@ -626,7 +579,6 @@ class UI(QWidget):
         # Theme Segmented Buttons
         # -----------------------
         self.gui_widgets['light2_theme_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
-            'name': 'light2_theme_button',
             'position': (416, 88),
             'width': 40,
             'icon': 'light_mode',
@@ -639,7 +591,6 @@ class UI(QWidget):
             'clicked': parent.on_light_theme_clicked } )
 
         self.gui_widgets['dark2_theme_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
-            'name': 'dark2_theme_button',
             'position': (456, 88),
             'width': 40,
             'icon': 'dark_mode',
@@ -655,7 +606,6 @@ class UI(QWidget):
         # Switch
         # ------
         self.gui_widgets['test2_off_switch'] = MD3Switch(self.gui_widgets['outlined_card'], {
-            'name': 'test2_off_switch',
             'position': (504, 88),
             'side': 'left',
             'state': False,
@@ -664,7 +614,6 @@ class UI(QWidget):
             'clicked': parent.on_test2_switch_clicked } )
         
         self.gui_widgets['test2_on_switch'] = MD3Switch(self.gui_widgets['outlined_card'], {
-            'name': 'test2_on_switch',
             'position': (530, 88),
             'side': 'right',
             'state': False,
@@ -676,7 +625,6 @@ class UI(QWidget):
         # Chips
         # -----
         self.gui_widgets['chip4_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
-            'name': 'chip4_button',
             'position': (8, 128),
             'width': 100,
             'labels': ('Borrar', 'Delete'),
@@ -688,7 +636,6 @@ class UI(QWidget):
             'clicked': parent.on_chip4_clicked } )
         
         self.gui_widgets['chip5_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
-            'name': 'chip5_button',
             'position': (116, 128),
             'width': 100,
             'labels': ('Correo', 'Mail'),
@@ -699,7 +646,6 @@ class UI(QWidget):
             'clicked': parent.on_chip5_clicked } )
         
         self.gui_widgets['chip6_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
-            'name': 'chip6_button',
             'position': (224, 128),
             'width': 100,
             'labels': ('Mejorar', 'Improve'),
@@ -712,7 +658,6 @@ class UI(QWidget):
         # Menu
         # ----
         self.gui_widgets['test2_menu'] = MD3Menu(self.gui_widgets['outlined_card'], {
-            'name': 'test2_menu',
             'position': (332, 128),
             'width': 72,
             'type': 'outlined',
@@ -727,7 +672,6 @@ class UI(QWidget):
         # Text Field
         # ----------
         self.gui_widgets['test5_textfield'] = MD3TextField(self.gui_widgets['outlined_card'], {
-            'name': 'test5_textfield',
             'position': (8, 168),
             'width': 120,
             'type': 'outlined',
@@ -739,7 +683,6 @@ class UI(QWidget):
             'language': self.language_value } )
 
         self.gui_widgets['test6_textfield'] = MD3TextField(self.gui_widgets['outlined_card'], {
-            'name': 'test6_textfield',
             'position': (136, 168),
             'width': 120,
             'type': 'outlined',
@@ -750,7 +693,6 @@ class UI(QWidget):
             'language': self.language_value } )
         
         self.gui_widgets['test7_textfield'] = MD3TextField(self.gui_widgets['outlined_card'], {
-            'name': 'test7_textfield',
             'position': (264, 168),
             'width': 120,
             'type': 'outlined',
@@ -761,7 +703,6 @@ class UI(QWidget):
             'language': self.language_value } )
         
         self.gui_widgets['test8_textfield'] = MD3TextField(self.gui_widgets['outlined_card'], {
-            'name': 'test8_textfield',
             'position': (392, 168),
             'width': 120,
             'type': 'outlined',
@@ -775,7 +716,6 @@ class UI(QWidget):
         # Date Picker
         # -----------
         self.gui_widgets['test2_date'] = MD3DatePicker(self.gui_widgets['outlined_card'], {
-            'name': 'test2_date',
             'position': (8, 228),
             'width': 120,
             'type': 'outlined',
@@ -786,14 +726,12 @@ class UI(QWidget):
         # Labels
         # ------
         self.gui_widgets['icon2_label'] = MD3Label(self.gui_widgets['outlined_card'], {
-            'name': 'icon2_label', 
             'position': (136, 228),
             'type': 'icon',
             'icon': 'delete',
             'theme_color': self.theme_color } )
 
         self.gui_widgets['subtitle4_label'] = MD3Label(self.gui_widgets['outlined_card'], {
-            'name': 'subtitle4_label',
             'position': (176, 228),
             'width': 100,
             'type': 'subtitle',
@@ -803,7 +741,6 @@ class UI(QWidget):
             'language': self.language_value } )
         
         self.gui_widgets['subtitle5_label'] = MD3Label(self.gui_widgets['outlined_card'], {
-            'name': 'subtitle5_label',
             'position': (176, 248),
             'width': 100,
             'type': 'subtitle',
@@ -813,7 +750,6 @@ class UI(QWidget):
             'language': self.language_value } )
 
         self.gui_widgets['subtitle6_label'] = MD3Label(self.gui_widgets['outlined_card'], {
-            'name': 'subtitle6_label',
             'position': (176, 268),
             'width': 100,
             'type': 'subtitle',
@@ -823,14 +759,12 @@ class UI(QWidget):
             'language': self.language_value } )
         
         self.gui_widgets['color2_label'] = MD3Label(self.gui_widgets['outlined_card'], {
-            'name': 'color2_label',
             'position': (284, 228),
             'type': 'color',
             'color': '#0000FF',
             'theme_color': self.theme_color } )
         
         self.gui_widgets['value2_label'] = MD3Label(self.gui_widgets['outlined_card'], {
-            'name': 'value2_label', 
             'position': (324, 228),
             'width': 100,
             'type': 'value',
@@ -842,7 +776,6 @@ class UI(QWidget):
         # Slider
         # ------
         self.gui_widgets['test2_slider'] = MD3Slider(self.gui_widgets['outlined_card'], {
-            'name': 'test2_slider',
             'position': (432, 228),
             'width': 100,
             'range': (0, 1, 100),
@@ -855,14 +788,12 @@ class UI(QWidget):
         # Dividers
         # --------
         self.gui_widgets['horizontal2_divider'] = MD3Divider(self.gui_widgets['outlined_card'], {
-            'name': 'horizontal2_divider',
             'position': (8, 288),
             'length': 100,
             'shape': 'horizontal',
             'theme': self.theme_style } )
         
         self.gui_widgets['vertical2_divider'] = MD3Divider(self.gui_widgets['outlined_card'], {
-            'name': 'vertical2_divider',
             'position': (116, 288),
             'length': 32,
             'shape': 'vertical',
@@ -872,9 +803,7 @@ class UI(QWidget):
         # Image Label
         # -----------
         self.gui_widgets['image2_label'] = MD3ImageLabel(self.gui_widgets['outlined_card'], {
-            'name': 'image2_label',
             'position': (124, 288),
             'size': (300, 32),
-            'scaled_image': True,
-            'theme': self.theme_style } )
+            'scaled_image': True } )
         
