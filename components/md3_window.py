@@ -21,9 +21,11 @@ class MD3Window:
             position: tuple (Optional)
                 Window position, centered by default
                 (x, y) -> x, y: upper left corner
-            minimum_size: minimum window size when resized
+            minimum_size: tuple
+                minimum window size when resized
                 (minimum_width, minimum_height)
-            maximum_size: maximum window size when resized
+            maximum_size: tuple
+                maximum window size when resized
                 (maximum_width, maximum_height)
             labels: tuple
                 Window title labels
