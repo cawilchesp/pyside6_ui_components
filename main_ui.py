@@ -51,7 +51,6 @@ class UI(QWidget):
             'parent': parent, 
             'size': (width, height),
             'labels': ('Componentes de Material 3 UI', 'Material 3 UI Components'),
-            'theme': self.theme_style,
             'language': self.language_value } )
 
         # -----------
