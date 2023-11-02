@@ -2,12 +2,13 @@
 PySide6 Card component adapted to follow Material Design 3 guidelines
 
 """
-from PySide6 import QtGui, QtWidgets
+from PySide6.QtGui import QFont
+from PySide6.QtWidgets import QFrame, QLabel
 
 # ----
 # Card
 # ----
-class MD3Card(QtWidgets.QFrame):
+class MD3Card(QFrame):
     def __init__(self, parent, attributes: dict) -> None:
         """ Material Design 3 Component: Card
 
@@ -15,14 +16,14 @@ class MD3Card(QtWidgets.QFrame):
         ----------
         attributes: dict
             position: tuple
-                Card position
-                (x, y) -> x, y: upper left corner
+                Card top left corner position
+                (x, y)
             size: tuple
                 Card size
-                (w, h) -> w: width, h: height
+                (width, height)
             titles: tuple
-                Card title text (Optional)
-                (label_es, label_en) -> label_es: label in spanish, label_en: label in english
+                Card titles (Optional)
+                (label_spanish, label_english)
             type: str
                 Card type
                 'filled', 'outlined'
@@ -43,9 +44,9 @@ class MD3Card(QtWidgets.QFrame):
         w, h = attributes['size'] if 'size' in attributes else (96, 96)
         self.setGeometry(x, y, w, h)
 
-        self.title = QtWidgets.QLabel(self)
+        self.title = QLabel(self)
         self.title.setGeometry(8, 8, 32, 32)
-        self.title.setFont(QtGui.QFont('Segoe UI', 14))
+        self.title.setFont(QFont('Segoe UI', 14))
 
         self.setProperty(self.attributes['type'], True)
         self.set_language(attributes['language'])
