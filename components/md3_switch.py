@@ -1,20 +1,16 @@
 """
 PySide6 Icon Button component adapted to follow Material Design 3 guidelines
 
-
 """
-
-from PySide6 import QtGui, QtWidgets, QtCore
-from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QToolButton
+from PySide6.QtCore import Qt, QSize
 
 from icon_color import icon_color
-
-import sys
 
 # ------
 # Switch
 # ------
-class MD3Switch(QtWidgets.QToolButton):
+class MD3Switch(QToolButton):
     def __init__(self, parent, attributes: dict) -> None:
         """ Material Design 3 Component: Switch
 
@@ -32,9 +28,6 @@ class MD3Switch(QtWidgets.QToolButton):
                 True: On, False: Off
             enabled: bool
                 Switch enabled / disabled
-            theme_style: bool
-                App theme style
-                True: Light theme, False: Dark theme
             theme_color: str
                 App theme color name
             clicked: def
@@ -74,4 +67,4 @@ class MD3Switch(QtWidgets.QToolButton):
         color = 'black' if state else color_name
         colorized_icon = icon_color(color, icon_name)
         self.setIcon(colorized_icon)
-        self.setIconSize(QtCore.QSize(16,16))
+        self.setIconSize(QSize(16,16))
