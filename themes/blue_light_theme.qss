@@ -281,11 +281,11 @@ MD3Label {
     border-style: solid;
     border-radius: 16px;
     background-color: transparent;
-    color: hsl(229, 53%, 53%);
 }
 MD3Label[subtitle=true] {
     border-width: 0px;
-    padding: 0
+    padding: 0;
+    color: hsl(204, 86%, 53%);
 }
 MD3Label[icon=true] {
     border-width: 0px;
@@ -293,11 +293,12 @@ MD3Label[icon=true] {
 }
 MD3Label[value=true] {
     border-width: 2px;
-    padding: 0
+    padding: 0;
+    color: hsl(204, 86%, 53%)
 }
 MD3Label[color=true] {
     border-width: 2px;
-    border-color: hsl(229, 53%, 53%);
+    border-color: hsl(204, 86%, 53%);
     padding: 0
 }
 
