@@ -2,7 +2,7 @@
 PySide6 Icon Button component adapted to follow Material Design 3 guidelines
 
 """
-from PySide6 import QtGui, QtWidgets
+from PySide6.QtWidgets import QToolButton
 from PySide6.QtCore import Qt
 
 from icon_color import icon_color
@@ -10,7 +10,7 @@ from icon_color import icon_color
 # -----------
 # Icon Button
 # -----------
-class MD3IconButton(QtWidgets.QToolButton):
+class MD3IconButton(QToolButton):
     def __init__(self, parent, attributes: dict) -> None:
         """ Material Design 3 Component: Icon Button
 
@@ -27,9 +27,6 @@ class MD3IconButton(QtWidgets.QToolButton):
                 Icon name
             enabled: bool
                 Icon button enabled / disabled
-            theme_style: bool
-                App theme style
-                True: Light theme, False: Dark theme
             theme_color: str
                 App theme color name
             clicked: def
