@@ -6,10 +6,10 @@ QWidget {
 MD3Card[filled=true] {
     border: 0px solid;
     border-radius: 12px;
-    background-color: hsl(0, 0%, 29%)
+    background-color: hsl(0, 0%, 21%)
 }
 MD3Card[outlined=true] {
-    border: 2px solid hsl(229, 53%, 53%);
+    border: 2px solid hsl(204, 86%, 53%);
     border-radius: 12px;
     background-color: transparent
 }
@@ -25,15 +25,15 @@ MD3IconButton {
 }
 MD3IconButton[filled=true] {
     border-width: 0px;
-    background-color: hsl(229, 53%, 53%);
+    background-color: hsl(204, 86%, 53%);
 }
 MD3IconButton[tonal=true] {
     border-width: 0px;
-    background-color: hsl(229, 53%, 86%)
+    background-color: hsl(204, 86%, 86%)
 }
 MD3IconButton[outlined=true] {
     border-width: 2px;
-    border-color: hsl(229, 53%, 53%);
+    border-color: hsl(204, 86%, 53%);
     background-color: transparent
 }
 MD3IconButton[standard=true] {
@@ -54,24 +54,24 @@ MD3Button {
 }
 MD3Button[filled=true] {
     border-width: 0px;
-    background-color: hsl(229, 53%, 53%);
-    color: hsl(229, 53%, 86%)
+    background-color: hsl(204, 86%, 53%);
+    color: hsl(0, 0%, 4%)
 }
 MD3Button[tonal=true] {
     border-width: 0px;
-    background-color: hsl(229, 53%, 86%);
-    color: hsl(229, 53%, 53%)
+    background-color: hsl(204, 86%, 86%);
+    color: hsl(0, 0%, 4%)
 }
 MD3Button[outlined=true] {
     border-width: 2px;
-    border-color: hsl(229, 53%, 53%);
+    border-color: hsl(204, 86%, 53%);
     background-color: transparent;
-    color: hsl(229, 53%, 86%)
+    color: hsl(204, 86%, 53%)
 }
 MD3Button[standard=true] {
     border-width: 0px;
     background-color: transparent;
-    color: hsl(229, 53%, 86%)
+    color: hsl(204, 86%, 53%)
 }
 MD3Button:hover {
     background-color: hsl(348, 100%, 61%);
@@ -83,10 +83,10 @@ MD3Button:disabled {
 
 /* Segmented Button */
 MD3SegmentedButton {
-    border: 1px solid hsl(229, 53%, 53%);
+    border: 1px solid hsl(204, 86%, 53%);
     padding: 0 8 0 8;
     background-color: transparent;
-    color: hsl(229, 53%, 86%)
+    color: hsl(204, 86%, 53%)
 }
 MD3SegmentedButton[left=true] {
     border-top-left-radius: 16;
@@ -100,8 +100,8 @@ MD3SegmentedButton[right=true] {
     border-bottom-right-radius: 16;
 }
 MD3SegmentedButton:checked {
-    background-color: hsl(229, 53%, 53%);
-    color: hsl(229, 53%, 86%)
+    background-color: hsl(204, 86%, 53%);
+    color: hsl(0, 0%, 4%)
 }
 MD3SegmentedButton:hover {
     background-color: hsl(348, 100%, 61%);
@@ -113,7 +113,7 @@ MD3SegmentedButton:disabled {
 
 /* Switch */
 MD3Switch {
-    border: 2px solid hsl(229, 53%, 53%);
+    border: 2px solid hsl(204, 86%, 53%);
     background-color: transparent;
 }
 MD3Switch[left=true] {
@@ -127,7 +127,7 @@ MD3Switch[right=true]{
     border-bottom-right-radius: 16;
 }
 MD3Switch:checked {
-    background-color: hsl(229, 53%, 53%);
+    background-color: hsl(204, 86%, 53%);
 }
 MD3Switch:disabled {
     background-color: hsl(0, 0%, 71%);
