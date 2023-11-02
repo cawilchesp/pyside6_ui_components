@@ -7,6 +7,8 @@ PySide6 Label component adapted to follow Material Design 3 guidelines
 from PySide6 import QtGui, QtWidgets
 from PySide6.QtCore import Qt
 
+from icon_color import icon_color
+
 import sys
 
 # ------
@@ -79,17 +81,17 @@ class MD3Label(QtWidgets.QLabel):
         if attributes['type'] == 'color':
             self.set_color_label(attributes['color'])
         if 'icon' in attributes:
-            self.set_icon_label(attributes['icon'], attributes['theme'])
+            self.set_icon_label(attributes['icon'], attributes['theme_color'])
         if 'language' in attributes:
             self.set_language(attributes['language'])
         
 
-    def set_icon_label(self, icon: str, theme: bool) -> None:
+    def set_icon_label(self, icon_name: str, color_name: str) -> None:
         """ Update icon corresponding to the theme """
 
-        self.attributes['icon'] = icon
-        icon_theme = 'L' if theme else 'D'
-        self.setPixmap(QtGui.QIcon(f'icons/{self.attributes["icon"]}_{icon_theme}.png').pixmap(24))
+        self.attributes['icon'] = icon_name
+        colorized_icon = icon_color(color_name, icon_name)
+        self.setPixmap(colorized_icon.pixmap(24))
         
 
     def set_color_label(self, color: str) -> None:
