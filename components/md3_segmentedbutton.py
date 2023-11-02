@@ -6,6 +6,8 @@ PySide6 Segmented Button component adapted to follow Material Design 3 guideline
 from PySide6 import QtGui, QtWidgets
 from PySide6.QtCore import Qt
 
+from icon_color import icon_color
+
 # ----------------
 # Segmented Button
 # ----------------
@@ -16,18 +18,16 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
         Parameters
         ----------
         attributes: dict
-            name: str
-                Widget name
             position: tuple
-                    Button position
-                    (x, y) -> x, y: upper left corner
+                Button top left corner position
+                (x, y)
             width: int
                 Button width
             labels: tuple
                 Segmented button text
                 (label_es, label_en) -> label_es: label in spanish, label_en: label in english
-            icon: str
-                Icon file without extension ('icon')
+            icon: str (Optional)
+                Icon name
             check_icon: bool
                 Use check icon for selected option
             location: str
@@ -38,9 +38,11 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
                 True: On, False: Off
             enabled: bool
                 Segmented button enabled / disabled
-            theme: bool
-                App theme
+            theme_style: bool
+                App theme style
                 True: Light theme, False: Dark theme
+            theme_color: str
+                App theme color name
             language: int
                 App language
                 0: Spanish, 1: English
@@ -55,33 +57,33 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
 
         self.attributes = attributes
         self.parent = parent
-
         x, y = attributes['position'] if 'position' in attributes else (8,8)
         w = attributes['width'] if 'width' in attributes else 32
         self.setGeometry(x, y, w, 32)
-
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setCheckable(True)
-
-        self.setProperty(self.attributes['location'], True)
-        self.set_state(attributes['state'], attributes['theme'])
-        self.set_language(attributes['language'])
-
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
+
+        self.set_state(attributes['state'], attributes['theme_color'])
+        self.setProperty(self.attributes['location'], True)
+        self.set_language(attributes['language'])
 
         self.clicked.connect(attributes['clicked'])
         
 
-    def set_state(self, state: bool, theme: bool) -> None:
+    def set_state(self, state: bool, color_name: str) -> None:
         """ Set button state and corresponding icon """
 
         self.setChecked(state)
-        icon_theme = 'L' if theme else 'D'
-        icon_image = self.attributes['icon'] if 'icon' in self.attributes else 'none'
-        if state and self.attributes['check_icon']:
-            icon_image = 'done'
-        icon_path = f"icons/{icon_image}_{icon_theme}.png"
-        self.setIcon(QtGui.QIcon(f"{icon_path}"))
+        icon_name = self.attributes['icon'] if 'icon' in self.attributes else 'none'
+        if state:
+            if self.attributes['check_icon']:
+                icon_name = 'done'
+            color = 'black'
+        else:
+            color = color_name
+        colorized_icon = icon_color(color, icon_name)
+        self.setIcon(colorized_icon)
 
 
     def set_language(self, language: int) -> None:
