@@ -71,10 +71,10 @@ class MainWindow(QMainWindow):
         self.ui.gui_widgets['color1_label'].set_color_label(color)
 
     def on_boton3_button_clicked(self) -> None:
-        selected_color = 'yellow'
-        colorized_icon = icon_color(selected_color, 'menu_right')
-        # Guardar el QIcon para sobreescribirlo con cada cambio de color del tema
-        self.ui.gui_widgets['icon4_button'].setIcon(colorized_icon)
+        print('Button 3 clicked')
+        # selected_color = 'yellow'
+        # colorized_icon = icon_color(selected_color, 'menu_right')
+        # self.ui.gui_widgets['icon4_button'].setIcon(colorized_icon)
 
     def on_boton4_button_clicked(self) -> None:
         print('Button 4 clicked')
