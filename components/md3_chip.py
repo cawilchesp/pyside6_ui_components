@@ -2,18 +2,15 @@
 PySide6 Chip component adapted to follow Material Design 3 guidelines
 
 """
-
-from PySide6 import QtGui, QtWidgets
+from PySide6.QtWidgets import QToolButton
 from PySide6.QtCore import Qt
 
 from icon_color import icon_color
 
-import sys
-
 # ----
 # Chip
 # ----
-class MD3Chip(QtWidgets.QToolButton):
+class MD3Chip(QToolButton):
     def __init__(self, parent, attributes: dict) -> None:
         """ Material Design 3 Component: Chip
 
@@ -26,18 +23,15 @@ class MD3Chip(QtWidgets.QToolButton):
             width: int
                 Chip width
             labels: tuple
-                Chip text
-                (label_es, label_en) -> label_es: label in spanish, label_en: label in english
+                Chip labels
+                (label_spanish, label_english)
             icon: str (Optional)
-                Icon file without extension ('icon')
+                Icon name
             state: bool
                 State of activation
                 True: On, False: Off
             enabled: bool
                 Chip enabled / disabled
-            theme_style: bool
-                App theme style
-                True: Light theme, False: Dark theme
             theme_color: str
                 App theme color name
             language: int
@@ -70,7 +64,6 @@ class MD3Chip(QtWidgets.QToolButton):
         
     def set_state(self, state: bool, color_name: str) -> None:
         """ Set chip state and corresponding icon """
-        
         self.setChecked(state)
         icon_name = self.attributes['icon'] if 'icon' in self.attributes else 'none'
         if state:
