@@ -367,7 +367,6 @@ class UI(QWidget):
             'type': 'filled',
             'labels': ('Fecha', 'Date'),
             'enabled': True,
-            'theme': self.theme_style,
             'language': self.language_value } )
 
         # ------
@@ -797,7 +796,6 @@ class UI(QWidget):
             'width': 120,
             'type': 'outlined',
             'labels': ('Fecha', 'Date'),
-            'theme': self.theme_style,
             'language': self.language_value } )
 
         # ------
