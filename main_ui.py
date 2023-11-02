@@ -113,7 +113,6 @@ class UI(QWidget):
             'type': 'filled',
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton1_button_clicked } )
@@ -125,7 +124,6 @@ class UI(QWidget):
             'type': 'tonal',
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton2_button_clicked } )
@@ -138,7 +136,6 @@ class UI(QWidget):
             'icon': 'delete',
             'enabled': True,
             'labels': ('Borrar','Delete'),
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton3_button_clicked } )
@@ -150,7 +147,6 @@ class UI(QWidget):
             'type': 'standard',
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton4_button_clicked } )
@@ -551,7 +547,6 @@ class UI(QWidget):
             'type': 'filled',
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton5_button_clicked } )
@@ -563,7 +558,6 @@ class UI(QWidget):
             'type': 'tonal',
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton6_button_clicked } )
@@ -576,7 +570,6 @@ class UI(QWidget):
             'icon': 'delete',
             'enabled': True,
             'labels': ('Borrar','Delete'),
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton7_button_clicked } )
@@ -588,7 +581,6 @@ class UI(QWidget):
             'type': 'standard',
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton8_button_clicked } )
