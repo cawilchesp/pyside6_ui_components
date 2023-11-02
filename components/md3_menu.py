@@ -7,6 +7,8 @@ PySide6 Menu component adapted to follow Material Design 3 guidelines
 from PySide6 import QtWidgets
 from PySide6.QtCore import Qt
 
+from icon_color import icon_color
+
 import sys
 
 # ----
@@ -19,11 +21,9 @@ class MD3Menu(QtWidgets.QComboBox):
         Parameters
         ----------
         attributes: dict
-            name: str
-                Widget name
             position: tuple
-                Button position
-                (x, y) -> x, y: upper left corner
+                Menu top left corner position
+                (x, y)
             width: int
                 Menu width
             type: str
@@ -37,9 +37,11 @@ class MD3Menu(QtWidgets.QComboBox):
                 -1: No option selected
             enabled: bool
                 Menu enabled / disabled
-            theme: bool
-                App theme
+            theme_style: bool
+                App theme style
                 True: Light theme, False: Dark theme
+            theme_color: str
+                App theme color name
             language: int
                 App language
                 0: Spanish, 1: English
@@ -71,10 +73,12 @@ class MD3Menu(QtWidgets.QComboBox):
         self.setMaxCount(self.max_items)
         self.setSizeAdjustPolicy(QtWidgets.QComboBox.SizeAdjustPolicy.AdjustToMinimumContentsLengthWithIcon)
         self.setCurrentIndex(attributes['set'])
-        self.view().window().setWindowFlags(Qt.WindowType.Popup | Qt.WindowType.FramelessWindowHint | Qt.WindowType.NoDropShadowWindowHint)
-        self.view().window().setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
-        
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
+
+        
+        colorized_icon = icon_color(attributes['theme_color'], 'menu_right')
+        # self.setStyleSheet(f"MD3Menu::down-arrow {{ width: 24; height: 24; image: {colorized_icon} }}")
+
 
         self.setProperty(attributes['type'], True)
 
