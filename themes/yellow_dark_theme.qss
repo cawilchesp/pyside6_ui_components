@@ -54,27 +54,27 @@ MD3Button {
 }
 MD3Button[filled=true] {
     border-width: 0px;
-    background-color: hsl(229, 53%, 53%);
-    color: hsl(229, 53%, 86%)
+    background-color: hsl(48, 100%, 67%);
+    color: hsl(48, 100%, 87%)
 }
 MD3Button[tonal=true] {
     border-width: 0px;
-    background-color: hsl(229, 53%, 86%);
-    color: hsl(229, 53%, 53%)
+    background-color: hsl(48, 100%, 87%);
+    color: hsl(48, 100%, 67%)
 }
 MD3Button[outlined=true] {
     border-width: 2px;
-    border-color: hsl(229, 53%, 53%);
+    border-color: hsl(48, 100%, 67%);
     background-color: transparent;
-    color: hsl(229, 53%, 86%)
+    color: hsl(48, 100%, 87%)
 }
 MD3Button[standard=true] {
     border-width: 0px;
     background-color: transparent;
-    color: hsl(229, 53%, 86%)
+    color: hsl(48, 100%, 87%)
 }
 MD3Button:hover {
-    background-color: hsl(348, 100%, 61%);
+    background-color: hsl(141, 53%, 53%);
 }
 MD3Button:disabled {
     background-color: hsl(0, 0%, 71%);
