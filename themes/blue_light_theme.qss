@@ -155,37 +155,35 @@ MD3Chip:disabled {
 
 /* Menu */
 MD3Menu {
-    border: 1px solid hsl(229, 53%, 53%);
+    border: 1px solid hsl(204, 86%, 53%);
     border-radius: 4; 
     background-color: transparent; 
-    color: hsl(229, 53%, 53%)
-}
-MD3Menu::down-arrow {
-    width: 16;
-    height: 16;
-    image: url(icons/menu_right_L.png)
+    color: hsl(204, 86%, 53%)
 }
 MD3Menu:disabled {
     background-color: hsl(0, 0%, 71%);
     color: hsl(0, 0%, 29%)
 }
+MD3Menu::drop-down:button {
+    background-color: transparent
+}
 MD3Menu QListView {
-    border: 1px solid hsl(229, 53%, 53%);
+    border: 1px solid hsl(204, 86%, 53%);
     border-radius: 4;
 }
 MD3Menu QListView::item:selected {
-    background-color: hsl(229, 53%, 53%)
+    background-color: hsl(204, 86%, 53%)
 }
 MD3Menu QListView::item:hover {
-    background-color: hsl(229, 53%, 53%)
+    background-color: hsl(204, 86%, 53%)
 }
 MD3Menu[filled=true] QListView {
-    background-color: hsl(0, 0%, 86%);
-    color: hsl(229, 53%, 53%)
+    background-color: hsl(0, 0%, 29%);
+    color: hsl(204, 86%, 86%)
 }
 MD3Menu[outlined=true] QListView {
-    background-color: hsl(0, 0%, 100%);
-    color: hsl(229, 53%, 53%)
+    background-color: hsl(0, 0%, 4%);
+    color: hsl(204, 86%, 86%)
 }
 
 /* TextField */
