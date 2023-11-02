@@ -1,30 +1,26 @@
 """
 PySide6 Text Field component adapted to follow Material Design 3 guidelines
 
-
 """
+from PySide6.QtWidgets import QFrame, QLineEdit, QLabel
+from PySide6.QtGui import QIcon, QFont, QRegularExpressionValidator
+from PySide6.QtCore import QRegularExpression, Qt
 
-from PySide6 import QtGui, QtWidgets
-from PySide6.QtCore import QRegularExpression
-from PySide6.QtGui import QRegularExpressionValidator
-
-import sys
+from icon_color import icon_color
 
 # ----------
 # Text Field
 # ----------
-class MD3TextField(QtWidgets.QFrame):
+class MD3TextField(QFrame):
     def __init__(self, parent, attributes: dict) -> None:
         """ Material Design 3 Component: Text Field
 
         Parameters
         ----------
         attributes: dict
-            name: str
-                Widget name
             position: tuple
-                Text field position
-                (x, y) -> x, y: upper left corner
+                Text field top left corner position
+                (x, y)
             width: int
                 Text field width
             type: str
@@ -32,25 +28,26 @@ class MD3TextField(QtWidgets.QFrame):
                 'filled', 'outlined'
             input: str (optional, any character allowed if not specified)
                 Text field type
-                    text: only letters and accents
-                    integer: only integer numbers
-                    double: allow decimal point
-                    weight: double values from 0.00 to 999.99
-                    height_si: double values from 0.00 to 2.99
-                    height_us: number in format [ft]'[in]" (ex. 5'12")
-                    email: text in email format
-                    ip: numbers in ip format (0.0.0.0 - 255.255.255.255)
-                    password: any character with visible/hidden icon
-            size: int
-                Text field size
+                    'text':      only letters and accents
+                    'integer':   only integer numbers
+                    'double':    allow decimal point
+                    'weight':    double values from 0.00 to 999.99
+                    'height_si': double values from 0.00 to 2.99
+                    'height_us': number in format [ft]'[in]" (ex. 5'12")
+                    'email':     text in email format
+                    'ip':        numbers in ip format (0.0.0.0 - 255.255.255.255)
+                    'password':  any character with visible/hidden icon
+            width: int
+                Text field width
+            length: int
+                Number of characters allowed
             labels: tuple
-                Text field text
-                (label_es, label_en) -> label_es: label in spanish, label_en: label in english
+                Text field labels
+                (label_spanish, label_english)
             enabled: bool
                 Text field enabled / disabled
-            theme: bool
-                App theme
-                True: Light theme, False: Dark theme
+            theme_color: str
+                App theme color name
             language: int
                 App language
                 0: Spanish, 1: English
@@ -74,46 +71,43 @@ class MD3TextField(QtWidgets.QFrame):
         w = attributes['width'] if 'width' in attributes else 96
         self.setGeometry(x, y, w, 52)
 
-        self.text_field = QtWidgets.QLineEdit(self)
+        self.text_field = QLineEdit(self)
         self.text_field.setGeometry(0, 8, w, 44)
         self.text_field.setClearButtonEnabled(True)
 
-        patterns_dict = {
-            'text': r"[\p{L}\s]+",
-            'integer': r'[+-]?\d+',
-            'double': r'[+-]?\d+\.\d+',
-            'weight': r'([0-9]\d{0,2})\.(\d{1,2})',
-            'height_si': r'[0-3]\.(\d{1,2})',
-            'height_us': r'[0-9]\'([0-9]|10|11|12)\"',
-            'email': r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+',
-            'ip': r'(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'
-        }
-
         if 'input' in attributes:
+            patterns_dict = {
+                'text': r"[\p{L}\s]+",
+                'integer': r'[+-]?\d+',
+                'double': r'[+-]?\d+\.\d+',
+                'weight': r'([0-9]\d{0,2})\.(\d{1,2})',
+                'height_si': r'[0-3]\.(\d{1,2})',
+                'height_us': r'[0-9]\'([0-9]|10|11|12)\"',
+                'email': r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+',
+                'ip': r'(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'
+            }
             if attributes['input'] in patterns_dict:
                 pattern = patterns_dict[attributes['input']]
                 reg_exp = QRegularExpressionValidator(QRegularExpression(f'{pattern}'))
                 self.text_field.setValidator(reg_exp)
 
             if attributes['input'] == 'password':
-                icon_theme = 'L' if attributes['theme'] else 'D'
-                current_path = sys.path[0].replace("\\","/")
-                images_path = f'{current_path}/icons'
-                self.visible_icon = QtGui.QIcon(f'{images_path}/eye_{icon_theme}.png')
-                self.hidden_icon = QtGui.QIcon(f'{images_path}/eye_off_{icon_theme}.png')
+                self.visible_icon = icon_color(attributes['theme_color'], 'eye')
+                self.hidden_icon = icon_color(attributes['theme_color'], 'eye_off')
                                 
-                self.text_field.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
-                self.toggle_password = self.text_field.addAction(self.visible_icon, QtWidgets.QLineEdit.ActionPosition.TrailingPosition)
+                self.text_field.setEchoMode(QLineEdit.EchoMode.Password)
+                self.toggle_password = self.text_field.addAction(self.visible_icon, QLineEdit.ActionPosition.TrailingPosition)
                 self.toggle_password.triggered.connect(self.password_action)
                 self.toggle_password_state = False
 
-        if 'size' in attributes:
-            self.text_field.setMaxLength(attributes['size'])
+        if 'length' in attributes:
+            self.text_field.setMaxLength(attributes['length'])
 
-        self.label_field = QtWidgets.QLabel(self)
+        self.label_field = QLabel(self)
         self.label_field.move(8, 0)
         self.label_field.setMargin(4)
-        self.label_field.setFont(QtGui.QFont('Segoe UI', 9))
+        self.label_field.setFont(QFont('Segoe UI', 9))
+        self.label_field.setAlignment(Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignBottom)
 
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
 
@@ -126,16 +120,15 @@ class MD3TextField(QtWidgets.QFrame):
             self.text_field.textEdited.connect(attributes['text_edited'])
         if 'text_changed' in attributes:
             self.text_field.textChanged.connect(attributes['text_changed'])
-        
-            
+          
 
     def password_action(self) -> None:
         if not self.toggle_password_state:
-            self.text_field.setEchoMode(QtWidgets.QLineEdit.EchoMode.Normal)
+            self.text_field.setEchoMode(QLineEdit.EchoMode.Normal)
             self.toggle_password_state = True
             self.toggle_password.setIcon(self.hidden_icon)
         else:
-            self.text_field.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
+            self.text_field.setEchoMode(QLineEdit.EchoMode.Password)
             self.toggle_password_state = False
             self.toggle_password.setIcon(self.visible_icon)
 
