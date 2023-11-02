@@ -220,7 +220,6 @@ class UI(QWidget):
             'position': (504, 88),
             'side': 'left',
             'state': False,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'clicked': parent.on_test1_switch_clicked } )
         
@@ -228,7 +227,6 @@ class UI(QWidget):
             'position': (530, 88),
             'side': 'right',
             'state': False,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'clicked': parent.on_test1_switch_clicked } )
 
@@ -583,7 +581,6 @@ class UI(QWidget):
             'position': (504, 88),
             'side': 'left',
             'state': False,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'clicked': parent.on_test2_switch_clicked } )
         
@@ -591,7 +588,6 @@ class UI(QWidget):
             'position': (530, 88),
             'side': 'right',
             'state': False,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'clicked': parent.on_test2_switch_clicked } )
 
