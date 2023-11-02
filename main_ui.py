@@ -115,7 +115,8 @@ class UI(QWidget):
             'type': 'filled',
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton1_button_clicked } )
 
@@ -126,7 +127,8 @@ class UI(QWidget):
             'type': 'tonal',
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton2_button_clicked } )
         
@@ -138,7 +140,8 @@ class UI(QWidget):
             'icon': 'delete',
             'enabled': True,
             'labels': ('Borrar','Delete'),
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton3_button_clicked } )
         
@@ -149,7 +152,8 @@ class UI(QWidget):
             'type': 'standard',
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton4_button_clicked } )
 
@@ -164,7 +168,8 @@ class UI(QWidget):
             'check_icon': True,
             'location': 'left',
             'state': False,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_left_segmented1_button_clicked } )
         
@@ -177,7 +182,8 @@ class UI(QWidget):
             'state': False,
             'icon': 'delete',
             'check_icon': True,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_center1_segmented1_button_clicked } ) 
 
@@ -190,7 +196,8 @@ class UI(QWidget):
             'check_icon': True,
             'location': 'center',
             'state': True,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_center2_segmented1_button_clicked } ) 
 
@@ -202,7 +209,8 @@ class UI(QWidget):
             'check_icon': True,
             'location': 'right',
             'state': True,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_right_segmented1_button_clicked } )
         
@@ -217,7 +225,8 @@ class UI(QWidget):
             'check_icon': False,
             'location': 'left',
             'state': self.theme_style,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_light_theme_clicked } )
 
@@ -229,7 +238,8 @@ class UI(QWidget):
             'check_icon': False,
             'location': 'right',
             'state': not self.theme_style,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_dark_theme_clicked } )
         
@@ -241,7 +251,8 @@ class UI(QWidget):
             'position': (504, 88),
             'side': 'left',
             'state': False,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'clicked': parent.on_test1_switch_clicked } )
         
         self.gui_widgets['test1_on_switch'] = MD3Switch(self.gui_widgets['filled_card'], {
@@ -249,7 +260,8 @@ class UI(QWidget):
             'position': (530, 88),
             'side': 'right',
             'state': False,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'clicked': parent.on_test1_switch_clicked } )
 
         # -----
@@ -531,7 +543,8 @@ class UI(QWidget):
             'type': 'filled',
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton5_button_clicked } )
 
@@ -542,7 +555,8 @@ class UI(QWidget):
             'type': 'tonal',
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton6_button_clicked } )
         
@@ -554,7 +568,8 @@ class UI(QWidget):
             'icon': 'delete',
             'enabled': True,
             'labels': ('Borrar','Delete'),
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton7_button_clicked } )
         
@@ -565,7 +580,8 @@ class UI(QWidget):
             'type': 'standard',
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_boton8_button_clicked } )
 
@@ -580,7 +596,8 @@ class UI(QWidget):
             'check_icon': True,
             'location': 'left',
             'state': False,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_left_segmented2_button_clicked } )
         
@@ -593,7 +610,8 @@ class UI(QWidget):
             'state': False,
             'icon': 'delete',
             'check_icon': True,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_center1_segmented2_button_clicked } ) 
 
@@ -606,7 +624,8 @@ class UI(QWidget):
             'check_icon': True,
             'location': 'center',
             'state': True,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_center2_segmented2_button_clicked } ) 
 
@@ -618,7 +637,8 @@ class UI(QWidget):
             'check_icon': True,
             'location': 'right',
             'state': True,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_right_segmented2_button_clicked } )
         
@@ -633,7 +653,8 @@ class UI(QWidget):
             'check_icon': False,
             'location': 'left',
             'state': self.theme_style,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_light_theme_clicked } )
 
@@ -645,7 +666,8 @@ class UI(QWidget):
             'check_icon': False,
             'location': 'right',
             'state': not self.theme_style,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_dark_theme_clicked } )
         
@@ -657,7 +679,8 @@ class UI(QWidget):
             'position': (504, 88),
             'side': 'left',
             'state': False,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'clicked': parent.on_test2_switch_clicked } )
         
         self.gui_widgets['test2_on_switch'] = MD3Switch(self.gui_widgets['outlined_card'], {
@@ -665,7 +688,8 @@ class UI(QWidget):
             'position': (530, 88),
             'side': 'right',
             'state': False,
-            'theme': self.theme_style,
+            'theme_style': self.theme_style,
+            'theme_color': self.theme_color,
             'clicked': parent.on_test2_switch_clicked } )
 
         # -----
