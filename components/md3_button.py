@@ -16,26 +16,26 @@ class MD3Button(QtWidgets.QPushButton):
         Parameters
         ----------
         attributes: dict
-            name: str
-                Widget name
             position: tuple
-                Button position
-                (x, y) -> x, y: upper left corner
+                Button top left corner position
+                (x, y)
             width: int
                 Button width
             type: str
                 Button type
-                'elevated', 'filled', 'tonal', 'outlined', 'standard'
+                'filled', 'tonal', 'outlined', 'standard'
             icon: str (Optional)
-                Icon file without extension ('icon')
+                Icon name
             labels: tuple
                 Item label text
                 (label_es, label_en) -> label_es: label in spanish, label_en: label in english
             enabled: bool
                 Button enabled / disabled
-            theme: bool
-                App theme
+            theme_style: bool
+                App theme style
                 True: Light theme, False: Dark theme
+            theme_color: str
+                App theme color name
             language: int
                 App language
                 0: Spanish, 1: English
@@ -50,23 +50,27 @@ class MD3Button(QtWidgets.QPushButton):
 
         self.attributes = attributes
         self.parent = parent
-
         x, y = attributes['position'] if 'position' in attributes else (8,8)
         w = attributes['width'] if 'width' in attributes else 32
         self.setGeometry(x, y, w, 32)
-
-        if 'icon' in self.attributes:
-            icon_theme = 'L' if self.attributes['theme'] else 'D'
-            icon_path = f"icons/{self.attributes['icon']}_{icon_theme}.png"
-            self.setIcon(QtGui.QIcon(f"{icon_path}"))
-
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
 
+        if 'icon' in self.attributes:
+            self.set_icon(attributes['theme_color'], attributes['icon'])
         self.setProperty(attributes['type'], True)
         self.set_language(attributes['language'])
 
         self.clicked.connect(attributes['clicked'])
-              
+
+
+    def set_icon(self, color_name: str, icon_name: str):
+        if self.attributes['type'] in ['filled', 'tonal']:
+            color = 'black'
+        elif self.attributes['type'] in ['outlined', 'standard']:
+            color = color_name
+        colorized_icon = icon_color(color, icon_name)
+        self.setIcon(colorized_icon)
+
 
     def set_language(self, language: int) -> None:
         """ Change language of title text """
