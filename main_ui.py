@@ -283,40 +283,38 @@ class UI(QWidget):
             'width': 120,
             'type': 'filled',
             'labels': ('Cuadro', 'Frame'),
-            'enabled': False,
-            # 'input': 'integers',
-            # 'size': '9',
-            'theme': self.theme_style,
+            'enabled': True,
+            'theme_color': self.theme_color,
             'language': self.language_value } )
 
         self.gui_widgets['test2_textfield'] = MD3TextField(self.gui_widgets['filled_card'], {
             'position': (136, 168),
             'width': 120,
+            'length': 9,
             'type': 'filled',
             'labels': ('Cuadro', 'Frame'),
             'input': 'integer',
-            'size': 9,
-            'theme': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value } )
         
         self.gui_widgets['test3_textfield'] = MD3TextField(self.gui_widgets['filled_card'], {
             'position': (264, 168),
             'width': 120,
+            'length': 9,
             'type': 'filled',
             'labels': ('Cuadro', 'Frame'),
-            'input': 'double',
-            'size': 9,
-            'theme': self.theme_style,
+            'input': 'password',
+            'theme_color': self.theme_color,
             'language': self.language_value } )
         
         self.gui_widgets['test4_textfield'] = MD3TextField(self.gui_widgets['filled_card'], {
             'position': (392, 168),
             'width': 120,
+            'length': 9,
             'type': 'filled',
             'labels': ('Cuadro', 'Frame'),
             'input': 'text',
-            'size': 9,
-            'theme': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value } )
 
         # -----------
@@ -644,40 +642,37 @@ class UI(QWidget):
             'width': 120,
             'type': 'outlined',
             'labels': ('Cuadro', 'Frame'),
-            'enabled': False,
-            # 'input': 'integers',
-            # 'size': '9',
-            'theme': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value } )
 
         self.gui_widgets['test6_textfield'] = MD3TextField(self.gui_widgets['outlined_card'], {
             'position': (136, 168),
             'width': 120,
+            'length': 9,
             'type': 'outlined',
             'labels': ('Cuadro', 'Frame'),
             'input': 'integer',
-            'size': 9,
-            'theme': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value } )
         
         self.gui_widgets['test7_textfield'] = MD3TextField(self.gui_widgets['outlined_card'], {
             'position': (264, 168),
             'width': 120,
+            'length': 9,
             'type': 'outlined',
             'labels': ('Cuadro', 'Frame'),
             'input': 'double',
-            'size': 9,
-            'theme': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value } )
         
         self.gui_widgets['test8_textfield'] = MD3TextField(self.gui_widgets['outlined_card'], {
             'position': (392, 168),
             'width': 120,
+            'length': 9,
             'type': 'outlined',
             'labels': ('Cuadro', 'Frame'),
             'input': 'text',
-            'size': 9,
-            'theme': self.theme_style,
+            'theme_color': self.theme_color,
             'language': self.language_value } )
 
         # -----------
