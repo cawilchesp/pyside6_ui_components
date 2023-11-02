@@ -1,20 +1,13 @@
 """
 PySide6 Menu component adapted to follow Material Design 3 guidelines
 
-
 """
-
-from PySide6 import QtWidgets
-from PySide6.QtCore import Qt
-
-from icon_color import icon_color
-
-import sys
+from PySide6.QtWidgets import QComboBox
 
 # ----
 # Menú
 # ----
-class MD3Menu(QtWidgets.QComboBox):
+class MD3Menu(QComboBox):
     def __init__(self, parent, attributes: dict) -> None:
         """ Material Design 3 Component: Menu
 
@@ -27,7 +20,7 @@ class MD3Menu(QtWidgets.QComboBox):
             width: int
                 Menu width
             type: str
-                Card type
+                Menu type
                 'filled', 'outlined'
             options: dict
                 Menu options with translations
@@ -37,11 +30,6 @@ class MD3Menu(QtWidgets.QComboBox):
                 -1: No option selected
             enabled: bool
                 Menu enabled / disabled
-            theme_style: bool
-                App theme style
-                True: Light theme, False: Dark theme
-            theme_color: str
-                App theme color name
             language: int
                 App language
                 0: Spanish, 1: English
@@ -49,6 +37,8 @@ class MD3Menu(QtWidgets.QComboBox):
                 Menu 'index changed' method name
             text_activated: def
                 Menu 'text activated' method name
+            activated: def
+                Menu 'activated' method name
         
         Returns
         -------
@@ -71,7 +61,7 @@ class MD3Menu(QtWidgets.QComboBox):
 
         self.setMaxVisibleItems(self.max_items)
         self.setMaxCount(self.max_items)
-        self.setSizeAdjustPolicy(QtWidgets.QComboBox.SizeAdjustPolicy.AdjustToMinimumContentsLengthWithIcon)
+        self.setSizeAdjustPolicy(QComboBox.SizeAdjustPolicy.AdjustToMinimumContentsLengthWithIcon)
         self.setCurrentIndex(attributes['set'])
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
         self.setProperty(attributes['type'], True)
