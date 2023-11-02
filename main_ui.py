@@ -15,7 +15,6 @@ from components.md3_switch import MD3Switch
 from components.md3_textfield import MD3TextField
 from components.md3_window import MD3Window
 
-import sys
 import yaml
 
 
