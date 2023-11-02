@@ -149,7 +149,6 @@ class UI(QWidget):
             'check_icon': True,
             'location': 'left',
             'state': False,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_left_segmented1_button_clicked } )
@@ -162,7 +161,6 @@ class UI(QWidget):
             'state': False,
             'icon': 'delete',
             'check_icon': True,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_center1_segmented1_button_clicked } ) 
@@ -175,7 +173,6 @@ class UI(QWidget):
             'check_icon': True,
             'location': 'center',
             'state': True,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_center2_segmented1_button_clicked } ) 
@@ -187,7 +184,6 @@ class UI(QWidget):
             'check_icon': True,
             'location': 'right',
             'state': True,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_right_segmented1_button_clicked } )
@@ -202,7 +198,6 @@ class UI(QWidget):
             'check_icon': False,
             'location': 'left',
             'state': self.theme_style,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_light_theme_clicked } )
@@ -214,7 +209,6 @@ class UI(QWidget):
             'check_icon': False,
             'location': 'right',
             'state': not self.theme_style,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_dark_theme_clicked } )
@@ -519,7 +513,6 @@ class UI(QWidget):
             'check_icon': True,
             'location': 'left',
             'state': False,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_left_segmented2_button_clicked } )
@@ -532,7 +525,6 @@ class UI(QWidget):
             'state': False,
             'icon': 'delete',
             'check_icon': True,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_center1_segmented2_button_clicked } ) 
@@ -545,7 +537,6 @@ class UI(QWidget):
             'check_icon': True,
             'location': 'center',
             'state': True,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_center2_segmented2_button_clicked } ) 
@@ -557,7 +548,6 @@ class UI(QWidget):
             'check_icon': True,
             'location': 'right',
             'state': True,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_right_segmented2_button_clicked } )
@@ -572,7 +562,6 @@ class UI(QWidget):
             'check_icon': False,
             'location': 'left',
             'state': self.theme_style,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_light_theme_clicked } )
@@ -584,7 +573,6 @@ class UI(QWidget):
             'check_icon': False,
             'location': 'right',
             'state': not self.theme_style,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_dark_theme_clicked } )
