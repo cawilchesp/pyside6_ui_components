@@ -392,8 +392,7 @@ class UI(QWidget):
             'value': 50,
             'enabled': False,
             'slider_moved': parent.on_test1_slider_sliderMoved,
-            'slider_released': parent.on_test1_slider_sliderReleased,
-            'theme': self.theme_style } )
+            'slider_released': parent.on_test1_slider_sliderReleased } )
 
         # --------
         # Dividers
@@ -754,8 +753,7 @@ class UI(QWidget):
             'range': (0, 1, 100),
             'value': 50,
             'slider_moved': parent.on_test2_slider_sliderMoved,
-            'slider_released': parent.on_test2_slider_sliderReleased,
-            'theme': self.theme_style } )
+            'slider_released': parent.on_test2_slider_sliderReleased } )
 
         # --------
         # Dividers
