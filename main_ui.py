@@ -452,15 +452,13 @@ class UI(QWidget):
             'name': 'horizontal1_divider',
             'position': (8, 288),
             'length': 100,
-            'shape': 'horizontal',
-            'theme': self.theme_style } )
+            'shape': 'horizontal' } )
         
         self.gui_widgets['vertical1_divider'] = MD3Divider(self.gui_widgets['filled_card'], {
             'name': 'vertical1_divider',
             'position': (116, 288),
             'length': 32,
-            'shape': 'vertical',
-            'theme': self.theme_style } )
+            'shape': 'vertical' } )
         
         # -----------
         # Image Label
