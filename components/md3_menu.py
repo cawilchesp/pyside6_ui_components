@@ -74,12 +74,6 @@ class MD3Menu(QtWidgets.QComboBox):
         self.setSizeAdjustPolicy(QtWidgets.QComboBox.SizeAdjustPolicy.AdjustToMinimumContentsLengthWithIcon)
         self.setCurrentIndex(attributes['set'])
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
-
-        
-        colorized_icon = icon_color(attributes['theme_color'], 'menu_right')
-        # self.setStyleSheet(f"MD3Menu::down-arrow {{ width: 24; height: 24; image: {colorized_icon} }}")
-
-
         self.setProperty(attributes['type'], True)
 
         if 'index_changed' in attributes:
