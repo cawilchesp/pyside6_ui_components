@@ -63,7 +63,7 @@ class MainWindow(QMainWindow):
     # Button Functions
     # ----------------
     def on_boton1_button_clicked(self) -> None:
-        self.ui.gui_widgets['icon1_label'].set_icon_label('calendar', self.theme_style)
+        self.ui.gui_widgets['icon1_label'].set_icon_label('calendar', self.theme_color)
 
     def on_boton2_button_clicked(self) -> None:
         selected_color = QtWidgets.QColorDialog.getColor()
