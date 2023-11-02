@@ -167,6 +167,11 @@ MD3Menu:disabled {
 MD3Menu::drop-down:button {
     background-color: transparent
 }
+MD3Menu::down-arrow {
+    width: 24;
+    height: 24;
+    image: url(icons/menu_right_blue.png)
+}
 MD3Menu QListView {
     border: 1px solid hsl(204, 86%, 53%);
     border-radius: 4;
@@ -197,11 +202,11 @@ MD3TextField:disabled {
     color: hsl(0, 0%, 29%)
 }
 MD3TextField QLineEdit {
-    border: 1px solid hsl(229, 53%, 53%);
+    border: 1px solid hsl(204, 86%, 53%);
     border-radius: 4;
     padding: 0 8 0 8;
     background-color: transparent;
-    color: hsl(229, 53%, 53%)
+    color: hsl(204, 86%, 53%)
 }
 MD3TextField QLineEdit:disabled {
     background-color: hsl(0, 0%, 71%);
@@ -209,10 +214,10 @@ MD3TextField QLineEdit:disabled {
 }
 MD3TextField QLabel {
     border: 0px solid;
-    color: hsl(229, 53%, 53%)
+    color: hsl(204, 86%, 53%)
 }
 MD3TextField[filled=true] QLabel {
-    background-color: hsl(0, 0%, 86%);
+    background-color: hsl(0, 0%, 90%);
 }
 MD3TextField[outlined=true] QLabel {
     background-color: hsl(0, 0%, 100%);
@@ -233,18 +238,18 @@ MD3DatePicker:disabled {
     color: hsl(0, 0%, 29%)
 }
 MD3DatePicker QDateEdit {
-    border: 1px solid hsl(229, 53%, 53%);
+    border: 1px solid hsl(204, 86%, 53%);
     border-radius: 4;
     padding: 0 8 0 8;
     background-color: transparent;
-    color: hsl(229, 53%, 53%)
+    color: hsl(204, 86%, 53%)
 }
 MD3DatePicker QDateEdit:disabled {
     background-color: hsl(0, 0%, 71%);
     color: hsl(0, 0%, 29%)
 }
 MD3DatePicker QDateEdit::drop-down {
-    background-color: hsl(229, 53%, 53%);
+    background-color: hsl(204, 86%, 53%);
     width: 32; 
     height: 32; 
     subcontrol-position: center right; 
@@ -252,16 +257,16 @@ MD3DatePicker QDateEdit::drop-down {
     border-radius: 16
 }
 MD3DatePicker QDateEdit::down-arrow {
-    image: url(icons/calendar_D.png);
+    image: url(icons/calendar.png);
     width: 16;
     height: 16
 }
 MD3DatePicker QLabel {
     border: 0px solid;
-    color: hsl(229, 53%, 53%)
+    color: hsl(204, 86%, 53%)
 }
 MD3DatePicker[filled=true] QLabel {
-    background-color: hsl(0, 0%, 86%);
+    background-color: hsl(0, 0%, 90%);
 }
 MD3DatePicker[outlined=true] QLabel {
     background-color: hsl(0, 0%, 100%);
