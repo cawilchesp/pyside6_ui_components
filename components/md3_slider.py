@@ -2,36 +2,30 @@
 PySide6 Slider component adapted to follow Material Design 3 guidelines
 
 """
-
-from PySide6 import QtWidgets
+from PySide6.QtWidgets import QSlider
 from PySide6.QtCore import Qt
 
 # ------
 # Slider
 # ------
-class MD3Slider(QtWidgets.QSlider):
+class MD3Slider(QSlider):
     def __init__(self, parent, attributes: dict) -> None:
         """ Material Design 3 Component: Slider
 
         Parameters
         ----------
         attributes: dict
-            name: str
-                Widget name
             position: tuple
-                Button position
-                (x, y) -> x, y: upper left corner
+                Slider top left corner position
+                (x, y)
             width: int
-                Button width
+                Slider width
             range: tuple
                 Slider range (min, step, max)
             value: int
                 Slider current value
             enabled: bool
                 Slider enabled / disabled
-            theme: bool
-                App theme
-                True: Light theme, False: Dark theme
             slider_moved: def
                 Slider 'moved' method name
             slider_released: def
