@@ -1,31 +1,25 @@
 """
 PySide6 Label component adapted to follow Material Design 3 guidelines
 
-
 """
-
-from PySide6 import QtGui, QtWidgets
+from PySide6.QtWidgets import QLabel
 from PySide6.QtCore import Qt
 
 from icon_color import icon_color
 
-import sys
-
 # ------
 # Labels
 # ------
-class MD3Label(QtWidgets.QLabel):
+class MD3Label(QLabel):
     def __init__(self, parent, attributes: dict) -> None:
         """ Material Design 3 Component: Label
 
         Parameters
         ----------
         attributes: dict
-            name: str
-                Widget name
             position: tuple
-                Card position
-                (x, y) -> x, y: upper left corner
+                Label top left corner position
+                (x, y)
             width: int
                 Label width
             type: str
@@ -36,19 +30,16 @@ class MD3Label(QtWidgets.QLabel):
                 Text align
                 'center', 'left', 'right'
             icon: str
-                Icon file without extension
+                Icon name
             color: str
-                Label color
-                Format hex: '#RRGGBB'
+                Label color in hexadecimal format
+                '#RRGGBB'
             border_color: str
-                Border color
-                Format hex: '#RRGGBB'
+                Border color in hexadecimal format
+                '#RRGGBB'
             labels: tuple
-                Item label text
-                (label_es, label_en) -> label_es: label in spanish, label_en: label in english
-            theme: bool
-                App theme
-                True: Light theme, False: Dark theme
+                Label labels
+                (label_spanish, label_english)
             language: int
                 App language
                 0: Spanish, 1: English
@@ -67,13 +58,14 @@ class MD3Label(QtWidgets.QLabel):
         h = 16 if attributes['type'] == 'subtitle' else 32
         self.setGeometry(x, y, w, h)
 
-        if 'align' in attributes:
-            alignment_dict = { 'center': Qt.AlignmentFlag.AlignCenter, 'right': Qt.AlignmentFlag.AlignRight }
-            if attributes['align'] in alignment_dict: label_alignment = alignment_dict[attributes['align']]
-            else: label_alignment = Qt.AlignmentFlag.AlignLeft
-        else:
-            label_alignment = Qt.AlignmentFlag.AlignLeft
-        self.setAlignment(label_alignment | Qt.AlignmentFlag.AlignVCenter)
+        if attributes['type'] in {'subtitle', 'value'}:
+            alignment_dict = {
+                'left': Qt.AlignmentFlag.AlignLeft,
+                'center': Qt.AlignmentFlag.AlignHCenter,
+                'right': Qt.AlignmentFlag.AlignRight
+            }
+            label_alignment = alignment_dict[attributes['align']]
+            self.setAlignment(label_alignment | Qt.AlignmentFlag.AlignVCenter)
 
         self.setProperty(attributes['type'], True)
         if attributes['type'] == 'value':
