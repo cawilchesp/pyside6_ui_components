@@ -1,9 +1,8 @@
 """
 PySide6 Segmented Button component adapted to follow Material Design 3 guidelines
 
-
 """
-from PySide6 import QtGui, QtWidgets
+from PySide6.QtWidgets import QToolButton
 from PySide6.QtCore import Qt
 
 from icon_color import icon_color
@@ -11,7 +10,7 @@ from icon_color import icon_color
 # ----------------
 # Segmented Button
 # ----------------
-class MD3SegmentedButton(QtWidgets.QToolButton):
+class MD3SegmentedButton(QToolButton):
     def __init__(self, parent, attributes: dict) -> None:
         """ Material Design 3 Component: Segmented Button
 
@@ -24,23 +23,20 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
             width: int
                 Button width
             labels: tuple
-                Segmented button text
-                (label_es, label_en) -> label_es: label in spanish, label_en: label in english
+                Segmented button labels
+                (label_spanish, label_english)
             icon: str (Optional)
                 Icon name
             check_icon: bool
                 Use check icon for selected option
             location: str
                 Position of the segmented button in the group
-                Options: 'left', 'center', 'right'
+                'left', 'center', 'right'
             state: bool
                 State of activation
                 True: On, False: Off
             enabled: bool
                 Segmented button enabled / disabled
-            theme_style: bool
-                App theme style
-                True: Light theme, False: Dark theme
             theme_color: str
                 App theme color name
             language: int
@@ -73,7 +69,6 @@ class MD3SegmentedButton(QtWidgets.QToolButton):
 
     def set_state(self, state: bool, color_name: str) -> None:
         """ Set button state and corresponding icon """
-
         self.setChecked(state)
         icon_name = self.attributes['icon'] if 'icon' in self.attributes else 'none'
         if state:
