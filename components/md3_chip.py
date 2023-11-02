@@ -6,6 +6,8 @@ PySide6 Chip component adapted to follow Material Design 3 guidelines
 from PySide6 import QtGui, QtWidgets
 from PySide6.QtCore import Qt
 
+from icon_color import icon_color
+
 import sys
 
 # ----
@@ -18,11 +20,9 @@ class MD3Chip(QtWidgets.QToolButton):
         Parameters
         ----------
         attributes: dict
-            name: str
-                Widget name
             position: tuple
-                Chip position
-                (x, y) -> x, y: upper left corner
+                Chip top left corner position
+                (x, y)
             width: int
                 Chip width
             labels: tuple
@@ -35,9 +35,11 @@ class MD3Chip(QtWidgets.QToolButton):
                 True: On, False: Off
             enabled: bool
                 Chip enabled / disabled
-            theme: bool
-                App theme
+            theme_style: bool
+                App theme style
                 True: Light theme, False: Dark theme
+            theme_color: str
+                App theme color name
             language: int
                 App language
                 0: Spanish, 1: English
@@ -56,27 +58,28 @@ class MD3Chip(QtWidgets.QToolButton):
         x, y = attributes['position'] if 'position' in attributes else (8,8)
         w = attributes['width'] if 'width' in attributes else 32
         self.setGeometry(x, y, w, 32)
-
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setCheckable(True)
-
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
 
-        self.set_state(attributes['state'], attributes['theme'])
+        self.set_state(attributes['state'], attributes['theme_color'])
         self.set_language(attributes['language'])
 
         self.clicked.connect(attributes['clicked'])
 
         
-    def set_state(self, state: bool, theme: bool) -> None:
-        """ Set button state and corresponding icon """
+    def set_state(self, state: bool, color_name: str) -> None:
+        """ Set chip state and corresponding icon """
         
         self.setChecked(state)
-        icon_theme = 'L' if theme else 'D'
-        icon_image = self.attributes['icon'] if 'icon' in self.attributes else 'none'
+        icon_name = self.attributes['icon'] if 'icon' in self.attributes else 'none'
         if state:
-            icon_image = 'done'
-        self.setIcon(QtGui.QIcon(f'icons/{icon_image}_{icon_theme}.png'))
+            icon_name = 'done'
+            color = 'black'
+        else:
+            color = color_name
+        colorized_icon = icon_color(color, icon_name)
+        self.setIcon(colorized_icon)
 
 
     def set_language(self, language: int) -> None:
