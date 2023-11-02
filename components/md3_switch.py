@@ -7,6 +7,8 @@ PySide6 Icon Button component adapted to follow Material Design 3 guidelines
 from PySide6 import QtGui, QtWidgets, QtCore
 from PySide6.QtCore import Qt
 
+from icon_color import icon_color
+
 import sys
 
 # ------
@@ -19,11 +21,9 @@ class MD3Switch(QtWidgets.QToolButton):
         Parameters
         ----------
         attributes: dict
-            name: str
-                Widget name
             position: tuple
-                Switch position
-                (x, y) -> x, y: upper left corner
+                Button top left corner position
+                (x, y)
             side: str
                 Switch button side
                 'left', 'right'
@@ -32,9 +32,11 @@ class MD3Switch(QtWidgets.QToolButton):
                 True: On, False: Off
             enabled: bool
                 Switch enabled / disabled
-            theme: bool
-                App theme
+            theme_style: bool
+                App theme style
                 True: Light theme, False: Dark theme
+            theme_color: str
+                App theme color name
             clicked: def
                 Switch 'clicked' method name
         
@@ -55,20 +57,21 @@ class MD3Switch(QtWidgets.QToolButton):
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
 
         self.setProperty(attributes['side'], True)
-        self.set_state(attributes['state'], attributes['theme'])
+        self.set_state(attributes['state'], attributes['theme_color'])
 
         self.clicked.connect(attributes['clicked'])
         
 
-    def set_state(self, state: bool, theme: bool) -> None:
+    def set_state(self, state: bool, color_name: str) -> None:
         """ Set button state and corresponding icon """
-        self.setChecked(state)
         
-        icon_theme = 'L' if theme else 'D'
+        self.setChecked(state)
         icon_state = {
             True: { 'left': 'none', 'right': 'circle_checked' },
             False: { 'left': 'circle', 'right': 'none' }
         }
-        icon_image = icon_state[state][self.attributes['side']]
-        self.setIcon(QtGui.QIcon(f'icons/{icon_image}_{icon_theme}.png'))
+        icon_name = icon_state[state][self.attributes['side']]
+        color = 'black' if state else color_name
+        colorized_icon = icon_color(color, icon_name)
+        self.setIcon(colorized_icon)
         self.setIconSize(QtCore.QSize(16,16))
