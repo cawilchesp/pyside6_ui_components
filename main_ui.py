@@ -280,8 +280,6 @@ class UI(QWidget):
             'type': 'filled',
             'options': self.test_options,
             'set': self.language_value,
-            'theme_style': self.theme_style,
-            'theme_color': self.theme_color,
             'language': self.language_value,
             'index_changed': parent.on_language_changed } )
 
@@ -652,8 +650,6 @@ class UI(QWidget):
             'type': 'outlined',
             'options': self.test_options,
             'set': self.language_value,
-            'theme_style': self.theme_style,
-            'theme_color': self.theme_color,
             'language': self.language_value,
             'index_changed': parent.on_language_changed } )
 
