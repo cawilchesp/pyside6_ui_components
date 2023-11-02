@@ -307,11 +307,11 @@ MD3Slider {
     background-color: transparent
 }
 MD3Slider::groove:horizontal {
-    background: hsl(229, 53%, 86%);
+    background: hsl(204, 86%, 53%);
     height: 4px
 }
 MD3Slider::handle:horizontal {
-    background-color: hsl(229, 53%, 53%); 
+    background-color: hsl(204, 86%, 53%);
     width: 20px; 
     height: 20px; 
     margin: -8px 0;
@@ -321,10 +321,10 @@ MD3Slider::handle:disabled {
     background-color: hsl(0, 0%, 71%)
 }
 MD3Slider::add-page:horizontal {
-    background: hsl(229, 53%, 29%)
+    background: hsl(204, 86%, 29%)
 }
 MD3Slider::sub-page:horizontal {
-    background: hsl(229, 53%, 53%)
+    background: hsl(204, 86%, 53%)
 }
 MD3Slider::add-page:disabled {
     background: hsl(0, 0%, 71%)
@@ -335,12 +335,12 @@ MD3Slider::sub-page:disabled {
 
 /* Divider */
 MD3Divider {
-    border: 1px solid hsl(229, 53%, 53%);
+    border: 1px solid hsl(204, 86%, 53%);
     background-color: transparent
 }
 
 /* Image Label */
 MD3ImageLabel {
-    border: 1px solid hsl(229, 53%, 53%);
+    border: 1px solid hsl(204, 86%, 53%);
     background-color: transparent
 }
