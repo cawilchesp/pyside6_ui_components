@@ -255,6 +255,7 @@ class MainWindow(QMainWindow):
     def on_test1_slider_sliderReleased(self) -> None:
         print(f'Slider 1 value: {self.ui.gui_widgets["test1_slider"].value()}')
     
+    
     def on_test2_slider_sliderMoved(self, value: int) -> None:
         self.ui.gui_widgets['value2_label'].setText(str(value))
     
