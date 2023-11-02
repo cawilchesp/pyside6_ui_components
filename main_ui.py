@@ -373,7 +373,6 @@ class UI(QWidget):
             'position': (136, 228),
             'type': 'icon',
             'icon': 'delete',
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color } )
 
         self.gui_widgets['subtitle1_label'] = MD3Label(self.gui_widgets['filled_card'], {
@@ -383,7 +382,6 @@ class UI(QWidget):
             'type': 'subtitle',
             'align': 'left',
             'labels': ('Eliminar', 'Delete'),
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value } )
         
@@ -394,7 +392,6 @@ class UI(QWidget):
             'type': 'subtitle',
             'align': 'center',
             'labels': ('Eliminar', 'Delete'),
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value } )
 
@@ -405,7 +402,6 @@ class UI(QWidget):
             'type': 'subtitle',
             'align': 'right',
             'labels': ('Eliminar', 'Delete'),
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value } )
         
@@ -414,7 +410,6 @@ class UI(QWidget):
             'position': (284, 228),
             'type': 'color',
             'color': '#ff8888',
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color } )
         
         self.gui_widgets['value1_label'] = MD3Label(self.gui_widgets['filled_card'], {
@@ -424,7 +419,6 @@ class UI(QWidget):
             'type': 'value',
             'align': 'center',
             'border_color': '#ff8888',
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color } )
 
         # ------
@@ -796,7 +790,6 @@ class UI(QWidget):
             'position': (136, 228),
             'type': 'icon',
             'icon': 'delete',
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color } )
 
         self.gui_widgets['subtitle4_label'] = MD3Label(self.gui_widgets['outlined_card'], {
@@ -806,7 +799,6 @@ class UI(QWidget):
             'type': 'subtitle',
             'align': 'left',
             'labels': ('Eliminar', 'Delete'),
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value } )
         
@@ -817,7 +809,6 @@ class UI(QWidget):
             'type': 'subtitle',
             'align': 'center',
             'labels': ('Eliminar', 'Delete'),
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value } )
 
@@ -828,7 +819,6 @@ class UI(QWidget):
             'type': 'subtitle',
             'align': 'right',
             'labels': ('Eliminar', 'Delete'),
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value } )
         
@@ -837,7 +827,6 @@ class UI(QWidget):
             'position': (284, 228),
             'type': 'color',
             'color': '#0000FF',
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color } )
         
         self.gui_widgets['value2_label'] = MD3Label(self.gui_widgets['outlined_card'], {
@@ -847,7 +836,6 @@ class UI(QWidget):
             'type': 'value',
             'align': 'center',
             'border_color': '#0000FF',
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color } )
 
         # ------
