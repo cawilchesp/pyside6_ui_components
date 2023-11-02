@@ -202,22 +202,22 @@ class MainWindow(QMainWindow):
     # Chips Functions
     # ---------------
     def on_chip1_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip1_button'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['chip1_button'].set_state(state, self.theme_color)
 
     def on_chip2_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip2_button'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['chip2_button'].set_state(state, self.theme_color)
 
     def on_chip3_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip3_button'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['chip3_button'].set_state(state, self.theme_color)
 
     def on_chip4_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip4_button'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['chip4_button'].set_state(state, self.theme_color)
 
     def on_chip5_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip5_button'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['chip5_button'].set_state(state, self.theme_color)
 
     def on_chip6_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['chip6_button'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['chip6_button'].set_state(state, self.theme_color)
 
 
     # ----------------
