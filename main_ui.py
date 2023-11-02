@@ -70,8 +70,7 @@ class UI(QWidget):
             'name': 'icon1_button',
             'position': (8,48),
             'type': 'filled',
-            'icon': 'delete', 
-            'theme_style': self.theme_style,
+            'icon': 'delete',
             'theme_color': self.theme_color,
             'clicked': parent.on_icon1_button_clicked } )
 
@@ -79,9 +78,8 @@ class UI(QWidget):
             'name': 'icon2_button',
             'position': (48,48),
             'type': 'tonal',
-            'icon': 'delete', 
+            'icon': 'delete',
             'enabled': True,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'clicked': parent.on_icon2_button_clicked } )
         
@@ -89,8 +87,7 @@ class UI(QWidget):
             'name': 'icon3_button',
             'position': (88,48),
             'type': 'outlined',
-            'icon': 'delete', 
-            'theme_style': self.theme_style,
+            'icon': 'delete',
             'theme_color': self.theme_color,
             'clicked': parent.on_icon3_button_clicked } )
         
@@ -98,8 +95,7 @@ class UI(QWidget):
             'name': 'icon4_button',
             'position': (128,48),
             'type': 'standard',
-            'icon': 'delete', 
-            'theme_style': self.theme_style,
+            'icon': 'delete',
             'theme_color': self.theme_color,
             'clicked': parent.on_icon4_button_clicked } )
         
@@ -498,8 +494,7 @@ class UI(QWidget):
             'name': 'icon5_button',
             'position': (8,48),
             'type': 'filled',
-            'icon': 'delete', 
-            'theme_style': self.theme_style,
+            'icon': 'delete',
             'theme_color': self.theme_color,
             'clicked': parent.on_icon5_button_clicked } )
 
@@ -507,9 +502,8 @@ class UI(QWidget):
             'name': 'icon6_button',
             'position': (48,48),
             'type': 'tonal',
-            'icon': 'delete', 
+            'icon': 'delete',
             'enabled': True,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'clicked': parent.on_icon6_button_clicked } )
         
@@ -517,8 +511,7 @@ class UI(QWidget):
             'name': 'icon7_button',
             'position': (88,48),
             'type': 'outlined',
-            'icon': 'delete', 
-            'theme_style': self.theme_style,
+            'icon': 'delete',
             'theme_color': self.theme_color,
             'clicked': parent.on_icon7_button_clicked } )
         
@@ -526,8 +519,7 @@ class UI(QWidget):
             'name': 'icon8_button',
             'position': (128,48),
             'type': 'standard',
-            'icon': 'delete', 
-            'theme_style': self.theme_style,
+            'icon': 'delete',
             'theme_color': self.theme_color,
             'clicked': parent.on_icon8_button_clicked } )
         
