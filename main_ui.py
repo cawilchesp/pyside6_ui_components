@@ -43,9 +43,9 @@ class UI(QWidget):
 
         self.gui_widgets = {}
 
-        # -----------
-        # Main Window
-        # -----------
+        # *****************************************************************
+        #                           Main Window
+        # *****************************************************************
         (width, height) = (1300, 350)
         self.gui_widgets['main_window'] = MD3Window( {
             'parent': parent, 
@@ -53,9 +53,9 @@ class UI(QWidget):
             'labels': ('Componentes de Material 3 UI', 'Material 3 UI Components'),
             'language': self.language_value } )
 
-        # -----------
-        # Card Filled
-        # -----------
+        # *****************************************************************
+        #                           Card Filled
+        # *****************************************************************
         self.gui_widgets['filled_card'] = MD3Card(parent, {
             'position': (8, 8), 
             'size': ((width / 2) - 16, height - 16),
@@ -425,20 +425,9 @@ class UI(QWidget):
             'scaled_image': True,
             'theme': self.theme_style } )
 
-
-
-
-
-
-
-
-
-
-
-
-        # -------------
-        # Card Outlined
-        # -------------
+        # *****************************************************************
+        #                           Card Outlined
+        # *****************************************************************
         self.gui_widgets['outlined_card'] = MD3Card(parent, {
             'position': ((width / 2) + 8, 8), 
             'size': ((width / 2) - 16, height - 16),
