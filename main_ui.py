@@ -269,7 +269,6 @@ class UI(QWidget):
             'icon': 'delete',
             'state': False,
             'enabled': False,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_chip1_clicked } )
@@ -281,7 +280,6 @@ class UI(QWidget):
             'labels': ('Correo', 'Mail'),
             'icon': 'mail',
             'state': True,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_chip2_clicked } )
@@ -292,7 +290,6 @@ class UI(QWidget):
             'width': 100,
             'labels': ('Mejorar', 'Improve'),
             'state': False,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_chip3_clicked } )
@@ -703,7 +700,6 @@ class UI(QWidget):
             'icon': 'delete',
             'state': False,
             'enabled': False,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_chip4_clicked } )
@@ -715,7 +711,6 @@ class UI(QWidget):
             'labels': ('Correo', 'Mail'),
             'icon': 'mail',
             'state': True,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_chip5_clicked } )
@@ -726,7 +721,6 @@ class UI(QWidget):
             'width': 100,
             'labels': ('Mejorar', 'Improve'),
             'state': False,
-            'theme_style': self.theme_style,
             'theme_color': self.theme_color,
             'language': self.language_value,
             'clicked': parent.on_chip6_clicked } )
