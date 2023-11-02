@@ -2,14 +2,14 @@
 PySide6 Button component adapted to follow Material Design 3 guidelines
 
 """
-from PySide6 import QtGui, QtWidgets
+from PySide6.QtWidgets import QPushButton
 
 from icon_color import icon_color
 
 # --------------
 # Common Buttons
 # --------------
-class MD3Button(QtWidgets.QPushButton):
+class MD3Button(QPushButton):
     def __init__(self, parent, attributes: dict) -> None:
         """ Material Design 3 Component: Common Buttons
 
@@ -27,13 +27,10 @@ class MD3Button(QtWidgets.QPushButton):
             icon: str (Optional)
                 Icon name
             labels: tuple
-                Item label text
-                (label_es, label_en) -> label_es: label in spanish, label_en: label in english
+                Button labels
+                (label_spanish, label_english)
             enabled: bool
                 Button enabled / disabled
-            theme_style: bool
-                App theme style
-                True: Light theme, False: Dark theme
             theme_color: str
                 App theme color name
             language: int
