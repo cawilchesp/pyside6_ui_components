@@ -1,8 +1,7 @@
-from PySide6 import QtWidgets, QtGui
-from PySide6.QtWidgets import QWidget, QApplication, QMainWindow
+from PySide6 import QtWidgets
+from PySide6.QtWidgets import QApplication, QMainWindow
 
 from main_ui import UI
-from icon_color import icon_color
 
 import sys
 import yaml
