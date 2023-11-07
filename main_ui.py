@@ -219,7 +219,7 @@ class UI(QWidget):
         self.gui_widgets['test1_switch'] = MD3Switch(self.gui_widgets['filled_card'], {
             'position': (504, 88),
             'state': False,
-            'enabled': False,
+            'enabled': True,
             'theme_color': self.theme_color,
             'clicked': parent.on_test1_switch_clicked } )
 
