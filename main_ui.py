@@ -5,7 +5,6 @@ from components.md3_card import MD3Card
 from components.md3_chip import MD3Chip
 from components.md3_datepicker import MD3DatePicker
 from components.md3_divider import MD3Divider
-from components.md3_iconbutton import MD3IconButton
 from components.md3_imagelabel import MD3ImageLabel
 from components.md3_label import MD3Label
 from components.md3_menu import MD3Menu
