@@ -127,10 +127,8 @@ class MainWindow(QMainWindow):
         
         """
         state = not self.theme_style
-        if state:
-            theme_qss_file = f"themes/{self.theme_color}_light_theme.qss"
-        else:
-            theme_qss_file = f"themes/{self.theme_color}_dark_theme.qss"
+        theme = 'light' if state else 'dark'
+        theme_qss_file = f"themes/{self.theme_color}_{theme}_theme.qss"
         with open(theme_qss_file, "r") as theme_qss:
             self.setStyleSheet(theme_qss.read())
         self.ui.gui_widgets['theme1_button'].set_state(state, self.theme_color)
