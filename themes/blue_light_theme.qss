@@ -52,6 +52,40 @@ MD3Button:disabled {
     color: hsl(0, 0%, 29%)
 }
 
+/* Theme Button */
+MD3ThemeButton {
+    border-style: solid;
+    border-radius: 16;
+}
+MD3ThemeButton[filled=true] {
+    border-width: 0px;
+    background-color: hsl(204, 86%, 53%);
+    color: hsl(0, 0%, 4%)
+}
+MD3ThemeButton[tonal=true] {
+    border-width: 0px;
+    background-color: hsl(204, 86%, 86%);
+    color: hsl(0, 0%, 4%)
+}
+MD3ThemeButton[outlined=true] {
+    border-width: 2px;
+    border-color: hsl(204, 86%, 53%);
+    background-color: transparent;
+    color: hsl(204, 86%, 53%)
+}
+MD3ThemeButton[standard=true] {
+    border-width: 0px;
+    background-color: transparent;
+    color: hsl(204, 86%, 53%)
+}
+MD3ThemeButton:hover {
+    background-color: hsl(348, 100%, 61%);
+}
+MD3ThemeButton:disabled {
+    background-color: hsl(0, 0%, 71%);
+    color: hsl(0, 0%, 29%)
+}
+
 /* Segmented Button */
 MD3SegmentedButton {
     border: 1px solid hsl(204, 86%, 53%);
