@@ -113,23 +113,28 @@ MD3SegmentedButton:disabled {
 
 /* Switch */
 MD3Switch {
-    border: 2px solid hsl(204, 86%, 53%);
+    border: 0px solid;
     background-color: transparent;
 }
-MD3Switch[left=true] {
+MD3Switch QToolButton {
+    background-color: transparent;
+}
+MD3Switch QToolButton[left=true] {
+    border: 2px solid hsl(204, 86%, 53%);
     border-right-width: 0px;
     border-top-left-radius: 16;
     border-bottom-left-radius: 16;
 }
-MD3Switch[right=true]{
+MD3Switch QToolButton[right=true]{
+    border: 2px solid hsl(204, 86%, 53%);
     border-left-width: 0px;
     border-top-right-radius: 16;
     border-bottom-right-radius: 16;
 }
-MD3Switch:checked {
+MD3Switch QToolButton:checked {
     background-color: hsl(204, 86%, 53%);
 }
-MD3Switch:disabled {
+MD3Switch QToolButton:disabled {
     background-color: hsl(0, 0%, 71%);
 }
 

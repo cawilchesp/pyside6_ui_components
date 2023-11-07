@@ -216,17 +216,10 @@ class UI(QWidget):
         # ------
         # Switch
         # ------
-        self.gui_widgets['test1_off_switch'] = MD3Switch(self.gui_widgets['filled_card'], {
+        self.gui_widgets['test1_switch'] = MD3Switch(self.gui_widgets['filled_card'], {
             'position': (504, 88),
-            'side': 'left',
             'state': False,
-            'theme_color': self.theme_color,
-            'clicked': parent.on_test1_switch_clicked } )
-        
-        self.gui_widgets['test1_on_switch'] = MD3Switch(self.gui_widgets['filled_card'], {
-            'position': (530, 88),
-            'side': 'right',
-            'state': False,
+            'enabled': True,
             'theme_color': self.theme_color,
             'clicked': parent.on_test1_switch_clicked } )
 
@@ -574,17 +567,10 @@ class UI(QWidget):
         # ------
         # Switch
         # ------
-        self.gui_widgets['test2_off_switch'] = MD3Switch(self.gui_widgets['outlined_card'], {
+        self.gui_widgets['test2_switch'] = MD3Switch(self.gui_widgets['outlined_card'], {
             'position': (504, 88),
-            'side': 'left',
             'state': False,
-            'theme_color': self.theme_color,
-            'clicked': parent.on_test2_switch_clicked } )
-        
-        self.gui_widgets['test2_on_switch'] = MD3Switch(self.gui_widgets['outlined_card'], {
-            'position': (530, 88),
-            'side': 'right',
-            'state': False,
+            'enabled': True,
             'theme_color': self.theme_color,
             'clicked': parent.on_test2_switch_clicked } )
 

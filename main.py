@@ -138,10 +138,6 @@ class MainWindow(QMainWindow):
             with open(f"themes/{self.theme_color}_light_theme.qss", "r") as theme_qss:
                 self.setStyleSheet(theme_qss.read())
 
-            for key in self.ui.gui_widgets.keys():
-                if hasattr(self.ui.gui_widgets[key], 'set_state'):
-                    self.ui.gui_widgets[key].set_state(self.ui.gui_widgets[key].isChecked(), self.theme_color)
-                    
             self.ui.gui_widgets['dark_theme_button'].set_state(False, self.theme_color)
             self.ui.gui_widgets['dark2_theme_button'].set_state(False, self.theme_color)
     
@@ -169,10 +165,6 @@ class MainWindow(QMainWindow):
         if state:
             with open(f"themes/{self.theme_color}_dark_theme.qss", "r") as theme_qss:
                 self.setStyleSheet(theme_qss.read())
-
-            for key in self.ui.gui_widgets.keys():
-                if hasattr(self.ui.gui_widgets[key], 'set_state'):
-                    self.ui.gui_widgets[key].set_state(self.ui.gui_widgets[key].isChecked(), self.theme_color)
 
             self.ui.gui_widgets['light_theme_button'].set_state(False, self.theme_color)
             self.ui.gui_widgets['light2_theme_button'].set_state(False, self.theme_color)
@@ -213,12 +205,10 @@ class MainWindow(QMainWindow):
     # Switch Functions
     # ----------------
     def on_test1_switch_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['test1_on_switch'].set_state(state, self.theme_color)
-        self.ui.gui_widgets['test1_off_switch'].set_state(state, self.theme_color)
+        self.ui.gui_widgets['test1_switch'].set_state(state, self.theme_color)
         
     def on_test2_switch_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['test2_on_switch'].set_state(state, self.theme_color)
-        self.ui.gui_widgets['test2_off_switch'].set_state(state, self.theme_color)
+        self.ui.gui_widgets['test2_switch'].set_state(state, self.theme_color)
 
     # -------------
     # Menu Function
