@@ -68,7 +68,6 @@ class UI(QWidget):
         self.gui_widgets['icon1_button'] = MD3Button(self.gui_widgets['filled_card'], {
             'position': (8,48),
             'type': 'filled',
-            'mode': 'icon',
             'icon': 'delete',
             'theme_color': self.theme_color,
             'clicked': parent.on_icon1_button_clicked } )
@@ -76,7 +75,6 @@ class UI(QWidget):
         self.gui_widgets['icon2_button'] = MD3Button(self.gui_widgets['filled_card'], {
             'position': (48,48),
             'type': 'tonal',
-            'mode': 'icon',
             'icon': 'delete',
             'enabled': True,
             'theme_color': self.theme_color,
@@ -85,7 +83,6 @@ class UI(QWidget):
         self.gui_widgets['icon3_button'] = MD3Button(self.gui_widgets['filled_card'], {
             'position': (88,48),
             'type': 'outlined',
-            'mode': 'icon',
             'icon': 'delete',
             'theme_color': self.theme_color,
             'clicked': parent.on_icon3_button_clicked } )
@@ -93,7 +90,6 @@ class UI(QWidget):
         self.gui_widgets['icon4_button'] = MD3Button(self.gui_widgets['filled_card'], {
             'position': (128,48),
             'type': 'standard',
-            'mode': 'icon',
             'icon': 'delete',
             'theme_color': self.theme_color,
             'clicked': parent.on_icon4_button_clicked } )
@@ -105,7 +101,6 @@ class UI(QWidget):
             'position': (168,48),
             'width': 100,
             'type': 'filled',
-            'mode': 'button',
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
             'theme_color': self.theme_color,
@@ -116,8 +111,6 @@ class UI(QWidget):
             'position': (276,48),
             'width': 100,
             'type': 'tonal',
-            'mode': 'button',
-            'icon': 'delete',
             'labels': ('Borrar','Delete'),
             'theme_color': self.theme_color,
             'language': self.language_value,
@@ -127,7 +120,6 @@ class UI(QWidget):
             'position': (394,48),
             'width': 100,
             'type': 'outlined',
-            'mode': 'icon_button',
             'icon': 'delete',
             'enabled': True,
             'labels': ('Borrar','Delete'),
@@ -139,8 +131,6 @@ class UI(QWidget):
             'position': (502,48),
             'width': 100,
             'type': 'standard',
-            'mode': 'icon_button',
-            'icon': 'delete',
             'labels': ('Borrar','Delete'),
             'theme_color': self.theme_color,
             'language': self.language_value,
@@ -427,7 +417,6 @@ class UI(QWidget):
         self.gui_widgets['icon5_button'] = MD3Button(self.gui_widgets['outlined_card'], {
             'position': (8,48),
             'type': 'filled',
-            'mode': 'icon',
             'icon': 'delete',
             'theme_color': self.theme_color,
             'clicked': parent.on_icon5_button_clicked } )
@@ -435,7 +424,6 @@ class UI(QWidget):
         self.gui_widgets['icon6_button'] = MD3Button(self.gui_widgets['outlined_card'], {
             'position': (48,48),
             'type': 'tonal',
-            'mode': 'icon',
             'icon': 'delete',
             'enabled': True,
             'theme_color': self.theme_color,
@@ -444,7 +432,6 @@ class UI(QWidget):
         self.gui_widgets['icon7_button'] = MD3Button(self.gui_widgets['outlined_card'], {
             'position': (88,48),
             'type': 'outlined',
-            'mode': 'icon',
             'icon': 'delete',
             'theme_color': self.theme_color,
             'clicked': parent.on_icon7_button_clicked } )
@@ -452,7 +439,6 @@ class UI(QWidget):
         self.gui_widgets['icon8_button'] = MD3Button(self.gui_widgets['outlined_card'], {
             'position': (128,48),
             'type': 'standard',
-            'mode': 'icon',
             'icon': 'delete',
             'theme_color': self.theme_color,
             'clicked': parent.on_icon8_button_clicked } )
@@ -464,8 +450,6 @@ class UI(QWidget):
             'position': (168,48),
             'width': 100,
             'type': 'filled',
-            'mode': 'button',
-            'icon': 'delete',
             'labels': ('Borrar','Delete'),
             'theme_color': self.theme_color,
             'language': self.language_value,
@@ -475,7 +459,6 @@ class UI(QWidget):
             'position': (276,48),
             'width': 100,
             'type': 'tonal',
-            'mode': 'button',
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
             'theme_color': self.theme_color,
@@ -486,8 +469,6 @@ class UI(QWidget):
             'position': (394,48),
             'width': 100,
             'type': 'outlined',
-            'mode': 'icon_button',
-            'icon': 'delete',
             'enabled': True,
             'labels': ('Borrar','Delete'),
             'theme_color': self.theme_color,
@@ -498,7 +479,6 @@ class UI(QWidget):
             'position': (502,48),
             'width': 100,
             'type': 'standard',
-            'mode': 'icon_button',
             'icon': 'delete',
             'labels': ('Borrar','Delete'),
             'theme_color': self.theme_color,
