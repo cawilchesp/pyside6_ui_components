@@ -23,12 +23,6 @@ MD3Button {
     border-style: solid;
     border-radius: 16;
 }
-MD3Button[button=true] {
-    padding: 0 6 0 6
-}
-MD3Button[icon_button=true] {
-    padding: 0 6 0 6
-}
 MD3Button[filled=true] {
     border-width: 0px;
     background-color: hsl(204, 86%, 53%);
