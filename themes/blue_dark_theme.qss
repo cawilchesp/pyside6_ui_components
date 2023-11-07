@@ -15,42 +15,19 @@ MD3Card[outlined=true] {
 }
 MD3Card QLabel {
     background-color: transparent;
-    color: hsl(0, 0%, 96%)
-}
-
-/* Icon Button */
-MD3IconButton {
-    border-style: solid;
-    border-radius: 16;
-}
-MD3IconButton[filled=true] {
-    border-width: 0px;
-    background-color: hsl(204, 86%, 53%);
-}
-MD3IconButton[tonal=true] {
-    border-width: 0px;
-    background-color: hsl(204, 86%, 86%)
-}
-MD3IconButton[outlined=true] {
-    border-width: 2px;
-    border-color: hsl(204, 86%, 53%);
-    background-color: transparent
-}
-MD3IconButton[standard=true] {
-    border-width: 0px;
-    background-color: transparent
-}
-MD3IconButton:hover {
-    background-color: hsl(348, 100%, 61%);
-}
-MD3IconButton:disabled {
-    background-color: hsl(0, 0%, 71%);
+    color: hsl(0, 0%, 96%);
 }
 
 /* Button */
 MD3Button {
     border-style: solid;
     border-radius: 16;
+}
+MD3Button[button=true] {
+    padding: 0 6 0 6
+}
+MD3Button[icon_button=true] {
+    padding: 0 6 0 6
 }
 MD3Button[filled=true] {
     border-width: 0px;
