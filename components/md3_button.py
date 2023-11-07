@@ -3,7 +3,6 @@ PySide6 Button component adapted to follow Material Design 3 guidelines
 
 """
 from PySide6.QtWidgets import QPushButton
-from PySide6.QtCore import Qt
 
 from icon_color import icon_color
 
