@@ -213,12 +213,10 @@ class MainWindow(QMainWindow):
     # Switch Functions
     # ----------------
     def on_test1_switch_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['test1_on_switch'].set_state(state, self.theme_color)
-        self.ui.gui_widgets['test1_off_switch'].set_state(state, self.theme_color)
+        self.ui.gui_widgets['test1_switch'].set_state(state, self.theme_color)
         
     def on_test2_switch_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['test2_on_switch'].set_state(state, self.theme_color)
-        self.ui.gui_widgets['test2_off_switch'].set_state(state, self.theme_color)
+        self.ui.gui_widgets['test2_switch'].set_state(state, self.theme_color)
 
     # -------------
     # Menu Function
