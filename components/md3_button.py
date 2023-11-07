@@ -2,7 +2,7 @@
 PySide6 Button component adapted to follow Material Design 3 guidelines
 
 """
-from PySide6.QtWidgets import QToolButton
+from PySide6.QtWidgets import QPushButton
 from PySide6.QtCore import Qt
 
 from icon_color import icon_color
@@ -10,7 +10,7 @@ from icon_color import icon_color
 # --------------
 # Common Buttons
 # --------------
-class MD3Button(QToolButton):
+class MD3Button(QPushButton):
     def __init__(self, parent, attributes: dict) -> None:
         """ Material Design 3 Component: Common Buttons
 
@@ -22,9 +22,6 @@ class MD3Button(QToolButton):
                 (x, y)
             width: int
                 Button width
-            mode: str
-                Button mode
-                'icon', 'button', 'icon_button'
             type: str
                 Button type
                 'filled', 'tonal', 'outlined', 'standard'
@@ -55,25 +52,13 @@ class MD3Button(QToolButton):
         x, y = attributes['position'] if 'position' in attributes else (8,8)
         w = attributes['width'] if 'width' in attributes else 32
         self.setGeometry(x, y, w, 32)
-        
         self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
         
-        if attributes['mode'] == 'icon':
-            self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonIconOnly)
+        if 'icon' in self.attributes:
             self.set_icon(attributes['theme_color'], attributes['icon'])
-        elif attributes['mode'] == 'button':
-            self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextOnly)
+        if 'labels' in self.attributes:
             self.set_language(attributes['language'])
-        elif attributes['mode'] == 'icon_button':
-            self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
-            if 'icon' in self.attributes:
-                self.set_icon(attributes['theme_color'], attributes['icon'])
-            if 'labels' in self.attributes:
-                self.set_language(attributes['language'])
-        self.setAutoRaise(True)
-
         self.setProperty(attributes['type'], True)
-        self.setProperty(attributes['mode'], True)
 
         self.clicked.connect(attributes['clicked'])
 
