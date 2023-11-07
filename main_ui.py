@@ -9,6 +9,7 @@ from components.md3_imagelabel import MD3ImageLabel
 from components.md3_label import MD3Label
 from components.md3_menu import MD3Menu
 from components.md3_segmentedbutton import MD3SegmentedButton
+from components.md3_themebutton import MD3ThemeButton
 from components.md3_slider import MD3Slider
 from components.md3_switch import MD3Switch
 from components.md3_textfield import MD3TextField
@@ -188,27 +189,13 @@ class UI(QWidget):
         # -----------------------
         # Theme Segmented Buttons
         # -----------------------
-        self.gui_widgets['light_theme_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
+        self.gui_widgets['theme1_button'] = MD3ThemeButton(self.gui_widgets['filled_card'], {
             'position': (416, 88),
             'width': 40,
-            'icon': 'light_mode',
-            'check_icon': False,
-            'location': 'left',
+            'type': 'outlined',
             'state': self.theme_style,
             'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_light_theme_clicked } )
-
-        self.gui_widgets['dark_theme_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
-            'position': (456, 88),
-            'width': 40,
-            'icon': 'dark_mode',
-            'check_icon': False,
-            'location': 'right',
-            'state': not self.theme_style,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_dark_theme_clicked } )
+            'clicked': parent.on_theme_clicked } )
         
         # ------
         # Switch
@@ -537,27 +524,13 @@ class UI(QWidget):
         # -----------------------
         # Theme Segmented Buttons
         # -----------------------
-        self.gui_widgets['light2_theme_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
+        self.gui_widgets['theme2_button'] = MD3ThemeButton(self.gui_widgets['outlined_card'], {
             'position': (416, 88),
             'width': 40,
-            'icon': 'light_mode',
-            'check_icon': False,
-            'location': 'left',
+            'type': 'outlined',
             'state': self.theme_style,
             'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_light_theme_clicked } )
-
-        self.gui_widgets['dark2_theme_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
-            'position': (456, 88),
-            'width': 40,
-            'icon': 'dark_mode',
-            'check_icon': False,
-            'location': 'right',
-            'state': not self.theme_style,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_dark_theme_clicked } )
+            'clicked': parent.on_theme_clicked } )
         
         # ------
         # Switch
