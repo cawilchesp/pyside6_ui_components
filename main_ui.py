@@ -191,7 +191,6 @@ class UI(QWidget):
         # -----------------------
         self.gui_widgets['theme1_button'] = MD3ThemeButton(self.gui_widgets['filled_card'], {
             'position': (416, 88),
-            'width': 40,
             'type': 'outlined',
             'state': self.theme_style,
             'theme_color': self.theme_color,
@@ -526,7 +525,6 @@ class UI(QWidget):
         # -----------------------
         self.gui_widgets['theme2_button'] = MD3ThemeButton(self.gui_widgets['outlined_card'], {
             'position': (416, 88),
-            'width': 40,
             'type': 'outlined',
             'state': self.theme_style,
             'theme_color': self.theme_color,
