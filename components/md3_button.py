@@ -10,7 +10,7 @@ class MD3Button(QPushButton):
     def __init__(
         self,
         parent,
-        clicked_signal: any,
+        clicked_signal: callable,
         position: tuple[int, int] = (8,8),
         width: int = 50,
         enabled: bool = True,
@@ -18,17 +18,17 @@ class MD3Button(QPushButton):
         icon_name: str = None,
         labels: tuple[str, str] = None,
         theme_color: str = 'blue',
-        language: int = 0,
+        language: int = 0
     ):
         """
         Parameters
         ----------
-            position (tuple(int)): Button top left corner position (x, y)
+            position (tuple[int, int]): Button top left corner position (x, y)
             width (int): Button width
             type (str): Button type
                 Options: 'filled', 'tonal', 'outlined', 'standard'
             icon (str): Icon name
-            labels (tuple): Button labels (label_spanish, label_english)
+            labels (tuple[str, str]): Button labels (label_spanish, label_english)
             enabled (bool): Button enabled / disabled
             theme_color (str): App theme color name
             language (int): App language
