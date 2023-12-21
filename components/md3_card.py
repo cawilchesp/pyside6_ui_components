@@ -1,26 +1,21 @@
-"""
-PySide6 Card component adapted to follow Material Design 3 guidelines
-
-"""
 from PySide6.QtGui import QFont
-from PySide6.QtWidgets import QFrame, QLabel
+from PySide6.QtWidgets import QFrame, QLabel, QWidget
 
-# ----
-# Card
-# ----
+
 class MD3Card(QFrame):
-    def __init__(self, parent, attributes: dict) -> None:
-        """ Material Design 3 Component: Card
-
+    """
+    PySide6 Card component
+    """
+    def __init__(
+        self,
+        parent: QWidget,
+    ):
+        """
         Parameters
         ----------
-        attributes: dict
-            position: tuple
-                Card top left corner position
-                (x, y)
-            size: tuple
-                Card size
-                (width, height)
+            parent (QWidget): UI Parent object
+            position (tuple[int, int]): Card top left corner position (x, y)
+            size (tuple[int, int]): Card size (width, height)
             titles: tuple
                 Card titles (Optional)
                 (label_spanish, label_english)
@@ -35,9 +30,8 @@ class MD3Card(QFrame):
         -------
         None
         """
-        super(MD3Card, self).__init__(parent)
+        super().__init__(parent)
 
-        self.attributes = attributes
         self.parent = parent
 
         x, y = attributes['position'] if 'position' in attributes else (8,8)
