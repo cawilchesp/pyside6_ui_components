@@ -12,7 +12,7 @@ class MD3Button(QPushButton):
         parent,
         clicked_signal: callable,
         position: tuple[int, int] = (8,8),
-        width: int = 50,
+        width: int = 32,
         enabled: bool = True,
         type: str = 'filled',
         icon_name: str = None,
