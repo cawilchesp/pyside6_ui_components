@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QPushButton
+from PySide6.QtWidgets import QPushButton, QWidget
 
 from icon_color import icon_color
 
@@ -9,7 +9,7 @@ class MD3Button(QPushButton):
     """
     def __init__(
         self,
-        parent,
+        parent: QWidget,
         clicked_signal: callable,
         position: tuple[int, int] = (8,8),
         width: int = 32,
@@ -23,6 +23,8 @@ class MD3Button(QPushButton):
         """
         Parameters
         ----------
+            parent (QWidget): UI Parent object
+            clicked (callable): Button 'clicked' method name
             position (tuple[int, int]): Button top left corner position (x, y)
             width (int): Button width
             type (str): Button type
@@ -33,7 +35,6 @@ class MD3Button(QPushButton):
             theme_color (str): App theme color name
             language (int): App language
                 Options: 0 = Spanish, 1 = English
-            clicked (any): Button 'clicked' method name
         """
         super().__init__(parent)
 
