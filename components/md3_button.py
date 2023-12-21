@@ -1,78 +1,68 @@
-"""
-PySide6 Button component adapted to follow Material Design 3 guidelines
-
-"""
 from PySide6.QtWidgets import QPushButton
 
 from icon_color import icon_color
 
-# --------------
-# Common Buttons
-# --------------
-class MD3Button(QPushButton):
-    def __init__(self, parent, attributes: dict) -> None:
-        """ Material Design 3 Component: Common Buttons
 
+class MD3Button(QPushButton):
+    """
+    PySide6 Button component
+    """
+    def __init__(
+        self,
+        parent,
+        clicked_signal: any,
+        position: tuple[int, int] = (8,8),
+        width: int = 50,
+        enabled: bool = True,
+        type: str = 'filled',
+        icon_name: str = None,
+        labels: tuple[str, str] = None,
+        theme_color: str = 'blue',
+        language: int = 0,
+    ):
+        """
         Parameters
         ----------
-        attributes: dict
-            position: tuple
-                Button top left corner position
-                (x, y)
-            width: int
-                Button width
-            type: str
-                Button type
-                'filled', 'tonal', 'outlined', 'standard'
-            icon: str (Optional)
-                Icon name
-            labels: tuple
-                Button labels
-                (label_spanish, label_english)
-            enabled: bool
-                Button enabled / disabled
-            theme_color: str
-                App theme color name
-            language: int
-                App language
-                0: Spanish, 1: English
-            clicked: def
-                Button 'clicked' method name
-        
-        Returns
-        -------
-        None
+            position (tuple(int)): Button top left corner position (x, y)
+            width (int): Button width
+            type (str): Button type
+                Options: 'filled', 'tonal', 'outlined', 'standard'
+            icon (str): Icon name
+            labels (tuple): Button labels (label_spanish, label_english)
+            enabled (bool): Button enabled / disabled
+            theme_color (str): App theme color name
+            language (int): App language
+                Options: 0 = Spanish, 1 = English
+            clicked (any): Button 'clicked' method name
         """
-        super(MD3Button, self).__init__(parent)
+        super().__init__(parent)
 
-        self.attributes = attributes
         self.parent = parent
+        self.move(position[0], position[1])
+        self.resize(width, 32)
+        self.setEnabled = enabled
+        self.type = type
+        self.labels = labels
 
-        x, y = attributes['position'] if 'position' in attributes else (8,8)
-        w = attributes['width'] if 'width' in attributes else 32
-        self.setGeometry(x, y, w, 32)
-        self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
-        
-        if 'icon' in self.attributes:
-            self.set_icon(attributes['theme_color'], attributes['icon'])
-        if 'labels' in self.attributes:
-            self.set_language(attributes['language'])
-        self.setProperty(attributes['type'], True)
+        self.set_icon(theme_color, icon_name) if icon_name is not None else None
+        self.set_language(language) if self.labels is not None else None
+        self.setProperty(self.type, True)
 
-        self.clicked.connect(attributes['clicked'])
+        self.clicked.connect(clicked_signal)
 
 
-    def set_icon(self, color_name: str, icon_name: str):
-        if self.attributes['type'] in ['filled', 'tonal']:
+    def set_icon( self, theme_color: str, icon_name: str) -> None:
+        """ Change button icon """
+        if self.type in ['filled', 'tonal']:
             color = 'black'
-        elif self.attributes['type'] in ['outlined', 'standard']:
-            color = color_name
+        elif self.type in ['outlined', 'standard']:
+            color = theme_color
         colorized_icon = icon_color(color, icon_name)
         self.setIcon(colorized_icon)
 
 
     def set_language(self, language: int) -> None:
-        """ Change language of title text """
-        if 'labels' in self.attributes:
-            if language == 0:   self.setText(self.attributes['labels'][0])
-            elif language == 1: self.setText(self.attributes['labels'][1])
+        """ Change language of button label """
+        if self.labels is not None:
+            if language == 0:   self.setText(self.labels[0])
+            elif language == 1: self.setText(self.labels[1])
