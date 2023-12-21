@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import QWidget
 
+
 class MD3Window(QWidget):
     """
     PySide6 Main Window
