@@ -47,11 +47,13 @@ class UI(QWidget):
         #                           Main Window
         # *****************************************************************
         (width, height) = (1300, 350)
-        self.gui_widgets['main_window'] = MD3Window( {
-            'parent': parent, 
-            'size': (width, height),
-            'labels': ('Componentes de Material 3 UI', 'Material 3 UI Components'),
-            'language': self.language_value } )
+        self.gui_widgets['main_window'] = MD3Window(
+            parent=parent,
+            size=(width, height),
+            minimum_size=(width,height),
+            titles=('Componentes de UI', 'UI Components'),
+            language=self.language_value
+        )
 
         # *****************************************************************
         #                           Card Filled
@@ -151,7 +153,7 @@ class UI(QWidget):
             language=self.language_value,
             clicked_signal=parent.on_boton4_button_clicked
         )
-
+        
         # -----------------
         # Segmented Buttons
         # -----------------
