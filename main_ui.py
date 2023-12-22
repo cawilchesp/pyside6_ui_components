@@ -138,7 +138,6 @@ class UI(QWidget):
             width=100,
             type='outlined',
             icon_name='delete',
-            enabled=True,
             labels=('Borrar','Delete'),
             theme_color=self.theme_color,
             language=self.language_value,
@@ -232,7 +231,6 @@ class UI(QWidget):
             parent=self.gui_widgets['filled_card'],
             position=(504, 88),
             state=False,
-            enabled=True,
             theme_color=self.theme_color,
             clicked_signal=parent.on_test1_switch_clicked
         )
@@ -240,35 +238,36 @@ class UI(QWidget):
         # -----
         # Chips
         # -----
-        self.gui_widgets['chip1_button'] = MD3Chip(self.gui_widgets['filled_card'], {
-            'position': (8, 128),
-            'width': 100,
-            'labels': ('Borrar', 'Delete'),
-            'icon': 'delete',
-            'state': False,
-            'enabled': False,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_chip1_clicked } )
+        self.gui_widgets['chip1_button'] = MD3Chip(
+            parent=self.gui_widgets['filled_card'],
+            position=(8, 128),
+            width=100,
+            labels=('Borrar', 'Delete'),
+            icon_name='delete',
+            state=False,
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_chip1_clicked
+        )
         
-        self.gui_widgets['chip2_button'] = MD3Chip(self.gui_widgets['filled_card'], {
-            'position': (116, 128),
-            'width': 100,
-            'labels': ('Correo', 'Mail'),
-            'icon': 'mail',
-            'state': True,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_chip2_clicked } )
+        # self.gui_widgets['chip2_button'] = MD3Chip(self.gui_widgets['filled_card'], {
+        #     'position': (116, 128),
+        #     'width': 100,
+        #     'labels': ('Correo', 'Mail'),
+        #     'icon': 'mail',
+        #     'state': True,
+        #     'theme_color': self.theme_color,
+        #     'language': self.language_value,
+        #     'clicked': parent.on_chip2_clicked } )
         
-        self.gui_widgets['chip3_button'] = MD3Chip(self.gui_widgets['filled_card'], {
-            'position': (224, 128),
-            'width': 100,
-            'labels': ('Mejorar', 'Improve'),
-            'state': False,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_chip3_clicked } )
+        # self.gui_widgets['chip3_button'] = MD3Chip(self.gui_widgets['filled_card'], {
+        #     'position': (224, 128),
+        #     'width': 100,
+        #     'labels': ('Mejorar', 'Improve'),
+        #     'state': False,
+        #     'theme_color': self.theme_color,
+        #     'language': self.language_value,
+        #     'clicked': parent.on_chip3_clicked } )
         
         # ----
         # Menu
@@ -290,7 +289,6 @@ class UI(QWidget):
             'width': 120,
             'type': 'filled',
             'labels': ('Cuadro', 'Frame'),
-            'enabled': True,
             'theme_color': self.theme_color,
             'language': self.language_value } )
 
@@ -332,7 +330,6 @@ class UI(QWidget):
             'width': 120,
             'type': 'filled',
             'labels': ('Fecha', 'Date'),
-            'enabled': True,
             'language': self.language_value } )
 
         # ------
@@ -393,7 +390,6 @@ class UI(QWidget):
             'width': 100,
             'range': (0, 1, 100),
             'value': 50,
-            'enabled': False,
             'slider_moved': parent.on_test1_slider_sliderMoved,
             'slider_released': parent.on_test1_slider_sliderReleased } )
 
@@ -447,7 +443,6 @@ class UI(QWidget):
             position=(48,48),
             type='tonal',
             icon_name='delete',
-            enabled=True,
             theme_color=self.theme_color,
             clicked_signal=parent.on_icon6_button_clicked
         )
@@ -501,7 +496,6 @@ class UI(QWidget):
             position=(394,48),
             width=100,
             type='outlined',
-            enabled=True,
             labels=('Borrar','Delete'),
             theme_color=self.theme_color,
             language=self.language_value,
@@ -596,7 +590,6 @@ class UI(QWidget):
             parent=self.gui_widgets['outlined_card'],
             position=(504, 88),
             state=False,
-            enabled=True,
             theme_color=self.theme_color,
             clicked_signal=parent.on_test2_switch_clicked
         )
@@ -604,35 +597,34 @@ class UI(QWidget):
         # -----
         # Chips
         # -----
-        self.gui_widgets['chip4_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
-            'position': (8, 128),
-            'width': 100,
-            'labels': ('Borrar', 'Delete'),
-            'icon': 'delete',
-            'state': False,
-            'enabled': False,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_chip4_clicked } )
+        # self.gui_widgets['chip4_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
+        #     'position': (8, 128),
+        #     'width': 100,
+        #     'labels': ('Borrar', 'Delete'),
+        #     'icon': 'delete',
+        #     'state': False,
+        #     'theme_color': self.theme_color,
+        #     'language': self.language_value,
+        #     'clicked': parent.on_chip4_clicked } )
         
-        self.gui_widgets['chip5_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
-            'position': (116, 128),
-            'width': 100,
-            'labels': ('Correo', 'Mail'),
-            'icon': 'mail',
-            'state': True,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_chip5_clicked } )
+        # self.gui_widgets['chip5_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
+        #     'position': (116, 128),
+        #     'width': 100,
+        #     'labels': ('Correo', 'Mail'),
+        #     'icon': 'mail',
+        #     'state': True,
+        #     'theme_color': self.theme_color,
+        #     'language': self.language_value,
+        #     'clicked': parent.on_chip5_clicked } )
         
-        self.gui_widgets['chip6_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
-            'position': (224, 128),
-            'width': 100,
-            'labels': ('Mejorar', 'Improve'),
-            'state': False,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_chip6_clicked } )
+        # self.gui_widgets['chip6_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
+        #     'position': (224, 128),
+        #     'width': 100,
+        #     'labels': ('Mejorar', 'Improve'),
+        #     'state': False,
+        #     'theme_color': self.theme_color,
+        #     'language': self.language_value,
+        #     'clicked': parent.on_chip6_clicked } )
         
         # ----
         # Menu
