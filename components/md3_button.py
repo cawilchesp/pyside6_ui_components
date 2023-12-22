@@ -24,7 +24,7 @@ class MD3Button(QPushButton):
         Parameters
         ----------
             parent (QWidget): UI Parent object
-            clicked (callable): Button 'clicked' method name
+            clicked_signal (callable): Button 'clicked' method name
             position (tuple[int, int]): Button top left corner position (x, y)
             width (int): Button width
             type (str): Button type
