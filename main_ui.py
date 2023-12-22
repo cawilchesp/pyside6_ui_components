@@ -216,12 +216,14 @@ class UI(QWidget):
         # ------------
         # Theme Button
         # ------------
-        self.gui_widgets['theme1_button'] = MD3ThemeButton(self.gui_widgets['filled_card'], {
-            'position': (416, 88),
-            'type': 'outlined',
-            'state': self.theme_style,
-            'theme_color': self.theme_color,
-            'clicked': parent.on_theme_clicked } )
+        self.gui_widgets['theme1_button'] = MD3ThemeButton(
+            parent=self.gui_widgets['filled_card'],
+            position=(416, 88),
+            type='outlined',
+            state=self.theme_style,
+            theme_color=self.theme_color,
+            clicked_signal=parent.on_theme_clicked
+        )
         
         # ------
         # Switch
@@ -576,12 +578,14 @@ class UI(QWidget):
         # -----------------------
         # Theme Segmented Buttons
         # -----------------------
-        self.gui_widgets['theme2_button'] = MD3ThemeButton(self.gui_widgets['outlined_card'], {
-            'position': (416, 88),
-            'type': 'outlined',
-            'state': self.theme_style,
-            'theme_color': self.theme_color,
-            'clicked': parent.on_theme_clicked } )
+        self.gui_widgets['theme2_button'] = MD3ThemeButton(
+            parent=self.gui_widgets['outlined_card'],
+            position=(416, 88),
+            type='outlined',
+            state=self.theme_style,
+            theme_color=self.theme_color,
+            clicked_signal=parent.on_theme_clicked
+        )
         
         # ------
         # Switch
