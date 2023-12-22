@@ -19,9 +19,9 @@ class MD3Window(QWidget):
         Parameters
         ----------
             parent (QWidget): UI Parent object
-            size (tuple[int, int]): Window width and height (width, height)
             position (tuple[int, int]): Window top left corner position (x, y)
                 Centered by default
+            size (tuple[int, int]): Window width and height (width, height)
             minimum_size (tuple[int, int]): minimum window size when resized 
                 (minimum_width, minimum_height)
             maximum_size (tuple[int, int]): maximum window size when resized
@@ -33,7 +33,6 @@ class MD3Window(QWidget):
         super().__init__(parent)
 
         self.parent = parent
-        self.parent.resize(size[0], size[1])
         if position is None:
             screen_x = int(self.parent.screen().availableGeometry().width() / 2 - (size[0] / 2))
             screen_y = int(self.parent.screen().availableGeometry().height() / 2 - (size[1] / 2))
@@ -41,6 +40,7 @@ class MD3Window(QWidget):
         else:
             x, y = (position[0],position[1])
         self.parent.move(x,y)
+        self.parent.resize(size[0], size[1])
         self.parent.setMinimumSize(minimum_size[0], minimum_size[1]) if minimum_size is not None else None
         self.parent.setMaximumSize(maximum_size[0], maximum_size[1]) if maximum_size is not None else None
         self.titles = titles
