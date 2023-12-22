@@ -1,63 +1,54 @@
-"""
-PySide6 Button component adapted to follow Material Design 3 guidelines
-
-"""
-from PySide6.QtWidgets import QPushButton
+from PySide6.QtWidgets import QPushButton, QWidget
 
 from icon_color import icon_color
 
-# --------------
-# Common Buttons
-# --------------
-class MD3ThemeButton(QPushButton):
-    def __init__(self, parent, attributes: dict) -> None:
-        """ Material Design 3 Component: Common Buttons
 
+class MD3ThemeButton(QPushButton):
+    """
+    PySide6 Theme Button component
+    """
+    def __init__(self,
+        parent: QWidget,
+        clicked_signal: callable,
+        position: tuple[int, int] = (8,8),
+        type: str = 'filled',
+        state: bool = False,
+        enabled: bool = True,
+        theme_color: str = 'blue',
+    ):
+        """
         Parameters
         ----------
-        attributes: dict
-            position: tuple
-                Button top left corner position
-                (x, y)
-            type: str
-                Button type
-                'filled', 'tonal', 'outlined', 'standard'
-            state: bool
-                State of activation
-                True: On, False: Off
-            enabled: bool
-                Button enabled / disabled
-            theme_color: str
-                App theme color name
-            clicked: def
-                Button 'clicked' method name
-        
-        Returns
-        -------
-        None
+            parent (QWidget): UI Parent object
+            clicked_signal (callable): Button 'clicked' method name
+            position (tuple[int, int]): Button top left corner position (x, y)
+            type (str): Button type
+                Options: 'filled', 'tonal', 'outlined', 'standard'
+            state (bool): State of activation
+                Options: True: On, False: Off
+            enabled (bool): Button enabled / disabled
+            theme_color (str): App theme color name
         """
-        super(MD3ThemeButton, self).__init__(parent)
+        super().__init__(parent)
 
-        self.attributes = attributes
         self.parent = parent
-
-        x, y = attributes['position'] if 'position' in attributes else (8,8)
-        self.setGeometry(x, y, 32, 32)
-        self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
+        self.move(position[0], position[1])
+        self.resize(32, 32)
+        self.setEnabled = enabled
+        self.type = type
         
-        self.set_state(attributes['state'], attributes['theme_color'])
-        self.setProperty(attributes['type'], True)
+        self.set_state(state, theme_color)
+        self.setProperty(self.type, True)
 
-        self.clicked.connect(attributes['clicked'])
+        self.clicked.connect(clicked_signal)
 
 
-    def set_state(self, state: bool, color_name: str) -> None:
-        """ Set chip state and corresponding icon """
+    def set_state(self, state: bool, theme_color: str) -> None:
+        """ Set button state and corresponding icon """
         icon_name = 'light_mode' if state else 'dark_mode'
-
-        if self.attributes['type'] in ['filled', 'tonal']:
+        if self.type in ['filled', 'tonal']:
             color = 'black'
-        elif self.attributes['type'] in ['outlined', 'standard']:
-            color = color_name
+        elif self.type in ['outlined', 'standard']:
+            color = theme_color
         colorized_icon = icon_color(color, icon_name)
         self.setIcon(colorized_icon)
