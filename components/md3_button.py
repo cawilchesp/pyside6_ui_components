@@ -13,10 +13,10 @@ class MD3Button(QPushButton):
         clicked_signal: callable,
         position: tuple[int, int] = (8,8),
         width: int = 32,
-        enabled: bool = True,
         type: str = 'filled',
         icon_name: str = None,
         labels: tuple[str, str] = None,
+        enabled: bool = True,
         theme_color: str = 'blue',
         language: int = 0
     ):
@@ -29,7 +29,7 @@ class MD3Button(QPushButton):
             width (int): Button width
             type (str): Button type
                 Options: 'filled', 'tonal', 'outlined', 'standard'
-            icon (str): Icon name
+            icon_name (str): Icon name
             labels (tuple[str, str]): Button labels (label_spanish, label_english)
             enabled (bool): Button enabled / disabled
             theme_color (str): App theme color name
