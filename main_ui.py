@@ -159,55 +159,63 @@ class UI(QWidget):
         # -----------------
         # Segmented Buttons
         # -----------------
-        self.gui_widgets['left_segmented1_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
-            'position': (8, 88),
-            'width': 100,
-            'labels': ('Izquierda', 'Left'),
-            'check_icon': True,
-            'location': 'left',
-            'state': False,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_left_segmented1_button_clicked } )
+        self.gui_widgets['left_segmented1_button'] = MD3SegmentedButton(
+            parent=self.gui_widgets['filled_card'],
+            position=(8, 88),
+            width=100,
+            labels=('Izquierda', 'Left'),
+            check_icon=True,
+            location='left',
+            state=False,
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_left_segmented1_button_clicked
+        )
         
-        self.gui_widgets['center1_segmented1_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
-            'position': (108, 88),
-            'width': 100,
-            'labels': ('Centro 1', 'Center 1'),
-            'location': 'center',
-            'state': False,
-            'icon': 'delete',
-            'check_icon': True,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_center1_segmented1_button_clicked } ) 
+        self.gui_widgets['center1_segmented1_button'] = MD3SegmentedButton(
+            parent=self.gui_widgets['filled_card'],
+            position=(108, 88),
+            width=100,
+            labels=('Centro 1', 'Center 1'),
+            location='center',
+            state=False,
+            icon_name='delete',
+            check_icon=True,
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_center1_segmented1_button_clicked
+        )
 
-        self.gui_widgets['center2_segmented1_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
-            'position': (208, 88),
-            'width': 100,
-            'labels': ('Centro 2', 'Center 2'),
-            'icon': 'delete',
-            'check_icon': True,
-            'location': 'center',
-            'state': True,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_center2_segmented1_button_clicked } ) 
+        self.gui_widgets['center2_segmented1_button'] = MD3SegmentedButton(
+            parent=self.gui_widgets['filled_card'],
+            position=(208, 88),
+            width=100,
+            labels=('Centro 2', 'Center 2'),
+            icon_name='delete',
+            check_icon=True,
+            location='center',
+            state=True,
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_center2_segmented1_button_clicked
+        ) 
 
-        self.gui_widgets['right_segmented1_button'] = MD3SegmentedButton(self.gui_widgets['filled_card'], {
-            'position': (308, 88),
-            'width': 100,
-            'labels': ('Derecha', 'Right'),
-            'check_icon': True,
-            'location': 'right',
-            'state': True,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_right_segmented1_button_clicked } )
+        self.gui_widgets['right_segmented1_button'] = MD3SegmentedButton(
+            parent=self.gui_widgets['filled_card'],
+            position=(308, 88),
+            width=100,
+            labels=('Derecha', 'Right'),
+            check_icon=True,
+            location='right',
+            state=True,
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_right_segmented1_button_clicked
+        )
         
-        # -----------------------
-        # Theme Segmented Buttons
-        # -----------------------
+        # ------------
+        # Theme Button
+        # ------------
         self.gui_widgets['theme1_button'] = MD3ThemeButton(self.gui_widgets['filled_card'], {
             'position': (416, 88),
             'type': 'outlined',
@@ -418,128 +426,152 @@ class UI(QWidget):
             language=self.language_value
         )
 
-        # # ------------
-        # # Icon Buttons
-        # # ------------
-        # self.gui_widgets['icon5_button'] = MD3Button(self.gui_widgets['outlined_card'], {
-        #     'position': (8,48),
-        #     'type': 'filled',
-        #     'icon': 'delete',
-        #     'theme_color': self.theme_color,
-        #     'clicked': parent.on_icon5_button_clicked } )
+        # ------------
+        # Icon Buttons
+        # ------------
+        self.gui_widgets['icon5_button'] = MD3Button(
+            parent=self.gui_widgets['outlined_card'],
+            position=(8,48),
+            type='filled',
+            icon_name='delete',
+            theme_color=self.theme_color,
+            clicked_signal=parent.on_icon5_button_clicked
+        )
 
-        # self.gui_widgets['icon6_button'] = MD3Button(self.gui_widgets['outlined_card'], {
-        #     'position': (48,48),
-        #     'type': 'tonal',
-        #     'icon': 'delete',
-        #     'enabled': True,
-        #     'theme_color': self.theme_color,
-        #     'clicked': parent.on_icon6_button_clicked } )
+        self.gui_widgets['icon6_button'] = MD3Button(
+            parent=self.gui_widgets['outlined_card'],
+            position=(48,48),
+            type='tonal',
+            icon_name='delete',
+            enabled=True,
+            theme_color=self.theme_color,
+            clicked_signal=parent.on_icon6_button_clicked
+        )
         
-        # self.gui_widgets['icon7_button'] = MD3Button(self.gui_widgets['outlined_card'], {
-        #     'position': (88,48),
-        #     'type': 'outlined',
-        #     'icon': 'delete',
-        #     'theme_color': self.theme_color,
-        #     'clicked': parent.on_icon7_button_clicked } )
+        self.gui_widgets['icon7_button'] = MD3Button(
+            parent=self.gui_widgets['outlined_card'],
+            position=(88,48),
+            type='outlined',
+            icon_name='delete',
+            theme_color=self.theme_color,
+            clicked_signal=parent.on_icon7_button_clicked
+        )
         
-        # self.gui_widgets['icon8_button'] = MD3Button(self.gui_widgets['outlined_card'], {
-        #     'position': (128,48),
-        #     'type': 'standard',
-        #     'icon': 'delete',
-        #     'theme_color': self.theme_color,
-        #     'clicked': parent.on_icon8_button_clicked } )
+        self.gui_widgets['icon8_button'] = MD3Button(
+            parent=self.gui_widgets['outlined_card'],
+            position=(128,48),
+            type='standard',
+            icon_name='delete',
+            theme_color=self.theme_color,
+            clicked_signal=parent.on_icon8_button_clicked
+        )
         
-        # # -------
-        # # Buttons
-        # # -------
-        # self.gui_widgets['boton5_button'] = MD3Button(self.gui_widgets['outlined_card'], {
-        #     'position': (168,48),
-        #     'width': 100,
-        #     'type': 'filled',
-        #     'labels': ('Borrar','Delete'),
-        #     'theme_color': self.theme_color,
-        #     'language': self.language_value,
-        #     'clicked': parent.on_boton5_button_clicked } )
+        # -------
+        # Buttons
+        # -------
+        self.gui_widgets['boton5_button'] = MD3Button(
+            parent=self.gui_widgets['outlined_card'],
+            position=(168,48),
+            width=100,
+            type='filled',
+            labels=('Borrar','Delete'),
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_boton5_button_clicked
+        )
 
-        # self.gui_widgets['boton6_button'] = MD3Button(self.gui_widgets['outlined_card'], {
-        #     'position': (276,48),
-        #     'width': 100,
-        #     'type': 'tonal',
-        #     'icon': 'delete',
-        #     'labels': ('Borrar','Delete'),
-        #     'theme_color': self.theme_color,
-        #     'language': self.language_value,
-        #     'clicked': parent.on_boton6_button_clicked } )
+        self.gui_widgets['boton6_button'] = MD3Button(
+            parent=self.gui_widgets['outlined_card'],
+            position=(276,48),
+            width=100,
+            type='tonal',
+            icon_name='delete',
+            labels=('Borrar','Delete'),
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_boton6_button_clicked
+        )
         
-        # self.gui_widgets['boton7_button'] = MD3Button(self.gui_widgets['outlined_card'], {
-        #     'position': (394,48),
-        #     'width': 100,
-        #     'type': 'outlined',
-        #     'enabled': True,
-        #     'labels': ('Borrar','Delete'),
-        #     'theme_color': self.theme_color,
-        #     'language': self.language_value,
-        #     'clicked': parent.on_boton7_button_clicked } )
+        self.gui_widgets['boton7_button'] = MD3Button(
+            parent=self.gui_widgets['outlined_card'],
+            position=(394,48),
+            width=100,
+            type='outlined',
+            enabled=True,
+            labels=('Borrar','Delete'),
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_boton7_button_clicked
+        )
         
-        # self.gui_widgets['boton8_button'] = MD3Button(self.gui_widgets['outlined_card'], {
-        #     'position': (502,48),
-        #     'width': 100,
-        #     'type': 'standard',
-        #     'icon': 'delete',
-        #     'labels': ('Borrar','Delete'),
-        #     'theme_color': self.theme_color,
-        #     'language': self.language_value,
-        #     'clicked': parent.on_boton8_button_clicked } )
+        self.gui_widgets['boton8_button'] = MD3Button(
+            parent=self.gui_widgets['outlined_card'],
+            position=(502,48),
+            width=100,
+            type='standard',
+            icon_name='delete',
+            labels=('Borrar','Delete'),
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_boton8_button_clicked
+        )
 
         # -----------------
         # Segmented Buttons
         # -----------------
-        self.gui_widgets['left_segmented2_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
-            'position': (8, 88),
-            'width': 100,
-            'labels': ('Izquierda', 'Left'),
-            'check_icon': True,
-            'location': 'left',
-            'state': False,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_left_segmented2_button_clicked } )
+        self.gui_widgets['left_segmented2_button'] = MD3SegmentedButton(
+            parent=self.gui_widgets['outlined_card'],
+            position=(8, 88),
+            width=100,
+            labels=('Izquierda', 'Left'),
+            check_icon=True,
+            location='left',
+            state=False,
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_left_segmented2_button_clicked
+        )
         
-        self.gui_widgets['center1_segmented2_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
-            'position': (108, 88),
-            'width': 100,
-            'labels': ('Centro 1', 'Center 1'),
-            'location': 'center',
-            'state': False,
-            'icon': 'delete',
-            'check_icon': True,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_center1_segmented2_button_clicked } ) 
+        self.gui_widgets['center1_segmented2_button'] = MD3SegmentedButton(
+            parent=self.gui_widgets['outlined_card'],
+            position=(108, 88),
+            width=100,
+            labels=('Centro 1', 'Center 1'),
+            location='center',
+            state=False,
+            icon_name='delete',
+            check_icon=True,
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_center1_segmented2_button_clicked
+        )
 
-        self.gui_widgets['center2_segmented2_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
-            'position': (208, 88),
-            'width': 100,
-            'labels': ('Centro 2', 'Center 2'),
-            'icon': 'delete',
-            'check_icon': True,
-            'location': 'center',
-            'state': True,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_center2_segmented2_button_clicked } ) 
+        self.gui_widgets['center2_segmented2_button'] = MD3SegmentedButton(
+            parent=self.gui_widgets['outlined_card'],
+            position=(208, 88),
+            width=100,
+            labels=('Centro 2', 'Center 2'),
+            icon_name='delete',
+            check_icon=True,
+            location='center',
+            state=True,
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_center2_segmented2_button_clicked
+        )
 
-        self.gui_widgets['right_segmented2_button'] = MD3SegmentedButton(self.gui_widgets['outlined_card'], {
-            'position': (308, 88),
-            'width': 100,
-            'labels': ('Derecha', 'Right'),
-            'check_icon': True,
-            'location': 'right',
-            'state': True,
-            'theme_color': self.theme_color,
-            'language': self.language_value,
-            'clicked': parent.on_right_segmented2_button_clicked } )
+        self.gui_widgets['right_segmented2_button'] = MD3SegmentedButton(
+            parent=self.gui_widgets['outlined_card'],
+            position=(308, 88),
+            width=100,
+            labels=('Derecha', 'Right'),
+            check_icon=True,
+            location='right',
+            state=True,
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_right_segmented2_button_clicked
+        )
         
         # -----------------------
         # Theme Segmented Buttons
