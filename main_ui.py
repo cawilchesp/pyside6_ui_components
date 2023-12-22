@@ -58,12 +58,14 @@ class UI(QWidget):
         # *****************************************************************
         #                           Card Filled
         # *****************************************************************
-        self.gui_widgets['filled_card'] = MD3Card(parent, {
-            'position': (8, 8), 
-            'size': ((width / 2) - 16, height - 16),
-            'type': 'filled',
-            'titles': ('Tarjeta Llena', 'Filled Card'),
-            'language': self.language_value } )
+        self.gui_widgets['filled_card'] = MD3Card(
+            parent=parent,
+            position=(8, 8), 
+            size=((width / 2) - 16, height - 16),
+            type='filled',
+            titles=('Tarjeta Llena', 'Filled Card'),
+            language=self.language_value
+        )
 
         # ------------
         # Icon Buttons
@@ -407,12 +409,14 @@ class UI(QWidget):
         # *****************************************************************
         #                           Card Outlined
         # *****************************************************************
-        self.gui_widgets['outlined_card'] = MD3Card(parent, {
-            'position': ((width / 2) + 8, 8), 
-            'size': ((width / 2) - 16, height - 16),
-            'type': 'outlined',
-            'titles': ('Tarjeta con Borde', 'Outlined Card'),
-            'language': self.language_value } )
+        self.gui_widgets['outlined_card'] = MD3Card(
+            parent=parent,
+            position=((width / 2) + 8, 8), 
+            size=((width / 2) - 16, height - 16),
+            type='outlined',
+            titles=('Tarjeta con Borde', 'Outlined Card'),
+            language=self.language_value
+        )
 
         # # ------------
         # # Icon Buttons
