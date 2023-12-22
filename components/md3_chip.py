@@ -1,81 +1,74 @@
-"""
-PySide6 Chip component adapted to follow Material Design 3 guidelines
-
-"""
-from PySide6.QtWidgets import QToolButton
+from PySide6.QtWidgets import QToolButton, QWidget
 from PySide6.QtCore import Qt
 
 from icon_color import icon_color
 
-# ----
-# Chip
-# ----
-class MD3Chip(QToolButton):
-    def __init__(self, parent, attributes: dict) -> None:
-        """ Material Design 3 Component: Chip
 
+class MD3Chip(QToolButton):
+    """
+    PySide6 Chip component
+    """
+    def __init__(self,
+        parent: QWidget,
+        clicked_signal: callable,
+        position: tuple[int, int] = (8,8),
+        width: int = 32,
+        icon_name: str = None,
+        labels: tuple[str, str] = None,
+        state: bool = False,
+        enabled: bool = True,
+        theme_color: str = 'blue',
+        language: int = 0
+    ):
+        """
         Parameters
         ----------
-        attributes: dict
-            position: tuple
-                Chip top left corner position
-                (x, y)
-            width: int
-                Chip width
-            labels: tuple
-                Chip labels
-                (label_spanish, label_english)
-            icon: str (Optional)
-                Icon name
-            state: bool
-                State of activation
-                True: On, False: Off
-            enabled: bool
-                Chip enabled / disabled
-            theme_color: str
-                App theme color name
-            language: int
-                App language
-                0: Spanish, 1: English
-            clicked: def
-                Chip 'clicked' method name
-        
-        Returns
-        -------
-        None
+            parent (QWidget): UI Parent object
+            clicked_signal (callable): Chip 'clicked' method name
+            position (tuple[int, int]): Chip top left corner position (x, y)
+            width (int): Chip width
+            labels (tuple[str, str]): Chip labels (label_spanish, label_english)
+            icon_name (str): Icon name
+            state (bool): State of activation
+                Options: True: On, False: Off
+            enabled (bool): Chip enabled / disabled
+            theme_color (str): App theme color name
+            language (int): App language
+                Options: 0 = Spanish, 1 = English
         """
-        super(MD3Chip, self).__init__(parent)
+        super().__init__(parent)
 
-        self.attributes = attributes
         self.parent = parent
 
-        x, y = attributes['position'] if 'position' in attributes else (8,8)
-        w = attributes['width'] if 'width' in attributes else 32
-        self.setGeometry(x, y, w, 32)
+        self.move(position[0], position[1])
+        self.resize(width, 32)
+        self.setEnabled = enabled
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setCheckable(True)
-        self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
+        self.icon_name = icon_name
+        self.labels = labels
+        
+        self.set_state(state, theme_color)
+        self.set_language(language) if self.labels is not None else None
 
-        self.set_state(attributes['state'], attributes['theme_color'])
-        self.set_language(attributes['language'])
-
-        self.clicked.connect(attributes['clicked'])
+        self.clicked.connect(clicked_signal)
 
         
-    def set_state(self, state: bool, color_name: str) -> None:
+    def set_state(self, state: bool, theme_color: str) -> None:
         """ Set chip state and corresponding icon """
         self.setChecked(state)
-        icon_name = self.attributes['icon'] if 'icon' in self.attributes else 'none'
+        active_icon = self.icon_name
         if state:
-            icon_name = 'done'
+            active_icon = 'done'
             color = 'black'
         else:
-            color = color_name
-        colorized_icon = icon_color(color, icon_name)
+            color = theme_color
+        colorized_icon = icon_color(color, active_icon)
         self.setIcon(colorized_icon)
 
 
     def set_language(self, language: int) -> None:
-        """ Change language of label text """
-        if language == 0:   self.setText(self.attributes['labels'][0])
-        elif language == 1: self.setText(self.attributes['labels'][1])
+        """ Change language of chip label """
+        if self.labels is not None:
+            if language == 0:   self.setText(self.labels[0])
+            elif language == 1: self.setText(self.labels[1])
