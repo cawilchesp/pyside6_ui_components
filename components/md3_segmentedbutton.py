@@ -47,9 +47,9 @@ class MD3SegmentedButton(QToolButton):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 32)
+        self.setEnabled = enabled
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setCheckable(True)
-        self.setEnabled = enabled
         self.icon_name = icon_name
         self.check_icon = check_icon
         self.labels = labels
