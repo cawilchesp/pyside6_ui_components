@@ -9,6 +9,11 @@ class MD3Card(QFrame):
     def __init__(
         self,
         parent: QWidget,
+        position: tuple[int, int] = (8,8),
+        size: tuple[int, int] = (96,96),
+        type: str = 'filled',
+        titles: tuple[str, str] = None,
+        language: int = 0
     ):
         """
         Parameters
@@ -16,39 +21,31 @@ class MD3Card(QFrame):
             parent (QWidget): UI Parent object
             position (tuple[int, int]): Card top left corner position (x, y)
             size (tuple[int, int]): Card size (width, height)
-            titles: tuple
-                Card titles (Optional)
-                (label_spanish, label_english)
-            type: str
-                Card type
-                'filled', 'outlined'
-            language: int
-                App language
-                0: Spanish, 1: English
-        
-        Returns
-        -------
-        None
+            type (str): Card type
+                Options: 'filled', 'outlined'
+            titles (tuple[str, str]): Card titles (title_spanish, title_english)
+            language (int): App language
+                Options: 0 = Spanish, 1 = English
         """
         super().__init__(parent)
 
         self.parent = parent
-
-        x, y = attributes['position'] if 'position' in attributes else (8,8)
-        w, h = attributes['size'] if 'size' in attributes else (96, 96)
-        self.setGeometry(x, y, w, h)
-
+        self.move(position[0], position[1])
+        self.resize(size[0], size[1])
+        self.type = type
+        self.titles = titles
+        
         self.title = QLabel(self)
         self.title.setGeometry(8, 8, 32, 32)
         self.title.setFont(QFont('Segoe UI', 14))
 
-        self.setProperty(self.attributes['type'], True)
-        self.set_language(attributes['language'])
+        self.set_language(language) if self.titles is not None else None
+        self.setProperty(self.type, True)
 
 
     def set_language(self, language: int) -> None:
         """ Change language of title text """
-        if 'titles' in self.attributes:
-            if language == 0:   self.title.setText(self.attributes['titles'][0])
-            elif language == 1: self.title.setText(self.attributes['titles'][1])
+        if self.titles is not None:
+            if language == 0:   self.title.setText(self.titles[0])
+            elif language == 1: self.title.setText(self.titles[1])
             self.title.adjustSize()
