@@ -27,7 +27,7 @@ class MD3SegmentedButton(QToolButton):
         Parameters
         ----------
             parent (QWidget): UI Parent object
-            clicked (callable): Segmented button 'clicked' method name
+            clicked_signal (callable): Segmented button 'clicked' method name
             position (tuple[int, int]): Button top left corner position (x, y)
             width (int): Button width
             icon_name (str): Icon name
