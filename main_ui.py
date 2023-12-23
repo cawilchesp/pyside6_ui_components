@@ -250,36 +250,42 @@ class UI(QWidget):
             clicked_signal=parent.on_chip1_clicked
         )
         
-        # self.gui_widgets['chip2_button'] = MD3Chip(self.gui_widgets['filled_card'], {
-        #     'position': (116, 128),
-        #     'width': 100,
-        #     'labels': ('Correo', 'Mail'),
-        #     'icon': 'mail',
-        #     'state': True,
-        #     'theme_color': self.theme_color,
-        #     'language': self.language_value,
-        #     'clicked': parent.on_chip2_clicked } )
+        self.gui_widgets['chip2_button'] = MD3Chip(
+            parent=self.gui_widgets['filled_card'],
+            position=(116, 128),
+            width=100,
+            labels=('Correo', 'Mail'),
+            icon_name='mail',
+            state=True,
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_chip2_clicked
+        )
         
-        # self.gui_widgets['chip3_button'] = MD3Chip(self.gui_widgets['filled_card'], {
-        #     'position': (224, 128),
-        #     'width': 100,
-        #     'labels': ('Mejorar', 'Improve'),
-        #     'state': False,
-        #     'theme_color': self.theme_color,
-        #     'language': self.language_value,
-        #     'clicked': parent.on_chip3_clicked } )
+        self.gui_widgets['chip3_button'] = MD3Chip(
+            parent=self.gui_widgets['filled_card'],
+            position=(224, 128),
+            width=100,
+            labels=('Mejorar', 'Improve'),
+            state=False,
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_chip3_clicked
+        )
         
         # ----
         # Menu
         # ----
-        self.gui_widgets['test1_menu'] = MD3Menu(self.gui_widgets['filled_card'], {
-            'position': (332, 128),
-            'width': 100,
-            'type': 'filled',
-            'options': self.test_options,
-            'set': self.language_value,
-            'language': self.language_value,
-            'index_changed': parent.on_language_changed } )
+        self.gui_widgets['test1_menu'] = MD3Menu(
+            parent=self.gui_widgets['filled_card'],
+            position=(332, 128),
+            width=100,
+            type='filled',
+            options=self.test_options,
+            set=self.language_value,
+            language=self.language_value,
+            index_changed_signal=parent.on_language_changed
+        )
 
         # ----------
         # Text Field
@@ -597,46 +603,54 @@ class UI(QWidget):
         # -----
         # Chips
         # -----
-        # self.gui_widgets['chip4_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
-        #     'position': (8, 128),
-        #     'width': 100,
-        #     'labels': ('Borrar', 'Delete'),
-        #     'icon': 'delete',
-        #     'state': False,
-        #     'theme_color': self.theme_color,
-        #     'language': self.language_value,
-        #     'clicked': parent.on_chip4_clicked } )
+        self.gui_widgets['chip4_button'] = MD3Chip(
+            parent=self.gui_widgets['outlined_card'],
+            position=(8, 128),
+            width=100,
+            labels=('Borrar', 'Delete'),
+            icon_name='delete',
+            state=False,
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_chip4_clicked
+        )
         
-        # self.gui_widgets['chip5_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
-        #     'position': (116, 128),
-        #     'width': 100,
-        #     'labels': ('Correo', 'Mail'),
-        #     'icon': 'mail',
-        #     'state': True,
-        #     'theme_color': self.theme_color,
-        #     'language': self.language_value,
-        #     'clicked': parent.on_chip5_clicked } )
+        self.gui_widgets['chip5_button'] = MD3Chip(
+            parent=self.gui_widgets['outlined_card'],
+            position=(116, 128),
+            width=100,
+            labels=('Correo', 'Mail'),
+            icon_name='mail',
+            state=True,
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_chip5_clicked
+        )
         
-        # self.gui_widgets['chip6_button'] = MD3Chip(self.gui_widgets['outlined_card'], {
-        #     'position': (224, 128),
-        #     'width': 100,
-        #     'labels': ('Mejorar', 'Improve'),
-        #     'state': False,
-        #     'theme_color': self.theme_color,
-        #     'language': self.language_value,
-        #     'clicked': parent.on_chip6_clicked } )
+        self.gui_widgets['chip6_button'] = MD3Chip(
+            parent=self.gui_widgets['outlined_card'],
+            position=(224, 128),
+            width=100,
+            labels=('Mejorar', 'Improve'),
+            state=False,
+            theme_color=self.theme_color,
+            language=self.language_value,
+            clicked_signal=parent.on_chip6_clicked
+        )
         
         # ----
         # Menu
         # ----
-        self.gui_widgets['test2_menu'] = MD3Menu(self.gui_widgets['outlined_card'], {
-            'position': (332, 128),
-            'width': 72,
-            'type': 'outlined',
-            'options': self.test_options,
-            'set': self.language_value,
-            'language': self.language_value,
-            'index_changed': parent.on_language_changed } )
+        self.gui_widgets['test2_menu'] = MD3Menu(
+            parent=self.gui_widgets['outlined_card'],
+            position=(332, 128),
+            width=72,
+            type='outlined',
+            options=self.test_options,
+            set=self.language_value,
+            language=self.language_value,
+            index_changed_signal=parent.on_language_changed
+        )
 
         # ----------
         # Text Field
