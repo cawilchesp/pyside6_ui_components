@@ -1,83 +1,76 @@
-"""
-PySide6 Menu component adapted to follow Material Design 3 guidelines
+from PySide6.QtWidgets import QComboBox, QWidget
 
-"""
-from PySide6.QtWidgets import QComboBox
 
-# ----
-# Menú
-# ----
 class MD3Menu(QComboBox):
-    def __init__(self, parent, attributes: dict) -> None:
-        """ Material Design 3 Component: Menu
-
+    """
+    PySide6 Menu component
+    """
+    def __init__(
+        self,
+        parent: QWidget,
+        position: tuple[int, int] = (8,8),
+        width: int = 32,
+        type: str = 'filled',
+        options: dict = None,
+        set: int = -1,
+        enabled: bool = True,
+        language: int = 0,
+        index_changed_signal: callable = None,
+        text_activated_signal: callable = None,
+        activated_signal: callable = None
+    ):
+        """
         Parameters
         ----------
-        attributes: dict
-            position: tuple
-                Menu top left corner position
-                (x, y)
-            width: int
-                Menu width
-            type: str
-                Menu type
-                'filled', 'outlined'
-            options: dict
-                Menu options with translations
-                Format: {0: ('es_1', 'en_1'), 1: ('es_2', 'en_2')}
-            set: int
-                Selected option
+            position (tuple[int, int]): Menu top left corner position (x, y)
+            width (int): Menu width
+            type (str): Menu type
+                Options: 'filled', 'outlined'
+            options (dict): Menu options with translations
+                Example:
+                    options = {
+                        0: ('spanish_1', 'english_1'),
+                        1: ('spanish_2', 'english_2')
+                    }
+            set (int): Selected option
                 -1: No option selected
-            enabled: bool
-                Menu enabled / disabled
-            language: int
-                App language
-                0: Spanish, 1: English
-            index_changed: def
-                Menu 'index changed' method name
-            text_activated: def
-                Menu 'text activated' method name
-            activated: def
-                Menu 'activated' method name
-        
-        Returns
-        -------
-        None
+            enabled (bool): Button enabled / disabled
+            language (int): App language
+                Options: 0 = Spanish, 1 = English
+            index_changed_signal (callable): Menu 'index changed' method name
+            text_activated_signal (callable): Menu 'text activated' method name
+            activated_signal (callable): Menu 'activated' method name
         """
-        super(MD3Menu, self).__init__(parent)
+        super().__init__(parent)
 
-        self.attributes = attributes
         self.parent = parent
+        self.move(position[0], position[1])
+        self.resize(width, 32)
+        self.setEnabled = enabled
+        self.type = type
+        self.options = options
 
-        x, y = attributes['position'] if 'position' in attributes else (8,8)
-        w = attributes['width'] if 'width' in attributes else 32
-        self.setGeometry(x, y, w, 32)
-
-        if 'options' in attributes:
-            self.max_items = len(attributes['options']) if len(attributes['options']) < 6 else 10
-            self.set_language(attributes['language'])
+        if self.options is not None:
+            self.max_items = len(self.options) if len(self.options) < 6 else 10
+            self.set_language(language)
         else:
             self.max_items = 10
 
         self.setMaxVisibleItems(self.max_items)
         self.setMaxCount(self.max_items)
         self.setSizeAdjustPolicy(QComboBox.SizeAdjustPolicy.AdjustToMinimumContentsLengthWithIcon)
-        self.setCurrentIndex(attributes['set'])
-        self.setEnabled(attributes['enabled']) if 'enabled' in attributes else True
-        self.setProperty(attributes['type'], True)
+        self.setCurrentIndex(set)
+        self.setProperty(self.type, True)
 
-        if 'index_changed' in attributes:
-            self.currentIndexChanged.connect(attributes['index_changed'])
-        if 'text_activated' in attributes:
-            self.textActivated.connect(attributes['text_activated'])
-        if 'activated' in attributes:
-            self.activated.connect(attributes['activated'])
+        self.currentIndexChanged.connect(index_changed_signal)
+        self.textActivated.connect(text_activated_signal)
+        self.activated.connect(activated_signal)
         
 
     def set_language(self, language: int) -> None:
-        """ Change language of label text """
-        if 'options' in self.attributes:
-            for key, value in self.attributes['options'].items():
+        """ Change language of options text """
+        if self.options is not None:
+            for key, value in self.options.items():
                 self.addItem('')
                 if language == 0:   self.setItemText(key, value[0])
                 elif language == 1: self.setItemText(key, value[1])
