@@ -1,28 +1,25 @@
-"""
-PySide6 Text Field component adapted to follow Material Design 3 guidelines
-
-"""
-from PySide6.QtWidgets import QFrame, QLineEdit, QLabel
+from PySide6.QtWidgets import QFrame, QLineEdit, QLabel, QWidget
 from PySide6.QtGui import QFont, QRegularExpressionValidator
 from PySide6.QtCore import QRegularExpression, Qt
 
 from icon_color import icon_color
 
-# ----------
-# Text Field
-# ----------
-class MD3TextField(QFrame):
-    def __init__(self, parent, attributes: dict) -> None:
-        """ Material Design 3 Component: Text Field
 
+class MD3TextField(QFrame):
+    """
+    PySide6 Text Field component
+    """
+    def __init__(
+        self,
+        parent: QWidget,
+        position: tuple[int, int] = (8,8),
+        width: int = 96,
+    ):
+        """
         Parameters
         ----------
-        attributes: dict
-            position: tuple
-                Text field top left corner position
-                (x, y)
-            width: int
-                Text field width
+            position (tuple[int, int]): Text field top left corner position (x, y)
+            width (int): Text field width
             type: str
                 Text field type
                 'filled', 'outlined'
@@ -57,22 +54,15 @@ class MD3TextField(QFrame):
                 Text field 'text edited' method name
             text_changed: def
                 Text field 'text changed' method name
-        
-        Returns
-        -------
-        None
         """
-        super(MD3TextField, self).__init__(parent)
+        super().__init__(parent)
 
-        self.attributes = attributes
         self.parent = parent
-
-        x, y = attributes['position'] if 'position' in attributes else (8,8)
-        w = attributes['width'] if 'width' in attributes else 96
-        self.setGeometry(x, y, w, 52)
+        self.move(position[0], position[1])
+        self.resize(width, 52)
 
         self.text_field = QLineEdit(self)
-        self.text_field.setGeometry(0, 8, w, 44)
+        self.text_field.setGeometry(0, 8, width, 44)
         self.text_field.setClearButtonEnabled(True)
 
         if 'input' in attributes:
