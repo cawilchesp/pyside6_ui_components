@@ -60,7 +60,6 @@ class MD3TextField(QFrame):
         self.move(position[0], position[1])
         self.resize(width, 52)
         self.setEnabled = enabled
-        self.type = type
         self.labels = labels
 
         self.text_field = QLineEdit(self)
@@ -99,7 +98,7 @@ class MD3TextField(QFrame):
         self.label_field.setAlignment(Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignBottom)
 
         self.set_language(language) if self.labels is not None else None
-        self.setProperty(self.type, True)
+        self.setProperty(type, True)
 
         self.text_field.returnPressed.connect(return_pressed_signal)
         self.text_field.textEdited.connect(text_edited_signal)
@@ -118,7 +117,7 @@ class MD3TextField(QFrame):
 
 
     def set_language(self, language: int) -> None:
-        """ Change language of label text """
+        """ Change language of label field text """
         if language == 0:   self.label_field.setText(self.labels[0])
         elif language == 1: self.label_field.setText(self.labels[1])
         self.label_field.adjustSize()
