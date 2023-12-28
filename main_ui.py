@@ -339,12 +339,14 @@ class UI(QWidget):
         # -----------
         # Date Picker
         # -----------
-        self.gui_widgets['test1_date'] = MD3DatePicker(self.gui_widgets['filled_card'], {
-            'position': (8, 228),
-            'width': 120,
-            'type': 'filled',
-            'labels': ('Fecha', 'Date'),
-            'language': self.language_value } )
+        self.gui_widgets['test1_date'] = MD3DatePicker(
+            parent=self.gui_widgets['filled_card'],
+            position=(8, 228),
+            width=120,
+            type='filled',
+            labels=('Fecha', 'Date'),
+            language=self.language_value
+        )
 
         # ------
         # Labels
@@ -712,12 +714,14 @@ class UI(QWidget):
         # -----------
         # Date Picker
         # -----------
-        self.gui_widgets['test2_date'] = MD3DatePicker(self.gui_widgets['outlined_card'], {
-            'position': (8, 228),
-            'width': 120,
-            'type': 'outlined',
-            'labels': ('Fecha', 'Date'),
-            'language': self.language_value } )
+        self.gui_widgets['test2_date'] = MD3DatePicker(
+            parent=self.gui_widgets['outlined_card'],
+            position=(8, 228),
+            width=120,
+            type='outlined',
+            labels=('Fecha', 'Date'),
+            language=self.language_value
+        )
 
         # ------
         # Labels
