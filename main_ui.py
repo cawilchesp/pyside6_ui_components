@@ -444,10 +444,12 @@ class UI(QWidget):
         # -----------
         # Image Label
         # -----------
-        self.gui_widgets['image1_label'] = MD3ImageLabel(self.gui_widgets['filled_card'], {
-            'position': (124, 288),
-            'size': (300, 32),
-            'scaled_image': True } )
+        self.gui_widgets['image1_label'] = MD3ImageLabel(
+            parent=self.gui_widgets['filled_card'],
+            position=(124, 288),
+            size=(300, 32),
+            scaled_image=True
+        )
 
         # *****************************************************************
         #                           Card Outlined
@@ -837,8 +839,10 @@ class UI(QWidget):
         # -----------
         # Image Label
         # -----------
-        self.gui_widgets['image2_label'] = MD3ImageLabel(self.gui_widgets['outlined_card'], {
-            'position': (124, 288),
-            'size': (300, 32),
-            'scaled_image': True } )
+        self.gui_widgets['image2_label'] = MD3ImageLabel(
+            parent=self.gui_widgets['outlined_card'],
+            position=(124, 288),
+            size=(300, 32),
+            scaled_image=True
+        )
         
