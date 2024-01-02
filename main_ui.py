@@ -427,15 +427,19 @@ class UI(QWidget):
         # --------
         # Dividers
         # --------
-        self.gui_widgets['horizontal1_divider'] = MD3Divider(self.gui_widgets['filled_card'], {
-            'position': (8, 288),
-            'length': 100,
-            'shape': 'horizontal' } )
+        self.gui_widgets['horizontal1_divider'] = MD3Divider(
+            parent=self.gui_widgets['filled_card'],
+            position=(8, 288),
+            length=100,
+            orientation='horizontal'
+        )
         
-        self.gui_widgets['vertical1_divider'] = MD3Divider(self.gui_widgets['filled_card'], {
-            'position': (116, 288),
-            'length': 32,
-            'shape': 'vertical' } )
+        self.gui_widgets['vertical1_divider'] = MD3Divider(
+            parent=self.gui_widgets['filled_card'],
+            position=(116, 288),
+            length=32,
+            orientation='vertical'
+        )
         
         # -----------
         # Image Label
@@ -816,15 +820,19 @@ class UI(QWidget):
         # --------
         # Dividers
         # --------
-        self.gui_widgets['horizontal2_divider'] = MD3Divider(self.gui_widgets['outlined_card'], {
-            'position': (8, 288),
-            'length': 100,
-            'shape': 'horizontal' } )
+        self.gui_widgets['horizontal2_divider'] = MD3Divider(
+            parent=self.gui_widgets['outlined_card'],
+            position=(8, 288),
+            length=100,
+            orientation='horizontal'
+        )
         
-        self.gui_widgets['vertical2_divider'] = MD3Divider(self.gui_widgets['outlined_card'], {
-            'position': (116, 288),
-            'length': 32,
-            'shape': 'vertical' } )
+        self.gui_widgets['vertical2_divider'] = MD3Divider(
+            parent=self.gui_widgets['outlined_card'],
+            position=(116, 288),
+            length=32,
+            orientation='vertical'
+        )
         
         # -----------
         # Image Label
