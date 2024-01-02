@@ -16,8 +16,9 @@ class MD3Label(QLabel):
         type: str = 'filled',
         align: str = 'left',
         icon_name: str = None,
+        color: str = '#FFFFFF',
+        border_color: str = '#FFFFFF',
         labels: tuple[str, str] = None,
-        enabled: bool = True,
         theme_color: str = 'blue',
         language: int = 0
     ):
@@ -33,24 +34,12 @@ class MD3Label(QLabel):
             align (str): Text align
                 Options: 'center', 'left', 'right'
             icon_name (str): Icon name
-            color: str
-                Label color in hexadecimal format
-                '#RRGGBB'
-            border_color: str
-                Border color in hexadecimal format
-                '#RRGGBB'
-            labels: tuple
-                Label labels
-                (label_spanish, label_english)
-            theme_color: str
-                App theme color name
-            language: int
-                App language
-                0: Spanish, 1: English
-        
-        Returns
-        -------
-        None
+            color (str): Label indicator color in hexadecimal format: '#RRGGBB'
+            border_color (str): Label border color in hexadecimal format: '#RRGGBB'
+            labels (tuple[str, str]): Button labels (label_spanish, label_english)
+            theme_color (str): App theme color name
+            language (int): App language
+                Options: 0 = Spanish, 1 = English
         """
         super().__init__(parent)
 
@@ -58,6 +47,8 @@ class MD3Label(QLabel):
         self.move(position[0], position[1])
         height = 16 if type == 'subtitle' else 32
         self.resize(width, height)
+        self.icon_name = icon_name
+        self.labels = labels
 
         if type in {'subtitle', 'value'}:
             alignment_dict = {
@@ -70,32 +61,27 @@ class MD3Label(QLabel):
 
         self.setProperty(type, True)
         
-        if attributes['type'] == 'value':
-            self.setStyleSheet(f"MD3Label[value=true] {{ border-color: {attributes['border_color']} }}")
-        if attributes['type'] == 'color':
-            self.set_color_label(attributes['color'])
-        if 'icon' in attributes:
-            self.set_icon_label(attributes['icon'], attributes['theme_color'])
-        if 'language' in attributes:
-            self.set_language(attributes['language'])
+        self.setStyleSheet(f"MD3Label[value=true] {{ border-color: {border_color} }}") if type == 'value' else None
+        self.set_color_label(color) if type == 'color' else None
+        self.set_icon_label(self.icon_name, theme_color) if icon_name is not None else None
+        self.set_language(language) if self.labels is not None else None
         
 
     def set_icon_label(self, icon_name: str, color_name: str) -> None:
         """ Update icon corresponding to the theme """
 
-        self.attributes['icon'] = icon_name
+        self.icon_name = icon_name
         colorized_icon = icon_color(color_name, icon_name)
         self.setPixmap(colorized_icon.pixmap(24))
         
 
     def set_color_label(self, color: str) -> None:
-        """ Apply custom color to component """
-
+        """ Apply custom background color to label indicator """
         self.setStyleSheet(f"MD3Label[color=true] {{ background-color: {color} }}")
 
 
     def set_language(self, language: int) -> None:
-        """ Change language of title text """
-        if 'labels' in self.attributes:
-            if language == 0:   self.setText(self.attributes['labels'][0])
-            elif language == 1: self.setText(self.attributes['labels'][1])
+        """ Change language of label """
+        if self.labels is not None:
+            if language == 0:   self.setText(self.labels[0])
+            elif language == 1: self.setText(self.labels[1])
