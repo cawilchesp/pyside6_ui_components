@@ -413,13 +413,16 @@ class UI(QWidget):
         # ------
         # Slider
         # ------
-        self.gui_widgets['test1_slider'] = MD3Slider(self.gui_widgets['filled_card'], {
-            'position': (432, 228),
-            'width': 100,
-            'range': (0, 1, 100),
-            'value': 50,
-            'slider_moved': parent.on_test1_slider_sliderMoved,
-            'slider_released': parent.on_test1_slider_sliderReleased } )
+        self.gui_widgets['test1_slider'] = MD3Slider(
+            parent=self.gui_widgets['filled_card'],
+            position=(432, 228),
+            length=100,
+            orientation='vertical',
+            range=(0, 1, 100),
+            value=50,
+            slider_moved_signal=parent.on_test1_slider_sliderMoved,
+            slider_released_signal=parent.on_test1_slider_sliderReleased
+        )
 
         # --------
         # Dividers
@@ -800,13 +803,15 @@ class UI(QWidget):
         # ------
         # Slider
         # ------
-        self.gui_widgets['test2_slider'] = MD3Slider(self.gui_widgets['outlined_card'], {
-            'position': (432, 228),
-            'width': 100,
-            'range': (0, 1, 100),
-            'value': 50,
-            'slider_moved': parent.on_test2_slider_sliderMoved,
-            'slider_released': parent.on_test2_slider_sliderReleased } )
+        self.gui_widgets['test2_slider'] = MD3Slider(
+            parent=self.gui_widgets['outlined_card'],
+            position=(432, 228),
+            length=100,
+            range=(0, 1, 100),
+            value=50,
+            slider_moved_signal=parent.on_test2_slider_sliderMoved,
+            slider_released_signal=parent.on_test2_slider_sliderReleased
+        )
 
         # --------
         # Dividers
