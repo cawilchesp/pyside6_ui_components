@@ -5,7 +5,7 @@ QWidget {
 /* Card */
 MD3Card[filled=true] {
     border: 0px solid;
-    border-radius: 12px;
+    border-radius: 8px;
     background-color: hsl(204, 86%, 20%)
 }
 MD3Card[outlined=true] {
@@ -21,7 +21,7 @@ MD3Card QLabel {
 /* Button */
 MD3Button {
     border-style: solid;
-    border-radius: 16;
+    border-radius: 4;
 }
 MD3Button[filled=true] {
     border-width: 0px;
