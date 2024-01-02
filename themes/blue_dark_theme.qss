@@ -320,11 +320,22 @@ MD3Slider::groove:horizontal {
     background: hsl(204, 86%, 53%);
     height: 4px
 }
+MD3Slider::groove:vertical {
+    background: hsl(204, 86%, 53%);
+    width: 4px
+}
 MD3Slider::handle:horizontal {
     background-color: hsl(204, 86%, 53%);
     width: 20px; 
     height: 20px; 
     margin: -8px 0;
+    border-radius: 10px
+}
+MD3Slider::handle:vertical {
+    background-color: hsl(204, 86%, 53%);
+    width: 20px; 
+    height: 20px; 
+    margin: 0 -8px;
     border-radius: 10px
 }
 MD3Slider::handle:disabled {
@@ -333,8 +344,14 @@ MD3Slider::handle:disabled {
 MD3Slider::add-page:horizontal {
     background: hsl(204, 86%, 29%)
 }
+MD3Slider::add-page:vertical {
+    background: hsl(204, 86%, 53%)
+}
 MD3Slider::sub-page:horizontal {
     background: hsl(204, 86%, 53%)
+}
+MD3Slider::sub-page:vertical {
+    background: hsl(204, 86%, 29%)
 }
 MD3Slider::add-page:disabled {
     background: hsl(0, 0%, 71%)
