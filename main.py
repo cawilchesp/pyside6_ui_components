@@ -30,11 +30,11 @@ class MainWindow(QMainWindow):
             self.setStyleSheet(theme_qss.read())
 
 
-    # # ---------------------
-    # # Icon Button Functions
-    # # ---------------------
-    # def on_icon1_button_clicked(self) -> None:
-    #     print('Icon button 1 clicked')
+    # ---------------------
+    # Icon Button Functions
+    # ---------------------
+    def standard_button_clicked(self) -> None:
+        print('Standard button clicked')
 
     # def on_icon2_button_clicked(self) -> None:
     #     print('Icon button 2 clicked')
