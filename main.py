@@ -41,10 +41,12 @@ class MainWindow(QMainWindow):
     def toggle_1_button_clicked(self, state: bool) -> None:
         print(f'toggle 1 button state: {state}')
         self.ui.gui_widgets['toggle_1_button'].set_icon(state, self.theme_style)
+        self.ui.gui_widgets['toggle_1_button'].state = state
 
     def toggle_2_button_clicked(self, state: bool) -> None:
         print(f'toggle 2 button state: {state}')
         self.ui.gui_widgets['toggle_2_button'].set_icon(state, self.theme_style)
+        self.ui.gui_widgets['toggle_2_button'].state = state
 
     # def on_icon3_button_clicked(self) -> None:
     #     print('Icon button 3 clicked')
