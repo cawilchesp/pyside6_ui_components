@@ -36,8 +36,9 @@ class MainWindow(QMainWindow):
     def standard_button_clicked(self) -> None:
         print('Standard button clicked')
 
-    # def on_icon2_button_clicked(self) -> None:
-    #     print('Icon button 2 clicked')
+    def toggle_button_clicked(self, state: bool) -> None:
+        print(f'toggle button state: {state}')
+        self.ui.gui_widgets['toggle_1_button'].set_icon(state, self.theme_style)
 
     # def on_icon3_button_clicked(self) -> None:
     #     print('Icon button 3 clicked')
@@ -119,26 +120,26 @@ class MainWindow(QMainWindow):
     #     self.ui.gui_widgets['right_segmented2_button'].set_state(state, self.theme_color)
 
 
-    # # ---------------------
-    # # Theme Button Function
-    # # ---------------------
-    # def on_theme_clicked(self) -> None:
-    #     """ Dark theme segmented control to change components stylesheet
-        
-    #     """
-    #     state = not self.theme_style
-    #     theme = 'light' if state else 'dark'
-    #     theme_qss_file = f"themes/{self.theme_color}_{theme}_theme.qss"
-    #     with open(theme_qss_file, "r") as theme_qss:
-    #         self.setStyleSheet(theme_qss.read())
-    #     self.ui.gui_widgets['theme1_button'].set_state(state, self.theme_color)
-    #     self.ui.gui_widgets['theme2_button'].set_state(state, self.theme_color)
+    # ---------------------
+    # Theme Button Function
+    # ---------------------
+    def theme_button_clicked(self) -> None:
+        """
+        Theme toggle control
+        """
+        state = not self.theme_style
+        theme = 'light' if state else 'dark'
+        theme_qss_file = f"themes/{self.theme_color}_{theme}_theme.qss"
+        with open(theme_qss_file, "r") as theme_qss:
+            self.setStyleSheet(theme_qss.read())
+        self.ui.gui_widgets['theme_1_button'].set_state(state)
+        self.ui.gui_widgets['theme_2_button'].set_state(state)
 
-    #     # Save settings
-    #     self.theme_style = state
-    #     self.config['THEME_STYLE'] = state
-    #     with open(self.settings_file, 'w') as file:
-    #         yaml.dump(self.config, file)
+        # Save settings
+        self.theme_style = state
+        self.config['THEME_STYLE'] = state
+        with open(self.settings_file, 'w') as file:
+            yaml.dump(self.config, file)
 
 
     # # ---------------
