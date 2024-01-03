@@ -13,7 +13,7 @@ class UI_Card(QFrame):
         size: tuple[int, int] = (96, 96),
         type: str = 'filled',
         titles: tuple[str, str] = None,
-        language: int = 0
+        language: str = 'es'
     ):
         """
         Parameters
