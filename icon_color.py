@@ -1,9 +1,10 @@
 from PySide6.QtGui import QPixmap, QPainter, QIcon, QColor
 
 colors = {
-    'blue': [204/360, 0.86, 0.53],
+    'blue': [200/360, 1.0, 0.50],
     'yellow': [48/360, 1.0, 0.67],
-    'black': [0.0, 0.0, 0.04]
+    'black': [0.0, 0.0, 0.13],
+    'white': [0.0, 0.0, 0.98]
 }
 
 
