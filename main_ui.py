@@ -67,10 +67,10 @@ class Main_UI(QWidget):
             language=self.language_value
         )
 
-        # ------------
-        # Icon Buttons
-        # ------------
-        self.gui_widgets['buttons_label'] = UI_Label(
+        # -------
+        # Buttons
+        # -------
+        self.gui_widgets['buttons_1_label'] = UI_Label(
             parent=self.gui_widgets['filled_card'],
             position=(16, 60),
             width=100,
@@ -80,98 +80,92 @@ class Main_UI(QWidget):
             language=self.language_value
         )
 
+        self.gui_widgets['standard_1_button'] = UI_Button(
+            parent=self.gui_widgets['filled_card'],
+            position=(16, 100),
+            width=100,
+            type='standard',
+            icon_name='bicycle',
+            labels=('Estándar', 'Standard'),
+            theme_color=self.theme_color,
+            clicked_signal=parent.standard_button_clicked
+        )
 
+        self.gui_widgets['accent_1_button'] = UI_Button(
+            parent=self.gui_widgets['filled_card'],
+            position=(124, 100),
+            width=100,
+            type='accent',
+            icon_name='bicycle',
+            labels=('Acentuado', 'Accent'),
+            theme_color=self.theme_color,
+            clicked_signal=parent.standard_button_clicked
+        )
 
+        self.gui_widgets['outline_1_button'] = UI_Button(
+            parent=self.gui_widgets['filled_card'],
+            position=(16, 140),
+            width=100,
+            type='outlined',
+            icon_name='bicycle',
+            labels=('Delineado', 'Outlined'),
+            theme_color=self.theme_color,
+            clicked_signal=parent.standard_button_clicked
+        )
 
+        self.gui_widgets['hyperlink_1_button'] = UI_Button(
+            parent=self.gui_widgets['filled_card'],
+            position=(124, 140),
+            width=100,
+            type='hyperlink',
+            icon_name='bicycle',
+            labels=('Hipervínculo', 'Hyperlink'),
+            theme_color=self.theme_color,
+            clicked_signal=parent.standard_button_clicked
+        )
 
+        self.gui_widgets['standard_2_button'] = UI_Button(
+            parent=self.gui_widgets['filled_card'],
+            position=(16, 180),
+            type='standard',
+            icon_name='bicycle',
+            theme_color=self.theme_color,
+            clicked_signal=parent.standard_button_clicked
+        )
 
+        self.gui_widgets['accent_2_button'] = UI_Button(
+            parent=self.gui_widgets['filled_card'],
+            position=(56, 180),
+            type='accent',
+            icon_name='bicycle',
+            theme_color=self.theme_color,
+            clicked_signal=parent.standard_button_clicked
+        )
 
+        self.gui_widgets['outline_2_button'] = UI_Button(
+            parent=self.gui_widgets['filled_card'],
+            position=(96, 180),
+            type='outlined',
+            icon_name='bicycle',
+            theme_color=self.theme_color,
+            clicked_signal=parent.standard_button_clicked
+        )
 
-
-        # self.gui_widgets['icon1_button'] = MD3Button(
-        #     parent=self.gui_widgets['filled_card'],
-        #     position=(8,48),
-        #     type='filled',
-        #     icon_name='delete',
-        #     theme_color=self.theme_color,
-        #     clicked_signal=parent.on_icon1_button_clicked
-        # )
-
-        # self.gui_widgets['icon2_button'] = MD3Button(
-        #     parent=self.gui_widgets['filled_card'],
-        #     position=(48,48),
-        #     type='tonal',
-        #     icon_name='delete',
-        #     theme_color=self.theme_color,
-        #     clicked_signal=parent.on_icon2_button_clicked
-        # )
+        self.gui_widgets['hyperlink_2_button'] = UI_Button(
+            parent=self.gui_widgets['filled_card'],
+            position=(136, 180),
+            type='hyperlink',
+            icon_name='bicycle',
+            theme_color=self.theme_color,
+            clicked_signal=parent.standard_button_clicked
+        )
         
-        # self.gui_widgets['icon3_button'] = MD3Button(
-        #     parent=self.gui_widgets['filled_card'],
-        #     position=(88,48),
-        #     type='outlined',
-        #     icon_name='delete',
-        #     theme_color=self.theme_color,
-        #     clicked_signal=parent.on_icon3_button_clicked
-        # )
-        
-        # self.gui_widgets['icon4_button'] = MD3Button(
-        #     parent=self.gui_widgets['filled_card'],
-        #     position=(128,48),
-        #     type='standard',
-        #     icon_name='delete',
-        #     theme_color=self.theme_color,
-        #     clicked_signal=parent.on_icon4_button_clicked
-        # )
-        
-        # # -------
-        # # Buttons
-        # # -------
-        # self.gui_widgets['boton1_button'] = MD3Button (
-        #     parent=self.gui_widgets['filled_card'],
-        #     position=(168,48),
-        #     width=100,
-        #     type='filled',
-        #     icon_name='delete',
-        #     labels=('Borrar','Delete'),
-        #     theme_color=self.theme_color,
-        #     language=self.language_value,
-        #     clicked_signal=parent.on_boton1_button_clicked
-        # )
 
-        # self.gui_widgets['boton2_button'] = MD3Button(
-        #     parent=self.gui_widgets['filled_card'],
-        #     position=(276,48),
-        #     width=100,
-        #     type='tonal',
-        #     labels=('Borrar','Delete'),
-        #     theme_color=self.theme_color,
-        #     language=self.language_value,
-        #     clicked_signal=parent.on_boton2_button_clicked
-        # )
-        
-        # self.gui_widgets['boton3_button'] = MD3Button(
-        #     parent=self.gui_widgets['filled_card'],
-        #     position=(394,48),
-        #     width=100,
-        #     type='outlined',
-        #     icon_name='delete',
-        #     labels=('Borrar','Delete'),
-        #     theme_color=self.theme_color,
-        #     language=self.language_value,
-        #     clicked_signal=parent.on_boton3_button_clicked
-        # )
-        
-        # self.gui_widgets['boton4_button'] = MD3Button(
-        #     parent=self.gui_widgets['filled_card'],
-        #     position=(502,48),
-        #     width=100,
-        #     type='standard',
-        #     labels=('Borrar','Delete'),
-        #     theme_color=self.theme_color,
-        #     language=self.language_value,
-        #     clicked_signal=parent.on_boton4_button_clicked
-        # )
+
+
+
+
+
         
         # # -----------------
         # # Segmented Buttons
@@ -490,16 +484,15 @@ class Main_UI(QWidget):
         # ------------
         # Icon Buttons
         # ------------
-        # self.gui_widgets['buttons_label'] = UI_Label(
-        #     parent=self.gui_widgets['outlined_card'],
-        #     position=(16, 60),
-        #     width=100,
-        #     type='subtitle',
-        #     align='left',
-        #     labels=('Botones', 'Buttons'),
-        #     theme_color=self.theme_color,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['buttons_2_label'] = UI_Label(
+            parent=self.gui_widgets['outlined_card'],
+            position=(16, 60),
+            width=100,
+            align='left',
+            labels=('Botones', 'Buttons'),
+            theme_color=self.theme_color,
+            language=self.language_value
+        )
 
         # self.gui_widgets['icon5_button'] = MD3Button(
         #     parent=self.gui_widgets['outlined_card'],
