@@ -22,76 +22,101 @@ UI_Card QLabel {
     color: hsl(0, 0%, 13%);
 }
 
-
-
-
+/* Labels */
+UI_Label {
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    background-color: transparent;
+    color: hsl(0, 0%, 13%);
+    padding: 0;
+}
+UI_IconLabel {
+    border-width: 0px;
+    background-color: transparent;
+    padding: 4
+}
+UI_ColorLabel {
+    border-width: 2px;
+    border-style: solid;
+    border-color: hsl(200, 100%, 50%);
+    border-radius: 4px;
+    padding: 0
+}
 
 /* Button */
-MD3Button {
-    border-style: solid;
-    border-radius: 16;
-}
-MD3Button[filled=true] {
-    border-width: 0px;
-    background-color: hsl(204, 86%, 53%);
-    color: hsl(0, 0%, 4%)
-}
-MD3Button[tonal=true] {
-    border-width: 0px;
-    background-color: hsl(204, 86%, 86%);
-    color: hsl(0, 0%, 4%)
-}
-MD3Button[outlined=true] {
+UI_Button {
     border-width: 2px;
-    border-color: hsl(204, 86%, 53%);
+    border-style: solid;
+    border-radius: 4px;
+    border-color: transparent;
+    padding: 4px
+}
+UI_Button[type=standard] {
+    background-color: hsl(0, 0%, 93%);
+    color: hsl(0, 0%, 13%)
+}
+UI_Button[type=accent] {
+    background-color: hsl(200, 100%, 50%);
+    color: hsl(0, 0%, 13%)
+}
+UI_Button[type=outlined] {
+    border-color: hsl(200, 100%, 50%);
     background-color: transparent;
-    color: hsl(204, 86%, 53%)
+    color: hsl(200, 100%, 50%)
 }
-MD3Button[standard=true] {
-    border-width: 0px;
+UI_Button[type=hyperlink] {
     background-color: transparent;
-    color: hsl(204, 86%, 53%)
+    color: hsl(200, 100%, 50%)
 }
-MD3Button:hover {
-    background-color: hsl(348, 100%, 61%);
+UI_Button:hover {
+    background-color: hsl(0, 0%, 85%);
 }
-MD3Button:disabled {
+UI_Button:hover[type=accent] {
+    background-color: hsl(200, 100%, 40%);
+}
+UI_Button:disabled {
     background-color: hsl(0, 0%, 71%);
-    color: hsl(0, 0%, 29%)
+    color: hsl(0, 0%, 35%)
+}
+UI_Button:disabled[type=outlined] {
+    border-color: hsl(0, 0%, 35%)
 }
 
-/* Theme Button */
-MD3ThemeButton {
-    border-style: solid;
-    border-radius: 16;
-}
-MD3ThemeButton[filled=true] {
+UI_ToggleButton {
     border-width: 0px;
-    background-color: hsl(204, 86%, 53%);
-    color: hsl(0, 0%, 4%)
+    border-radius: 4px;
+    padding: 6px;
+    background-color: hsl(0, 0%, 93%);
+    color: hsl(0, 0%, 13%)
 }
-MD3ThemeButton[tonal=true] {
-    border-width: 0px;
-    background-color: hsl(204, 86%, 86%);
-    color: hsl(0, 0%, 4%)
+UI_ToggleButton:checked {
+    background-color: hsl(200, 100%, 50%);
+    color: hsl(0, 0%, 13%)
 }
-MD3ThemeButton[outlined=true] {
-    border-width: 2px;
-    border-color: hsl(204, 86%, 53%);
-    background-color: transparent;
-    color: hsl(204, 86%, 53%)
+UI_ToggleButton:hover {
+    background-color: hsl(0, 0%, 85%);
 }
-MD3ThemeButton[standard=true] {
-    border-width: 0px;
-    background-color: transparent;
-    color: hsl(204, 86%, 53%)
+UI_ToggleButton:checked:hover {
+    background-color: hsl(200, 100%, 40%);
 }
-MD3ThemeButton:hover {
-    background-color: hsl(348, 100%, 61%);
-}
-MD3ThemeButton:disabled {
+UI_ToggleButton:disabled {
     background-color: hsl(0, 0%, 71%);
-    color: hsl(0, 0%, 29%)
+    color: hsl(0, 0%, 35%)
+}
+
+UI_ThemeButton {
+    border-width: 0px;
+    border-radius: 4px;
+    background-color: hsl(200, 100%, 50%);
+    color: hsl(0, 0%, 13%)
+}
+UI_ThemeButton:hover {
+    background-color: hsl(200, 100%, 40%);
+}
+UI_ThemeButton:disabled {
+    background-color: hsl(0, 0%, 71%);
+    color: hsl(0, 0%, 35%)
 }
 
 /* Segmented Button */
@@ -292,28 +317,6 @@ MD3DatePicker[outlined=true] QLabel {
 MD3DatePicker QLabel:disabled {
     background-color: hsl(0, 0%, 71%);
     color: hsl(0, 0%, 29%)
-}
-
-/* Labels */
-UI_Label {
-    border-width: 2px;
-    border-style: solid;
-    border-radius: 16px;
-    background-color: transparent;
-    color: hsl(0, 0%, 21%);
-    padding: 0;
-}
-UI_IconLabel {
-    border-width: 0px;
-    background-color: transparent;
-    padding: 4
-}
-UI_ColorLabel {
-    border-width: 2px;
-    border-style: solid;
-    border-color: hsl(200, 100%, 50%);
-    border-radius: 4px;
-    padding: 0
 }
 
 /* Slider */
