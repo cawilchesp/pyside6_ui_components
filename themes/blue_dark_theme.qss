@@ -1,22 +1,31 @@
+/* Window */
 QWidget {
-    background-color: hsl(204, 86%, 10%);
+    background-color: hsl(0, 0%, 13%);
 }
 
 /* Card */
-MD3Card[filled=true] {
-    border: 0px solid;
+UI_Card {
+    border-style: solid;
     border-radius: 8px;
-    background-color: hsl(204, 86%, 20%)
 }
-MD3Card[outlined=true] {
-    border: 2px solid hsl(204, 86%, 53%);
-    border-radius: 12px;
+UI_Card[type=filled] {
+    border-width: 0px;
+    background-color: hsl(0, 0%, 17%)
+}
+UI_Card[type=outlined] {
+    border-width: 2px;
+    border-color: hsl(200, 100%, 50%);
     background-color: transparent
 }
-MD3Card QLabel {
+UI_Card QLabel {
     background-color: transparent;
-    color: hsl(0, 0%, 96%);
+    color: hsl(0, 0%, 98%);
 }
+
+
+
+
+
 
 /* Button */
 MD3Button {
@@ -287,26 +296,26 @@ MD3DatePicker QLabel:disabled {
 }
 
 /* Label */
-MD3Label {
+UI_Label {
     border-style: solid;
     border-radius: 16px;
     background-color: transparent;
 }
-MD3Label[subtitle=true] {
+UI_Label[subtitle=true] {
     border-width: 0px;
     padding: 0;
     color: hsl(0, 0%, 96%);
 }
-MD3Label[icon=true] {
+UI_Label[icon=true] {
     border-width: 0px;
     padding: 4
 }
-MD3Label[value=true] {
+UI_Label[value=true] {
     border-width: 2px;
     padding: 0;
     color: hsl(0, 0%, 96%);
 }
-MD3Label[color=true] {
+UI_Label[color=true] {
     border-width: 2px;
     border-color: hsl(204, 86%, 53%);
     padding: 0
