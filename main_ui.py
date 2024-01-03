@@ -176,7 +176,7 @@ class Main_UI(QWidget):
             labels=('Botón Toggle', 'Toggle Button'),
             theme_style=self.theme_style,
             language=self.language_value,
-            clicked_signal=parent.toggle_button_clicked
+            clicked_signal=parent.toggle_1_button_clicked
         )
 
 
@@ -596,7 +596,7 @@ class Main_UI(QWidget):
             labels=('Botón Toggle', 'Toggle Button'),
             theme_style=self.theme_style,
             language=self.language_value,
-            clicked_signal=parent.toggle_button_clicked
+            clicked_signal=parent.toggle_2_button_clicked
         )
 
 
