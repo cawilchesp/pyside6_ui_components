@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QWidget
 
 from components.ui_window import UI_Window
 from components.ui_card import UI_Card
-from components.ui_label import UI_Label
+from components.ui_label import UI_Label, UI_IconLabel, UI_ColorLabel
 from components.ui_button import UI_Button
 from components.md3_chip import MD3Chip
 from components.md3_datepicker import MD3DatePicker
@@ -74,12 +74,13 @@ class Main_UI(QWidget):
             parent=self.gui_widgets['filled_card'],
             position=(16, 60),
             width=100,
-            type='subtitle',
             align='left',
             labels=('Botones', 'Buttons'),
             theme_color=self.theme_color,
             language=self.language_value
         )
+
+
 
 
 
@@ -489,16 +490,16 @@ class Main_UI(QWidget):
         # ------------
         # Icon Buttons
         # ------------
-        self.gui_widgets['buttons_label'] = UI_Label(
-            parent=self.gui_widgets['outlined_card'],
-            position=(16, 60),
-            width=100,
-            type='subtitle',
-            align='left',
-            labels=('Botones', 'Buttons'),
-            theme_color=self.theme_color,
-            language=self.language_value
-        )
+        # self.gui_widgets['buttons_label'] = UI_Label(
+        #     parent=self.gui_widgets['outlined_card'],
+        #     position=(16, 60),
+        #     width=100,
+        #     type='subtitle',
+        #     align='left',
+        #     labels=('Botones', 'Buttons'),
+        #     theme_color=self.theme_color,
+        #     language=self.language_value
+        # )
 
         # self.gui_widgets['icon5_button'] = MD3Button(
         #     parent=self.gui_widgets['outlined_card'],
