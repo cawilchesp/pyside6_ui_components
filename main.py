@@ -3,6 +3,8 @@ from PySide6.QtWidgets import QApplication, QMainWindow
 
 from main_ui import Main_UI
 
+from components.ui_button import UI_Button, UI_ToggleButton
+
 import sys
 import yaml
 
@@ -36,9 +38,13 @@ class MainWindow(QMainWindow):
     def standard_button_clicked(self) -> None:
         print('Standard button clicked')
 
-    def toggle_button_clicked(self, state: bool) -> None:
-        print(f'toggle button state: {state}')
+    def toggle_1_button_clicked(self, state: bool) -> None:
+        print(f'toggle 1 button state: {state}')
         self.ui.gui_widgets['toggle_1_button'].set_icon(state, self.theme_style)
+
+    def toggle_2_button_clicked(self, state: bool) -> None:
+        print(f'toggle 2 button state: {state}')
+        self.ui.gui_widgets['toggle_2_button'].set_icon(state, self.theme_style)
 
     # def on_icon3_button_clicked(self) -> None:
     #     print('Icon button 3 clicked')
@@ -132,6 +138,14 @@ class MainWindow(QMainWindow):
         theme_qss_file = f"themes/{self.theme_color}_{theme}_theme.qss"
         with open(theme_qss_file, "r") as theme_qss:
             self.setStyleSheet(theme_qss.read())
+
+        for key in self.ui.gui_widgets.keys():
+            if isinstance(self.ui.gui_widgets[key], UI_Button) and self.ui.gui_widgets[key].type == 'standard':
+                self.ui.gui_widgets[key].set_icon(state, self.theme_color) if self.ui.gui_widgets[key].icon_name is not None else None
+            if isinstance(self.ui.gui_widgets[key], UI_ToggleButton):
+                self.ui.gui_widgets[key].set_icon(self.ui.gui_widgets[key].state, state) if self.ui.gui_widgets[key].icon_name is not None else None
+
+
         self.ui.gui_widgets['theme_1_button'].set_state(state)
         self.ui.gui_widgets['theme_2_button'].set_state(state)
 
