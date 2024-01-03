@@ -22,44 +22,78 @@ UI_Card QLabel {
     color: hsl(0, 0%, 98%);
 }
 
-
-
-
-
+/* Labels */
+UI_Label {
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    background-color: transparent;
+    color: hsl(0, 0%, 98%);
+    padding: 0;
+}
+UI_IconLabel {
+    border-width: 0px;
+    background-color: transparent;
+    padding: 4
+}
+UI_ColorLabel {
+    border-width: 2px;
+    border-style: solid;
+    border-color: hsl(200, 100%, 50%);
+    border-radius: 4px;
+    padding: 0
+}
 
 /* Button */
-MD3Button {
+UI_Button {
+    border-width: 2px;
     border-style: solid;
     border-radius: 4;
+    border-color: transparent;
+    padding: 4
 }
-MD3Button[filled=true] {
-    border-width: 0px;
-    background-color: hsl(204, 86%, 53%);
-    color: hsl(0, 0%, 4%)
+UI_Button[type=standard] {
+    background-color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 98%)
 }
-MD3Button[tonal=true] {
-    border-width: 0px;
-    background-color: hsl(204, 86%, 86%);
-    color: hsl(0, 0%, 4%)
+UI_Button[type=accent] {
+    background-color: hsl(200, 100%, 50%);
+    color: hsl(0, 0%, 13%)
 }
-MD3Button[outlined=true] {
-    border-width: 2px;
-    border-color: hsl(204, 86%, 53%);
+UI_Button[type=outlined] {
+    border-color: hsl(200, 100%, 50%);
     background-color: transparent;
-    color: hsl(204, 86%, 53%)
+    color: hsl(200, 100%, 50%)
 }
-MD3Button[standard=true] {
-    border-width: 0px;
+UI_Button[type=hyperlink] {
     background-color: transparent;
-    color: hsl(204, 86%, 53%)
+    color: hsl(200, 100%, 50%)
 }
-MD3Button:hover {
-    background-color: hsl(348, 100%, 61%);
+UI_Button:hover {
+    background-color: hsl(0, 0%, 25%);
 }
-MD3Button:disabled {
-    background-color: hsl(0, 0%, 71%);
-    color: hsl(0, 0%, 29%)
+UI_Button:hover[type=accent] {
+    background-color: hsl(200, 100%, 40%);
 }
+UI_Button:disabled {
+    background-color: hsl(0, 0%, 16%);
+    color: hsl(0, 0%, 35%)
+}
+UI_Button:disabled[type=outlined] {
+    border-color: hsl(0, 0%, 35%)
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Theme Button */
 MD3ThemeButton {
@@ -293,28 +327,6 @@ MD3DatePicker[outlined=true] QLabel {
 MD3DatePicker QLabel:disabled {
     background-color: hsl(0, 0%, 71%);
     color: hsl(0, 0%, 29%)
-}
-
-/* Labels */
-UI_Label {
-    border-width: 2px;
-    border-style: solid;
-    border-radius: 4px;
-    background-color: transparent;
-    color: hsl(0, 0%, 96%);
-    padding: 0;
-}
-UI_IconLabel {
-    border-width: 0px;
-    background-color: transparent;
-    padding: 4
-}
-UI_ColorLabel {
-    border-width: 2px;
-    border-style: solid;
-    border-color: hsl(200, 100%, 50%);
-    border-radius: 4px;
-    padding: 0
 }
 
 /* Slider */
