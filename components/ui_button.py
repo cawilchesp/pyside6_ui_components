@@ -48,15 +48,16 @@ class UI_Button(QToolButton):
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.type = type
         self.labels = labels
+        self.icon_name = icon_name
 
-        self.set_icon(theme_style, theme_color, icon_name) if icon_name is not None else None
+        self.set_icon(theme_style, theme_color) if icon_name is not None else None
         self.set_language(language) if self.labels is not None else None
         self.setProperty('type', self.type)
 
         self.clicked.connect(clicked_signal)
 
 
-    def set_icon(self, theme_style: bool, theme_color: str, icon_name: str) -> None:
+    def set_icon(self, theme_style: bool, theme_color: str) -> None:
         """ Change button icon """
         if self.type == 'standard':
             color = 'black' if theme_style else 'white'
@@ -64,7 +65,7 @@ class UI_Button(QToolButton):
             color = 'black'
         elif self.type in ['outlined', 'hyperlink']:
             color = theme_color
-        colorized_icon = icon_color(color, icon_name)
+        colorized_icon = icon_color(color, self.icon_name)
         self.setIcon(colorized_icon)
 
 
@@ -118,6 +119,7 @@ class UI_ToggleButton(QToolButton):
         self.setCheckable(True)
         self.icon_name = icon_name
         self.labels = labels
+        self.state = state
         
         self.set_icon(state, theme_style) if icon_name is not None else None
         self.set_language(language) if self.labels is not None else None
