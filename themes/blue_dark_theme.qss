@@ -295,29 +295,25 @@ MD3DatePicker QLabel:disabled {
     color: hsl(0, 0%, 29%)
 }
 
-/* Label */
+/* Labels */
 UI_Label {
+    border-width: 2px;
     border-style: solid;
-    border-radius: 16px;
+    border-radius: 4px;
     background-color: transparent;
-}
-UI_Label[subtitle=true] {
-    border-width: 0px;
-    padding: 0;
     color: hsl(0, 0%, 96%);
+    padding: 0;
 }
-UI_Label[icon=true] {
+UI_IconLabel {
     border-width: 0px;
+    background-color: transparent;
     padding: 4
 }
-UI_Label[value=true] {
+UI_ColorLabel {
     border-width: 2px;
-    padding: 0;
-    color: hsl(0, 0%, 96%);
-}
-UI_Label[color=true] {
-    border-width: 2px;
-    border-color: hsl(204, 86%, 53%);
+    border-style: solid;
+    border-color: hsl(200, 100%, 50%);
+    border-radius: 4px;
     padding: 0
 }
 
