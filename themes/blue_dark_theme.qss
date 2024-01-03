@@ -48,9 +48,9 @@ UI_ColorLabel {
 UI_Button {
     border-width: 2px;
     border-style: solid;
-    border-radius: 4;
+    border-radius: 4px;
     border-color: transparent;
-    padding: 4
+    padding: 4px
 }
 UI_Button[type=standard] {
     background-color: hsl(0, 0%, 20%);
@@ -83,50 +83,40 @@ UI_Button:disabled[type=outlined] {
     border-color: hsl(0, 0%, 35%)
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* Theme Button */
-MD3ThemeButton {
-    border-style: solid;
-    border-radius: 16;
-}
-MD3ThemeButton[filled=true] {
+UI_ToggleButton {
     border-width: 0px;
-    background-color: hsl(204, 86%, 53%);
-    color: hsl(0, 0%, 4%)
+    border-radius: 4px;
+    padding: 6px;
+    background-color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 98%)
 }
-MD3ThemeButton[tonal=true] {
+UI_ToggleButton:checked {
+    background-color: hsl(200, 100%, 50%);
+    color: hsl(0, 0%, 13%)
+}
+UI_ToggleButton:hover {
+    background-color: hsl(0, 0%, 25%);
+}
+UI_ToggleButton:checked:hover {
+    background-color: hsl(200, 100%, 40%);
+}
+UI_ToggleButton:disabled {
+    background-color: hsl(0, 0%, 16%);
+    color: hsl(0, 0%, 35%)
+}
+
+UI_ThemeButton {
     border-width: 0px;
-    background-color: hsl(204, 86%, 86%);
-    color: hsl(0, 0%, 4%)
+    border-radius: 4px;
+    background-color: hsl(200, 100%, 50%);
+    color: hsl(0, 0%, 13%)
 }
-MD3ThemeButton[outlined=true] {
-    border-width: 2px;
-    border-color: hsl(204, 86%, 53%);
-    background-color: transparent;
-    color: hsl(204, 86%, 53%)
+UI_ThemeButton:hover {
+    background-color: hsl(200, 100%, 40%);
 }
-MD3ThemeButton[standard=true] {
-    border-width: 0px;
-    background-color: transparent;
-    color: hsl(204, 86%, 53%)
-}
-MD3ThemeButton:hover {
-    background-color: hsl(348, 100%, 61%);
-}
-MD3ThemeButton:disabled {
-    background-color: hsl(0, 0%, 71%);
-    color: hsl(0, 0%, 29%)
+UI_ThemeButton:disabled {
+    background-color: hsl(0, 0%, 16%);
+    color: hsl(0, 0%, 35%)
 }
 
 /* Segmented Button */
