@@ -16,8 +16,7 @@ class UI_Label(QLabel):
         align: str = 'left',
         border_color: str = None,
         labels: tuple[str, str] = None,
-        theme_color: str = 'blue',
-        language: int = 0
+        language: str = 'es'
     ):
         """
         Parameters
