@@ -190,9 +190,12 @@ class Main_UI(QWidget):
         self.gui_widgets['dropdown_1_button'] = UI_DropDownButton(
             parent=self.gui_widgets['filled_card'],
             position=(16, 260),
-            width=150,
+            width=170,
+            icon_name='bicycle',
             labels=('Botón Drop Down', 'Drop Down Button'),
+            actions=['1','2','3','4','5'],
             language=self.language_value,
+            theme_style=self.theme_style,
             clicked_signal=parent.dropdown_1_button_clicked
         )
 
