@@ -1,5 +1,6 @@
-from PySide6.QtWidgets import QToolButton, QWidget
+from PySide6.QtWidgets import QToolButton, QWidget, QMenu
 from PySide6.QtCore import Qt, QSize
+from PySide6.QtGui import QAction
 
 from icon_color import icon_color
 
@@ -183,3 +184,81 @@ class UI_ThemeButton(QToolButton):
         color = 'black'
         colorized_icon = icon_color(color, icon_name)
         self.setIcon(colorized_icon)
+
+
+
+
+
+
+
+
+class UI_DropDownButton(QToolButton):
+    """
+    Drop Down Button component
+    """
+    def __init__(
+        self,
+        parent: QWidget,
+        clicked_signal: callable,
+        position: tuple[int, int] = (8,8),
+        width: int = 64,
+        icon_name: str = None,
+        labels: tuple[str, str] = None,
+        enabled: bool = True,
+        theme_color: str = 'blue',
+        theme_style: bool = True,
+        language: str = 'es'
+    ):
+        """
+        Parameters
+        ----------
+            parent (QWidget): UI Parent object
+            clicked_signal (callable): Button 'clicked' method name
+            position (tuple[int, int]): Button top left corner position (x, y)
+            width (int): Button width
+            icon_name (str): Icon name
+            labels (tuple[str, str]): Button labels (label_spanish, label_english)
+            enabled (bool): Button enabled / disabled
+            theme_color (str): App theme color name
+            theme_style (bool): App theme style name
+            language (int): App language
+                Options: 'es' = Español, 'en' = English
+        """
+        super().__init__(parent)
+
+        self.parent = parent
+        self.move(position[0], position[1])
+        self.resize(width, 32)
+        self.setEnabled(enabled)
+        self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
+        self.setPopupMode(QToolButton.ToolButtonPopupMode.MenuButtonPopup)
+        self.labels = labels
+        self.icon_name = icon_name
+
+        self.set_icon(theme_style, theme_color) if icon_name is not None else None
+        self.set_language(language) if self.labels is not None else None
+
+        self.clicked.connect(clicked_signal)
+
+        dropdown_menu = QMenu(self)
+        dropdown_menu.addAction('Acción 1')
+        dropdown_menu.addAction('Acción 2')
+        dropdown_menu.addAction('Acción 3')
+        self.setMenu(dropdown_menu)
+    
+
+
+
+
+    def set_icon(self, theme_style: bool) -> None:
+        """ Change button icon """
+        color = 'black' if theme_style else 'white'
+        colorized_icon = icon_color(color, self.icon_name)
+        self.setIcon(colorized_icon)
+
+
+    def set_language(self, language: int) -> None:
+        """ Change language of button label """
+        if self.labels is not None:
+            if language == 'es':   self.setText(self.labels[0])
+            elif language == 'en': self.setText(self.labels[1])
