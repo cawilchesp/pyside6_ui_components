@@ -61,6 +61,9 @@ class MainWindow(QMainWindow):
     def dropdown_1_button_clicked(self, index: int) -> None:
         print(f'Indice: {index}')
 
+    def action_1(self):
+        print('test')
+
 
     # # --------------------------
     # # Segmented Button Functions
