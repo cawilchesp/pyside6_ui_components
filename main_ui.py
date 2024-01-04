@@ -3,14 +3,13 @@ from PySide6.QtWidgets import QWidget
 from components.ui_window import UI_Window
 from components.ui_card import UI_Card
 from components.ui_label import UI_Label, UI_IconLabel, UI_ColorLabel
-from components.ui_button import UI_Button, UI_ToggleButton, UI_ThemeButton
+from components.ui_button import UI_Button, UI_ToggleButton, UI_ThemeButton, UI_DropDownButton
 from components.md3_chip import MD3Chip
 from components.md3_datepicker import MD3DatePicker
 from components.md3_divider import MD3Divider
 from components.md3_imagelabel import MD3ImageLabel
 from components.md3_menu import MD3Menu
 from components.md3_segmentedbutton import MD3SegmentedButton
-from components.md3_themebutton import MD3ThemeButton
 from components.md3_slider import MD3Slider
 from components.md3_switch import MD3Switch
 from components.md3_textfield import MD3TextField
@@ -179,6 +178,23 @@ class Main_UI(QWidget):
             clicked_signal=parent.toggle_1_button_clicked
         )
 
+        self.gui_widgets['toggle_2_button'] = UI_ToggleButton(
+            parent=self.gui_widgets['filled_card'],
+            position=(214, 220),
+            icon_name='bicycle',
+            theme_style=self.theme_style,
+            language=self.language_value,
+            clicked_signal=parent.toggle_2_button_clicked
+        )
+
+        self.gui_widgets['dropdown_1_button'] = UI_DropDownButton(
+            parent=self.gui_widgets['filled_card'],
+            position=(16, 260),
+            width=150,
+            labels=('Botón Drop Down', 'Drop Down Button'),
+            language=self.language_value,
+            clicked_signal=parent.dropdown_1_button_clicked
+        )
 
 
 
@@ -588,7 +604,7 @@ class Main_UI(QWidget):
             clicked_signal=parent.theme_button_clicked
         )
         
-        self.gui_widgets['toggle_2_button'] = UI_ToggleButton(
+        self.gui_widgets['toggle_3_button'] = UI_ToggleButton(
             parent=self.gui_widgets['outlined_card'],
             position=(56, 220),
             width=150,
@@ -596,7 +612,16 @@ class Main_UI(QWidget):
             labels=('Botón Toggle', 'Toggle Button'),
             theme_style=self.theme_style,
             language=self.language_value,
-            clicked_signal=parent.toggle_2_button_clicked
+            clicked_signal=parent.toggle_3_button_clicked
+        )
+
+        self.gui_widgets['toggle_4_button'] = UI_ToggleButton(
+            parent=self.gui_widgets['outlined_card'],
+            position=(214, 220),
+            icon_name='bicycle',
+            theme_style=self.theme_style,
+            language=self.language_value,
+            clicked_signal=parent.toggle_4_button_clicked
         )
 
 
@@ -655,18 +680,6 @@ class Main_UI(QWidget):
         #     theme_color=self.theme_color,
         #     language=self.language_value,
         #     clicked_signal=parent.on_right_segmented2_button_clicked
-        # )
-        
-        # # -----------------------
-        # # Theme Segmented Buttons
-        # # -----------------------
-        # self.gui_widgets['theme2_button'] = MD3ThemeButton(
-        #     parent=self.gui_widgets['outlined_card'],
-        #     position=(416, 88),
-        #     type='outlined',
-        #     state=self.theme_style,
-        #     theme_color=self.theme_color,
-        #     clicked_signal=parent.on_theme_clicked
         # )
         
         # # ------
