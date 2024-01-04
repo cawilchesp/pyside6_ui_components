@@ -204,6 +204,7 @@ class UI_DropDownButton(QToolButton):
         width: int = 64,
         icon_name: str = None,
         labels: tuple[str, str] = None,
+        actions: list[str] = None,
         enabled: bool = True,
         theme_color: str = 'blue',
         theme_style: bool = True,
@@ -218,6 +219,7 @@ class UI_DropDownButton(QToolButton):
             width (int): Button width
             icon_name (str): Icon name
             labels (tuple[str, str]): Button labels (label_spanish, label_english)
+            
             enabled (bool): Button enabled / disabled
             theme_color (str): App theme color name
             theme_style (bool): App theme style name
@@ -235,19 +237,15 @@ class UI_DropDownButton(QToolButton):
         self.labels = labels
         self.icon_name = icon_name
 
-        self.set_icon(theme_style, theme_color) if icon_name is not None else None
+        self.set_icon(theme_style) if icon_name is not None else None
         self.set_language(language) if self.labels is not None else None
+        
+        dropdown_menu = QMenu(self)
+        for action in actions:
+            dropdown_menu.addAction(action)
+        self.setMenu(dropdown_menu)
 
         self.clicked.connect(clicked_signal)
-
-        dropdown_menu = QMenu(self)
-        dropdown_menu.addAction('Acción 1')
-        dropdown_menu.addAction('Acción 2')
-        dropdown_menu.addAction('Acción 3')
-        self.setMenu(dropdown_menu)
-    
-
-
 
 
     def set_icon(self, theme_style: bool) -> None:
