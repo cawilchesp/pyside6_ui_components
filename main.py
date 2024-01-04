@@ -48,56 +48,18 @@ class MainWindow(QMainWindow):
         self.ui.gui_widgets['toggle_2_button'].set_icon(state, self.theme_style)
         self.ui.gui_widgets['toggle_2_button'].state = state
 
-    # def on_icon3_button_clicked(self) -> None:
-    #     print('Icon button 3 clicked')
+    def toggle_3_button_clicked(self, state: bool) -> None:
+        print(f'toggle 3 button state: {state}')
+        self.ui.gui_widgets['toggle_3_button'].set_icon(state, self.theme_style)
+        self.ui.gui_widgets['toggle_3_button'].state = state
 
-    # def on_icon4_button_clicked(self) -> None:
-    #     print('Icon button 4 clicked')
+    def toggle_4_button_clicked(self, state: bool) -> None:
+        print(f'toggle 4 button state: {state}')
+        self.ui.gui_widgets['toggle_4_button'].set_icon(state, self.theme_style)
+        self.ui.gui_widgets['toggle_4_button'].state = state
 
-    # def on_icon5_button_clicked(self) -> None:
-    #     print('Icon button 5 clicked')
-
-    # def on_icon6_button_clicked(self) -> None:
-    #     print('Icon button 6 clicked')
-
-    # def on_icon7_button_clicked(self) -> None:
-    #     print('Icon button 7 clicked')
-
-    # def on_icon8_button_clicked(self) -> None:
-    #     print('Icon button 8 clicked')
-
-
-    # # ----------------
-    # # Button Functions
-    # # ----------------
-    # def on_boton1_button_clicked(self) -> None:
-    #     self.ui.gui_widgets['icon1_label'].set_icon_label('calendar', self.theme_color)
-
-    # def on_boton2_button_clicked(self) -> None:
-    #     selected_color = QtWidgets.QColorDialog.getColor()
-    #     color = selected_color.name()
-    #     self.ui.gui_widgets['color1_label'].set_color_label(color)
-
-    # def on_boton3_button_clicked(self) -> None:
-    #     print('Button 3 clicked')
-    #     # selected_color = 'yellow'
-    #     # colorized_icon = icon_color(selected_color, 'menu_right')
-    #     # self.ui.gui_widgets['icon4_button'].setIcon(colorized_icon)
-
-    # def on_boton4_button_clicked(self) -> None:
-    #     print('Button 4 clicked')
-
-    # def on_boton5_button_clicked(self) -> None:
-    #     print('Button 5 clicked')
-
-    # def on_boton6_button_clicked(self) -> None:
-    #     print('Button 6 clicked')
-
-    # def on_boton7_button_clicked(self) -> None:
-    #     print('Button 7 clicked')
-
-    # def on_boton8_button_clicked(self) -> None:
-    #     print('Button 8 clicked')
+    def dropdown_1_button_clicked(self, index: int) -> None:
+        print(f'Indice: {index}')
 
 
     # # --------------------------
