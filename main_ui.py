@@ -4,6 +4,7 @@ from components.ui_window import UI_Window
 from components.ui_card import UI_Card
 from components.ui_label import UI_Label, UI_IconLabel, UI_ColorLabel
 from components.ui_button import UI_Button, UI_ToggleButton, UI_ThemeButton, UI_DropDownButton
+from components.ui_checkbox import UI_CheckBox
 from components.md3_chip import MD3Chip
 from components.md3_datepicker import MD3DatePicker
 from components.md3_divider import MD3Divider
@@ -190,7 +191,7 @@ class Main_UI(QWidget):
         self.gui_widgets['dropdown_1_button'] = UI_DropDownButton(
             parent=self.gui_widgets['filled_card'],
             position=(16, 260),
-            width=300,
+            width=170,
             icon_name='bicycle',
             labels=('Botón Drop Down', 'Drop Down Button'),
             actions_list=[
@@ -200,12 +201,59 @@ class Main_UI(QWidget):
                 ['Woman', parent.action_4, None],
                 ['School', parent.action_5, None]
             ],
-            language=self.language_value,
             theme_style=self.theme_style,
+            language=self.language_value,
             clicked_signal=parent.dropdown_1_button_clicked
         )
 
+        # -----------
+        # Check Boxes
+        # -----------
+        self.gui_widgets['checkboxes_1_label'] = UI_Label(
+            parent=self.gui_widgets['filled_card'],
+            position=(296, 60),
+            width=100,
+            align='left',
+            labels=('Cajas de Selección', 'Check Boxes'),
+            language=self.language_value
+        )
 
+        self.gui_widgets['option_1_checkbox'] = UI_CheckBox(
+            parent=self.gui_widgets['filled_card'],
+            state_changed_signal=parent.option_1_changed,
+            position=(296,100),
+            width=150,
+            icon_name='bus',
+            labels=('Opción Bus', 'Option Bus'),
+            tristate=False,
+            state=0,
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
+
+        self.gui_widgets['option_2_checkbox'] = UI_CheckBox(
+            parent=self.gui_widgets['filled_card'],
+            state_changed_signal=parent.option_2_changed,
+            position=(296,140),
+            width=150,
+            icon_name='car',
+            tristate=True,
+            state=1,
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
+
+        self.gui_widgets['option_3_checkbox'] = UI_CheckBox(
+            parent=self.gui_widgets['filled_card'],
+            state_changed_signal=parent.option_3_changed,
+            position=(296,180),
+            width=150,
+            labels=('Opción Camión', 'Option Truck'),
+            tristate=True,
+            state=2,
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
 
 
 
