@@ -5,6 +5,7 @@ from PySide6.QtGui import QIcon
 from main_ui import Main_UI
 
 from components.ui_button import UI_Button, UI_ToggleButton, UI_DropDownButton
+from components.ui_checkbox import UI_CheckBox
 
 from icon_color import icon_color
 
@@ -35,9 +36,9 @@ class MainWindow(QMainWindow):
             self.setStyleSheet(theme_qss.read())
 
 
-    # ---------------------
-    # Icon Button Functions
-    # ---------------------
+    # ----------------
+    # Button Functions
+    # ----------------
     def standard_button_clicked(self) -> None:
         print('Standard button clicked')
 
@@ -78,6 +79,20 @@ class MainWindow(QMainWindow):
 
     def action_5(self):
         print('Drop Down action 5')
+
+    # ------------------
+    # Checkbox Functions
+    # ------------------
+    def option_1_changed(self, state) -> None:
+        print(state)
+
+    def option_2_changed(self, state) -> None:
+        print(state)
+
+    def option_3_changed(self, state) -> None:
+        print(state)
+
+
 
 
     # # --------------------------
@@ -131,6 +146,8 @@ class MainWindow(QMainWindow):
                 for action in self.ui.gui_widgets[key].dropdown_menu.actions():
                     self.ui.gui_widgets[key].dropdown_menu.removeAction(action)
                 self.ui.gui_widgets[key].set_actions_menu(self.ui.gui_widgets[key].none_icons, state)
+            if isinstance(self.ui.gui_widgets[key], UI_CheckBox):
+                self.ui.gui_widgets[key].set_icon(state) if self.ui.gui_widgets[key].icon_name is not None else None
                 
 
 
