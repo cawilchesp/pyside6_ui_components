@@ -160,6 +160,40 @@ UI_DropDownButton QMenu::item:selected {
     background-color: hsl(0, 0%, 85%);
 }
 
+/* Check Box */
+UI_CheckBox {
+    background-color: transparent;
+    color: hsl(0, 0%, 13%);
+}
+UI_CheckBox::indicator {
+    border-width: 1px;
+    border-style: solid;
+    border-color: hsl(0, 0%, 20%);
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+}
+UI_CheckBox::indicator:unchecked {
+    background-color: hsl(0, 0%, 90%);
+}
+UI_CheckBox::indicator:unchecked:hover {
+    background-color: hsl(0, 0%, 85%);
+}
+UI_CheckBox::indicator:checked {
+    background-color: hsl(200, 100%, 50%);
+    image: url(icons/done_white.png)
+}
+UI_CheckBox::indicator:checked:hover {
+    background-color: hsl(200, 100%, 40%);
+}
+UI_CheckBox::indicator:indeterminate {
+    background-color: hsl(200, 100%, 50%);
+    image: url(icons/minus_white.png)
+}
+UI_CheckBox::indicator:indeterminate:hover {
+    background-color: hsl(200, 100%, 40%);
+}
+
 
 
 
