@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QToolButton, QWidget, QMenu
 from PySide6.QtCore import Qt, QSize
-from PySide6.QtGui import QIcon
+from PySide6.QtGui import QIcon, QAction
 
 from icon_color import icon_color
 
@@ -203,7 +203,7 @@ class UI_DropDownButton(QToolButton):
         self,
         parent: QWidget,
         clicked_signal: callable,
-        actions: dict[str, tuple[callable, str]],
+        actions_list: dict[str, tuple[callable, str]],
         position: tuple[int, int] = (8,8),
         width: int = 64,
         icon_name: str = None,
@@ -238,6 +238,7 @@ class UI_DropDownButton(QToolButton):
         self.setPopupMode(QToolButton.ToolButtonPopupMode.MenuButtonPopup)
         self.labels = labels
         self.icon_name = icon_name
+        self.actions_list = actions_list
 
         self.set_icon(theme_style) if icon_name is not None else None
         self.set_language(language) if self.labels is not None else None
@@ -245,19 +246,12 @@ class UI_DropDownButton(QToolButton):
         self.dropdown_menu = QMenu(self)
         self.dropdown_menu.setWindowFlags(self.dropdown_menu.windowFlags() | Qt.NoDropShadowWindowHint)
         
-        none_icons = not any([item[2] for item in actions])
-        for name, action, icon_name in actions:
-            if none_icons:
-                self.dropdown_menu.addAction(name, action)
-            else:
-                color = 'black' if theme_style else 'white'
-                colorized_icon = icon_color(color, icon_name)
-                self.dropdown_menu.addAction(colorized_icon, name, action)
-        self.setMenu(self.dropdown_menu)
-        menu_width = width-70 if none_icons else width-94
+        self.none_icons = not any([item[2] for item in self.actions_list])
+        self.set_actions_menu(self.none_icons, theme_style)
+        menu_width = width-70 if self.none_icons else width-94
         self.dropdown_menu.setStyleSheet(f"UI_DropDownButton QMenu::item {{ padding-right: {menu_width} }}")
         
-        
+
         self.clicked.connect(clicked_signal)
 
 
@@ -266,6 +260,18 @@ class UI_DropDownButton(QToolButton):
         color = 'black' if theme_style else 'white'
         colorized_icon = icon_color(color, self.icon_name)
         self.setIcon(colorized_icon)
+
+
+    def set_actions_menu(self, none_icons: list, theme_style: bool) -> None:
+        for name, action, icon_name in self.actions_list:
+            action_item = QAction(name)
+            action_item.triggered.connect(action)
+            if not none_icons:
+                color = 'black' if theme_style else 'white'
+                colorized_icon = icon_color(color, icon_name)
+                action_item.setIcon(colorized_icon)
+            self.dropdown_menu.insertAction(None, action_item)
+        self.setMenu(self.dropdown_menu)
 
 
     def set_language(self, language: int) -> None:
