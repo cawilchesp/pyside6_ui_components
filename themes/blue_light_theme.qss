@@ -119,6 +119,61 @@ UI_ThemeButton:disabled {
     color: hsl(0, 0%, 35%)
 }
 
+UI_DropDownButton {
+    border-width: 0px;
+    border-radius: 4px;
+    padding: 6px;
+    background-color: hsl(0, 0%, 93%);
+    color: hsl(0, 0%, 13%)
+}
+UI_DropDownButton::menu-button {
+    width: 32;
+    height: 32;
+    background-color: transparent
+}
+UI_DropDownButton::menu-arrow {
+    width: 24;
+    height: 24;
+    image: url(icons/chevron_down_black.png)
+}
+UI_DropDownButton QMenu {
+    border-width: 4px;
+    border-style: solid;
+    border-color: hsl(0, 0%, 93%);
+    border-radius: 4px;
+    background-color: hsl(0, 0%, 90%);
+    margin: 4px;
+}
+UI_DropDownButton QMenu::item {
+    background-color: hsl(0, 0%, 93%);
+    height: 32;
+    padding-left: 12;
+    color: hsl(0, 0%, 13%)
+}
+UI_DropDownButton QMenu::item:selected {
+    border-color: hsl(0, 0%, 93%);
+    border-radius: 4px;
+    padding-left: 12;
+    background-color: hsl(0, 0%, 85%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Segmented Button */
 MD3SegmentedButton {
     border: 1px solid hsl(204, 86%, 53%);
