@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QToolButton, QWidget, QMenu
 from PySide6.QtCore import Qt, QSize
-from PySide6.QtGui import QAction
+from PySide6.QtGui import QIcon
 
 from icon_color import icon_color
 
@@ -200,11 +200,11 @@ class UI_DropDownButton(QToolButton):
         self,
         parent: QWidget,
         clicked_signal: callable,
+        actions: dict[str, tuple[callable, str]],
         position: tuple[int, int] = (8,8),
         width: int = 64,
         icon_name: str = None,
         labels: tuple[str, str] = None,
-        actions: list[str] = None,
         enabled: bool = True,
         theme_color: str = 'blue',
         theme_style: bool = True,
@@ -242,8 +242,9 @@ class UI_DropDownButton(QToolButton):
         
         self.dropdown_menu = QMenu(self)
         self.dropdown_menu.setWindowFlags(self.dropdown_menu.windowFlags() | Qt.NoDropShadowWindowHint)
-        for action in actions:
-            self.dropdown_menu.addAction(action)
+        for name, action in actions.items():
+            icon = QIcon(f"icons/{action[1]}.png")
+            self.dropdown_menu.addAction(icon, name, action[0])
         self.setMenu(self.dropdown_menu)
         self.dropdown_menu.setStyleSheet(f"UI_DropDownButton QMenu::item {{ padding-right: {width-36} }}")
 
