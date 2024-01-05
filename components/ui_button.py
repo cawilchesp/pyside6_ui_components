@@ -5,6 +5,9 @@ from PySide6.QtGui import QIcon
 from icon_color import icon_color
 
 
+from icecream import ic
+
+
 class UI_Button(QToolButton):
     """
     Button component
@@ -206,7 +209,6 @@ class UI_DropDownButton(QToolButton):
         icon_name: str = None,
         labels: tuple[str, str] = None,
         enabled: bool = True,
-        theme_color: str = 'blue',
         theme_style: bool = True,
         language: str = 'es'
     ):
@@ -242,12 +244,20 @@ class UI_DropDownButton(QToolButton):
         
         self.dropdown_menu = QMenu(self)
         self.dropdown_menu.setWindowFlags(self.dropdown_menu.windowFlags() | Qt.NoDropShadowWindowHint)
-        for name, action in actions.items():
-            icon = QIcon(f"icons/{action[1]}.png")
-            self.dropdown_menu.addAction(icon, name, action[0])
+        
+        none_icons = not any([item[2] for item in actions])
+        for name, action, icon_name in actions:
+            if none_icons:
+                self.dropdown_menu.addAction(name, action)
+            else:
+                color = 'black' if theme_style else 'white'
+                colorized_icon = icon_color(color, icon_name)
+                self.dropdown_menu.addAction(colorized_icon, name, action)
         self.setMenu(self.dropdown_menu)
-        self.dropdown_menu.setStyleSheet(f"UI_DropDownButton QMenu::item {{ padding-right: {width-36} }}")
-
+        menu_width = width-70 if none_icons else width-94
+        self.dropdown_menu.setStyleSheet(f"UI_DropDownButton QMenu::item {{ padding-right: {menu_width} }}")
+        
+        
         self.clicked.connect(clicked_signal)
 
 
