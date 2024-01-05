@@ -62,7 +62,19 @@ class MainWindow(QMainWindow):
         print(f'Indice: {index}')
 
     def action_1(self):
-        print('test')
+        print('test action 1')
+
+    def action_2(self):
+        print('test action 2')
+
+    def action_3(self):
+        print('test action 3')
+
+    def action_4(self):
+        print('test action 4')
+
+    def action_5(self):
+        print('test action 5')
 
 
     # # --------------------------
