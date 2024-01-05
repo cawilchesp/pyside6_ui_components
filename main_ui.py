@@ -681,6 +681,85 @@ class Main_UI(QWidget):
             clicked_signal=parent.toggle_4_button_clicked
         )
 
+        self.gui_widgets['dropdown_2_button'] = UI_DropDownButton(
+            parent=self.gui_widgets['outlined_card'],
+            position=(16, 260),
+            width=170,
+            icon_name='bicycle',
+            labels=('Botón Drop Down', 'Drop Down Button'),
+            actions_list=[
+                ['Bus', parent.action_1, 'bus'],
+                ['Car', parent.action_2, 'car'],
+                ['Man', parent.action_3, None],
+                ['Woman', parent.action_4, None],
+                ['School', parent.action_5, None]
+            ],
+            theme_style=self.theme_style,
+            language=self.language_value,
+            clicked_signal=parent.dropdown_1_button_clicked
+        )
+
+        # -----------
+        # Check Boxes
+        # -----------
+        self.gui_widgets['checkboxes_2_label'] = UI_Label(
+            parent=self.gui_widgets['outlined_card'],
+            position=(296, 60),
+            width=100,
+            align='left',
+            labels=('Cajas de Selección', 'Check Boxes'),
+            language=self.language_value
+        )
+
+        self.gui_widgets['option_4_checkbox'] = UI_CheckBox(
+            parent=self.gui_widgets['outlined_card'],
+            state_changed_signal=parent.option_1_changed,
+            position=(296,100),
+            width=150,
+            icon_name='bus',
+            labels=('Opción Bus', 'Option Bus'),
+            tristate=False,
+            state=0,
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
+
+        self.gui_widgets['option_5_checkbox'] = UI_CheckBox(
+            parent=self.gui_widgets['outlined_card'],
+            state_changed_signal=parent.option_2_changed,
+            position=(296,140),
+            width=150,
+            icon_name='car',
+            tristate=True,
+            state=1,
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
+
+        self.gui_widgets['option_6_checkbox'] = UI_CheckBox(
+            parent=self.gui_widgets['outlined_card'],
+            state_changed_signal=parent.option_3_changed,
+            position=(296,180),
+            width=150,
+            labels=('Opción Camión', 'Option Truck'),
+            tristate=True,
+            state=2,
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         # # -----------------
         # # Segmented Buttons
