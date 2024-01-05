@@ -190,16 +190,16 @@ class Main_UI(QWidget):
         self.gui_widgets['dropdown_1_button'] = UI_DropDownButton(
             parent=self.gui_widgets['filled_card'],
             position=(16, 260),
-            width=170,
+            width=300,
             icon_name='bicycle',
             labels=('Botón Drop Down', 'Drop Down Button'),
-            actions={
-                'Bus': (parent.action_1, 'bus'),
-                'Car': (parent.action_2, 'car'),
-                'Man': (parent.action_3, 'man'),
-                'Woman': (parent.action_4, 'woman'),
-                'School': (parent.action_5, 'school')
-            },
+            actions=(
+                ['Bus', parent.action_1, None],
+                ['Car', parent.action_2, None],
+                ['Man', parent.action_3, None],
+                ['Woman', parent.action_4, None],
+                ['School', parent.action_5, None]
+            ),
             language=self.language_value,
             theme_style=self.theme_style,
             clicked_signal=parent.dropdown_1_button_clicked
