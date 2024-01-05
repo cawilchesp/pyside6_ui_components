@@ -1,13 +1,16 @@
 from PySide6 import QtWidgets
 from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtGui import QIcon
 
 from main_ui import Main_UI
 
 from components.ui_button import UI_Button, UI_ToggleButton, UI_DropDownButton
 
+from icon_color import icon_color
+
 import sys
 import yaml
-
+from icecream import ic
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -58,23 +61,23 @@ class MainWindow(QMainWindow):
         self.ui.gui_widgets['toggle_4_button'].set_icon(state, self.theme_style)
         self.ui.gui_widgets['toggle_4_button'].state = state
 
-    def dropdown_1_button_clicked(self, index: int) -> None:
-        print(f'Indice: {index}')
+    def dropdown_1_button_clicked(self) -> None:
+        print(f'Botón Drop Down')
 
     def action_1(self):
-        print('test action 1')
+        print('Drop Down action 1')
 
     def action_2(self):
-        print('test action 2')
+        print('Drop Down action 2')
 
     def action_3(self):
-        print('test action 3')
+        print('Drop Down action 3')
 
     def action_4(self):
-        print('test action 4')
+        print('Drop Down action 4')
 
     def action_5(self):
-        print('test action 5')
+        print('Drop Down action 5')
 
 
     # # --------------------------
@@ -125,6 +128,10 @@ class MainWindow(QMainWindow):
                 self.ui.gui_widgets[key].set_icon(self.ui.gui_widgets[key].state, state) if self.ui.gui_widgets[key].icon_name is not None else None
             if isinstance(self.ui.gui_widgets[key], UI_DropDownButton):
                 self.ui.gui_widgets[key].set_icon(state) if self.ui.gui_widgets[key].icon_name is not None else None
+                for action in self.ui.gui_widgets[key].dropdown_menu.actions():
+                    self.ui.gui_widgets[key].dropdown_menu.removeAction(action)
+                self.ui.gui_widgets[key].set_actions_menu(self.ui.gui_widgets[key].none_icons, state)
+                
 
 
         self.ui.gui_widgets['theme_1_button'].set_state(state)
