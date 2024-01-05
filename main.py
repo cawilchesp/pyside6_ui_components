@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow
 
 from main_ui import Main_UI
 
-from components.ui_button import UI_Button, UI_ToggleButton
+from components.ui_button import UI_Button, UI_ToggleButton, UI_DropDownButton
 
 import sys
 import yaml
@@ -111,6 +111,8 @@ class MainWindow(QMainWindow):
                 self.ui.gui_widgets[key].set_icon(state, self.theme_color) if self.ui.gui_widgets[key].icon_name is not None else None
             if isinstance(self.ui.gui_widgets[key], UI_ToggleButton):
                 self.ui.gui_widgets[key].set_icon(self.ui.gui_widgets[key].state, state) if self.ui.gui_widgets[key].icon_name is not None else None
+            if isinstance(self.ui.gui_widgets[key], UI_DropDownButton):
+                self.ui.gui_widgets[key].set_icon(state) if self.ui.gui_widgets[key].icon_name is not None else None
 
 
         self.ui.gui_widgets['theme_1_button'].set_state(state)
