@@ -240,10 +240,12 @@ class UI_DropDownButton(QToolButton):
         self.set_icon(theme_style) if icon_name is not None else None
         self.set_language(language) if self.labels is not None else None
         
-        dropdown_menu = QMenu(self)
+        self.dropdown_menu = QMenu(self)
+        self.dropdown_menu.setWindowFlags(self.dropdown_menu.windowFlags() | Qt.NoDropShadowWindowHint)
         for action in actions:
-            dropdown_menu.addAction(action)
-        self.setMenu(dropdown_menu)
+            self.dropdown_menu.addAction(action)
+        self.setMenu(self.dropdown_menu)
+        self.dropdown_menu.setStyleSheet(f"UI_DropDownButton QMenu::item {{ padding-right: {width-36} }}")
 
         self.clicked.connect(clicked_signal)
 
