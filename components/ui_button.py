@@ -1,11 +1,8 @@
 from PySide6.QtWidgets import QToolButton, QWidget, QMenu
-from PySide6.QtCore import Qt, QSize
-from PySide6.QtGui import QIcon, QAction
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QAction
 
 from icon_color import icon_color
-
-
-from icecream import ic
 
 
 class UI_Button(QToolButton):
@@ -73,7 +70,7 @@ class UI_Button(QToolButton):
         self.setIcon(colorized_icon)
 
 
-    def set_language(self, language: int) -> None:
+    def set_language(self, language: str) -> None:
         """ Change language of button label """
         if self.labels is not None:
             if language == 'es':   self.setText(self.labels[0])
@@ -141,7 +138,7 @@ class UI_ToggleButton(QToolButton):
         self.setIcon(colorized_icon)
 
 
-    def set_language(self, language: int) -> None:
+    def set_language(self, language: str) -> None:
         """ Change language of button label """
         if self.labels is not None:
             if language == 'es':   self.setText(self.labels[0])
@@ -187,12 +184,6 @@ class UI_ThemeButton(QToolButton):
         color = 'black'
         colorized_icon = icon_color(color, icon_name)
         self.setIcon(colorized_icon)
-
-
-
-
-
-
 
 
 class UI_DropDownButton(QToolButton):
@@ -274,7 +265,7 @@ class UI_DropDownButton(QToolButton):
         self.setMenu(self.dropdown_menu)
 
 
-    def set_language(self, language: int) -> None:
+    def set_language(self, language: str) -> None:
         """ Change language of button label """
         if self.labels is not None:
             if language == 'es':   self.setText(self.labels[0])
