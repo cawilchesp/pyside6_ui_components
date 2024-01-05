@@ -193,13 +193,13 @@ class Main_UI(QWidget):
             width=300,
             icon_name='bicycle',
             labels=('Botón Drop Down', 'Drop Down Button'),
-            actions=(
-                ['Bus', parent.action_1, None],
-                ['Car', parent.action_2, None],
+            actions_list=[
+                ['Bus', parent.action_1, 'bus'],
+                ['Car', parent.action_2, 'car'],
                 ['Man', parent.action_3, None],
                 ['Woman', parent.action_4, None],
                 ['School', parent.action_5, None]
-            ),
+            ],
             language=self.language_value,
             theme_style=self.theme_style,
             clicked_signal=parent.dropdown_1_button_clicked
