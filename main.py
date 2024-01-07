@@ -84,13 +84,28 @@ class MainWindow(QMainWindow):
     # Checkbox Functions
     # ------------------
     def option_1_changed(self, state) -> None:
-        print(state)
+        state_dict = {
+            0: 'off',
+            1: 'indeterminate',
+            2: 'on'
+        }
+        print(state_dict[state])
 
     def option_2_changed(self, state) -> None:
-        print(state)
+        state_dict = {
+            0: 'off',
+            1: 'indeterminate',
+            2: 'on'
+        }
+        print(state_dict[state])
 
     def option_3_changed(self, state) -> None:
-        print(state)
+        state_dict = {
+            0: 'off',
+            1: 'indeterminate',
+            2: 'on'
+        }
+        print(state_dict[state])
 
 
 
