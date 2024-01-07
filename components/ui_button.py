@@ -6,9 +6,7 @@ from icon_color import icon_color
 
 
 class UI_Button(QToolButton):
-    """
-    Button component
-    """
+    """ Button component """
     def __init__(
         self,
         parent: QWidget,
