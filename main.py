@@ -192,29 +192,29 @@ class MainWindow(QMainWindow):
     # def on_test2_switch_clicked(self, state: bool) -> None:
     #     self.ui.gui_widgets['test2_switch'].set_state(state, self.theme_color)
 
-    # # -------------
-    # # Menu Function
-    # # -------------
-    # def on_language_changed(self, index: int) -> None:
-    #     """ Language menu control to change components text language
+    # -------------
+    # Menu Function
+    # -------------
+    def on_language_changed(self, index: int) -> None:
+        """ Language menu control to change components text language
         
-    #     Parameters
-    #     ----------
-    #     index: int
-    #         Index of language menu control
+        Parameters
+        ----------
+        index: int
+            Index of language menu control
         
-    #     Returns
-    #     -------
-    #     None
-    #     """
-    #     for key in self.ui.gui_widgets.keys():
-    #         if hasattr(self.ui.gui_widgets[key], 'set_language'):
-    #             self.ui.gui_widgets[key].set_language(index)
+        Returns
+        -------
+        None
+        """
+        for key in self.ui.gui_widgets.keys():
+            if hasattr(self.ui.gui_widgets[key], 'set_language'):
+                self.ui.gui_widgets[key].set_language(index)
         
-    #     self.language_value = index
-    #     self.config['LANGUAGE'] = index
-    #     with open(self.settings_file, 'w') as file:
-    #         yaml.dump(self.config, file)
+        self.language_value = index
+        self.config['LANGUAGE'] = index
+        with open(self.settings_file, 'w') as file:
+            yaml.dump(self.config, file)
 
     # # ----------------
     # # Slider Functions
