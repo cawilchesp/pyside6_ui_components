@@ -132,8 +132,8 @@ UI_DropDownButton::menu-button {
     background-color: transparent
 }
 UI_DropDownButton::menu-arrow {
-    width: 24;
-    height: 24;
+    width: 16;
+    height: 16;
     image: url(icons/chevron_down_black.png)
 }
 UI_DropDownButton QMenu {
