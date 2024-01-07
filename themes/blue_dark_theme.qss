@@ -223,12 +223,12 @@ UI_ComboBox QListView {
     outline: 0px;
 }
 UI_ComboBox QListView:active {
-    border-width: 1px;
+    border-width: 3px;
     border-style: solid;
     border-color: hsl(0, 0%, 17%);
-    border-radius: 8px;
+    border-radius: 10px;
     background-color: hsl(0, 0%, 20%);
-    margin: -2px;
+    margin: -3px;
 }
 UI_ComboBox QListView::item {
     height: 32;
