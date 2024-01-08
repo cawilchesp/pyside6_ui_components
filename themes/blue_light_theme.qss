@@ -124,7 +124,12 @@ UI_DropDownButton {
     border-radius: 4px;
     padding: 6px;
     background-color: hsl(0, 0%, 93%);
-    color: hsl(0, 0%, 13%)
+    color: hsl(0, 0%, 13%);
+    margin: 4px
+}
+UI_DropDownButton:disabled {
+    background-color: hsl(0, 0%, 71%);
+    color: hsl(0, 0%, 35%)
 }
 UI_DropDownButton::menu-button {
     width: 32;
@@ -140,18 +145,17 @@ UI_DropDownButton QMenu {
     border-width: 4px;
     border-style: solid;
     border-color: hsl(0, 0%, 93%);
-    border-radius: 4px;
+    border-radius: 8px;
     background-color: hsl(0, 0%, 90%);
-    margin: 4px;
 }
 UI_DropDownButton QMenu::icon {
     padding: 6px;
 }
 UI_DropDownButton QMenu::item {
     background-color: hsl(0, 0%, 93%);
+    color: hsl(0, 0%, 13%);
     height: 32;
-    padding-left: 12;
-    color: hsl(0, 0%, 13%)
+    padding-left: 12
 }
 UI_DropDownButton QMenu::item:selected {
     border-color: hsl(0, 0%, 93%);
@@ -164,6 +168,10 @@ UI_DropDownButton QMenu::item:selected {
 UI_CheckBox {
     background-color: transparent;
     color: hsl(0, 0%, 13%);
+}
+UI_CheckBox:disabled {
+    background-color: hsl(0, 0%, 71%);
+    color: hsl(0, 0%, 35%)
 }
 UI_CheckBox::indicator {
     border-width: 1px;
@@ -194,6 +202,61 @@ UI_CheckBox::indicator:indeterminate:hover {
     background-color: hsl(200, 100%, 40%);
 }
 
+/* Combo Box */
+UI_ComboBox {
+    border-width: 0px;
+    border-radius: 4px;
+    padding: 6px;
+    background-color: hsl(0, 0%, 93%);
+    color: hsl(0, 0%, 13%);
+    margin: 4px;
+}
+UI_ComboBox:disabled {
+    background-color: hsl(0, 0%, 71%);
+    color: hsl(0, 0%, 35%)
+}
+UI_ComboBox::drop-down:button {
+    width: 32;
+    height: 32;
+    background-color: transparent
+}
+UI_ComboBox::down-arrow {
+    width: 16;
+    height: 16;
+    image: url(icons/chevron_down_black.png)
+}
+UI_ComboBox QListView {
+    color: hsl(0, 0%, 13%);
+    margin: 0px;
+    outline: 0px;
+}
+UI_ComboBox QListView:active {
+    border-width: 3px;
+    border-style: solid;
+    border-color: hsl(0, 0%, 93%);
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 93%);
+    margin: -3px;
+}
+UI_ComboBox QListView::item {
+    height: 24;
+}
+UI_ComboBox QListView::item:selected {
+    border-left-width: 4px;
+    border-left-style: solid;
+    border-left-color: hsl(200, 100%, 50%);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: hsl(0, 0%, 85%);
+    color: hsl(0, 0%, 13%);
+    margin: 4px;
+}
+UI_ComboBox QListView::item:!selected {
+    border-width: 4px;
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
+    margin: 4px
+}
 
 
 
