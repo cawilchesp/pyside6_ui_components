@@ -221,7 +221,7 @@ class UI_DropDownButton(QToolButton):
 
         self.parent = parent
         self.move(position[0], position[1])
-        self.resize(width, 32)
+        self.resize(width, 40)
         self.setEnabled(enabled)
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setPopupMode(QToolButton.ToolButtonPopupMode.MenuButtonPopup)
@@ -237,7 +237,7 @@ class UI_DropDownButton(QToolButton):
         
         self.none_icons = not any([item[2] for item in self.actions_list])
         self.set_actions_menu(self.none_icons, theme_style)
-        menu_width = width-70 if self.none_icons else width-94
+        menu_width = width-62 if self.none_icons else width-86
         self.dropdown_menu.setStyleSheet(f"UI_DropDownButton QMenu::item {{ padding-right: {menu_width} }}")
         
 
