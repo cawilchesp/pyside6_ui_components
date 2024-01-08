@@ -700,7 +700,7 @@ class Main_UI(QWidget):
 
         self.gui_widgets['dropdown_2_button'] = UI_DropDownButton(
             parent=self.gui_widgets['outlined_card'],
-            position=(16, 260),
+            position=(16, 256),
             width=170,
             icon_name='bicycle',
             labels=('Botón Drop Down', 'Drop Down Button'),
@@ -763,6 +763,28 @@ class Main_UI(QWidget):
             state=2,
             theme_style=self.theme_style,
             language=self.language_value
+        )
+
+        # -----------
+        # Combo Boxes
+        # -----------
+        self.gui_widgets['combobox_1_label'] = UI_Label(
+            parent=self.gui_widgets['outlined_card'],
+            position=(360, 220),
+            width=100,
+            align='left',
+            labels=('Cajas Combo', 'Combo Boxes'),
+            language=self.language_value
+        )
+
+        self.gui_widgets['menu_1_combobox'] = UI_ComboBox(
+            parent=self.gui_widgets['outlined_card'],
+            position=(360, 256),
+            width=150,
+            options=self.test_options,
+            # set=self.language_value,
+            language=self.language_value,
+            # index_changed_signal=parent.on_language_changed
         )
 
 
