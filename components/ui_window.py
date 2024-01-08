@@ -2,9 +2,7 @@ from PySide6.QtWidgets import QWidget
 
 
 class UI_Window(QWidget):
-    """
-    Main Window
-    """
+    """ Main Window """
     def __init__(
         self,
         parent: QWidget,
