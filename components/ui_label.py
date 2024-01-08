@@ -5,9 +5,7 @@ from icon_color import icon_color
 
 
 class UI_Label(QLabel):
-    """
-    Label component
-    """
+    """ Label component """
     def __init__(
         self,
         parent: QWidget,
@@ -29,7 +27,7 @@ class UI_Label(QLabel):
             border_color (str): Label border color in hexadecimal format: '#RRGGBB'
             labels (tuple[str, str]): Button labels (label_spanish, label_english)
             theme_color (str): App theme color name
-            language (int): App language
+            language (str): App language
                 Options: 'es' = Español, 'en' = English
         """
         super().__init__(parent)
@@ -59,9 +57,7 @@ class UI_Label(QLabel):
 
 
 class UI_IconLabel(QLabel):
-    """
-    Icon Label component
-    """
+    """ Icon Label component """
     def __init__(
         self,
         parent: QWidget,
@@ -95,9 +91,7 @@ class UI_IconLabel(QLabel):
 
 
 class UI_ColorLabel(QLabel):
-    """
-    Color Label component
-    """
+    """ Color Label component """
     def __init__(
         self,
         parent: QWidget,
