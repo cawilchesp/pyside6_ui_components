@@ -34,7 +34,7 @@ class UI_CheckBox(QCheckBox):
                 Options: True: On, False: Off
             enabled (bool): Check box enabled / disabled
             theme_style (bool): App theme style name
-            language (int): App language
+            language (str): App language
                 Options: 'es' = Español, 'en' = English
         """
         super().__init__(parent)
