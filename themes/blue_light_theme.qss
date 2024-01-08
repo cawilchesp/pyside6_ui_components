@@ -233,7 +233,7 @@ UI_ComboBox QListView {
 UI_ComboBox QListView:active {
     border-width: 3px;
     border-style: solid;
-    border-color: hsl(0, 0%, 93%);
+    border-color: hsl(0, 0%, 90%);
     border-radius: 10px;
     background-color: hsl(0, 0%, 93%);
     margin: -3px;
