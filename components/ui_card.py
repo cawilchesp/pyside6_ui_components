@@ -3,9 +3,7 @@ from PySide6.QtWidgets import QFrame, QLabel, QWidget
 
 
 class UI_Card(QFrame):
-    """
-    Card component
-    """
+    """ Card component """
     def __init__(
         self,
         parent: QWidget,
@@ -24,7 +22,7 @@ class UI_Card(QFrame):
             type (str): Card type
                 Options: 'filled', 'outlined'
             titles (tuple[str, str]): Card titles (title_spanish, title_english)
-            language (int): App language
+            language (str): App language
                 Options: 'es' = Español, 'en' = English
         """
         super().__init__(parent)
