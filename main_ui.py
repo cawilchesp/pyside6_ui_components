@@ -190,13 +190,13 @@ class Main_UI(QWidget):
 
         self.gui_widgets['dropdown_1_button'] = UI_DropDownButton(
             parent=self.gui_widgets['filled_card'],
-            position=(16, 260),
+            position=(16, 256),
             width=170,
             icon_name='bicycle',
             labels=('Botón Drop Down', 'Drop Down Button'),
             actions_list=[
-                ['Bus', parent.action_1, 'bus'],
-                ['Car', parent.action_2, 'car'],
+                ['Bus', parent.action_1, None],
+                ['Car', parent.action_2, None],
                 ['Man', parent.action_3, None],
                 ['Woman', parent.action_4, None],
                 ['School', parent.action_5, None]
@@ -269,7 +269,7 @@ class Main_UI(QWidget):
 
         self.gui_widgets['menu_1_combobox'] = UI_ComboBox(
             parent=self.gui_widgets['filled_card'],
-            position=(360, 260),
+            position=(360, 256),
             width=150,
             options=self.test_options,
             # set=self.language_value,
