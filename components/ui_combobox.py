@@ -10,7 +10,7 @@ class UI_ComboBox(QComboBox):
         self,
         parent: QWidget,
         position: tuple[int, int] = (8,8),
-        width: int = 32,
+        width: int = 40,
         options: dict = None,
         # set: int = -1,
         enabled: bool = True,
