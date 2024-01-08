@@ -721,7 +721,7 @@ class Main_UI(QWidget):
         # -----------
         self.gui_widgets['checkboxes_2_label'] = UI_Label(
             parent=self.gui_widgets['outlined_card'],
-            position=(296, 60),
+            position=(360, 60),
             width=100,
             align='left',
             labels=('Cajas de Selección', 'Check Boxes'),
@@ -731,7 +731,7 @@ class Main_UI(QWidget):
         self.gui_widgets['option_4_checkbox'] = UI_CheckBox(
             parent=self.gui_widgets['outlined_card'],
             state_changed_signal=parent.option_1_changed,
-            position=(296,100),
+            position=(360,100),
             width=150,
             icon_name='bus',
             labels=('Opción Bus', 'Option Bus'),
@@ -744,7 +744,7 @@ class Main_UI(QWidget):
         self.gui_widgets['option_5_checkbox'] = UI_CheckBox(
             parent=self.gui_widgets['outlined_card'],
             state_changed_signal=parent.option_2_changed,
-            position=(296,140),
+            position=(360,140),
             width=150,
             icon_name='car',
             tristate=True,
@@ -756,7 +756,7 @@ class Main_UI(QWidget):
         self.gui_widgets['option_6_checkbox'] = UI_CheckBox(
             parent=self.gui_widgets['outlined_card'],
             state_changed_signal=parent.option_3_changed,
-            position=(296,180),
+            position=(360,180),
             width=150,
             labels=('Opción Camión', 'Option Truck'),
             tristate=True,
