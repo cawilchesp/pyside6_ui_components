@@ -124,7 +124,12 @@ UI_DropDownButton {
     border-radius: 4px;
     padding: 6px;
     background-color: hsl(0, 0%, 20%);
-    color: hsl(0, 0%, 98%)
+    color: hsl(0, 0%, 98%);
+    margin: 4px
+}
+UI_DropDownButton:disabled {
+    background-color: hsl(0, 0%, 16%);
+    color: hsl(0, 0%, 35%)
 }
 UI_DropDownButton::menu-button {
     width: 32;
@@ -142,7 +147,6 @@ UI_DropDownButton QMenu {
     border-color: hsl(0, 0%, 20%);
     border-radius: 8px;
     background-color: hsl(0, 0%, 17%);
-    margin: 4px;
 }
 UI_DropDownButton QMenu::icon {
     padding: 6px;
@@ -153,7 +157,7 @@ UI_DropDownButton QMenu::item {
     height: 32;
     padding-left: 12
 }
-UI_DropDownButton QMenu::item:selected {
+UI_DropDownButton QMenu::item::selected {
     border-color: hsl(0, 0%, 20%);
     border-radius: 4px;
     padding-left: 12;
@@ -164,6 +168,10 @@ UI_DropDownButton QMenu::item:selected {
 UI_CheckBox {
     background-color: transparent;
     color: hsl(0, 0%, 98%);
+}
+UI_CheckBox:disabled {
+    background-color: hsl(0, 0%, 16%);
+    color: hsl(0, 0%, 35%)
 }
 UI_CheckBox::indicator {
     border-width: 1px;
@@ -203,10 +211,10 @@ UI_ComboBox {
     color: hsl(0, 0%, 98%);
     margin: 4px;
 }
-/* UI_ComboBox:disabled {
-    background-color: hsl(0, 0%, 71%);
-    color: hsl(0, 0%, 29%)
-} */
+UI_ComboBox:disabled {
+    background-color: hsl(0, 0%, 16%);
+    color: hsl(0, 0%, 35%)
+}
 UI_ComboBox::drop-down:button {
     width: 32;
     height: 32;
@@ -231,21 +239,21 @@ UI_ComboBox QListView:active {
     margin: -3px;
 }
 UI_ComboBox QListView::item {
-    height: 32;
+    height: 24;
 }
-
 UI_ComboBox QListView::item:selected {
     border-left-width: 4px;
     border-left-style: solid;
     border-left-color: hsl(200, 100%, 50%);
-    border-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
     background-color: hsl(0, 0%, 25%);
     margin: 4px;
 }
 UI_ComboBox QListView::item:!selected {
-    border-left-width: 4px;
-    border-left-style: solid;
-    border-left-color: hsl(0, 0%, 20%);
+    border-width: 4px;
+    border-style: solid;
+    border-color: hsl(0, 0%, 20%);
     margin: 4px
 }
 
