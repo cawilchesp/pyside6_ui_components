@@ -35,7 +35,7 @@ class UI_Button(QToolButton):
             enabled (bool): Button enabled / disabled
             theme_color (str): App theme color name
             theme_style (bool): App theme style name
-            language (int): App language
+            language (str): App language
                 Options: 'es' = Español, 'en' = English
         """
         super().__init__(parent)
@@ -76,9 +76,7 @@ class UI_Button(QToolButton):
 
 
 class UI_ToggleButton(QToolButton):
-    """
-    Toggle Button component
-    """
+    """ Toggle Button component """
     def __init__(
         self,
         parent: QWidget,
@@ -105,7 +103,7 @@ class UI_ToggleButton(QToolButton):
                 Options: True: On, False: Off
             enabled (bool): Button enabled / disabled
             theme_style (bool): App theme style name
-            language (int): App language
+            language (str): App language
                 Options: 'es' = Español, 'en' = English
         """
         super().__init__(parent)
@@ -144,9 +142,7 @@ class UI_ToggleButton(QToolButton):
 
 
 class UI_ThemeButton(QToolButton):
-    """
-    Theme Button component
-    """
+    """ Theme Button component """
     def __init__(self,
         parent: QWidget,
         clicked_signal: callable,
@@ -185,9 +181,7 @@ class UI_ThemeButton(QToolButton):
 
 
 class UI_DropDownButton(QToolButton):
-    """
-    Drop Down Button component
-    """
+    """ Drop Down Button component """
     def __init__(
         self,
         parent: QWidget,
@@ -214,7 +208,7 @@ class UI_DropDownButton(QToolButton):
             enabled (bool): Button enabled / disabled
             theme_color (str): App theme color name
             theme_style (bool): App theme style name
-            language (int): App language
+            language (str): App language
                 Options: 'es' = Español, 'en' = English
         """
         super().__init__(parent)
