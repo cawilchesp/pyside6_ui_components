@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QRadioButton, QWidget
+from PySide6.QtWidgets import QRadioButton, QWidget, QButtonGroup
 from PySide6.QtCore import Qt
 
 from icon_color import icon_color
@@ -16,6 +16,7 @@ class UI_RadioButton(QRadioButton):
         labels: tuple[str, str] = None,
         state: int = 0,
         enabled: bool = True,
+        group: QButtonGroup = None,
         theme_style: bool = True,
         language: str = 'es'
     ):
@@ -47,8 +48,10 @@ class UI_RadioButton(QRadioButton):
         self.set_icon(theme_style) if icon_name is not None else None
         self.set_language(language) if self.labels is not None else None
         self.setChecked(self.state)
+        group.addButton(self) if group is not None else None
 
         self.toggled.connect(state_changed_signal)
+
 
 
 
