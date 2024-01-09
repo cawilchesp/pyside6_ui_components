@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QWidget
+from PySide6.QtWidgets import QWidget, QButtonGroup
 
 from components.ui_window import UI_Window
 from components.ui_card import UI_Card
@@ -6,6 +6,7 @@ from components.ui_label import UI_Label, UI_IconLabel, UI_ColorLabel
 from components.ui_button import UI_Button, UI_ToggleButton, UI_ThemeButton, UI_DropDownButton
 from components.ui_checkbox import UI_CheckBox
 from components.ui_combobox import UI_ComboBox
+from components.ui_radiobutton import UI_RadioButton
 from components.md3_chip import MD3Chip
 from components.md3_datepicker import MD3DatePicker
 from components.md3_divider import MD3Divider
@@ -283,6 +284,62 @@ class Main_UI(QWidget):
             text_changed_signal=parent.menu_1_text_changed,
             activated_signal=parent.menu_1_activated
         )
+
+        # -------------
+        # Radio Buttons
+        # -------------
+        self.gui_widgets['radiobuttons_1_label'] = UI_Label(
+            parent=self.gui_widgets['filled_card'],
+            position=(16, 296),
+            width=100,
+            align='left',
+            labels=('Botones Radio', 'Radio Buttons'),
+            language=self.language_value
+        )
+
+        self.gui_widgets['option_1_radiobutton'] = UI_RadioButton(
+            parent=self.gui_widgets['filled_card'],
+            state_changed_signal=parent.option_1_changed,
+            position=(16, 336),
+            width=150,
+            icon_name='bus',
+            labels=('Opción Bus', 'Option Bus'),
+            state=0,
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
+
+        self.gui_widgets['option_2_radiobutton'] = UI_RadioButton(
+            parent=self.gui_widgets['filled_card'],
+            state_changed_signal=parent.option_2_changed,
+            position=(16, 376),
+            width=150,
+            icon_name='car',
+            labels=('Opción Carro', 'Option Car'),
+            state=0,
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
+
+        self.gui_widgets['option_3_radiobutton'] = UI_RadioButton(
+            parent=self.gui_widgets['filled_card'],
+            state_changed_signal=parent.option_3_changed,
+            position=(16, 416),
+            width=150,
+            icon_name='bicycle',
+            labels=('Opción Bicicleta', 'Option Bicycle'),
+            state=0,
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
+
+        self.gui_widgets['radiobuttons_1_groupbox'] = QButtonGroup(
+            parent=self.gui_widgets['filled_card'] )
+        self.gui_widgets['radiobuttons_1_groupbox'].setExclusive(True)
+        self.gui_widgets['radiobuttons_1_groupbox'].addButton(self.gui_widgets['option_1_radiobutton'])
+        self.gui_widgets['radiobuttons_1_groupbox'].addButton(self.gui_widgets['option_2_radiobutton'])
+
+
 
 
 
