@@ -1,11 +1,13 @@
 from PySide6 import QtWidgets
 from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtGui import QIcon
+from typing import Union
 
 from main_ui import Main_UI
 
 from components.ui_button import UI_Button, UI_ToggleButton, UI_DropDownButton
 from components.ui_checkbox import UI_CheckBox
+from components.ui_radiobutton import UI_RadioButton
 
 from icon_color import icon_color
 
@@ -34,6 +36,74 @@ class MainWindow(QMainWindow):
         theme_file = f"themes/{self.theme_color}_light_theme.qss" if self.theme_style else f"themes/{self.theme_color}_dark_theme.qss"
         with open(theme_file, "r") as theme_qss:
             self.setStyleSheet(theme_qss.read())
+
+
+    # ---------------------
+    # Theme Button Function
+    # ---------------------
+    def theme_button_clicked(self) -> None:
+        """
+        Theme toggle control
+        """
+        state = not self.theme_style
+        theme = 'light' if state else 'dark'
+        theme_qss_file = f"themes/{self.theme_color}_{theme}_theme.qss"
+        with open(theme_qss_file, "r") as theme_qss:
+            self.setStyleSheet(theme_qss.read())
+
+        for key in self.ui.gui_widgets.keys():
+            if isinstance(self.ui.gui_widgets[key], UI_Button) and self.ui.gui_widgets[key].type == 'standard':
+                self.ui.gui_widgets[key].set_icon(state, self.theme_color) if self.ui.gui_widgets[key].icon_name is not None else None
+            if isinstance(self.ui.gui_widgets[key], UI_ToggleButton):
+                self.ui.gui_widgets[key].set_icon(self.ui.gui_widgets[key].state, state) if self.ui.gui_widgets[key].icon_name is not None else None
+            if isinstance(self.ui.gui_widgets[key], UI_DropDownButton):
+                self.ui.gui_widgets[key].set_icon(state) if self.ui.gui_widgets[key].icon_name is not None else None
+                for action in self.ui.gui_widgets[key].dropdown_menu.actions():
+                    self.ui.gui_widgets[key].dropdown_menu.removeAction(action)
+                self.ui.gui_widgets[key].set_actions_menu(self.ui.gui_widgets[key].none_icons, state)
+            if isinstance(self.ui.gui_widgets[key], Union[UI_CheckBox, UI_RadioButton]):
+                self.ui.gui_widgets[key].set_icon(state) if self.ui.gui_widgets[key].icon_name is not None else None
+                
+        self.ui.gui_widgets['theme_1_button'].set_state(state)
+        self.ui.gui_widgets['theme_2_button'].set_state(state)
+
+        # Save settings
+        self.theme_style = state
+        self.config['THEME_STYLE'] = state
+        with open(self.settings_file, 'w') as file:
+            yaml.dump(self.config, file)
+
+    # -------------
+    # Menu Function
+    # -------------
+    def on_language_changed(self, index: int) -> None:
+        """ Language menu control to change components text language
+        
+        Parameters
+        ----------
+        index: int
+            Index of language menu control
+        
+        Returns
+        -------
+        None
+        """
+        for key in self.ui.gui_widgets.keys():
+            if hasattr(self.ui.gui_widgets[key], 'set_language'):
+                self.ui.gui_widgets[key].set_language(index)
+        
+        self.language_value = index
+        self.config['LANGUAGE'] = index
+        with open(self.settings_file, 'w') as file:
+            yaml.dump(self.config, file)
+
+
+
+
+
+
+
+
 
 
     # ----------------
@@ -120,6 +190,28 @@ class MainWindow(QMainWindow):
         print(index)
 
 
+    # ----------------
+    # Slider Functions
+    # ----------------
+    def bar_1_slider_sliderMoved(self, value: int) -> None:
+        print(f"Slider 1: {value}")
+    
+
+    def bar_1_slider_sliderReleased(self, value: int) -> None:
+        print(f"Slider 1: {value}")
+    
+    
+    def bar_2_slider_sliderMoved(self, value: int) -> None:
+        print(f"Slider 2: {value}")
+    
+
+    def bar_2_slider_sliderReleased(self, value: int) -> None:
+        print(f"Slider 2: {value}")
+    
+
+
+
+
 
     # # --------------------------
     # # Segmented Button Functions
@@ -149,42 +241,12 @@ class MainWindow(QMainWindow):
     #     self.ui.gui_widgets['right_segmented2_button'].set_state(state, self.theme_color)
 
 
-    # ---------------------
-    # Theme Button Function
-    # ---------------------
-    def theme_button_clicked(self) -> None:
-        """
-        Theme toggle control
-        """
-        state = not self.theme_style
-        theme = 'light' if state else 'dark'
-        theme_qss_file = f"themes/{self.theme_color}_{theme}_theme.qss"
-        with open(theme_qss_file, "r") as theme_qss:
-            self.setStyleSheet(theme_qss.read())
-
-        for key in self.ui.gui_widgets.keys():
-            if isinstance(self.ui.gui_widgets[key], UI_Button) and self.ui.gui_widgets[key].type == 'standard':
-                self.ui.gui_widgets[key].set_icon(state, self.theme_color) if self.ui.gui_widgets[key].icon_name is not None else None
-            if isinstance(self.ui.gui_widgets[key], UI_ToggleButton):
-                self.ui.gui_widgets[key].set_icon(self.ui.gui_widgets[key].state, state) if self.ui.gui_widgets[key].icon_name is not None else None
-            if isinstance(self.ui.gui_widgets[key], UI_DropDownButton):
-                self.ui.gui_widgets[key].set_icon(state) if self.ui.gui_widgets[key].icon_name is not None else None
-                for action in self.ui.gui_widgets[key].dropdown_menu.actions():
-                    self.ui.gui_widgets[key].dropdown_menu.removeAction(action)
-                self.ui.gui_widgets[key].set_actions_menu(self.ui.gui_widgets[key].none_icons, state)
-            if isinstance(self.ui.gui_widgets[key], UI_CheckBox):
-                self.ui.gui_widgets[key].set_icon(state) if self.ui.gui_widgets[key].icon_name is not None else None
-                
+    
 
 
-        self.ui.gui_widgets['theme_1_button'].set_state(state)
-        self.ui.gui_widgets['theme_2_button'].set_state(state)
 
-        # Save settings
-        self.theme_style = state
-        self.config['THEME_STYLE'] = state
-        with open(self.settings_file, 'w') as file:
-            yaml.dump(self.config, file)
+
+
 
 
     # # ---------------
@@ -218,47 +280,8 @@ class MainWindow(QMainWindow):
     # def on_test2_switch_clicked(self, state: bool) -> None:
     #     self.ui.gui_widgets['test2_switch'].set_state(state, self.theme_color)
 
-    # -------------
-    # Menu Function
-    # -------------
-    def on_language_changed(self, index: int) -> None:
-        """ Language menu control to change components text language
-        
-        Parameters
-        ----------
-        index: int
-            Index of language menu control
-        
-        Returns
-        -------
-        None
-        """
-        for key in self.ui.gui_widgets.keys():
-            if hasattr(self.ui.gui_widgets[key], 'set_language'):
-                self.ui.gui_widgets[key].set_language(index)
-        
-        self.language_value = index
-        self.config['LANGUAGE'] = index
-        with open(self.settings_file, 'w') as file:
-            yaml.dump(self.config, file)
-
-    # # ----------------
-    # # Slider Functions
-    # # ----------------
-    # def on_test1_slider_sliderMoved(self, value: int) -> None:
-    #     self.ui.gui_widgets['value1_label'].setText(str(value))
     
 
-    # def on_test1_slider_sliderReleased(self) -> None:
-    #     print(f'Slider 1 value: {self.ui.gui_widgets["test1_slider"].value()}')
-    
-    
-    # def on_test2_slider_sliderMoved(self, value: int) -> None:
-    #     self.ui.gui_widgets['value2_label'].setText(str(value))
-    
-
-    # def on_test2_slider_sliderReleased(self) -> None:
-    #     print(f'Slider 2 value: {self.ui.gui_widgets["test2_slider"].value()}')
     
     # # --------------------
     # # Text Field Functions
