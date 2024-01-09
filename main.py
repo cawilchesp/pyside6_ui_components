@@ -107,6 +107,17 @@ class MainWindow(QMainWindow):
         }
         print(state_dict[state])
 
+    # ------------------
+    # Combobox Functions
+    # ------------------
+    def menu_1_index_changed(self, index: int) -> None:
+        print(index)
+        
+    def menu_1_text_changed(self, text: str) -> None:
+        print(text)
+
+    def menu_1_activated(self, index: int) -> None:
+        print(index)
 
 
 
