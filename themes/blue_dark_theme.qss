@@ -263,6 +263,7 @@ UI_ComboBox QListView::item:!selected {
     margin: 4px
 }
 
+/* Radio Button */
 UI_RadioButton {
     background-color: transparent;
     color: hsl(0, 0%, 98%);
@@ -301,6 +302,22 @@ UI_RadioButton::indicator:checked:hover {
     width: 14px;
     height: 14px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
