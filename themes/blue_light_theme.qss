@@ -211,6 +211,11 @@ UI_ComboBox {
     color: hsl(0, 0%, 13%);
     margin: 4px;
 }
+UI_ComboBox:editable {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: hsl(200, 100%, 50%);
+}
 UI_ComboBox:disabled {
     background-color: hsl(0, 0%, 71%);
     color: hsl(0, 0%, 35%)
