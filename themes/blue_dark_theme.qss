@@ -215,7 +215,6 @@ UI_ComboBox:editable {
     border-bottom-width: 2px;
     border-bottom-style: solid;
     border-bottom-color: hsl(200, 100%, 50%);
-    
 }
 UI_ComboBox:disabled {
     background-color: hsl(0, 0%, 16%);
