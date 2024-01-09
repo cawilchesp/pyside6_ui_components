@@ -263,10 +263,44 @@ UI_ComboBox QListView::item:!selected {
     margin: 4px
 }
 
-
-
-
-
+UI_RadioButton {
+    background-color: transparent;
+    color: hsl(0, 0%, 98%);
+}
+UI_RadioButton:disabled {
+    background-color: hsl(0, 0%, 16%);
+    color: hsl(0, 0%, 35%)
+}
+UI_RadioButton::indicator {
+    border-width: 1px;
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
+    border-radius: 10px;
+    width: 18px;
+    height: 18px;
+}
+UI_RadioButton::indicator:unchecked {
+    background-color: hsl(0, 0%, 17%);
+}
+UI_RadioButton::indicator:unchecked:hover {
+    background-color: hsl(0, 0%, 25%);
+}
+UI_RadioButton::indicator:checked {
+    border-width: 4px;
+    border-style: solid;
+    border-color: hsl(200, 100%, 50%);
+    border-radius: 10px;
+    width: 12px;
+    height: 12px;
+}
+UI_RadioButton::indicator:checked:hover {
+    border-width: 3px;
+    border-style: solid;
+    border-color: hsl(200, 100%, 50%);
+    border-radius: 10px;
+    width: 14px;
+    height: 14px;
+}
 
 
 
