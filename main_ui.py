@@ -38,7 +38,10 @@ class Main_UI(QWidget):
         # ---------
         self.test_options = {
             0: ('Opción 1', 'Option 1'),
-            1: ('Opción 2', 'Option 2')
+            1: ('Opción 2', 'Option 2'),
+            2: ('Opción 3', 'Option 3'),
+            3: ('Opción 4', 'Option 4'),
+            4: ('Opción 5', 'Option 5')
         }
 
         self.gui_widgets = {}
@@ -271,10 +274,14 @@ class Main_UI(QWidget):
             parent=self.gui_widgets['filled_card'],
             position=(360, 256),
             width=150,
+            labels=('Seleccione una opción', 'Select an option'),
             options=self.test_options,
-            # set=self.language_value,
+            set=4,
+            editable=True,
             language=self.language_value,
-            # index_changed_signal=parent.on_language_changed
+            index_changed_signal=parent.menu_1_index_changed,
+            text_changed_signal=parent.menu_1_text_changed,
+            activated_signal=parent.menu_1_activated
         )
 
 
@@ -781,6 +788,7 @@ class Main_UI(QWidget):
             parent=self.gui_widgets['outlined_card'],
             position=(360, 256),
             width=150,
+            labels=('Seleccione una opción', 'Select an option'),
             options=self.test_options,
             # set=self.language_value,
             language=self.language_value,
