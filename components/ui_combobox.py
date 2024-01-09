@@ -11,33 +11,37 @@ class UI_ComboBox(QComboBox):
         parent: QWidget,
         position: tuple[int, int] = (8,8),
         width: int = 40,
+        labels: tuple[str, str] = None,
         options: dict = None,
-        # set: int = -1,
+        set: int = -1,
+        editable: bool = False,
         enabled: bool = True,
         language: str = 'es',
-        # index_changed_signal: callable = None,
-        # text_activated_signal: callable = None,
-        # activated_signal: callable = None
+        index_changed_signal: callable = None,
+        text_changed_signal: callable = None,
+        activated_signal: callable = None,
     ):
         """
         Parameters
         ----------
             parent (QWidget): UI Parent object
-            position (tuple[int, int]): Menu top left corner position (x, y)
-            width (int): Menu width
-            options (dict): Menu options with translations
+            position (tuple[int, int]): Combo box top left corner position (x, y)
+            width (int): Combo box width
+            labels (tuple[str, str]): Combo box labels (label_spanish, label_english)
+            options (dict): Combo box options with translations
                 options = {
                     0: ('spanish_1', 'english_1'),
                     1: ('spanish_2', 'english_2')
                 }
-            set (int): Selected option
+            set (int): Selected option starting at 0
                 -1: No option selected
-            enabled (bool): Button enabled / disabled
+            editable (bool): Combo box is editable or not 
+            enabled (bool): Combo box enabled / disabled
             language (str): App language
                 Options: 'es' = Español, 'en' = English
-            index_changed_signal (callable): Menu 'index changed' method name
-            text_activated_signal (callable): Menu 'text activated' method name
-            activated_signal (callable): Menu 'activated' method name
+            index_changed_signal (callable): Combo box 'index changed' method name
+            text_changed_signal (callable): Combo box 'text changed' method name
+            activated_signal (callable): Combo box 'activated' method name
         """
         super().__init__(parent)
 
@@ -46,21 +50,29 @@ class UI_ComboBox(QComboBox):
         self.resize(width, 40)
         self.setEnabled = enabled
         self.view().window().setWindowFlags(Qt.WindowType.Popup | Qt.WindowType.FramelessWindowHint | Qt.WindowType.NoDropShadowWindowHint)
+        self.labels = labels
         self.options = options
-
-        self.set_language(language)
 
         self.setMaxVisibleItems(5)
         self.setSizeAdjustPolicy(QComboBox.SizeAdjustPolicy.AdjustToMinimumContentsLengthWithIcon)
-        # self.setCurrentIndex(set)
+        self.setCurrentIndex(set)
+        self.setEditable(editable)
+        self.setInsertPolicy(QComboBox.InsertPolicy.NoInsert)
 
-        # self.currentIndexChanged.connect(index_changed_signal)
-        # self.textActivated.connect(text_activated_signal)
-        # self.activated.connect(activated_signal)
+        self.set_language(language)
+        
+        self.currentIndexChanged.connect(index_changed_signal)
+        self.currentTextChanged.connect(text_changed_signal)
+        self.activated.connect(activated_signal)
         
 
     def set_language(self, language: str) -> None:
         """ Change language of options text """
+        if self.labels is not None:
+            if language == 'es':   self.setPlaceholderText(self.labels[0])
+            elif language == 'en': self.setPlaceholderText(self.labels[1])
+
+        self.clear()
         for key, value in self.options.items():
             self.addItem('')
             if language == 'es':   self.setItemText(key, value[0])
