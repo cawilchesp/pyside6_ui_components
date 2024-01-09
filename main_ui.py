@@ -297,6 +297,8 @@ class Main_UI(QWidget):
             language=self.language_value
         )
 
+        self.gui_widgets['radiobuttons_1_groupbox'] = QButtonGroup()
+
         self.gui_widgets['option_1_radiobutton'] = UI_RadioButton(
             parent=self.gui_widgets['filled_card'],
             state_changed_signal=parent.option_1_changed,
@@ -305,6 +307,7 @@ class Main_UI(QWidget):
             icon_name='bus',
             labels=('Opción Bus', 'Option Bus'),
             state=0,
+            group=self.gui_widgets['radiobuttons_1_groupbox'],
             theme_style=self.theme_style,
             language=self.language_value
         )
@@ -317,6 +320,7 @@ class Main_UI(QWidget):
             icon_name='car',
             labels=('Opción Carro', 'Option Car'),
             state=0,
+            group=self.gui_widgets['radiobuttons_1_groupbox'],
             theme_style=self.theme_style,
             language=self.language_value
         )
@@ -332,13 +336,6 @@ class Main_UI(QWidget):
             theme_style=self.theme_style,
             language=self.language_value
         )
-
-        self.gui_widgets['radiobuttons_1_groupbox'] = QButtonGroup(
-            parent=self.gui_widgets['filled_card'] )
-        self.gui_widgets['radiobuttons_1_groupbox'].setExclusive(True)
-        self.gui_widgets['radiobuttons_1_groupbox'].addButton(self.gui_widgets['option_1_radiobutton'])
-        self.gui_widgets['radiobuttons_1_groupbox'].addButton(self.gui_widgets['option_2_radiobutton'])
-
 
 
 
