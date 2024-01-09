@@ -1,7 +1,5 @@
-from PySide6.QtWidgets import QComboBox, QWidget, QFrame
+from PySide6.QtWidgets import QComboBox, QWidget
 from PySide6.QtCore import Qt
-
-from icon_color import icon_color
 
 
 class UI_ComboBox(QComboBox):
