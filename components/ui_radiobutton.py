@@ -53,8 +53,6 @@ class UI_RadioButton(QRadioButton):
         self.toggled.connect(state_changed_signal)
 
 
-
-
     def set_icon(self, theme_style: bool) -> None:
         """ Change button icon """
         color = 'black' if theme_style else 'white'
