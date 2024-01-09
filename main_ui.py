@@ -7,12 +7,12 @@ from components.ui_button import UI_Button, UI_ToggleButton, UI_ThemeButton, UI_
 from components.ui_checkbox import UI_CheckBox
 from components.ui_combobox import UI_ComboBox
 from components.ui_radiobutton import UI_RadioButton
+from components.ui_slider import UI_Slider
 from components.md3_chip import MD3Chip
 from components.md3_datepicker import MD3DatePicker
 from components.md3_divider import MD3Divider
 from components.md3_imagelabel import MD3ImageLabel
 from components.md3_segmentedbutton import MD3SegmentedButton
-from components.md3_slider import MD3Slider
 from components.md3_switch import MD3Switch
 from components.md3_textfield import MD3TextField
 
@@ -317,7 +317,7 @@ class Main_UI(QWidget):
             state_changed_signal=parent.option_2_changed,
             position=(16, 376),
             width=150,
-            icon_name='car',
+            icon_name='none',
             labels=('Opción Carro', 'Option Car'),
             state=0,
             group=self.gui_widgets['radiobuttons_1_groupbox'],
@@ -336,6 +336,30 @@ class Main_UI(QWidget):
             theme_style=self.theme_style,
             language=self.language_value
         )
+
+        # ------
+        # Slider
+        # ------
+        self.gui_widgets['sliders_1_label'] = UI_Label(
+            parent=self.gui_widgets['filled_card'],
+            position=(16, 296),
+            width=100,
+            align='left',
+            labels=('Botones Radio', 'Radio Buttons'),
+            language=self.language_value
+        )
+
+        self.gui_widgets['bar_1_slider'] = UI_Slider(
+            parent=self.gui_widgets['filled_card'],
+            position=(432, 228),
+            length=100,
+            orientation='vertical',
+            range=(0, 1, 100),
+            value=50,
+            slider_moved_signal=parent.bar_1_slider_sliderMoved,
+            slider_released_signal=parent.bar_1_slider_sliderReleased
+        )
+        
 
 
 
@@ -579,19 +603,7 @@ class Main_UI(QWidget):
         #     theme_color=self.theme_color
         # )
 
-        # # ------
-        # # Slider
-        # # ------
-        # self.gui_widgets['test1_slider'] = MD3Slider(
-        #     parent=self.gui_widgets['filled_card'],
-        #     position=(432, 228),
-        #     length=100,
-        #     orientation='vertical',
-        #     range=(0, 1, 100),
-        #     value=50,
-        #     slider_moved_signal=parent.on_test1_slider_sliderMoved,
-        #     slider_released_signal=parent.on_test1_slider_sliderReleased
-        # )
+        
 
         # # --------
         # # Dividers
