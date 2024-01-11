@@ -5,17 +5,9 @@ QWidget {
 
 /* Card */
 UI_Card {
-    border-style: solid;
-    border-radius: 8px;
-}
-UI_Card[type=filled] {
     border-width: 0px;
+    border-radius: 8px;
     background-color: hsl(0, 0%, 17%)
-}
-UI_Card[type=outlined] {
-    border-width: 2px;
-    border-color: hsl(200, 100%, 50%);
-    background-color: transparent
 }
 UI_Card QLabel {
     background-color: transparent;
@@ -303,6 +295,54 @@ UI_RadioButton::indicator:checked:hover {
     height: 14px;
 }
 
+/* Slider */
+UI_Slider { 
+    background-color: transparent
+}
+UI_Slider::groove:horizontal {
+    background: hsl(204, 86%, 53%);
+    height: 4px
+}
+UI_Slider::groove:vertical {
+    background: hsl(204, 86%, 53%);
+    width: 4px
+}
+UI_Slider::handle:horizontal {
+    background-color: hsl(204, 86%, 53%);
+    width: 20px; 
+    height: 20px; 
+    margin: -8px 0;
+    border-radius: 10px
+}
+UI_Slider::handle:vertical {
+    background-color: hsl(204, 86%, 53%);
+    width: 20px; 
+    height: 20px; 
+    margin: 0 -8px;
+    border-radius: 10px
+}
+UI_Slider::handle:disabled {
+    background-color: hsl(0, 0%, 71%)
+}
+UI_Slider::add-page:horizontal {
+    background: hsl(204, 86%, 29%)
+}
+UI_Slider::add-page:vertical {
+    background: hsl(204, 86%, 53%)
+}
+UI_Slider::sub-page:horizontal {
+    background: hsl(204, 86%, 53%)
+}
+UI_Slider::sub-page:vertical {
+    background: hsl(204, 86%, 29%)
+}
+UI_Slider::add-page:disabled {
+    background: hsl(0, 0%, 71%)
+}
+UI_Slider::sub-page:disabled {
+    background: hsl(0, 0%, 71%)
+}
+
 
 
 
@@ -529,53 +569,7 @@ MD3DatePicker QLabel:disabled {
     color: hsl(0, 0%, 29%)
 }
 
-/* Slider */
-MD3Slider { 
-    background-color: transparent
-}
-MD3Slider::groove:horizontal {
-    background: hsl(204, 86%, 53%);
-    height: 4px
-}
-MD3Slider::groove:vertical {
-    background: hsl(204, 86%, 53%);
-    width: 4px
-}
-MD3Slider::handle:horizontal {
-    background-color: hsl(204, 86%, 53%);
-    width: 20px; 
-    height: 20px; 
-    margin: -8px 0;
-    border-radius: 10px
-}
-MD3Slider::handle:vertical {
-    background-color: hsl(204, 86%, 53%);
-    width: 20px; 
-    height: 20px; 
-    margin: 0 -8px;
-    border-radius: 10px
-}
-MD3Slider::handle:disabled {
-    background-color: hsl(0, 0%, 71%)
-}
-MD3Slider::add-page:horizontal {
-    background: hsl(204, 86%, 29%)
-}
-MD3Slider::add-page:vertical {
-    background: hsl(204, 86%, 53%)
-}
-MD3Slider::sub-page:horizontal {
-    background: hsl(204, 86%, 53%)
-}
-MD3Slider::sub-page:vertical {
-    background: hsl(204, 86%, 29%)
-}
-MD3Slider::add-page:disabled {
-    background: hsl(0, 0%, 71%)
-}
-MD3Slider::sub-page:disabled {
-    background: hsl(0, 0%, 71%)
-}
+
 
 /* Divider */
 MD3Divider {
