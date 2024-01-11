@@ -71,7 +71,7 @@ class UI_Button(QPushButton):
         elif language == 'en': self.setText(self.texts[1])
 
 
-class UI_ToggleButton(QToolButton):
+class UI_ToggleButton(QPushButton):
     """ Toggle Button component """
     def __init__(
         self,
@@ -108,7 +108,6 @@ class UI_ToggleButton(QToolButton):
         self.move(position[0], position[1])
         self.resize(width, 40)
         self.setEnabled(enabled)
-        self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setCheckable(True)
         self.icon_name = icon_name
         self.texts = texts
@@ -119,7 +118,6 @@ class UI_ToggleButton(QToolButton):
 
         self.clicked.connect(clicked_signal)
 
-
     def set_icon(self, state: bool, theme_style: bool) -> None:
         """ Change button icon """
         if state:
@@ -128,7 +126,6 @@ class UI_ToggleButton(QToolButton):
             color = 'black' if theme_style else 'white'
         colorized_icon = icon_color(color, self.icon_name)
         self.setIcon(colorized_icon)
-
 
     def set_language(self, language: str) -> None:
         """ Change language of button text """
@@ -165,7 +162,6 @@ class UI_ThemeButton(QPushButton):
         self.set_state(state)
 
         self.clicked.connect(clicked_signal)
-
 
     def set_state(self, state: bool) -> None:
         """ Set button state and corresponding icon """
@@ -228,9 +224,7 @@ class UI_DropDownButton(QToolButton):
         menu_width = width-62 if self.none_icons else width-86
         self.dropdown_menu.setStyleSheet(f"UI_DropDownButton QMenu::item {{ padding-right: {menu_width} }}")
         
-
         self.clicked.connect(clicked_signal)
-
 
     def set_icon(self, theme_style: bool) -> None:
         """ Change button icon """
@@ -238,8 +232,8 @@ class UI_DropDownButton(QToolButton):
         colorized_icon = icon_color(color, self.icon_name)
         self.setIcon(colorized_icon)
 
-
     def set_actions_menu(self, none_icons: list, theme_style: bool) -> None:
+        """ Set action buttons for drop down menu """
         for name, action, icon_name in self.actions_list:
             action_item = QAction(name)
             action_item.triggered.connect(action)
@@ -249,7 +243,6 @@ class UI_DropDownButton(QToolButton):
                 action_item.setIcon(colorized_icon)
             self.dropdown_menu.insertAction(None, action_item)
         self.setMenu(self.dropdown_menu)
-
 
     def set_language(self, language: str) -> None:
         """ Change language of button label """
