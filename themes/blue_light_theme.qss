@@ -9,31 +9,27 @@ UI_Card {
     border-radius: 8px;
     background-color: hsl(0, 0%, 90%)
 }
-UI_Card QLabel {
-    background-color: transparent;
-    color: hsl(0, 0%, 13%);
-}
 
 /* Labels */
 UI_Label {
-    border-width: 2px;
+    border-width: 0px;
     border-style: solid;
     border-radius: 4px;
     background-color: transparent;
     color: hsl(0, 0%, 13%);
-    padding: 0;
+    padding: 0px
 }
 UI_IconLabel {
     border-width: 0px;
     background-color: transparent;
-    padding: 4
+    padding: 4px
 }
 UI_ColorLabel {
     border-width: 2px;
     border-style: solid;
     border-color: hsl(200, 100%, 50%);
     border-radius: 4px;
-    padding: 0
+    padding: 0px
 }
 
 /* Button */
