@@ -342,18 +342,18 @@ class Main_UI(QWidget):
         # ------
         self.gui_widgets['sliders_1_label'] = UI_Label(
             parent=self.gui_widgets['filled_card'],
-            position=(16, 296),
+            position=(16, 456),
             width=100,
             align='left',
-            labels=('Botones Radio', 'Radio Buttons'),
+            labels=('Deslizador', 'Slider'),
             language=self.language_value
         )
 
         self.gui_widgets['bar_1_slider'] = UI_Slider(
             parent=self.gui_widgets['filled_card'],
-            position=(432, 228),
-            length=100,
-            orientation='vertical',
+            position=(16, 496),
+            length=200,
+            orientation='horizontal',
             range=(0, 1, 100),
             value=50,
             slider_moved_signal=parent.bar_1_slider_sliderMoved,
