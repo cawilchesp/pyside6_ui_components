@@ -10,7 +10,7 @@ class UI_Slider(QSlider):
         slider_moved_signal: callable,
         slider_released_signal: callable,
         position: tuple[int, int] = (8,8),
-        length: int = 32,
+        length: int = 64,
         orientation: str = 'horizontal',
         range: tuple[int, int, int] = (0, 1, 100),
         value: int = 0,
@@ -35,17 +35,17 @@ class UI_Slider(QSlider):
         self.parent = parent
         self.move(position[0], position[1])
         if orientation == 'horizontal':
-            self.resize(length, 32)
+            self.resize(length, 40)
             self.setOrientation(Qt.Orientation.Horizontal)
         elif orientation == 'vertical':
-            self.resize(32, length)
+            self.resize(40, length)
             self.setOrientation(Qt.Orientation.Vertical)
 
         self.setMinimum(range[0])
         self.setSingleStep(range[1])
         self.setMaximum(range[2])
         self.setValue(value)
-        self.setEnabled = enabled
+        self.setEnabled(enabled)
 
         self.sliderMoved.connect(slider_moved_signal)
         self.sliderReleased.connect(slider_released_signal)
