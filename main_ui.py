@@ -200,23 +200,23 @@ class Main_UI(QWidget):
             clicked_signal=parent.toggle_2_button_clicked
         )
 
-        # self.gui_widgets['dropdown_1_button'] = UI_DropDownButton(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(16, 256),
-        #     width=170,
-        #     icon_name='bicycle',
-        #     labels=('Botón Drop Down', 'Drop Down Button'),
-        #     actions_list=[
-        #         ['Bus', parent.action_1, None],
-        #         ['Car', parent.action_2, None],
-        #         ['Man', parent.action_3, None],
-        #         ['Woman', parent.action_4, None],
-        #         ['School', parent.action_5, None]
-        #     ],
-        #     theme_style=self.theme_style,
-        #     language=self.language_value,
-        #     clicked_signal=parent.dropdown_1_button_clicked
-        # )
+        self.gui_widgets['dropdown_1_button'] = UI_DropDownButton(
+            parent=self.gui_widgets['card_card'],
+            position=(12, 304),
+            width=170,
+            icon_name='bicycle',
+            texts=('Botón Drop Down', 'Drop Down Button'),
+            actions_list=[
+                ['Bus', parent.action_1, None],
+                ['Car', parent.action_2, None],
+                ['Man', parent.action_3, None],
+                ['Woman', parent.action_4, None],
+                ['School', parent.action_5, None]
+            ],
+            theme_style=self.theme_style,
+            language=self.language_value,
+            clicked_signal=parent.dropdown_1_button_clicked
+        )
 
         # # -----------
         # # Check Boxes
