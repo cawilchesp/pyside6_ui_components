@@ -5,17 +5,9 @@ QWidget {
 
 /* Card */
 UI_Card {
-    border-style: solid;
-    border-radius: 8px;
-}
-UI_Card[type=filled] {
     border-width: 0px;
+    border-radius: 8px;
     background-color: hsl(0, 0%, 90%)
-}
-UI_Card[type=outlined] {
-    border-width: 2px;
-    border-color: hsl(200, 100%, 50%);
-    background-color: transparent
 }
 UI_Card QLabel {
     background-color: transparent;
