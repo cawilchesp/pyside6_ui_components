@@ -35,8 +35,7 @@ UI_ColorLabel {
 /* Button */
 UI_Button {
     border-radius: 4px;
-    margin: 4px;
-    padding-left: 10px
+    margin: 4px
 }
 UI_Button[type=standard] {
     background-color: hsl(0, 0%, 20%);
@@ -52,7 +51,6 @@ UI_Button[type=outlined] {
     border-color: hsl(200, 100%, 50%);
     background-color: transparent;
     color: hsl(200, 100%, 50%);
-    padding-left: 8px
 }
 UI_Button[type=hyperlink] {
     background-color: transparent;
@@ -98,7 +96,8 @@ UI_ThemeButton {
     border-width: 0px;
     border-radius: 4px;
     background-color: hsl(200, 100%, 50%);
-    color: hsl(0, 0%, 13%)
+    color: hsl(0, 0%, 13%);
+    margin: 4px
 }
 UI_ThemeButton:hover {
     background-color: hsl(200, 100%, 40%);
