@@ -13,7 +13,7 @@ class UI_RadioButton(QRadioButton):
         position: tuple[int, int] = (8,8),
         width: int = 40,
         icon_name: str = None,
-        labels: tuple[str, str] = None,
+        texts: tuple[str, str] = None,
         state: int = 0,
         enabled: bool = True,
         group: QButtonGroup = None,
@@ -27,7 +27,7 @@ class UI_RadioButton(QRadioButton):
             position (tuple[int, int]): Check box top left corner position (x, y)
             width (int): Check box width
             icon_name (str): Icon name
-            labels (tuple[str, str]): Check box labels (label_spanish, label_english)
+            texts (tuple[str, str]): Check box texts (text_spanish, text_english)
             state (bool): Check box toggle State of activation
                 Options: True: On, False: Off
             enabled (bool): Check box enabled / disabled
@@ -42,11 +42,11 @@ class UI_RadioButton(QRadioButton):
         self.resize(width, 40)
         self.setEnabled(enabled)
         self.icon_name = icon_name
-        self.labels = labels
+        self.texts = texts
         self.state = state
 
         self.set_icon(theme_style) if icon_name is not None else None
-        self.set_language(language) if self.labels is not None else None
+        self.set_language(language) if self.texts is not None else None
         self.setChecked(self.state)
         group.addButton(self) if group is not None else None
 
@@ -61,7 +61,6 @@ class UI_RadioButton(QRadioButton):
 
     
     def set_language(self, language: str) -> None:
-        """ Change language of button label """
-        if self.labels is not None:
-            if language == 'es':   self.setText(self.labels[0])
-            elif language == 'en': self.setText(self.labels[1])
+        """ Change language of radio button text """
+        if language == 'es':   self.setText(self.texts[0])
+        elif language == 'en': self.setText(self.texts[1])
