@@ -314,7 +314,7 @@ class Main_UI(QWidget):
         # -------------
         self.gui_widgets['radiobuttons_1_label'] = UI_Label(
             parent=self.gui_widgets['card_card'],
-            position=(16, 344),
+            position=(258, 344),
             width=140,
             align='left',
             font_size=16,
@@ -322,68 +322,80 @@ class Main_UI(QWidget):
             language=self.language_value
         )
 
-        # self.gui_widgets['radiobuttons_1_groupbox'] = QButtonGroup()
+        self.gui_widgets['radiobuttons_1_groupbox'] = QButtonGroup()
 
-        # self.gui_widgets['option_1_radiobutton'] = UI_RadioButton(
-        #     parent=self.gui_widgets['card_card'],
-        #     state_changed_signal=parent.option_1_changed,
-        #     position=(16, 336),
-        #     width=150,
-        #     icon_name='bus',
-        #     labels=('Opción Bus', 'Option Bus'),
-        #     state=0,
-        #     group=self.gui_widgets['radiobuttons_1_groupbox'],
-        #     theme_style=self.theme_style,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['option_1_radiobutton'] = UI_RadioButton(
+            parent=self.gui_widgets['card_card'],
+            state_changed_signal=parent.option_1_changed,
+            position=(254, 384),
+            width=150,
+            icon_name='bus',
+            texts=('Opción Bus', 'Option Bus'),
+            state=0,
+            group=self.gui_widgets['radiobuttons_1_groupbox'],
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
 
-        # self.gui_widgets['option_2_radiobutton'] = UI_RadioButton(
-        #     parent=self.gui_widgets['card_card'],
-        #     state_changed_signal=parent.option_2_changed,
-        #     position=(16, 376),
-        #     width=150,
-        #     icon_name='none',
-        #     labels=('Opción Carro', 'Option Car'),
-        #     state=0,
-        #     group=self.gui_widgets['radiobuttons_1_groupbox'],
-        #     theme_style=self.theme_style,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['option_2_radiobutton'] = UI_RadioButton(
+            parent=self.gui_widgets['card_card'],
+            state_changed_signal=parent.option_2_changed,
+            position=(254, 424),
+            width=150,
+            icon_name='none',
+            texts=('Opción Carro', 'Option Car'),
+            state=0,
+            group=self.gui_widgets['radiobuttons_1_groupbox'],
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
 
-        # self.gui_widgets['option_3_radiobutton'] = UI_RadioButton(
-        #     parent=self.gui_widgets['card_card'],
-        #     state_changed_signal=parent.option_3_changed,
-        #     position=(16, 416),
-        #     width=150,
-        #     icon_name='bicycle',
-        #     labels=('Opción Bicicleta', 'Option Bicycle'),
-        #     state=0,
-        #     theme_style=self.theme_style,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['option_3_radiobutton'] = UI_RadioButton(
+            parent=self.gui_widgets['card_card'],
+            state_changed_signal=parent.option_3_changed,
+            position=(254, 464),
+            width=150,
+            icon_name='bicycle',
+            texts=('Opción Bicicleta', 'Option Bicycle'),
+            state=0,
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
 
-        # # ------
-        # # Slider
-        # # ------
-        # self.gui_widgets['sliders_1_label'] = UI_Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(16, 456),
-        #     width=100,
-        #     align='left',
-        #     labels=('Deslizador', 'Slider'),
-        #     language=self.language_value
-        # )
+        # ------
+        # Slider
+        # ------
+        self.gui_widgets['sliders_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(444, 64),
+            width=100,
+            align='left',
+            font_size=16,
+            texts=('Deslizador', 'Slider'),
+            language=self.language_value
+        )
 
-        # self.gui_widgets['bar_1_slider'] = UI_Slider(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(16, 496),
-        #     length=200,
-        #     orientation='horizontal',
-        #     range=(0, 1, 100),
-        #     value=50,
-        #     slider_moved_signal=parent.bar_1_slider_sliderMoved,
-        #     slider_released_signal=parent.bar_1_slider_sliderReleased
-        # )
+        self.gui_widgets['bar_1_slider'] = UI_Slider(
+            parent=self.gui_widgets['card_card'],
+            position=(440, 104),
+            length=200,
+            orientation='horizontal',
+            range=(0, 1, 100),
+            value=50,
+            slider_moved_signal=parent.bar_1_slider_sliderMoved,
+            slider_released_signal=parent.bar_1_slider_sliderReleased
+        )
+
+        self.gui_widgets['bar_2_slider'] = UI_Slider(
+            parent=self.gui_widgets['card_card'],
+            position=(440, 144),
+            length=200,
+            orientation='vertical',
+            range=(0, 1, 100),
+            value=50,
+            slider_moved_signal=parent.bar_1_slider_sliderMoved,
+            slider_released_signal=parent.bar_1_slider_sliderReleased
+        )
         
 
 
