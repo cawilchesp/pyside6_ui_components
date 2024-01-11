@@ -9,7 +9,6 @@ class UI_Card(QFrame):
         parent: QWidget,
         position: tuple[int, int] = (16, 16),
         size: tuple[int, int] = (96, 96),
-        type: str = 'filled',
         titles: tuple[str, str] = None,
         language: str = 'es'
     ):
@@ -19,8 +18,6 @@ class UI_Card(QFrame):
             parent (QWidget): UI Parent object
             position (tuple[int, int]): Card top left corner position (x, y)
             size (tuple[int, int]): Card size (width, height)
-            type (str): Card type
-                Options: 'filled', 'outlined'
             titles (tuple[str, str]): Card titles (title_spanish, title_english)
             language (str): App language
                 Options: 'es' = Español, 'en' = English
@@ -30,7 +27,6 @@ class UI_Card(QFrame):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(size[0], size[1])
-        self.type = type
         self.titles = titles
         
         if self.titles is not None:
@@ -39,7 +35,6 @@ class UI_Card(QFrame):
             self.title.setFont(QFont('Segoe UI', 14))
 
         self.set_language(language)
-        self.setProperty('type', self.type)
 
 
     def set_language(self, language: int) -> None:
