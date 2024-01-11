@@ -218,92 +218,109 @@ class Main_UI(QWidget):
             clicked_signal=parent.dropdown_1_button_clicked
         )
 
-        # # -----------
-        # # Check Boxes
-        # # -----------
-        # self.gui_widgets['checkboxes_1_label'] = UI_Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(360, 60),
-        #     width=100,
-        #     align='left',
-        #     labels=('Cajas de Selección', 'Check Boxes'),
-        #     language=self.language_value
-        # )
+        # -----------
+        # Check Boxes
+        # -----------
+        self.gui_widgets['checkboxes_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(258, 64),
+            width=120,
+            align='left',
+            font_size=16,
+            texts=('Cajas de Selección', 'Check Boxes'),
+            language=self.language_value
+        )
 
-        # self.gui_widgets['option_1_checkbox'] = UI_CheckBox(
-        #     parent=self.gui_widgets['card_card'],
-        #     state_changed_signal=parent.option_1_changed,
-        #     position=(360,100),
-        #     width=150,
-        #     icon_name='bus',
-        #     labels=('Opción Bus', 'Option Bus'),
-        #     tristate=False,
-        #     state=0,
-        #     theme_style=self.theme_style,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['option_1_checkbox'] = UI_CheckBox(
+            parent=self.gui_widgets['card_card'],
+            state_changed_signal=parent.option_1_changed,
+            position=(254, 104),
+            width=150,
+            icon_name='bus',
+            labels=('Opción Bus', 'Option Bus'),
+            tristate=False,
+            state=0,
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
 
-        # self.gui_widgets['option_2_checkbox'] = UI_CheckBox(
-        #     parent=self.gui_widgets['card_card'],
-        #     state_changed_signal=parent.option_2_changed,
-        #     position=(360,140),
-        #     width=150,
-        #     icon_name='car',
-        #     tristate=True,
-        #     state=1,
-        #     theme_style=self.theme_style,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['option_2_checkbox'] = UI_CheckBox(
+            parent=self.gui_widgets['card_card'],
+            state_changed_signal=parent.option_2_changed,
+            position=(254, 144),
+            width=150,
+            icon_name='car',
+            tristate=True,
+            state=1,
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
 
-        # self.gui_widgets['option_3_checkbox'] = UI_CheckBox(
-        #     parent=self.gui_widgets['card_card'],
-        #     state_changed_signal=parent.option_3_changed,
-        #     position=(360,180),
-        #     width=150,
-        #     labels=('Opción Camión', 'Option Truck'),
-        #     tristate=True,
-        #     state=2,
-        #     theme_style=self.theme_style,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['option_3_checkbox'] = UI_CheckBox(
+            parent=self.gui_widgets['card_card'],
+            state_changed_signal=parent.option_3_changed,
+            position=(254, 184),
+            width=150,
+            labels=('Opción Camión', 'Option Truck'),
+            tristate=True,
+            state=2,
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
 
-        # # -----------
-        # # Combo Boxes
-        # # -----------
-        # self.gui_widgets['combobox_1_label'] = UI_Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(360, 220),
-        #     width=100,
-        #     align='left',
-        #     labels=('Cajas Combo', 'Combo Boxes'),
-        #     language=self.language_value
-        # )
+        # -----------
+        # Combo Boxes
+        # -----------
+        self.gui_widgets['combobox_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(258, 224),
+            width=140,
+            align='left',
+            font_size=16,
+            texts=('Cajas Combo', 'Combo Boxes'),
+            language=self.language_value
+        )
 
-        # self.gui_widgets['menu_1_combobox'] = UI_ComboBox(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(360, 256),
-        #     width=150,
-        #     labels=('Seleccione una opción', 'Select an option'),
-        #     options=self.test_options,
-        #     set=4,
-        #     editable=True,
-        #     language=self.language_value,
-        #     index_changed_signal=parent.menu_1_index_changed,
-        #     text_changed_signal=parent.menu_1_text_changed,
-        #     activated_signal=parent.menu_1_activated
-        # )
+        self.gui_widgets['menu_1_combobox'] = UI_ComboBox(
+            parent=self.gui_widgets['card_card'],
+            position=(254, 264),
+            width=150,
+            texts=('Seleccione una opción', 'Select an option'),
+            options=self.test_options,
+            set=4,
+            editable=True,
+            language=self.language_value,
+            index_changed_signal=parent.menu_1_index_changed,
+            text_changed_signal=parent.menu_1_text_changed,
+            activated_signal=parent.menu_1_activated
+        )
 
-        # # -------------
-        # # Radio Buttons
-        # # -------------
-        # self.gui_widgets['radiobuttons_1_label'] = UI_Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(16, 296),
-        #     width=100,
-        #     align='left',
-        #     labels=('Botones Radio', 'Radio Buttons'),
-        #     language=self.language_value
-        # )
+        self.gui_widgets['menu_1_combobox'] = UI_ComboBox(
+            parent=self.gui_widgets['card_card'],
+            position=(254, 304),
+            width=150,
+            texts=('Seleccione una opción', 'Select an option'),
+            options=self.test_options,
+            set=4,
+            editable=False,
+            language=self.language_value,
+            index_changed_signal=parent.menu_1_index_changed,
+            text_changed_signal=parent.menu_1_text_changed,
+            activated_signal=parent.menu_1_activated
+        )
+
+        # -------------
+        # Radio Buttons
+        # -------------
+        self.gui_widgets['radiobuttons_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(16, 344),
+            width=140,
+            align='left',
+            font_size=16,
+            texts=('Botones Radio', 'Radio Buttons'),
+            language=self.language_value
+        )
 
         # self.gui_widgets['radiobuttons_1_groupbox'] = QButtonGroup()
 
