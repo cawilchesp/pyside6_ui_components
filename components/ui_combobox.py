@@ -9,7 +9,7 @@ class UI_ComboBox(QComboBox):
         parent: QWidget,
         position: tuple[int, int] = (8,8),
         width: int = 40,
-        labels: tuple[str, str] = None,
+        texts: tuple[str, str] = None,
         options: dict = None,
         set: int = -1,
         editable: bool = False,
@@ -25,7 +25,7 @@ class UI_ComboBox(QComboBox):
             parent (QWidget): UI Parent object
             position (tuple[int, int]): Combo box top left corner position (x, y)
             width (int): Combo box width
-            labels (tuple[str, str]): Combo box labels (label_spanish, label_english)
+            texts (tuple[str, str]): Combo box labels (label_spanish, label_english)
             options (dict): Combo box options with translations
                 options = {
                     0: ('spanish_1', 'english_1'),
@@ -48,7 +48,7 @@ class UI_ComboBox(QComboBox):
         self.resize(width, 40)
         self.setEnabled = enabled
         self.view().window().setWindowFlags(Qt.WindowType.Popup | Qt.WindowType.FramelessWindowHint | Qt.WindowType.NoDropShadowWindowHint)
-        self.labels = labels
+        self.texts = texts
         self.options = options
 
         self.setMaxVisibleItems(5)
@@ -66,9 +66,9 @@ class UI_ComboBox(QComboBox):
 
     def set_language(self, language: str) -> None:
         """ Change language of options text """
-        if self.labels is not None:
-            if language == 'es':   self.setPlaceholderText(self.labels[0])
-            elif language == 'en': self.setPlaceholderText(self.labels[1])
+        if self.texts is not None:
+            if language == 'es':   self.setPlaceholderText(self.texts[0])
+            elif language == 'en': self.setPlaceholderText(self.texts[1])
 
         self.clear()
         for key, value in self.options.items():
