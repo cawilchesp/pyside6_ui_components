@@ -12,10 +12,10 @@ class UI_Button(QToolButton):
         parent: QWidget,
         clicked_signal: callable,
         position: tuple[int, int] = (8,8),
-        width: int = 32,
+        width: int = 40,
         type: str = 'standard',
         icon_name: str = None,
-        labels: tuple[str, str] = None,
+        texts: tuple[str, str] = None,
         enabled: bool = True,
         theme_color: str = 'blue',
         theme_style: bool = True,
@@ -31,7 +31,7 @@ class UI_Button(QToolButton):
             type (str): Button type
                 Options: 'standard', 'accent', 'outlined', 'hyperlink'
             icon_name (str): Icon name
-            labels (tuple[str, str]): Button labels (label_spanish, label_english)
+            texts (tuple[str, str]): Button texts (label_spanish, label_english)
             enabled (bool): Button enabled / disabled
             theme_color (str): App theme color name
             theme_style (bool): App theme style name
@@ -42,15 +42,15 @@ class UI_Button(QToolButton):
 
         self.parent = parent
         self.move(position[0], position[1])
-        self.resize(width, 32)
+        self.resize(width, 40)
         self.setEnabled(enabled)
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.type = type
-        self.labels = labels
+        self.texts = texts
         self.icon_name = icon_name
 
         self.set_icon(theme_style, theme_color) if icon_name is not None else None
-        self.set_language(language) if self.labels is not None else None
+        self.set_language(language) if self.texts is not None else None
         self.setProperty('type', self.type)
 
         self.clicked.connect(clicked_signal)
@@ -69,10 +69,9 @@ class UI_Button(QToolButton):
 
 
     def set_language(self, language: str) -> None:
-        """ Change language of button label """
-        if self.labels is not None:
-            if language == 'es':   self.setText(self.labels[0])
-            elif language == 'en': self.setText(self.labels[1])
+        """ Change language of button text """
+        if language == 'es':   self.setText(self.texts[0])
+        elif language == 'en': self.setText(self.texts[1])
 
 
 class UI_ToggleButton(QToolButton):
@@ -82,9 +81,9 @@ class UI_ToggleButton(QToolButton):
         parent: QWidget,
         clicked_signal: callable,
         position: tuple[int, int] = (8,8),
-        width: int = 32,
+        width: int = 40,
         icon_name: str = None,
-        labels: tuple[str, str] = None,
+        texts: tuple[str, str] = None,
         state: bool = False,
         enabled: bool = True,
         theme_style: bool = True,
@@ -98,7 +97,7 @@ class UI_ToggleButton(QToolButton):
             position (tuple[int, int]): Button top left corner position (x, y)
             width (int): Button width
             icon_name (str): Icon name
-            labels (tuple[str, str]): Button labels (label_spanish, label_english)
+            texts (tuple[str, str]): Button texts (label_spanish, label_english)
             state (bool): Button toggle State of activation
                 Options: True: On, False: Off
             enabled (bool): Button enabled / disabled
@@ -110,16 +109,16 @@ class UI_ToggleButton(QToolButton):
 
         self.parent = parent
         self.move(position[0], position[1])
-        self.resize(width, 32)
+        self.resize(width, 40)
         self.setEnabled(enabled)
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setCheckable(True)
         self.icon_name = icon_name
-        self.labels = labels
+        self.texts = texts
         self.state = state
         
         self.set_icon(state, theme_style) if icon_name is not None else None
-        self.set_language(language) if self.labels is not None else None
+        self.set_language(language) if self.texts is not None else None
 
         self.clicked.connect(clicked_signal)
 
@@ -135,10 +134,9 @@ class UI_ToggleButton(QToolButton):
 
 
     def set_language(self, language: str) -> None:
-        """ Change language of button label """
-        if self.labels is not None:
-            if language == 'es':   self.setText(self.labels[0])
-            elif language == 'en': self.setText(self.labels[1])
+        """ Change language of button text """
+        if language == 'es':   self.setText(self.texts[0])
+        elif language == 'en': self.setText(self.texts[1])
 
 
 class UI_ThemeButton(QToolButton):
@@ -164,7 +162,7 @@ class UI_ThemeButton(QToolButton):
 
         self.parent = parent
         self.move(position[0], position[1])
-        self.resize(32, 32)
+        self.resize(40, 40)
         self.setEnabled(enabled)
         
         self.set_state(state)
@@ -190,7 +188,7 @@ class UI_DropDownButton(QToolButton):
         position: tuple[int, int] = (8,8),
         width: int = 64,
         icon_name: str = None,
-        labels: tuple[str, str] = None,
+        texts: tuple[str, str] = None,
         enabled: bool = True,
         theme_style: bool = True,
         language: str = 'es'
@@ -203,8 +201,7 @@ class UI_DropDownButton(QToolButton):
             position (tuple[int, int]): Button top left corner position (x, y)
             width (int): Button width
             icon_name (str): Icon name
-            labels (tuple[str, str]): Button labels (label_spanish, label_english)
-            
+            texts (tuple[str, str]): Button texts (label_spanish, label_english)
             enabled (bool): Button enabled / disabled
             theme_color (str): App theme color name
             theme_style (bool): App theme style name
@@ -219,12 +216,12 @@ class UI_DropDownButton(QToolButton):
         self.setEnabled(enabled)
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setPopupMode(QToolButton.ToolButtonPopupMode.MenuButtonPopup)
-        self.labels = labels
+        self.texts = texts
         self.icon_name = icon_name
         self.actions_list = actions_list
 
         self.set_icon(theme_style) if icon_name is not None else None
-        self.set_language(language) if self.labels is not None else None
+        self.set_language(language) if self.texts is not None else None
         
         self.dropdown_menu = QMenu(self)
         self.dropdown_menu.setWindowFlags(self.dropdown_menu.windowFlags() | Qt.NoDropShadowWindowHint)
@@ -259,6 +256,5 @@ class UI_DropDownButton(QToolButton):
 
     def set_language(self, language: str) -> None:
         """ Change language of button label """
-        if self.labels is not None:
-            if language == 'es':   self.setText(self.labels[0])
-            elif language == 'en': self.setText(self.labels[1])
+        if language == 'es':   self.setText(self.texts[0])
+        elif language == 'en': self.setText(self.texts[1])
