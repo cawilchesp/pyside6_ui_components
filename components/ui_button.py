@@ -1,11 +1,11 @@
-from PySide6.QtWidgets import QToolButton, QWidget, QMenu
+from PySide6.QtWidgets import QPushButton, QToolButton, QMenu, QWidget
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QAction
 
 from icon_color import icon_color
 
 
-class UI_Button(QToolButton):
+class UI_Button(QPushButton):
     """ Button component """
     def __init__(
         self,
@@ -44,7 +44,6 @@ class UI_Button(QToolButton):
         self.move(position[0], position[1])
         self.resize(width, 40)
         self.setEnabled(enabled)
-        self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.type = type
         self.texts = texts
         self.icon_name = icon_name
@@ -54,7 +53,6 @@ class UI_Button(QToolButton):
         self.setProperty('type', self.type)
 
         self.clicked.connect(clicked_signal)
-
 
     def set_icon(self, theme_style: bool, theme_color: str) -> None:
         """ Change button icon """
@@ -66,7 +64,6 @@ class UI_Button(QToolButton):
             color = theme_color
         colorized_icon = icon_color(color, self.icon_name)
         self.setIcon(colorized_icon)
-
 
     def set_language(self, language: str) -> None:
         """ Change language of button text """
@@ -139,7 +136,7 @@ class UI_ToggleButton(QToolButton):
         elif language == 'en': self.setText(self.texts[1])
 
 
-class UI_ThemeButton(QToolButton):
+class UI_ThemeButton(QPushButton):
     """ Theme Button component """
     def __init__(self,
         parent: QWidget,
