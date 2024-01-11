@@ -34,11 +34,9 @@ UI_ColorLabel {
 
 /* Button */
 UI_Button {
-    border-width: 2px;
-    border-style: solid;
     border-radius: 4px;
-    border-color: transparent;
-    padding: 4px
+    margin: 4px;
+    padding-left: 10px
 }
 UI_Button[type=standard] {
     background-color: hsl(0, 0%, 20%);
@@ -49,9 +47,12 @@ UI_Button[type=accent] {
     color: hsl(0, 0%, 13%)
 }
 UI_Button[type=outlined] {
+    border-width: 2px;
+    border-style: solid;
     border-color: hsl(200, 100%, 50%);
     background-color: transparent;
-    color: hsl(200, 100%, 50%)
+    color: hsl(200, 100%, 50%);
+    padding-left: 8px
 }
 UI_Button[type=hyperlink] {
     background-color: transparent;
