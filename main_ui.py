@@ -207,8 +207,8 @@ class Main_UI(QWidget):
             icon_name='bicycle',
             texts=('Botón Drop Down', 'Drop Down Button'),
             actions_list=[
-                ['Bus', parent.action_1, None],
-                ['Car', parent.action_2, None],
+                ['Bus', parent.action_1, 'bus'],
+                ['Car', parent.action_2, 'car'],
                 ['Man', parent.action_3, None],
                 ['Woman', parent.action_4, None],
                 ['School', parent.action_5, None]
