@@ -65,7 +65,7 @@ class Main_UI(QWidget):
         self.gui_widgets['card_1_card'] = UI_Card(
             parent=parent,
             position=(16, 16), 
-            size=(width - 32, height - 32),
+            size=(width-32, height-32),
             titles=('Tarjeta', 'Card'),
             language=self.language_value
         )
