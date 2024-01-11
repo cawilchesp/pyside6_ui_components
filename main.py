@@ -64,7 +64,7 @@ class MainWindow(QMainWindow):
             if isinstance(self.ui.gui_widgets[key], Union[UI_CheckBox, UI_RadioButton]):
                 self.ui.gui_widgets[key].set_icon(state) if self.ui.gui_widgets[key].icon_name is not None else None
                 
-        self.ui.gui_widgets['theme_1_button'].set_state(state)
+        self.ui.gui_widgets['theme_button'].set_state(state)
 
         # Save settings
         self.theme_style = state
