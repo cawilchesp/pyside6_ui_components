@@ -107,11 +107,10 @@ UI_ThemeButton:disabled {
 }
 
 UI_DropDownButton {
-    border-width: 0px;
     border-radius: 4px;
-    padding: 6px;
     background-color: hsl(0, 0%, 93%);
     color: hsl(0, 0%, 13%);
+    padding-left: 12px;
     margin: 4px
 }
 UI_DropDownButton:disabled {
@@ -119,13 +118,13 @@ UI_DropDownButton:disabled {
     color: hsl(0, 0%, 35%)
 }
 UI_DropDownButton::menu-button {
-    width: 32;
-    height: 32;
+    width: 32px;
+    height: 32px;
     background-color: transparent
 }
 UI_DropDownButton::menu-arrow {
-    width: 16;
-    height: 16;
+    width: 20px;
+    height: 20px;
     image: url(icons/chevron_down_black.png)
 }
 UI_DropDownButton QMenu {
@@ -136,19 +135,19 @@ UI_DropDownButton QMenu {
     background-color: hsl(0, 0%, 90%);
 }
 UI_DropDownButton QMenu::icon {
-    padding: 6px;
+    padding: 8px;
 }
 UI_DropDownButton QMenu::item {
     background-color: hsl(0, 0%, 93%);
     color: hsl(0, 0%, 13%);
-    height: 32;
-    padding-left: 12
+    height: 32px;
+    padding-left: 12px
 }
 UI_DropDownButton QMenu::item:selected {
     border-color: hsl(0, 0%, 93%);
     border-radius: 4px;
-    padding-left: 12;
     background-color: hsl(0, 0%, 85%);
+    padding-left: 12px;
 }
 
 /* Check Box */
