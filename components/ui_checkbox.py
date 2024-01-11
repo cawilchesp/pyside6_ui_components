@@ -11,7 +11,7 @@ class UI_CheckBox(QCheckBox):
         parent: QWidget,
         state_changed_signal: callable,
         position: tuple[int, int] = (8,8),
-        width: int = 32,
+        width: int = 40,
         icon_name: str = None,
         labels: tuple[str, str] = None,
         tristate: bool = False,
@@ -41,7 +41,7 @@ class UI_CheckBox(QCheckBox):
 
         self.parent = parent
         self.move(position[0], position[1])
-        self.resize(width, 32)
+        self.resize(width, 40)
         self.setTristate(tristate)
         self.setEnabled(enabled)
         self.icon_name = icon_name
@@ -54,14 +54,11 @@ class UI_CheckBox(QCheckBox):
 
         self.stateChanged.connect(state_changed_signal)
 
-
-
     def set_icon(self, theme_style: bool) -> None:
         """ Change button icon """
         color = 'black' if theme_style else 'white'
         colorized_icon = icon_color(color, self.icon_name)
         self.setIcon(colorized_icon)
-
     
     def set_language(self, language: str) -> None:
         """ Change language of button label """
