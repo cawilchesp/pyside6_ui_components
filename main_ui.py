@@ -103,6 +103,16 @@ class Main_UI(QWidget):
             clicked_signal=parent.standard_button_clicked
         )
 
+        self.gui_widgets['standard_2_button'] = UI_Button(
+            parent=self.gui_widgets['card_card'],
+            position=(132, 104),
+            type='standard',
+            icon_name='bicycle',
+            theme_color=self.theme_color,
+            theme_style=self.theme_style,
+            clicked_signal=parent.standard_button_clicked
+        )
+
         self.gui_widgets['accent_button'] = UI_Button(
             parent=self.gui_widgets['card_card'],
             position=(12, 144),
@@ -110,6 +120,15 @@ class Main_UI(QWidget):
             type='accent',
             icon_name='bicycle',
             texts=('Acentuado', 'Accent'),
+            theme_color=self.theme_color,
+            clicked_signal=parent.standard_button_clicked
+        )
+
+        self.gui_widgets['accent_2_button'] = UI_Button(
+            parent=self.gui_widgets['card_card'],
+            position=(132, 144),
+            type='accent',
+            icon_name='bicycle',
             theme_color=self.theme_color,
             clicked_signal=parent.standard_button_clicked
         )
@@ -125,6 +144,15 @@ class Main_UI(QWidget):
             clicked_signal=parent.standard_button_clicked
         )
 
+        self.gui_widgets['outline_2_button'] = UI_Button(
+            parent=self.gui_widgets['card_card'],
+            position=(132, 184),
+            type='outlined',
+            icon_name='bicycle',
+            theme_color=self.theme_color,
+            clicked_signal=parent.standard_button_clicked
+        )
+
         self.gui_widgets['hyperlink_button'] = UI_Button(
             parent=self.gui_widgets['card_card'],
             position=(12, 224),
@@ -136,37 +164,9 @@ class Main_UI(QWidget):
             clicked_signal=parent.standard_button_clicked
         )
 
-        self.gui_widgets['standard_2_button'] = UI_Button(
-            parent=self.gui_widgets['card_card'],
-            position=(12, 264),
-            type='standard',
-            icon_name='bicycle',
-            theme_color=self.theme_color,
-            theme_style=self.theme_style,
-            clicked_signal=parent.standard_button_clicked
-        )
-
-        self.gui_widgets['accent_2_button'] = UI_Button(
-            parent=self.gui_widgets['card_card'],
-            position=(52, 264),
-            type='accent',
-            icon_name='bicycle',
-            theme_color=self.theme_color,
-            clicked_signal=parent.standard_button_clicked
-        )
-
-        self.gui_widgets['outline_2_button'] = UI_Button(
-            parent=self.gui_widgets['card_card'],
-            position=(92, 264),
-            type='outlined',
-            icon_name='bicycle',
-            theme_color=self.theme_color,
-            clicked_signal=parent.standard_button_clicked
-        )
-
         self.gui_widgets['hyperlink_2_button'] = UI_Button(
             parent=self.gui_widgets['card_card'],
-            position=(132, 264),
+            position=(132, 224),
             type='hyperlink',
             icon_name='bicycle',
             theme_color=self.theme_color,
@@ -175,30 +175,30 @@ class Main_UI(QWidget):
 
         self.gui_widgets['theme_button'] = UI_ThemeButton(
             parent=self.gui_widgets['card_card'],
-            position=(12, 304),
+            position=(12, 264),
             state=self.theme_style,
             clicked_signal=parent.theme_button_clicked
         )
         
-        # self.gui_widgets['toggle_1_button'] = UI_ToggleButton(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(56, 220),
-        #     width=150,
-        #     icon_name='bicycle',
-        #     labels=('Botón Toggle', 'Toggle Button'),
-        #     theme_style=self.theme_style,
-        #     language=self.language_value,
-        #     clicked_signal=parent.toggle_1_button_clicked
-        # )
+        self.gui_widgets['toggle_1_button'] = UI_ToggleButton(
+            parent=self.gui_widgets['card_card'],
+            position=(52, 264),
+            width=150,
+            icon_name='bicycle',
+            texts=('Botón Toggle', 'Toggle Button'),
+            theme_style=self.theme_style,
+            language=self.language_value,
+            clicked_signal=parent.toggle_1_button_clicked
+        )
 
-        # self.gui_widgets['toggle_2_button'] = UI_ToggleButton(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(214, 220),
-        #     icon_name='bicycle',
-        #     theme_style=self.theme_style,
-        #     language=self.language_value,
-        #     clicked_signal=parent.toggle_2_button_clicked
-        # )
+        self.gui_widgets['toggle_2_button'] = UI_ToggleButton(
+            parent=self.gui_widgets['card_card'],
+            position=(202, 264),
+            icon_name='bicycle',
+            theme_style=self.theme_style,
+            language=self.language_value,
+            clicked_signal=parent.toggle_2_button_clicked
+        )
 
         # self.gui_widgets['dropdown_1_button'] = UI_DropDownButton(
         #     parent=self.gui_widgets['card_card'],
