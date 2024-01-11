@@ -84,57 +84,57 @@ class Main_UI(QWidget):
         self.gui_widgets['buttons_label'] = UI_Label(
             parent=self.gui_widgets['card_card'],
             position=(16, 64),
-            width=150,
+            width=100,
             align='left',
             font_size=16,
             texts=('Botones', 'Buttons'),
             language=self.language_value
         )
 
-        self.gui_widgets['standard_1_button'] = UI_Button(
+        self.gui_widgets['standard_button'] = UI_Button(
             parent=self.gui_widgets['card_card'],
-            position=(16, 104),
-            width=100,
+            position=(12, 104),
+            width=120,
             type='standard',
             icon_name='bicycle',
-            labels=('Estándar', 'Standard'),
+            texts=('Estándar', 'Standard'),
             theme_color=self.theme_color,
             theme_style=self.theme_style,
             clicked_signal=parent.standard_button_clicked
         )
 
-        # self.gui_widgets['accent_1_button'] = UI_Button(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(124, 100),
-        #     width=100,
-        #     type='accent',
-        #     icon_name='bicycle',
-        #     labels=('Acentuado', 'Accent'),
-        #     theme_color=self.theme_color,
-        #     clicked_signal=parent.standard_button_clicked
-        # )
+        self.gui_widgets['accent_button'] = UI_Button(
+            parent=self.gui_widgets['card_card'],
+            position=(12, 144),
+            width=120,
+            type='accent',
+            icon_name='bicycle',
+            texts=('Acentuado', 'Accent'),
+            theme_color=self.theme_color,
+            clicked_signal=parent.standard_button_clicked
+        )
 
-        # self.gui_widgets['outline_1_button'] = UI_Button(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(16, 140),
-        #     width=100,
-        #     type='outlined',
-        #     icon_name='bicycle',
-        #     labels=('Delineado', 'Outlined'),
-        #     theme_color=self.theme_color,
-        #     clicked_signal=parent.standard_button_clicked
-        # )
+        self.gui_widgets['outline_button'] = UI_Button(
+            parent=self.gui_widgets['card_card'],
+            position=(12, 184),
+            width=120,
+            type='outlined',
+            icon_name='bicycle',
+            texts=('Delineado', 'Outlined'),
+            theme_color=self.theme_color,
+            clicked_signal=parent.standard_button_clicked
+        )
 
-        # self.gui_widgets['hyperlink_1_button'] = UI_Button(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(124, 140),
-        #     width=100,
-        #     type='hyperlink',
-        #     icon_name='bicycle',
-        #     labels=('Hipervínculo', 'Hyperlink'),
-        #     theme_color=self.theme_color,
-        #     clicked_signal=parent.standard_button_clicked
-        # )
+        self.gui_widgets['hyperlink_button'] = UI_Button(
+            parent=self.gui_widgets['card_card'],
+            position=(12, 224),
+            width=120,
+            type='hyperlink',
+            # icon_name='bicycle',
+            texts=('Hipervínculo', 'Hyperlink'),
+            theme_color=self.theme_color,
+            clicked_signal=parent.standard_button_clicked
+        )
 
         # self.gui_widgets['standard_2_button'] = UI_Button(
         #     parent=self.gui_widgets['card_card'],
