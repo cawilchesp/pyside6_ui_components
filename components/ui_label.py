@@ -58,7 +58,7 @@ class UI_Label(QLabel):
         self.set_language(language)
         
     def set_language(self, language: int) -> None:
-        """ Change language of label """
+        """ Change language of label text """
         if language == 'es':   self.setText(self.texts[0])
         elif language == 'en': self.setText(self.texts[1])
 
