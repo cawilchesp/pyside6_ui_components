@@ -62,29 +62,38 @@ class Main_UI(QWidget):
         # ----
         # Card
         # ----
-        self.gui_widgets['card_1_card'] = UI_Card(
+        self.gui_widgets['card_card'] = UI_Card(
             parent=parent,
             position=(16, 16), 
-            size=(width-32, height-32),
-            titles=('Tarjeta', 'Card'),
+            size=(width-32, height-32)
+        )
+
+        self.gui_widgets['card_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(16, 16),
+            width=150,
+            align='left',
+            font_size=24,
+            texts=('Tarjeta', 'Card'),
             language=self.language_value
         )
 
         # -------
         # Buttons
         # -------
-        self.gui_widgets['buttons_1_label'] = UI_Label(
-            parent=self.gui_widgets['card_1_card'],
-            position=(16, 60),
-            width=100,
+        self.gui_widgets['buttons_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(16, 64),
+            width=150,
             align='left',
-            labels=('Botones', 'Buttons'),
+            font_size=16,
+            texts=('Botones', 'Buttons'),
             language=self.language_value
         )
 
         self.gui_widgets['standard_1_button'] = UI_Button(
-            parent=self.gui_widgets['card_1_card'],
-            position=(16, 100),
+            parent=self.gui_widgets['card_card'],
+            position=(16, 104),
             width=100,
             type='standard',
             icon_name='bicycle',
@@ -94,270 +103,270 @@ class Main_UI(QWidget):
             clicked_signal=parent.standard_button_clicked
         )
 
-        self.gui_widgets['accent_1_button'] = UI_Button(
-            parent=self.gui_widgets['card_1_card'],
-            position=(124, 100),
-            width=100,
-            type='accent',
-            icon_name='bicycle',
-            labels=('Acentuado', 'Accent'),
-            theme_color=self.theme_color,
-            clicked_signal=parent.standard_button_clicked
-        )
+        # self.gui_widgets['accent_1_button'] = UI_Button(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(124, 100),
+        #     width=100,
+        #     type='accent',
+        #     icon_name='bicycle',
+        #     labels=('Acentuado', 'Accent'),
+        #     theme_color=self.theme_color,
+        #     clicked_signal=parent.standard_button_clicked
+        # )
 
-        self.gui_widgets['outline_1_button'] = UI_Button(
-            parent=self.gui_widgets['card_1_card'],
-            position=(16, 140),
-            width=100,
-            type='outlined',
-            icon_name='bicycle',
-            labels=('Delineado', 'Outlined'),
-            theme_color=self.theme_color,
-            clicked_signal=parent.standard_button_clicked
-        )
+        # self.gui_widgets['outline_1_button'] = UI_Button(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(16, 140),
+        #     width=100,
+        #     type='outlined',
+        #     icon_name='bicycle',
+        #     labels=('Delineado', 'Outlined'),
+        #     theme_color=self.theme_color,
+        #     clicked_signal=parent.standard_button_clicked
+        # )
 
-        self.gui_widgets['hyperlink_1_button'] = UI_Button(
-            parent=self.gui_widgets['card_1_card'],
-            position=(124, 140),
-            width=100,
-            type='hyperlink',
-            icon_name='bicycle',
-            labels=('Hipervínculo', 'Hyperlink'),
-            theme_color=self.theme_color,
-            clicked_signal=parent.standard_button_clicked
-        )
+        # self.gui_widgets['hyperlink_1_button'] = UI_Button(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(124, 140),
+        #     width=100,
+        #     type='hyperlink',
+        #     icon_name='bicycle',
+        #     labels=('Hipervínculo', 'Hyperlink'),
+        #     theme_color=self.theme_color,
+        #     clicked_signal=parent.standard_button_clicked
+        # )
 
-        self.gui_widgets['standard_2_button'] = UI_Button(
-            parent=self.gui_widgets['card_1_card'],
-            position=(16, 180),
-            type='standard',
-            icon_name='bicycle',
-            theme_color=self.theme_color,
-            theme_style=self.theme_style,
-            clicked_signal=parent.standard_button_clicked
-        )
+        # self.gui_widgets['standard_2_button'] = UI_Button(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(16, 180),
+        #     type='standard',
+        #     icon_name='bicycle',
+        #     theme_color=self.theme_color,
+        #     theme_style=self.theme_style,
+        #     clicked_signal=parent.standard_button_clicked
+        # )
 
-        self.gui_widgets['accent_2_button'] = UI_Button(
-            parent=self.gui_widgets['card_1_card'],
-            position=(56, 180),
-            type='accent',
-            icon_name='bicycle',
-            theme_color=self.theme_color,
-            clicked_signal=parent.standard_button_clicked
-        )
+        # self.gui_widgets['accent_2_button'] = UI_Button(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(56, 180),
+        #     type='accent',
+        #     icon_name='bicycle',
+        #     theme_color=self.theme_color,
+        #     clicked_signal=parent.standard_button_clicked
+        # )
 
-        self.gui_widgets['outline_2_button'] = UI_Button(
-            parent=self.gui_widgets['card_1_card'],
-            position=(96, 180),
-            type='outlined',
-            icon_name='bicycle',
-            theme_color=self.theme_color,
-            clicked_signal=parent.standard_button_clicked
-        )
+        # self.gui_widgets['outline_2_button'] = UI_Button(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(96, 180),
+        #     type='outlined',
+        #     icon_name='bicycle',
+        #     theme_color=self.theme_color,
+        #     clicked_signal=parent.standard_button_clicked
+        # )
 
-        self.gui_widgets['hyperlink_2_button'] = UI_Button(
-            parent=self.gui_widgets['card_1_card'],
-            position=(136, 180),
-            type='hyperlink',
-            icon_name='bicycle',
-            theme_color=self.theme_color,
-            clicked_signal=parent.standard_button_clicked
-        )
+        # self.gui_widgets['hyperlink_2_button'] = UI_Button(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(136, 180),
+        #     type='hyperlink',
+        #     icon_name='bicycle',
+        #     theme_color=self.theme_color,
+        #     clicked_signal=parent.standard_button_clicked
+        # )
 
-        self.gui_widgets['theme_1_button'] = UI_ThemeButton(
-            parent=self.gui_widgets['card_1_card'],
-            position=(16, 220),
-            state=self.theme_style,
-            clicked_signal=parent.theme_button_clicked
-        )
+        # self.gui_widgets['theme_1_button'] = UI_ThemeButton(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(16, 220),
+        #     state=self.theme_style,
+        #     clicked_signal=parent.theme_button_clicked
+        # )
         
-        self.gui_widgets['toggle_1_button'] = UI_ToggleButton(
-            parent=self.gui_widgets['card_1_card'],
-            position=(56, 220),
-            width=150,
-            icon_name='bicycle',
-            labels=('Botón Toggle', 'Toggle Button'),
-            theme_style=self.theme_style,
-            language=self.language_value,
-            clicked_signal=parent.toggle_1_button_clicked
-        )
+        # self.gui_widgets['toggle_1_button'] = UI_ToggleButton(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(56, 220),
+        #     width=150,
+        #     icon_name='bicycle',
+        #     labels=('Botón Toggle', 'Toggle Button'),
+        #     theme_style=self.theme_style,
+        #     language=self.language_value,
+        #     clicked_signal=parent.toggle_1_button_clicked
+        # )
 
-        self.gui_widgets['toggle_2_button'] = UI_ToggleButton(
-            parent=self.gui_widgets['card_1_card'],
-            position=(214, 220),
-            icon_name='bicycle',
-            theme_style=self.theme_style,
-            language=self.language_value,
-            clicked_signal=parent.toggle_2_button_clicked
-        )
+        # self.gui_widgets['toggle_2_button'] = UI_ToggleButton(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(214, 220),
+        #     icon_name='bicycle',
+        #     theme_style=self.theme_style,
+        #     language=self.language_value,
+        #     clicked_signal=parent.toggle_2_button_clicked
+        # )
 
-        self.gui_widgets['dropdown_1_button'] = UI_DropDownButton(
-            parent=self.gui_widgets['card_1_card'],
-            position=(16, 256),
-            width=170,
-            icon_name='bicycle',
-            labels=('Botón Drop Down', 'Drop Down Button'),
-            actions_list=[
-                ['Bus', parent.action_1, None],
-                ['Car', parent.action_2, None],
-                ['Man', parent.action_3, None],
-                ['Woman', parent.action_4, None],
-                ['School', parent.action_5, None]
-            ],
-            theme_style=self.theme_style,
-            language=self.language_value,
-            clicked_signal=parent.dropdown_1_button_clicked
-        )
+        # self.gui_widgets['dropdown_1_button'] = UI_DropDownButton(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(16, 256),
+        #     width=170,
+        #     icon_name='bicycle',
+        #     labels=('Botón Drop Down', 'Drop Down Button'),
+        #     actions_list=[
+        #         ['Bus', parent.action_1, None],
+        #         ['Car', parent.action_2, None],
+        #         ['Man', parent.action_3, None],
+        #         ['Woman', parent.action_4, None],
+        #         ['School', parent.action_5, None]
+        #     ],
+        #     theme_style=self.theme_style,
+        #     language=self.language_value,
+        #     clicked_signal=parent.dropdown_1_button_clicked
+        # )
 
-        # -----------
-        # Check Boxes
-        # -----------
-        self.gui_widgets['checkboxes_1_label'] = UI_Label(
-            parent=self.gui_widgets['card_1_card'],
-            position=(360, 60),
-            width=100,
-            align='left',
-            labels=('Cajas de Selección', 'Check Boxes'),
-            language=self.language_value
-        )
+        # # -----------
+        # # Check Boxes
+        # # -----------
+        # self.gui_widgets['checkboxes_1_label'] = UI_Label(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(360, 60),
+        #     width=100,
+        #     align='left',
+        #     labels=('Cajas de Selección', 'Check Boxes'),
+        #     language=self.language_value
+        # )
 
-        self.gui_widgets['option_1_checkbox'] = UI_CheckBox(
-            parent=self.gui_widgets['card_1_card'],
-            state_changed_signal=parent.option_1_changed,
-            position=(360,100),
-            width=150,
-            icon_name='bus',
-            labels=('Opción Bus', 'Option Bus'),
-            tristate=False,
-            state=0,
-            theme_style=self.theme_style,
-            language=self.language_value
-        )
+        # self.gui_widgets['option_1_checkbox'] = UI_CheckBox(
+        #     parent=self.gui_widgets['card_card'],
+        #     state_changed_signal=parent.option_1_changed,
+        #     position=(360,100),
+        #     width=150,
+        #     icon_name='bus',
+        #     labels=('Opción Bus', 'Option Bus'),
+        #     tristate=False,
+        #     state=0,
+        #     theme_style=self.theme_style,
+        #     language=self.language_value
+        # )
 
-        self.gui_widgets['option_2_checkbox'] = UI_CheckBox(
-            parent=self.gui_widgets['card_1_card'],
-            state_changed_signal=parent.option_2_changed,
-            position=(360,140),
-            width=150,
-            icon_name='car',
-            tristate=True,
-            state=1,
-            theme_style=self.theme_style,
-            language=self.language_value
-        )
+        # self.gui_widgets['option_2_checkbox'] = UI_CheckBox(
+        #     parent=self.gui_widgets['card_card'],
+        #     state_changed_signal=parent.option_2_changed,
+        #     position=(360,140),
+        #     width=150,
+        #     icon_name='car',
+        #     tristate=True,
+        #     state=1,
+        #     theme_style=self.theme_style,
+        #     language=self.language_value
+        # )
 
-        self.gui_widgets['option_3_checkbox'] = UI_CheckBox(
-            parent=self.gui_widgets['card_1_card'],
-            state_changed_signal=parent.option_3_changed,
-            position=(360,180),
-            width=150,
-            labels=('Opción Camión', 'Option Truck'),
-            tristate=True,
-            state=2,
-            theme_style=self.theme_style,
-            language=self.language_value
-        )
+        # self.gui_widgets['option_3_checkbox'] = UI_CheckBox(
+        #     parent=self.gui_widgets['card_card'],
+        #     state_changed_signal=parent.option_3_changed,
+        #     position=(360,180),
+        #     width=150,
+        #     labels=('Opción Camión', 'Option Truck'),
+        #     tristate=True,
+        #     state=2,
+        #     theme_style=self.theme_style,
+        #     language=self.language_value
+        # )
 
-        # -----------
-        # Combo Boxes
-        # -----------
-        self.gui_widgets['combobox_1_label'] = UI_Label(
-            parent=self.gui_widgets['card_1_card'],
-            position=(360, 220),
-            width=100,
-            align='left',
-            labels=('Cajas Combo', 'Combo Boxes'),
-            language=self.language_value
-        )
+        # # -----------
+        # # Combo Boxes
+        # # -----------
+        # self.gui_widgets['combobox_1_label'] = UI_Label(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(360, 220),
+        #     width=100,
+        #     align='left',
+        #     labels=('Cajas Combo', 'Combo Boxes'),
+        #     language=self.language_value
+        # )
 
-        self.gui_widgets['menu_1_combobox'] = UI_ComboBox(
-            parent=self.gui_widgets['card_1_card'],
-            position=(360, 256),
-            width=150,
-            labels=('Seleccione una opción', 'Select an option'),
-            options=self.test_options,
-            set=4,
-            editable=True,
-            language=self.language_value,
-            index_changed_signal=parent.menu_1_index_changed,
-            text_changed_signal=parent.menu_1_text_changed,
-            activated_signal=parent.menu_1_activated
-        )
+        # self.gui_widgets['menu_1_combobox'] = UI_ComboBox(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(360, 256),
+        #     width=150,
+        #     labels=('Seleccione una opción', 'Select an option'),
+        #     options=self.test_options,
+        #     set=4,
+        #     editable=True,
+        #     language=self.language_value,
+        #     index_changed_signal=parent.menu_1_index_changed,
+        #     text_changed_signal=parent.menu_1_text_changed,
+        #     activated_signal=parent.menu_1_activated
+        # )
 
-        # -------------
-        # Radio Buttons
-        # -------------
-        self.gui_widgets['radiobuttons_1_label'] = UI_Label(
-            parent=self.gui_widgets['card_1_card'],
-            position=(16, 296),
-            width=100,
-            align='left',
-            labels=('Botones Radio', 'Radio Buttons'),
-            language=self.language_value
-        )
+        # # -------------
+        # # Radio Buttons
+        # # -------------
+        # self.gui_widgets['radiobuttons_1_label'] = UI_Label(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(16, 296),
+        #     width=100,
+        #     align='left',
+        #     labels=('Botones Radio', 'Radio Buttons'),
+        #     language=self.language_value
+        # )
 
-        self.gui_widgets['radiobuttons_1_groupbox'] = QButtonGroup()
+        # self.gui_widgets['radiobuttons_1_groupbox'] = QButtonGroup()
 
-        self.gui_widgets['option_1_radiobutton'] = UI_RadioButton(
-            parent=self.gui_widgets['card_1_card'],
-            state_changed_signal=parent.option_1_changed,
-            position=(16, 336),
-            width=150,
-            icon_name='bus',
-            labels=('Opción Bus', 'Option Bus'),
-            state=0,
-            group=self.gui_widgets['radiobuttons_1_groupbox'],
-            theme_style=self.theme_style,
-            language=self.language_value
-        )
+        # self.gui_widgets['option_1_radiobutton'] = UI_RadioButton(
+        #     parent=self.gui_widgets['card_card'],
+        #     state_changed_signal=parent.option_1_changed,
+        #     position=(16, 336),
+        #     width=150,
+        #     icon_name='bus',
+        #     labels=('Opción Bus', 'Option Bus'),
+        #     state=0,
+        #     group=self.gui_widgets['radiobuttons_1_groupbox'],
+        #     theme_style=self.theme_style,
+        #     language=self.language_value
+        # )
 
-        self.gui_widgets['option_2_radiobutton'] = UI_RadioButton(
-            parent=self.gui_widgets['card_1_card'],
-            state_changed_signal=parent.option_2_changed,
-            position=(16, 376),
-            width=150,
-            icon_name='none',
-            labels=('Opción Carro', 'Option Car'),
-            state=0,
-            group=self.gui_widgets['radiobuttons_1_groupbox'],
-            theme_style=self.theme_style,
-            language=self.language_value
-        )
+        # self.gui_widgets['option_2_radiobutton'] = UI_RadioButton(
+        #     parent=self.gui_widgets['card_card'],
+        #     state_changed_signal=parent.option_2_changed,
+        #     position=(16, 376),
+        #     width=150,
+        #     icon_name='none',
+        #     labels=('Opción Carro', 'Option Car'),
+        #     state=0,
+        #     group=self.gui_widgets['radiobuttons_1_groupbox'],
+        #     theme_style=self.theme_style,
+        #     language=self.language_value
+        # )
 
-        self.gui_widgets['option_3_radiobutton'] = UI_RadioButton(
-            parent=self.gui_widgets['card_1_card'],
-            state_changed_signal=parent.option_3_changed,
-            position=(16, 416),
-            width=150,
-            icon_name='bicycle',
-            labels=('Opción Bicicleta', 'Option Bicycle'),
-            state=0,
-            theme_style=self.theme_style,
-            language=self.language_value
-        )
+        # self.gui_widgets['option_3_radiobutton'] = UI_RadioButton(
+        #     parent=self.gui_widgets['card_card'],
+        #     state_changed_signal=parent.option_3_changed,
+        #     position=(16, 416),
+        #     width=150,
+        #     icon_name='bicycle',
+        #     labels=('Opción Bicicleta', 'Option Bicycle'),
+        #     state=0,
+        #     theme_style=self.theme_style,
+        #     language=self.language_value
+        # )
 
-        # ------
-        # Slider
-        # ------
-        self.gui_widgets['sliders_1_label'] = UI_Label(
-            parent=self.gui_widgets['card_1_card'],
-            position=(16, 456),
-            width=100,
-            align='left',
-            labels=('Deslizador', 'Slider'),
-            language=self.language_value
-        )
+        # # ------
+        # # Slider
+        # # ------
+        # self.gui_widgets['sliders_1_label'] = UI_Label(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(16, 456),
+        #     width=100,
+        #     align='left',
+        #     labels=('Deslizador', 'Slider'),
+        #     language=self.language_value
+        # )
 
-        self.gui_widgets['bar_1_slider'] = UI_Slider(
-            parent=self.gui_widgets['card_1_card'],
-            position=(16, 496),
-            length=200,
-            orientation='horizontal',
-            range=(0, 1, 100),
-            value=50,
-            slider_moved_signal=parent.bar_1_slider_sliderMoved,
-            slider_released_signal=parent.bar_1_slider_sliderReleased
-        )
+        # self.gui_widgets['bar_1_slider'] = UI_Slider(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(16, 496),
+        #     length=200,
+        #     orientation='horizontal',
+        #     range=(0, 1, 100),
+        #     value=50,
+        #     slider_moved_signal=parent.bar_1_slider_sliderMoved,
+        #     slider_released_signal=parent.bar_1_slider_sliderReleased
+        # )
         
 
 
@@ -375,7 +384,7 @@ class Main_UI(QWidget):
         # # Segmented Buttons
         # # -----------------
         # self.gui_widgets['left_segmented1_button'] = MD3SegmentedButton(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(8, 88),
         #     width=100,
         #     labels=('Izquierda', 'Left'),
@@ -388,7 +397,7 @@ class Main_UI(QWidget):
         # )
         
         # self.gui_widgets['center1_segmented1_button'] = MD3SegmentedButton(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(108, 88),
         #     width=100,
         #     labels=('Centro 1', 'Center 1'),
@@ -402,7 +411,7 @@ class Main_UI(QWidget):
         # )
 
         # self.gui_widgets['center2_segmented1_button'] = MD3SegmentedButton(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(208, 88),
         #     width=100,
         #     labels=('Centro 2', 'Center 2'),
@@ -416,7 +425,7 @@ class Main_UI(QWidget):
         # ) 
 
         # self.gui_widgets['right_segmented1_button'] = MD3SegmentedButton(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(308, 88),
         #     width=100,
         #     labels=('Derecha', 'Right'),
@@ -432,7 +441,7 @@ class Main_UI(QWidget):
         # # Switch
         # # ------
         # self.gui_widgets['test1_switch'] = MD3Switch(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(504, 88),
         #     state=False,
         #     theme_color=self.theme_color,
@@ -443,7 +452,7 @@ class Main_UI(QWidget):
         # # Chips
         # # -----
         # self.gui_widgets['chip1_button'] = MD3Chip(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(8, 128),
         #     width=100,
         #     labels=('Borrar', 'Delete'),
@@ -455,7 +464,7 @@ class Main_UI(QWidget):
         # )
         
         # self.gui_widgets['chip2_button'] = MD3Chip(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(116, 128),
         #     width=100,
         #     labels=('Correo', 'Mail'),
@@ -467,7 +476,7 @@ class Main_UI(QWidget):
         # )
         
         # self.gui_widgets['chip3_button'] = MD3Chip(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(224, 128),
         #     width=100,
         #     labels=('Mejorar', 'Improve'),
@@ -483,7 +492,7 @@ class Main_UI(QWidget):
         # # Text Field
         # # ----------
         # self.gui_widgets['test1_textfield'] = MD3TextField(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(8, 168),
         #     width=120,
         #     type='filled',
@@ -493,7 +502,7 @@ class Main_UI(QWidget):
         # )
 
         # self.gui_widgets['test2_textfield'] = MD3TextField(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(136, 168),
         #     width=120,
         #     length=9,
@@ -505,7 +514,7 @@ class Main_UI(QWidget):
         # )
         
         # self.gui_widgets['test3_textfield'] = MD3TextField(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(264, 168),
         #     width=120,
         #     length=9,
@@ -517,7 +526,7 @@ class Main_UI(QWidget):
         # )
         
         # self.gui_widgets['test4_textfield'] = MD3TextField(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(392, 168),
         #     width=120,
         #     length=9,
@@ -532,7 +541,7 @@ class Main_UI(QWidget):
         # # Date Picker
         # # -----------
         # self.gui_widgets['test1_date'] = MD3DatePicker(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(8, 228),
         #     width=120,
         #     type='filled',
@@ -544,7 +553,7 @@ class Main_UI(QWidget):
         # # Labels
         # # ------
         # self.gui_widgets['icon1_label'] = MD3Label(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(136, 228),
         #     type='icon',
         #     icon_name='delete',
@@ -552,7 +561,7 @@ class Main_UI(QWidget):
         # )
 
         # self.gui_widgets['subtitle1_label'] = MD3Label(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(176, 228),
         #     width=100,
         #     type='subtitle',
@@ -563,7 +572,7 @@ class Main_UI(QWidget):
         # )
         
         # self.gui_widgets['subtitle2_label'] = MD3Label(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(176, 248),
         #     width=100,
         #     type='subtitle',
@@ -574,7 +583,7 @@ class Main_UI(QWidget):
         # )
 
         # self.gui_widgets['subtitle3_label'] = MD3Label(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(176, 268),
         #     width=100,
         #     type='subtitle',
@@ -585,7 +594,7 @@ class Main_UI(QWidget):
         # )
         
         # self.gui_widgets['color1_label'] = MD3Label(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(284, 228),
         #     type='color',
         #     color='#ff8888',
@@ -593,7 +602,7 @@ class Main_UI(QWidget):
         # )
         
         # self.gui_widgets['value1_label'] = MD3Label(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(324, 228),
         #     width=100,
         #     type='value',
@@ -608,14 +617,14 @@ class Main_UI(QWidget):
         # # Dividers
         # # --------
         # self.gui_widgets['horizontal1_divider'] = MD3Divider(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(8, 288),
         #     length=100,
         #     orientation='horizontal'
         # )
         
         # self.gui_widgets['vertical1_divider'] = MD3Divider(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(116, 288),
         #     length=32,
         #     orientation='vertical'
@@ -625,7 +634,7 @@ class Main_UI(QWidget):
         # # Image Label
         # # -----------
         # self.gui_widgets['image1_label'] = MD3ImageLabel(
-        #     parent=self.gui_widgets['card_1_card'],
+        #     parent=self.gui_widgets['card_card'],
         #     position=(124, 288),
         #     size=(300, 32),
         #     scaled_image=True
