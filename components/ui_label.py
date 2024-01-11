@@ -1,4 +1,5 @@
 from PySide6.QtWidgets import QLabel, QWidget
+from PySide6.QtGui import QFont
 from PySide6.QtCore import Qt
 
 from icon_color import icon_color
@@ -9,23 +10,25 @@ class UI_Label(QLabel):
     def __init__(
         self,
         parent: QWidget,
+        texts: tuple[str, str],
         position: tuple[int, int] = (16, 16),
         width: int = 32,
         align: str = 'left',
         border_color: str = None,
-        labels: tuple[str, str] = None,
+        font_size: int = 9,
         language: str = 'es'
     ):
         """
         Parameters
         ----------
             parent (QWidget): UI Parent object
+            texts (tuple[str, str]): Label texts (text_spanish, text_english)
             position (tuple[int, int]): Label top left corner position (x, y)
             width (int): Label width
-            align (str): Text alignment
+            align (str): Label text alignment
                 Options: 'center', 'left', 'right'
             border_color (str): Label border color in hexadecimal format: '#RRGGBB'
-            labels (tuple[str, str]): Button labels (label_spanish, label_english)
+            font_size (int): Label font size
             theme_color (str): App theme color name
             language (str): App language
                 Options: 'es' = Español, 'en' = English
@@ -35,8 +38,11 @@ class UI_Label(QLabel):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 32)
-        self.labels = labels
-        self.border_color = border_color if border_color is not None else 'transparent'
+        self.texts = texts
+
+        if font_size < 8: font_size = 8
+        elif font_size > 24: font_size = 24
+        self.setFont(QFont('Segoe UI', font_size))
 
         alignment_dict = {
             'left': Qt.AlignmentFlag.AlignLeft,
@@ -46,14 +52,15 @@ class UI_Label(QLabel):
         label_H_alignment = alignment_dict[align]
         self.setAlignment(label_H_alignment | Qt.AlignmentFlag.AlignVCenter)
         
-        self.setStyleSheet(f"UI_Label {{ border-color: {self.border_color} }}")
-        self.set_language(language) if self.labels is not None else None
+        if border_color is not None:
+            self.setStyleSheet(f"UI_Label {{ border-width: 2px; border-color: {border_color} }}")
+
+        self.set_language(language)
         
     def set_language(self, language: int) -> None:
         """ Change language of label """
-        if self.labels is not None:
-            if language == 'es':   self.setText(self.labels[0])
-            elif language == 'en': self.setText(self.labels[1])
+        if language == 'es':   self.setText(self.texts[0])
+        elif language == 'en': self.setText(self.texts[1])
 
 
 class UI_IconLabel(QLabel):
