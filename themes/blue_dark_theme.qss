@@ -71,11 +71,10 @@ UI_Button:disabled[type=outlined] {
 }
 
 UI_ToggleButton {
-    border-width: 0px;
     border-radius: 4px;
-    padding: 6px;
     background-color: hsl(0, 0%, 20%);
-    color: hsl(0, 0%, 98%)
+    color: hsl(0, 0%, 98%);
+    margin: 4px
 }
 UI_ToggleButton:checked {
     background-color: hsl(200, 100%, 50%);
