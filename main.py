@@ -8,6 +8,7 @@ from main_ui import Main_UI
 from components.ui_button import UI_Button, UI_ToggleButton, UI_DropDownButton
 from components.ui_checkbox import UI_CheckBox
 from components.ui_radiobutton import UI_RadioButton
+from components.ui_switch import UI_Switch
 
 from icon_color import icon_color
 
@@ -63,6 +64,8 @@ class MainWindow(QMainWindow):
                 self.ui.gui_widgets[key].set_actions_menu(self.ui.gui_widgets[key].none_icons, state)
             if isinstance(self.ui.gui_widgets[key], Union[UI_CheckBox, UI_RadioButton]):
                 self.ui.gui_widgets[key].set_icon(state) if self.ui.gui_widgets[key].icon_name is not None else None
+            if isinstance(self.ui.gui_widgets[key], UI_Switch):
+                self.ui.gui_widgets[key].set_state(self.ui.gui_widgets[key].state, state)
                 
         self.ui.gui_widgets['theme_button'].set_state(state)
 
@@ -207,6 +210,14 @@ class MainWindow(QMainWindow):
     def bar_2_slider_sliderReleased(self, value: int) -> None:
         print(f"Slider 2: {value}")
     
+    # ----------------
+    # Switch Functions
+    # ----------------
+    def on_test1_switch_clicked(self, state: bool) -> None:
+        self.ui.gui_widgets['test1_switch'].set_state(state, self.theme_style)
+        
+    def on_test2_switch_clicked(self, state: bool) -> None:
+        self.ui.gui_widgets['test2_switch'].set_state(state, self.theme_style)
 
 
 
@@ -270,15 +281,7 @@ class MainWindow(QMainWindow):
     #     self.ui.gui_widgets['chip6_button'].set_state(state, self.theme_color)
 
 
-    # # ----------------
-    # # Switch Functions
-    # # ----------------
-    # def on_test1_switch_clicked(self, state: bool) -> None:
-    #     self.ui.gui_widgets['test1_switch'].set_state(state, self.theme_color)
-        
-    # def on_test2_switch_clicked(self, state: bool) -> None:
-    #     self.ui.gui_widgets['test2_switch'].set_state(state, self.theme_color)
-
+    
     
 
     
