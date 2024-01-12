@@ -346,6 +346,62 @@ UI_Slider::sub-page:disabled {
     background: hsl(0, 0%, 25%)
 }
 
+/* Switch */
+UI_Switch {
+    background-color: transparent;
+}
+UI_Switch QToolButton {
+    background-color: transparent;
+}
+UI_Switch QToolButton[side=left] {
+    padding: 3px;
+}
+UI_Switch QToolButton[side=right] {
+    padding: 3px;
+}
+UI_Switch QToolButton:hover {
+    padding: 0px;
+}
+UI_Switch QToolButton[side=left]:!checked {
+    border-width: 1px;
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
+    border-right-width: 0px;
+    border-top-left-radius: 10;
+    border-bottom-left-radius: 10;
+}
+UI_Switch QToolButton[side=right]:!checked{
+    border-width: 1px;
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
+    border-left-width: 0px;
+    border-top-right-radius: 10;
+    border-bottom-right-radius: 10;
+}
+UI_Switch QToolButton[side=left]:checked {
+    border-top-left-radius: 10;
+    border-bottom-left-radius: 10;
+    background-color: hsl(200, 100%, 50%);
+}
+UI_Switch QToolButton[side=right]:checked{
+    border-top-right-radius: 10;
+    border-bottom-right-radius: 10;
+    background-color: hsl(200, 100%, 50%)
+}
+UI_Switch QToolButton:disabled {
+    background-color: hsl(0, 0%, 71%)
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -402,32 +458,7 @@ MD3SegmentedButton:disabled {
     color: hsl(0, 0%, 29%)
 }
 
-/* Switch */
-MD3Switch {
-    border: 0px solid;
-    background-color: transparent;
-}
-MD3Switch QToolButton {
-    background-color: transparent;
-}
-MD3Switch QToolButton[left=true] {
-    border: 2px solid hsl(204, 86%, 53%);
-    border-right-width: 0px;
-    border-top-left-radius: 16;
-    border-bottom-left-radius: 16;
-}
-MD3Switch QToolButton[right=true]{
-    border: 2px solid hsl(204, 86%, 53%);
-    border-left-width: 0px;
-    border-top-right-radius: 16;
-    border-bottom-right-radius: 16;
-}
-MD3Switch QToolButton:checked {
-    background-color: hsl(204, 86%, 53%);
-}
-MD3Switch QToolButton:disabled {
-    background-color: hsl(0, 0%, 71%);
-}
+
 
 /* Chip */
 MD3Chip {
