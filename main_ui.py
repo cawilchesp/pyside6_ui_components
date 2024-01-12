@@ -8,12 +8,12 @@ from components.ui_checkbox import UI_CheckBox
 from components.ui_combobox import UI_ComboBox
 from components.ui_radiobutton import UI_RadioButton
 from components.ui_slider import UI_Slider
+from components.ui_switch import UI_Switch
 from components.md3_chip import MD3Chip
 from components.md3_datepicker import MD3DatePicker
 from components.md3_divider import MD3Divider
 from components.md3_imagelabel import MD3ImageLabel
 from components.md3_segmentedbutton import MD3SegmentedButton
-from components.md3_switch import MD3Switch
 from components.md3_textfield import MD3TextField
 
 import yaml
@@ -397,6 +397,32 @@ class Main_UI(QWidget):
             slider_released_signal=parent.bar_1_slider_sliderReleased
         )
         
+        # -------------
+        # Toggle Switch
+        # -------------
+        self.gui_widgets['switch_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(444, 344),
+            width=100,
+            align='left',
+            font_size=16,
+            texts=('Interruptor', 'Switch'),
+            language=self.language_value
+        )
+
+        self.gui_widgets['test1_switch'] = UI_Switch(
+            parent=self.gui_widgets['card_card'],
+            position=(444, 384),
+            state=False,
+            theme_style=self.theme_style,
+            clicked_signal=parent.on_test1_switch_clicked
+        )
+
+
+
+
+
+
 
 
 
@@ -465,17 +491,8 @@ class Main_UI(QWidget):
         #     language=self.language_value,
         #     clicked_signal=parent.on_right_segmented1_button_clicked
         # )
+
         
-        # # ------
-        # # Switch
-        # # ------
-        # self.gui_widgets['test1_switch'] = MD3Switch(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(504, 88),
-        #     state=False,
-        #     theme_color=self.theme_color,
-        #     clicked_signal=parent.on_test1_switch_clicked
-        # )
 
         # # -----
         # # Chips
