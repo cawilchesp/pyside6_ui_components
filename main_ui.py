@@ -9,12 +9,15 @@ from components.ui_combobox import UI_ComboBox
 from components.ui_radiobutton import UI_RadioButton
 from components.ui_slider import UI_Slider
 from components.ui_switch import UI_Switch
+
+from components.ui_text import UI_TextBox
+
 from components.md3_chip import MD3Chip
 from components.md3_datepicker import MD3DatePicker
 from components.md3_divider import MD3Divider
 from components.md3_imagelabel import MD3ImageLabel
 from components.md3_segmentedbutton import MD3SegmentedButton
-from components.md3_textfield import MD3TextField
+from components.ui_text import MD3TextField
 
 import yaml
 
@@ -418,6 +421,89 @@ class Main_UI(QWidget):
             clicked_signal=parent.on_test1_switch_clicked
         )
 
+        # ----------
+        # Text Boxes
+        # ----------
+        self.gui_widgets['textbox_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(660, 64),
+            width=100,
+            align='left',
+            font_size=16,
+            texts=('Cuadros de Texto', 'Text Boxes'),
+            language=self.language_value
+        )
+
+        self.gui_widgets['text_1_textbox'] = UI_TextBox(
+            parent=self.gui_widgets['card_card'],
+            position=(656, 104),
+            width=100
+        )
+
+        # self.gui_widgets['test2_textfield'] = MD3TextField(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(136, 168),
+        #     width=120,
+        #     length=9,
+        #     type='filled',
+        #     labels=('Cuadro', 'Frame'),
+        #     input='integer',
+        #     theme_color=self.theme_color,
+        #     language=self.language_value
+        # )
+        
+        # self.gui_widgets['test3_textfield'] = MD3TextField(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(264, 168),
+        #     width=120,
+        #     length=9,
+        #     type='filled',
+        #     labels=('Cuadro', 'Frame'),
+        #     input='password',
+        #     theme_color=self.theme_color,
+        #     language=self.language_value
+        # )
+        
+        # self.gui_widgets['test4_textfield'] = MD3TextField(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(392, 168),
+        #     width=120,
+        #     length=9,
+        #     type='filled',
+        #     labels=('Cuadro', 'Frame'),
+        #     input='text',
+        #     theme_color=self.theme_color,
+        #     language=self.language_value
+        # )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -534,54 +620,7 @@ class Main_UI(QWidget):
         
         
 
-        # # ----------
-        # # Text Field
-        # # ----------
-        # self.gui_widgets['test1_textfield'] = MD3TextField(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(8, 168),
-        #     width=120,
-        #     type='filled',
-        #     labels=('Cuadro', 'Frame'),
-        #     theme_color=self.theme_color,
-        #     language=self.language_value
-        # )
-
-        # self.gui_widgets['test2_textfield'] = MD3TextField(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(136, 168),
-        #     width=120,
-        #     length=9,
-        #     type='filled',
-        #     labels=('Cuadro', 'Frame'),
-        #     input='integer',
-        #     theme_color=self.theme_color,
-        #     language=self.language_value
-        # )
         
-        # self.gui_widgets['test3_textfield'] = MD3TextField(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(264, 168),
-        #     width=120,
-        #     length=9,
-        #     type='filled',
-        #     labels=('Cuadro', 'Frame'),
-        #     input='password',
-        #     theme_color=self.theme_color,
-        #     language=self.language_value
-        # )
-        
-        # self.gui_widgets['test4_textfield'] = MD3TextField(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(392, 168),
-        #     width=120,
-        #     length=9,
-        #     type='filled',
-        #     labels=('Cuadro', 'Frame'),
-        #     input='text',
-        #     theme_color=self.theme_color,
-        #     language=self.language_value
-        # )
 
         # # -----------
         # # Date Picker
