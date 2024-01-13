@@ -437,6 +437,7 @@ class Main_UI(QWidget):
         self.gui_widgets['text_1_textbox'] = UI_TextBox(
             parent=self.gui_widgets['card_card'],
             position=(656, 104),
+            texts=('Opción', 'Option'),
             width=100
         )
 
