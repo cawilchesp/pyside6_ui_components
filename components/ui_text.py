@@ -12,8 +12,9 @@ class UI_TextBox(QLineEdit):
         parent: QWidget,
         position: tuple[int, int] = (8, 8),
         width: int = 64,
-
+        texts: tuple[str, str] = None,
         enabled: bool = True,
+        language: str = 'es'
     ):
         """
         Parameters
@@ -21,17 +22,26 @@ class UI_TextBox(QLineEdit):
             parent (QWidget): UI Parent object
             position (tuple[int, int]): Text field top left corner position (x, y)
             width (int): Text field width
-        
+            texts (tuple[str, str]): Button texts (label_spanish, label_english)
+            enabled (bool): Check box enabled / disabled
+            language (str): App language
+                Options: 'es' = Español, 'en' = English
         """
         super().__init__(parent)
 
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
-        self.setEnabled = enabled
-
         self.setClearButtonEnabled(True)
+        self.setEnabled = enabled
+        self.texts = texts
 
+        self.set_language(language) if self.texts is not None else None
+
+    def set_language(self, language: str) -> None:
+        """ Change language of button label """
+        if language == 'es':   self.setPlaceholderText(self.texts[0])
+        elif language == 'en': self.setPlaceholderText(self.texts[1])
 
 
 
