@@ -62,6 +62,5 @@ class UI_CheckBox(QCheckBox):
     
     def set_language(self, language: str) -> None:
         """ Change language of button label """
-        if self.labels is not None:
-            if language == 'es':   self.setText(self.labels[0])
-            elif language == 'en': self.setText(self.labels[1])
+        if language == 'es':   self.setText(self.labels[0])
+        elif language == 'en': self.setText(self.labels[1])
