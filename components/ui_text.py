@@ -44,6 +44,78 @@ class UI_TextBox(QLineEdit):
         elif language == 'en': self.setPlaceholderText(self.texts[1])
 
 
+class UI_PasswordBox(QLineEdit):
+    """ Password Box component """
+    def __init__(
+        self,
+        parent: QWidget,
+        position: tuple[int, int] = (8, 8),
+        width: int = 64,
+        texts: tuple[str, str] = None,
+        enabled: bool = True,
+        theme_style: bool = True,
+        language: str = 'es'
+    ):
+        """
+        Parameters
+        ----------
+            parent (QWidget): UI Parent object
+            position (tuple[int, int]): Text field top left corner position (x, y)
+            width (int): Text field width
+            texts (tuple[str, str]): Button texts (label_spanish, label_english)
+            enabled (bool): Check box enabled / disabled
+            theme_style (bool): App theme style name
+            language (str): App language
+                Options: 'es' = Español, 'en' = English
+        """
+        super().__init__(parent)
+
+        self.parent = parent
+        self.move(position[0], position[1])
+        self.resize(width, 40)
+        self.setClearButtonEnabled(True)
+        self.setEnabled = enabled
+        self.texts = texts
+
+        self.setEchoMode(QLineEdit.EchoMode.Password)
+        self.set_icon(theme_style)
+        self.toggle_password = self.addAction(self.visible_icon, QLineEdit.ActionPosition.TrailingPosition)
+        self.toggle_password.triggered.connect(self.password_action)
+        self.toggle_password_state = False
+
+        self.set_language(language) if self.texts is not None else None
+    
+    def set_icon(self, theme_style: bool) -> None:
+        """ Change button icon """
+        color = 'black' if theme_style else 'white'
+        self.visible_icon = icon_color(color, 'eye')
+        self.hidden_icon = icon_color(color, 'eye_off')
+
+    def password_action(self) -> None:
+        if not self.toggle_password_state:
+            self.setEchoMode(QLineEdit.EchoMode.Normal)
+            self.toggle_password_state = True
+            self.toggle_password.setIcon(self.hidden_icon)
+        else:
+            self.setEchoMode(QLineEdit.EchoMode.Password)
+            self.toggle_password_state = False
+            self.toggle_password.setIcon(self.visible_icon)
+
+    def set_language(self, language: str) -> None:
+        """ Change language of button label """
+        if language == 'es':   self.setPlaceholderText(self.texts[0])
+        elif language == 'en': self.setPlaceholderText(self.texts[1])
+
+
+
+
+
+
+
+
+
+
+
 
 
 
