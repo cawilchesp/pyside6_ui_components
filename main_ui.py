@@ -10,7 +10,7 @@ from components.ui_radiobutton import UI_RadioButton
 from components.ui_slider import UI_Slider
 from components.ui_switch import UI_Switch
 
-from components.ui_text import UI_TextBox
+from components.ui_text import UI_TextBox, UI_PasswordBox
 
 from components.md3_chip import MD3Chip
 from components.md3_datepicker import MD3DatePicker
@@ -437,8 +437,18 @@ class Main_UI(QWidget):
         self.gui_widgets['text_1_textbox'] = UI_TextBox(
             parent=self.gui_widgets['card_card'],
             position=(656, 104),
+            width=150,
             texts=('Opción', 'Option'),
-            width=100
+            language=self.language_value
+        )
+
+        self.gui_widgets['text_2_passwordbox'] = UI_PasswordBox(
+            parent=self.gui_widgets['card_card'],
+            position=(656, 144),
+            width=150,
+            texts=('Ingrese la contraseña', 'Enter your password'),
+            theme_style=self.theme_style,
+            language=self.language_value
         )
 
         # self.gui_widgets['test2_textfield'] = MD3TextField(
