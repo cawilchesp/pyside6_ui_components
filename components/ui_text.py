@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QFrame, QLineEdit, QLabel, QWidget
-from PySide6.QtGui import QFont, QRegularExpressionValidator
+from PySide6.QtGui import QFont, QIcon, QRegularExpressionValidator
 from PySide6.QtCore import QRegularExpression, Qt
 
 from icon_color import icon_color
@@ -76,13 +76,12 @@ class UI_PasswordBox(QLineEdit):
         self.setClearButtonEnabled(True)
         self.setEnabled = enabled
         self.texts = texts
-        self.toggle_password_state = False
+        self.password_visible = False
 
-        self.setEchoMode(QLineEdit.EchoMode.Password)
-        self.set_icon(theme_style)
-        self.toggle_password = self.addAction(self.visible_icon, QLineEdit.ActionPosition.TrailingPosition)
+        self.toggle_password = self.addAction(QIcon('icons/none.png'), QLineEdit.ActionPosition.TrailingPosition)
         self.toggle_password.triggered.connect(self.password_action)
-
+        
+        self.set_icon(theme_style)
         self.set_language(language) if self.texts is not None else None
     
     def set_icon(self, theme_style: bool) -> None:
@@ -90,19 +89,18 @@ class UI_PasswordBox(QLineEdit):
         color = 'black' if theme_style else 'white'
         self.visible_icon = icon_color(color, 'eye')
         self.hidden_icon = icon_color(color, 'eye_off')
-        if self.toggle_password_state:
+        if self.password_visible:
             self.toggle_password.setIcon(self.visible_icon)
         else:
             self.toggle_password.setIcon(self.hidden_icon)
 
     def password_action(self) -> None:
-        if self.toggle_password_state:
-            self.setEchoMode(QLineEdit.EchoMode.Password)
-            self.toggle_password_state = False
+        self.password_visible = not self.password_visible
+        if self.password_visible:
+            self.setEchoMode(QLineEdit.EchoMode.Normal)
             self.toggle_password.setIcon(self.visible_icon)
         else:
-            self.setEchoMode(QLineEdit.EchoMode.Normal)
-            self.toggle_password_state = True
+            self.setEchoMode(QLineEdit.EchoMode.Password)
             self.toggle_password.setIcon(self.hidden_icon)
 
     def set_language(self, language: str) -> None:
