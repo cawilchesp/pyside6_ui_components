@@ -10,6 +10,8 @@ from components.ui_checkbox import UI_CheckBox
 from components.ui_radiobutton import UI_RadioButton
 from components.ui_switch import UI_Switch
 
+from components.ui_text import UI_TextBox, UI_PasswordBox
+
 from icon_color import icon_color
 
 import sys
@@ -66,6 +68,8 @@ class MainWindow(QMainWindow):
                 self.ui.gui_widgets[key].set_icon(state) if self.ui.gui_widgets[key].icon_name is not None else None
             if isinstance(self.ui.gui_widgets[key], UI_Switch):
                 self.ui.gui_widgets[key].set_state(self.ui.gui_widgets[key].state, state)
+            if isinstance(self.ui.gui_widgets[key], UI_PasswordBox):
+                self.ui.gui_widgets[key].set_icon(state)
                 
         self.ui.gui_widgets['theme_button'].set_state(state)
 
