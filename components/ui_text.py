@@ -76,12 +76,12 @@ class UI_PasswordBox(QLineEdit):
         self.setClearButtonEnabled(True)
         self.setEnabled = enabled
         self.texts = texts
+        self.toggle_password_state = False
 
         self.setEchoMode(QLineEdit.EchoMode.Password)
         self.set_icon(theme_style)
         self.toggle_password = self.addAction(self.visible_icon, QLineEdit.ActionPosition.TrailingPosition)
         self.toggle_password.triggered.connect(self.password_action)
-        self.toggle_password_state = False
 
         self.set_language(language) if self.texts is not None else None
     
@@ -90,16 +90,20 @@ class UI_PasswordBox(QLineEdit):
         color = 'black' if theme_style else 'white'
         self.visible_icon = icon_color(color, 'eye')
         self.hidden_icon = icon_color(color, 'eye_off')
+        if self.toggle_password_state:
+            self.toggle_password.setIcon(self.visible_icon)
+        else:
+            self.toggle_password.setIcon(self.hidden_icon)
 
     def password_action(self) -> None:
-        if not self.toggle_password_state:
-            self.setEchoMode(QLineEdit.EchoMode.Normal)
-            self.toggle_password_state = True
-            self.toggle_password.setIcon(self.hidden_icon)
-        else:
+        if self.toggle_password_state:
             self.setEchoMode(QLineEdit.EchoMode.Password)
             self.toggle_password_state = False
             self.toggle_password.setIcon(self.visible_icon)
+        else:
+            self.setEchoMode(QLineEdit.EchoMode.Normal)
+            self.toggle_password_state = True
+            self.toggle_password.setIcon(self.hidden_icon)
 
     def set_language(self, language: str) -> None:
         """ Change language of button label """
