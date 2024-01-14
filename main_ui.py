@@ -437,7 +437,7 @@ class Main_UI(QWidget):
         self.gui_widgets['text_1_textbox'] = UI_TextBox(
             parent=self.gui_widgets['card_card'],
             position=(656, 104),
-            width=150,
+            width=170,
             texts=('Opción', 'Option'),
             language=self.language_value
         )
@@ -445,7 +445,7 @@ class Main_UI(QWidget):
         self.gui_widgets['text_2_passwordbox'] = UI_PasswordBox(
             parent=self.gui_widgets['card_card'],
             position=(656, 144),
-            width=150,
+            width=170,
             texts=('Ingrese la contraseña', 'Enter your password'),
             theme_style=self.theme_style,
             language=self.language_value
