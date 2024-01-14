@@ -407,6 +407,20 @@ UI_TextBox:!focus {
     border-bottom-color: hsl(0, 0%, 60%);
 }
 
+UI_PasswordBox {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: hsl(200, 100%, 50%);
+    border-radius: 4px;
+    padding-left: 10px;
+    background-color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 98%);
+    margin: 4px;
+}
+UI_PasswordBox:!focus {
+    border-bottom-color: hsl(0, 0%, 60%);
+}
+
 
 
 
