@@ -109,10 +109,58 @@ class UI_PasswordBox(QLineEdit):
         elif language == 'en': self.setPlaceholderText(self.texts[1])
 
 
+class UI_IntegerBox(QLineEdit):
+    """ Password Box component """
+    def __init__(
+        self,
+        parent: QWidget,
+        position: tuple[int, int] = (8, 8),
+        width: int = 64,
+        texts: tuple[str, str] = None,
+        enabled: bool = True,
+        theme_style: bool = True,
+        language: str = 'es'
+    ):
+        """
+        Parameters
+        ----------
+            parent (QWidget): UI Parent object
+            position (tuple[int, int]): Text field top left corner position (x, y)
+            width (int): Text field width
+            texts (tuple[str, str]): Button texts (label_spanish, label_english)
+            enabled (bool): Check box enabled / disabled
+            theme_style (bool): App theme style name
+            language (str): App language
+                Options: 'es' = Español, 'en' = English
+        """
+        super().__init__(parent)
 
 
-
-
+class UI_FloatBox(QLineEdit):
+    """ Password Box component """
+    def __init__(
+        self,
+        parent: QWidget,
+        position: tuple[int, int] = (8, 8),
+        width: int = 64,
+        texts: tuple[str, str] = None,
+        enabled: bool = True,
+        theme_style: bool = True,
+        language: str = 'es'
+    ):
+        """
+        Parameters
+        ----------
+            parent (QWidget): UI Parent object
+            position (tuple[int, int]): Text field top left corner position (x, y)
+            width (int): Text field width
+            texts (tuple[str, str]): Button texts (label_spanish, label_english)
+            enabled (bool): Check box enabled / disabled
+            theme_style (bool): App theme style name
+            language (str): App language
+                Options: 'es' = Español, 'en' = English
+        """
+        super().__init__(parent)
 
 
 
@@ -162,7 +210,6 @@ class MD3TextField(QFrame):
                     'height_us': number in format [ft]'[in]" (ex. 5'12")
                     'email':     text in email format
                     'ip':        numbers in ip format (0.0.0.0 - 255.255.255.255)
-                    'password':  any character with visible/hidden icon
             length (int): Number of characters allowed
             labels (tuple[str, str]): Text field labels (label_spanish, label_english)
             enabled (bool): Button enabled / disabled
