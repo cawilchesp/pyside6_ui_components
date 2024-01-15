@@ -10,7 +10,7 @@ from components.ui_radiobutton import UI_RadioButton
 from components.ui_slider import UI_Slider
 from components.ui_switch import UI_Switch
 
-from components.ui_text import UI_TextBox, UI_PasswordBox
+from components.ui_text import UI_TextBox, UI_PasswordBox, UI_EmailBox
 
 from components.md3_chip import MD3Chip
 from components.md3_datepicker import MD3DatePicker
@@ -447,8 +447,14 @@ class Main_UI(QWidget):
             parent=self.gui_widgets['card_card'],
             position=(656, 144),
             width=170,
-            placeholder_texts=('Ingrese la contraseña', 'Enter your password'),
             theme_style=self.theme_style,
+            language=self.language_value
+        )
+
+        self.gui_widgets['text_3_emailbox'] = UI_EmailBox(
+            parent=self.gui_widgets['card_card'],
+            position=(656, 184),
+            width=170,
             language=self.language_value
         )
 
