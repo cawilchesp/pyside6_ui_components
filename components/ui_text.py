@@ -12,7 +12,8 @@ class UI_TextBox(QLineEdit):
         parent: QWidget,
         position: tuple[int, int] = (8, 8),
         width: int = 64,
-        texts: tuple[str, str] = None,
+        placeholder_texts: tuple[str, str] = None,
+        max_length: int = 32767,
         enabled: bool = True,
         language: str = 'es'
     ):
@@ -20,10 +21,11 @@ class UI_TextBox(QLineEdit):
         Parameters
         ----------
             parent (QWidget): UI Parent object
-            position (tuple[int, int]): Text field top left corner position (x, y)
-            width (int): Text field width
-            texts (tuple[str, str]): Button texts (label_spanish, label_english)
-            enabled (bool): Check box enabled / disabled
+            position (tuple[int, int]): Text box top left corner position (x, y)
+            width (int): Text box width
+            placeholder_texts (tuple[str, str]): Text box placeholder texts (text_spanish, text_english)
+            max_length (int): Number of characters allowed
+            enabled (bool): Text box enabled / disabled
             language (str): App language
                 Options: 'es' = Español, 'en' = English
         """
@@ -33,15 +35,16 @@ class UI_TextBox(QLineEdit):
         self.move(position[0], position[1])
         self.resize(width, 40)
         self.setClearButtonEnabled(True)
+        self.setMaxLength(max_length)
         self.setEnabled = enabled
-        self.texts = texts
+        self.placeholder_texts = placeholder_texts
 
-        self.set_language(language) if self.texts is not None else None
+        self.set_language(language) if self.placeholder_texts is not None else None
 
     def set_language(self, language: str) -> None:
         """ Change language of button label """
-        if language == 'es':   self.setPlaceholderText(self.texts[0])
-        elif language == 'en': self.setPlaceholderText(self.texts[1])
+        if language == 'es':   self.setPlaceholderText(self.placeholder_texts[0])
+        elif language == 'en': self.setPlaceholderText(self.placeholder_texts[1])
 
 
 class UI_PasswordBox(QLineEdit):
@@ -51,7 +54,8 @@ class UI_PasswordBox(QLineEdit):
         parent: QWidget,
         position: tuple[int, int] = (8, 8),
         width: int = 64,
-        texts: tuple[str, str] = None,
+        placeholder_texts: tuple[str, str] = None,
+        max_length: int = 32767,
         enabled: bool = True,
         theme_style: bool = True,
         language: str = 'es'
@@ -60,10 +64,11 @@ class UI_PasswordBox(QLineEdit):
         Parameters
         ----------
             parent (QWidget): UI Parent object
-            position (tuple[int, int]): Text field top left corner position (x, y)
-            width (int): Text field width
-            texts (tuple[str, str]): Button texts (label_spanish, label_english)
-            enabled (bool): Check box enabled / disabled
+            position (tuple[int, int]): Password box top left corner position (x, y)
+            width (int): Password box width
+            placeholder_texts (tuple[str, str]): Password box placeholder texts (text_spanish, text_english)
+            max_length (int): Number of characters allowed
+            enabled (bool): Password box enabled / disabled
             theme_style (bool): App theme style name
             language (str): App language
                 Options: 'es' = Español, 'en' = English
@@ -74,15 +79,17 @@ class UI_PasswordBox(QLineEdit):
         self.move(position[0], position[1])
         self.resize(width, 40)
         self.setClearButtonEnabled(True)
+        self.setMaxLength(max_length)
         self.setEnabled = enabled
-        self.texts = texts
+        self.placeholder_texts = placeholder_texts
         self.password_visible = False
+        self.setEchoMode(QLineEdit.EchoMode.Password)
 
         self.toggle_password = self.addAction(QIcon('icons/none.png'), QLineEdit.ActionPosition.TrailingPosition)
         self.toggle_password.triggered.connect(self.password_action)
         
         self.set_icon(theme_style)
-        self.set_language(language) if self.texts is not None else None
+        self.set_language(language) if self.placeholder_texts is not None else None
     
     def set_icon(self, theme_style: bool) -> None:
         """ Change button icon """
@@ -105,8 +112,8 @@ class UI_PasswordBox(QLineEdit):
 
     def set_language(self, language: str) -> None:
         """ Change language of button label """
-        if language == 'es':   self.setPlaceholderText(self.texts[0])
-        elif language == 'en': self.setPlaceholderText(self.texts[1])
+        if language == 'es':   self.setPlaceholderText(self.placeholder_texts[0])
+        elif language == 'en': self.setPlaceholderText(self.placeholder_texts[1])
 
 
 class UI_IntegerBox(QLineEdit):
@@ -161,6 +168,22 @@ class UI_FloatBox(QLineEdit):
                 Options: 'es' = Español, 'en' = English
         """
         super().__init__(parent)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
