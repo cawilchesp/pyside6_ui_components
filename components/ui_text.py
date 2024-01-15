@@ -13,6 +13,7 @@ class UI_TextBox(QLineEdit):
         position: tuple[int, int] = (8, 8),
         width: int = 64,
         placeholder_texts: tuple[str, str] = None,
+        input: str = None,
         max_length: int = 32767,
         enabled: bool = True,
         language: str = 'es'
@@ -24,6 +25,11 @@ class UI_TextBox(QLineEdit):
             position (tuple[int, int]): Text box top left corner position (x, y)
             width (int): Text box width
             placeholder_texts (tuple[str, str]): Text box placeholder texts (text_spanish, text_english)
+            input (str): Characters allowed
+                Options:
+                    'alphabet': letters and accents
+                    'numeric': numbers
+                    'alphanumeric': letters and numbers
             max_length (int): Number of characters allowed
             enabled (bool): Text box enabled / disabled
             language (str): App language
@@ -38,6 +44,16 @@ class UI_TextBox(QLineEdit):
         self.setMaxLength(max_length)
         self.setEnabled = enabled
         self.placeholder_texts = placeholder_texts
+
+        patterns_dict = {
+            'alphabet': r"[\p{L}\s]+",
+            'numeric': r"[+-]?\d+",
+            'alphanumeric': r"[\p{L}\s\d]+"
+        }
+        if input is not None:
+            input_pattern = patterns_dict[input]
+            reg_exp = QRegularExpressionValidator(QRegularExpression(input_pattern))
+            self.setValidator(reg_exp)
 
         self.set_language(language) if self.placeholder_texts is not None else None
 
@@ -116,58 +132,7 @@ class UI_PasswordBox(QLineEdit):
         elif language == 'en': self.setPlaceholderText(self.placeholder_texts[1])
 
 
-class UI_IntegerBox(QLineEdit):
-    """ Password Box component """
-    def __init__(
-        self,
-        parent: QWidget,
-        position: tuple[int, int] = (8, 8),
-        width: int = 64,
-        texts: tuple[str, str] = None,
-        enabled: bool = True,
-        theme_style: bool = True,
-        language: str = 'es'
-    ):
-        """
-        Parameters
-        ----------
-            parent (QWidget): UI Parent object
-            position (tuple[int, int]): Text field top left corner position (x, y)
-            width (int): Text field width
-            texts (tuple[str, str]): Button texts (label_spanish, label_english)
-            enabled (bool): Check box enabled / disabled
-            theme_style (bool): App theme style name
-            language (str): App language
-                Options: 'es' = Español, 'en' = English
-        """
-        super().__init__(parent)
 
-
-class UI_FloatBox(QLineEdit):
-    """ Password Box component """
-    def __init__(
-        self,
-        parent: QWidget,
-        position: tuple[int, int] = (8, 8),
-        width: int = 64,
-        texts: tuple[str, str] = None,
-        enabled: bool = True,
-        theme_style: bool = True,
-        language: str = 'es'
-    ):
-        """
-        Parameters
-        ----------
-            parent (QWidget): UI Parent object
-            position (tuple[int, int]): Text field top left corner position (x, y)
-            width (int): Text field width
-            texts (tuple[str, str]): Button texts (label_spanish, label_english)
-            enabled (bool): Check box enabled / disabled
-            theme_style (bool): App theme style name
-            language (str): App language
-                Options: 'es' = Español, 'en' = English
-        """
-        super().__init__(parent)
 
 
 
