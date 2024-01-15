@@ -70,7 +70,6 @@ class UI_PasswordBox(QLineEdit):
         parent: QWidget,
         position: tuple[int, int] = (8, 8),
         width: int = 64,
-        placeholder_texts: tuple[str, str] = None,
         max_length: int = 32767,
         enabled: bool = True,
         theme_style: bool = True,
@@ -82,7 +81,6 @@ class UI_PasswordBox(QLineEdit):
             parent (QWidget): UI Parent object
             position (tuple[int, int]): Password box top left corner position (x, y)
             width (int): Password box width
-            placeholder_texts (tuple[str, str]): Password box placeholder texts (text_spanish, text_english)
             max_length (int): Number of characters allowed
             enabled (bool): Password box enabled / disabled
             theme_style (bool): App theme style name
@@ -97,7 +95,7 @@ class UI_PasswordBox(QLineEdit):
         self.setClearButtonEnabled(True)
         self.setMaxLength(max_length)
         self.setEnabled = enabled
-        self.placeholder_texts = placeholder_texts
+        self.placeholder_texts = ('Ingrese la contraseña', 'Enter your password')
         self.password_visible = False
         self.setEchoMode(QLineEdit.EchoMode.Password)
 
@@ -132,6 +130,48 @@ class UI_PasswordBox(QLineEdit):
         elif language == 'en': self.setPlaceholderText(self.placeholder_texts[1])
 
 
+class UI_EmailBox(QLineEdit):
+    """ Text Box component """
+    def __init__(
+        self,
+        parent: QWidget,
+        position: tuple[int, int] = (8, 8),
+        width: int = 64,
+        max_length: int = 32767,
+        enabled: bool = True,
+        language: str = 'es'
+    ):
+        """
+        Parameters
+        ----------
+            parent (QWidget): UI Parent object
+            position (tuple[int, int]): Text box top left corner position (x, y)
+            width (int): Text box width
+            max_length (int): Number of characters allowed
+            enabled (bool): Text box enabled / disabled
+            language (str): App language
+                Options: 'es' = Español, 'en' = English
+        """
+        super().__init__(parent)
+
+        self.parent = parent
+        self.move(position[0], position[1])
+        self.resize(width, 40)
+        self.setClearButtonEnabled(True)
+        self.setMaxLength(max_length)
+        self.setEnabled = enabled
+        self.placeholder_texts = ('Correo electrónico', 'E-mail')
+
+        input_pattern = r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+"
+        reg_exp = QRegularExpressionValidator(QRegularExpression(input_pattern))
+        self.setValidator(reg_exp)
+
+        self.set_language(language) if self.placeholder_texts is not None else None
+
+    def set_language(self, language: str) -> None:
+        """ Change language of button label """
+        if language == 'es':   self.setPlaceholderText(self.placeholder_texts[0])
+        elif language == 'en': self.setPlaceholderText(self.placeholder_texts[1])
 
 
 
