@@ -438,6 +438,7 @@ class Main_UI(QWidget):
             parent=self.gui_widgets['card_card'],
             position=(656, 104),
             width=170,
+            input='alphanumeric',
             placeholder_texts=('Opción', 'Option'),
             language=self.language_value
         )
