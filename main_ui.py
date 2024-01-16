@@ -11,13 +11,13 @@ from components.ui_slider import UI_Slider
 from components.ui_switch import UI_Switch
 
 from components.ui_text import UI_TextBox, UI_PasswordBox, UI_EmailBox, UI_IpAddressBox
+from components.ui_numberbox import UI_NumberBox
 
 from components.md3_chip import MD3Chip
 from components.md3_datepicker import MD3DatePicker
 from components.md3_divider import MD3Divider
 from components.md3_imagelabel import MD3ImageLabel
 from components.md3_segmentedbutton import MD3SegmentedButton
-from components.ui_text import MD3TextField
 
 import yaml
 
@@ -465,48 +465,25 @@ class Main_UI(QWidget):
             language=self.language_value
         )
 
-        # self.gui_widgets['test2_textfield'] = MD3TextField(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(136, 168),
-        #     width=120,
-        #     length=9,
-        #     type='filled',
-        #     labels=('Cuadro', 'Frame'),
-        #     input='integer',
-        #     theme_color=self.theme_color,
-        #     language=self.language_value
-        # )
-        
-        # self.gui_widgets['test3_textfield'] = MD3TextField(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(264, 168),
-        #     width=120,
-        #     length=9,
-        #     type='filled',
-        #     labels=('Cuadro', 'Frame'),
-        #     input='password',
-        #     theme_color=self.theme_color,
-        #     language=self.language_value
-        # )
-        
-        # self.gui_widgets['test4_textfield'] = MD3TextField(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(392, 168),
-        #     width=120,
-        #     length=9,
-        #     type='filled',
-        #     labels=('Cuadro', 'Frame'),
-        #     input='text',
-        #     theme_color=self.theme_color,
-        #     language=self.language_value
-        # )
+        # ------------
+        # Number Boxes
+        # ------------
+        self.gui_widgets['numberbox_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(660, 264),
+            width=170,
+            align='left',
+            font_size=16,
+            texts=('Cuadros de Números', 'Number Boxes'),
+            language=self.language_value
+        )
 
 
-
-
-
-
-
+        self.gui_widgets['integer_1_numberbox'] = UI_NumberBox(
+            parent=self.gui_widgets['card_card'],
+            position=(660, 304),
+            width=170,
+        )
 
 
 
