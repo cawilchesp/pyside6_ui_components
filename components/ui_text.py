@@ -1,6 +1,6 @@
-from PySide6.QtWidgets import QFrame, QLineEdit, QLabel, QWidget
-from PySide6.QtGui import QFont, QIcon, QRegularExpressionValidator
-from PySide6.QtCore import QRegularExpression, Qt
+from PySide6.QtWidgets import QLineEdit, QWidget
+from PySide6.QtGui import QIcon, QRegularExpressionValidator
+from PySide6.QtCore import QRegularExpression
 
 from icon_color import icon_color
 
@@ -131,7 +131,7 @@ class UI_PasswordBox(QLineEdit):
 
 
 class UI_EmailBox(QLineEdit):
-    """ Text Box component """
+    """ Email Box component """
     def __init__(
         self,
         parent: QWidget,
@@ -175,7 +175,7 @@ class UI_EmailBox(QLineEdit):
 
 
 class UI_IpAddressBox(QLineEdit):
-    """ Text Box component """
+    """ IP Address Box component """
     def __init__(
         self,
         parent: QWidget,
