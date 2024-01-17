@@ -444,9 +444,47 @@ UI_NumberBox {
     border-bottom-color: hsl(200, 100%, 50%);
     border-radius: 4px;
     padding-left: 10px;
+    padding-right: 40px;
     background-color: hsl(0, 0%, 93%);
     color: hsl(0, 0%, 13%);
     margin: 4px;
+}
+UI_NumberBox:!focus {
+    border-bottom-color: hsl(0, 0%, 60%);
+}
+UI_NumberBox::up-button {
+    border-radius: 4px;
+    subcontrol-origin: border;
+    subcontrol-position: center right;
+    width: 32px;
+    height: 22px;
+    right: 36px;
+    background-color: transparent
+}
+UI_NumberBox::up-button:hover {
+    background-color: hsl(0, 0%, 85%)
+}
+UI_NumberBox::up-arrow {
+    width: 16px;
+    height: 16px;
+    image: url(icons/chevron_up_black.png)
+}
+UI_NumberBox::down-button {
+    border-radius: 4px;
+    subcontrol-origin: border;
+    subcontrol-position: center right;
+    width: 32px;
+    height: 22px;
+    right: 4px;
+    background-color: transparent
+}
+UI_NumberBox::down-button:hover {
+    background-color: hsl(0, 0%, 85%)
+}
+UI_NumberBox::down-arrow {
+    width: 16px;
+    height: 16px;
+    image: url(icons/chevron_down_black.png)
 }
 
 UI_FloatBox {
@@ -455,9 +493,47 @@ UI_FloatBox {
     border-bottom-color: hsl(200, 100%, 50%);
     border-radius: 4px;
     padding-left: 10px;
+    padding-right: 40px;
     background-color: hsl(0, 0%, 93%);
     color: hsl(0, 0%, 13%);
     margin: 4px;
+}
+UI_FloatBox:!focus {
+    border-bottom-color: hsl(0, 0%, 60%);
+}
+UI_FloatBox::up-button {
+    border-radius: 4px;
+    subcontrol-origin: border;
+    subcontrol-position: center right;
+    width: 32px;
+    height: 22px;
+    right: 36px;
+    background-color: transparent
+}
+UI_FloatBox::up-button:hover {
+    background-color: hsl(0, 0%, 85%)
+}
+UI_FloatBox::up-arrow {
+    width: 16px;
+    height: 16px;
+    image: url(icons/chevron_up_black.png)
+}
+UI_FloatBox::down-button {
+    border-radius: 4px;
+    subcontrol-origin: border;
+    subcontrol-position: center right;
+    width: 32px;
+    height: 22px;
+    right: 4px;
+    background-color: transparent
+}
+UI_FloatBox::down-button:hover {
+    background-color: hsl(0, 0%, 85%)
+}
+UI_FloatBox::down-arrow {
+    width: 16px;
+    height: 16px;
+    image: url(icons/chevron_down_black.png)
 }
 
 
