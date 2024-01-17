@@ -482,6 +482,8 @@ class Main_UI(QWidget):
             parent=self.gui_widgets['card_card'],
             position=(660, 304),
             width=170,
+            range=(0,1000,100000),
+            value=1000
         )
 
         self.gui_widgets['float_1_numberbox'] = UI_FloatBox(
