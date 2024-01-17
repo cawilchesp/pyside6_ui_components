@@ -478,7 +478,6 @@ class Main_UI(QWidget):
             language=self.language_value
         )
 
-
         self.gui_widgets['integer_1_numberbox'] = UI_NumberBox(
             parent=self.gui_widgets['card_card'],
             position=(660, 304),
