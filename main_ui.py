@@ -11,7 +11,7 @@ from components.ui_slider import UI_Slider
 from components.ui_switch import UI_Switch
 
 from components.ui_text import UI_TextBox, UI_PasswordBox, UI_EmailBox, UI_IpAddressBox
-from components.ui_numberbox import UI_NumberBox
+from components.ui_numberbox import UI_NumberBox, UI_FloatBox
 
 from components.md3_chip import MD3Chip
 from components.md3_datepicker import MD3DatePicker
@@ -483,6 +483,13 @@ class Main_UI(QWidget):
             position=(660, 304),
             width=170,
         )
+
+        self.gui_widgets['float_1_numberbox'] = UI_FloatBox(
+            parent=self.gui_widgets['card_card'],
+            position=(660, 344),
+            width=170,
+        )
+
 
 
 
