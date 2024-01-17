@@ -437,7 +437,17 @@ UI_IpAddressBox:!focus {
     border-bottom-color: hsl(0, 0%, 60%);
 }
 
-
+/* Number Boxes */
+UI_NumberBox {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: hsl(200, 100%, 50%);
+    border-radius: 4px;
+    padding-left: 10px;
+    background-color: hsl(0, 0%, 93%);
+    color: hsl(0, 0%, 13%);
+    margin: 4px;
+}
 
 
 
