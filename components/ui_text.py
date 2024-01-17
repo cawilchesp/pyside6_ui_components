@@ -42,7 +42,7 @@ class UI_TextBox(QLineEdit):
         self.resize(width, 40)
         self.setClearButtonEnabled(True)
         self.setMaxLength(max_length)
-        self.setEnabled = enabled
+        self.setEnabled(enabled)
         self.placeholder_texts = placeholder_texts
 
         patterns_dict = {
@@ -94,7 +94,7 @@ class UI_PasswordBox(QLineEdit):
         self.resize(width, 40)
         self.setClearButtonEnabled(True)
         self.setMaxLength(max_length)
-        self.setEnabled = enabled
+        self.setEnabled(enabled)
         self.placeholder_texts = ('Ingrese la contraseña', 'Enter your password')
         self.password_visible = False
         self.setEchoMode(QLineEdit.EchoMode.Password)
@@ -159,7 +159,7 @@ class UI_EmailBox(QLineEdit):
         self.resize(width, 40)
         self.setClearButtonEnabled(True)
         self.setMaxLength(max_length)
-        self.setEnabled = enabled
+        self.setEnabled(enabled)
         self.placeholder_texts = ('Correo electrónico', 'E-mail')
 
         input_pattern = r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+"
@@ -203,7 +203,7 @@ class UI_IpAddressBox(QLineEdit):
         self.resize(width, 40)
         self.setClearButtonEnabled(True)
         self.setMaxLength(max_length)
-        self.setEnabled = enabled
+        self.setEnabled(enabled)
         self.placeholder_texts = ('Dirección IP', 'IP Address')
 
         input_pattern = r"(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
