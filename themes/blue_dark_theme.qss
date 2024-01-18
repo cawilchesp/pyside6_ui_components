@@ -549,55 +549,38 @@ UI_FloatBox::down-arrow {
     image: url(icons/chevron_down_white.png)
 }
 
-/* Date Picker */
-MD3DatePicker {
-    border: 0px solid; 
-    border-radius: 4; 
+/* Date Pickers */
+UI_DateEdit {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: hsl(200, 100%, 50%);
+    border-radius: 4px;
+    padding-left: 10px;
+    background-color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 98%);
+    margin: 4px;
+}
+UI_DateEdit:!focus {
+    border-bottom-color: hsl(0, 0%, 60%);
+}
+/* UI_DateEdit:disabled {
+    background-color: hsl(0, 0%, 71%);
+    color: hsl(0, 0%, 29%)
+} */
+UI_DateEdit::drop-down {
+    border-radius: 4px;
+    subcontrol-origin: border;
+    subcontrol-position: center right;
+    width: 32px;
+    height: 22px;
+    right: 4px;
     background-color: transparent
 }
-MD3DatePicker:disabled {
-    background-color: hsl(0, 0%, 71%);
-    color: hsl(0, 0%, 29%)
-}
-MD3DatePicker QDateEdit {
-    border: 1px solid hsl(204, 86%, 53%);
-    border-radius: 4;
-    padding: 0 8 0 8;
-    background-color: transparent;
-    color: hsl(204, 86%, 53%)
-}
-MD3DatePicker QDateEdit:disabled {
-    background-color: hsl(0, 0%, 71%);
-    color: hsl(0, 0%, 29%)
-}
-MD3DatePicker QDateEdit::drop-down {
-    background-color: hsl(204, 86%, 53%);
-    width: 32; 
-    height: 32; 
-    subcontrol-position: center right; 
-    left: -4;
-    border-radius: 16
-}
-MD3DatePicker QDateEdit::down-arrow {
-    image: url(icons/calendar.png);
+UI_DateEdit::down-arrow {
+    image: url(icons/calendar_white.png);
     width: 16;
     height: 16
 }
-MD3DatePicker QLabel {
-    border: 0px solid;
-    color: hsl(204, 86%, 53%)
-}
-MD3DatePicker[filled=true] QLabel {
-    background-color: hsl(204, 86%, 20%);
-}
-MD3DatePicker[outlined=true] QLabel {
-    background-color: hsl(204, 86%, 10%);
-}
-MD3DatePicker QLabel:disabled {
-    background-color: hsl(0, 0%, 71%);
-    color: hsl(0, 0%, 29%)
-}
-
 
 
 
