@@ -12,7 +12,7 @@ from components.ui_switch import UI_Switch
 
 from components.ui_text import UI_TextBox, UI_PasswordBox, UI_EmailBox, UI_IpAddressBox
 from components.ui_numberbox import UI_NumberBox, UI_FloatBox
-from components.ui_datepicker import UI_DatePicker
+from components.ui_datepicker import UI_DateEdit
 
 from components.md3_chip import MD3Chip
 from components.md3_divider import MD3Divider
@@ -505,12 +505,10 @@ class Main_UI(QWidget):
             language=self.language_value
         )
 
-        self.gui_widgets['test1_datepicker'] = UI_DatePicker(
+        self.gui_widgets['test1_datepicker'] = UI_DateEdit(
             parent=self.gui_widgets['card_card'],
             position=(660, 424),
-            width=120,
-            labels=('Fecha', 'Date'),
-            language=self.language_value
+            width=150
         )
 
 
