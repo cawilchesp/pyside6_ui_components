@@ -12,9 +12,9 @@ from components.ui_switch import UI_Switch
 
 from components.ui_text import UI_TextBox, UI_PasswordBox, UI_EmailBox, UI_IpAddressBox
 from components.ui_numberbox import UI_NumberBox, UI_FloatBox
+from components.ui_datepicker import UI_DatePicker
 
 from components.md3_chip import MD3Chip
-from components.md3_datepicker import MD3DatePicker
 from components.md3_divider import MD3Divider
 from components.md3_imagelabel import MD3ImageLabel
 from components.md3_segmentedbutton import MD3SegmentedButton
@@ -492,6 +492,26 @@ class Main_UI(QWidget):
             width=170,
         )
 
+        # -----------
+        # Date Picker
+        # -----------
+        self.gui_widgets['datepicker_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(660, 384),
+            width=170,
+            align='left',
+            font_size=16,
+            texts=('Selección de Fecha', 'Date Picker'),
+            language=self.language_value
+        )
+
+        self.gui_widgets['test1_datepicker'] = UI_DatePicker(
+            parent=self.gui_widgets['card_card'],
+            position=(660, 424),
+            width=120,
+            labels=('Fecha', 'Date'),
+            language=self.language_value
+        )
 
 
 
@@ -628,21 +648,6 @@ class Main_UI(QWidget):
         #     clicked_signal=parent.on_chip3_clicked
         # )
         
-        
-
-        
-
-        # # -----------
-        # # Date Picker
-        # # -----------
-        # self.gui_widgets['test1_date'] = MD3DatePicker(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(8, 228),
-        #     width=120,
-        #     type='filled',
-        #     labels=('Fecha', 'Date'),
-        #     language=self.language_value
-        # )
 
         # # ------
         # # Labels
