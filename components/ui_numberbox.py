@@ -1,7 +1,5 @@
 from PySide6.QtWidgets import QSpinBox, QDoubleSpinBox, QWidget
 
-from icon_color import icon_color
-
 
 class UI_NumberBox(QSpinBox):
     """ Number Box component """
