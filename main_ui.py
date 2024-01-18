@@ -480,7 +480,7 @@ class Main_UI(QWidget):
 
         self.gui_widgets['integer_1_numberbox'] = UI_NumberBox(
             parent=self.gui_widgets['card_card'],
-            position=(660, 304),
+            position=(656, 304),
             width=170,
             range=(0,1000,100000),
             value=1000
@@ -488,7 +488,7 @@ class Main_UI(QWidget):
 
         self.gui_widgets['float_1_numberbox'] = UI_FloatBox(
             parent=self.gui_widgets['card_card'],
-            position=(660, 344),
+            position=(656, 344),
             width=170,
         )
 
@@ -507,7 +507,7 @@ class Main_UI(QWidget):
 
         self.gui_widgets['test1_datepicker'] = UI_DateEdit(
             parent=self.gui_widgets['card_card'],
-            position=(660, 424),
+            position=(656, 424),
             width=150
         )
 
