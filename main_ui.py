@@ -208,184 +208,177 @@ class Main_UI(QWidget):
             clicked_signal=parent.dropdown_1_button_clicked
         )
 
-        # # -----------
-        # # Check Boxes
-        # # -----------
-        # self.gui_widgets['checkboxes_1_label'] = UI_Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(258, 64),
-        #     width=120,
-        #     align='left',
-        #     font_size=16,
-        #     texts=('Cajas de Selección', 'Check Boxes'),
-        #     language=self.language_value
-        # )
+        # -----------
+        # Check Boxes
+        # -----------
+        self.gui_widgets['checkboxes_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(258, 64),
+            width=120,
+            align='left',
+            font_size=16,
+            texts=('Cajas de Selección', 'Check Boxes'),
+            language=self.language_value
+        )
 
-        # self.gui_widgets['option_1_checkbox'] = UI_CheckBox(
-        #     parent=self.gui_widgets['card_card'],
-        #     state_changed_signal=parent.option_1_changed,
-        #     position=(254, 104),
-        #     width=150,
-        #     icon_name='bus',
-        #     labels=('Opción Bus', 'Option Bus'),
-        #     tristate=False,
-        #     state=0,
-        #     theme_style=self.theme_style,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['option_1_checkbox'] = UI_CheckBox(
+            parent=self.gui_widgets['card_card'],
+            state_changed_signal=parent.option_1_changed,
+            position=(254, 104),
+            width=150,
+            icon_name='Camera',
+            texts=('Opción Bus', 'Option Bus'),
+            tristate=False,
+            state=0,
+            language=self.language_value
+        )
 
-        # self.gui_widgets['option_2_checkbox'] = UI_CheckBox(
-        #     parent=self.gui_widgets['card_card'],
-        #     state_changed_signal=parent.option_2_changed,
-        #     position=(254, 144),
-        #     width=150,
-        #     icon_name='car',
-        #     tristate=True,
-        #     state=1,
-        #     theme_style=self.theme_style,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['option_2_checkbox'] = UI_CheckBox(
+            parent=self.gui_widgets['card_card'],
+            state_changed_signal=parent.option_2_changed,
+            position=(254, 144),
+            width=150,
+            icon_name='Flashlight',
+            tristate=True,
+            state=1,
+            language=self.language_value
+        )
 
-        # self.gui_widgets['option_3_checkbox'] = UI_CheckBox(
-        #     parent=self.gui_widgets['card_card'],
-        #     state_changed_signal=parent.option_3_changed,
-        #     position=(254, 184),
-        #     width=150,
-        #     labels=('Opción Camión', 'Option Truck'),
-        #     tristate=True,
-        #     state=2,
-        #     theme_style=self.theme_style,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['option_3_checkbox'] = UI_CheckBox(
+            parent=self.gui_widgets['card_card'],
+            state_changed_signal=parent.option_3_changed,
+            position=(254, 184),
+            width=150,
+            texts=('Opción Camión', 'Option Truck'),
+            tristate=True,
+            state=2,
+            language=self.language_value
+        )
 
-        # # -----------
-        # # Combo Boxes
-        # # -----------
-        # self.gui_widgets['combobox_1_label'] = UI_Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(258, 224),
-        #     width=140,
-        #     align='left',
-        #     font_size=16,
-        #     texts=('Cajas Combo', 'Combo Boxes'),
-        #     language=self.language_value
-        # )
+        # -----------
+        # Combo Boxes
+        # -----------
+        self.gui_widgets['combobox_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(258, 224),
+            width=140,
+            align='left',
+            font_size=16,
+            texts=('Cajas Combo', 'Combo Boxes'),
+            language=self.language_value
+        )
 
-        # self.gui_widgets['menu_1_combobox'] = UI_ComboBox(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(254, 264),
-        #     width=150,
-        #     texts=('Seleccione una opción', 'Select an option'),
-        #     options=self.test_options,
-        #     set=4,
-        #     editable=True,
-        #     language=self.language_value,
-        #     index_changed_signal=parent.menu_1_index_changed,
-        #     text_changed_signal=parent.menu_1_text_changed,
-        #     activated_signal=parent.menu_1_activated
-        # )
+        self.gui_widgets['menu_1_combobox'] = UI_ComboBox(
+            parent=self.gui_widgets['card_card'],
+            position=(254, 264),
+            width=150,
+            texts=('Seleccione una opción', 'Select an option'),
+            options=self.test_options,
+            set=4,
+            editable=True,
+            language=self.language_value,
+            index_changed_signal=parent.menu_1_index_changed,
+            text_changed_signal=parent.menu_1_text_changed,
+            activated_signal=parent.menu_1_activated
+        )
 
-        # self.gui_widgets['menu_1_combobox'] = UI_ComboBox(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(254, 304),
-        #     width=150,
-        #     texts=('Seleccione una opción', 'Select an option'),
-        #     options=self.test_options,
-        #     set=4,
-        #     editable=False,
-        #     language=self.language_value,
-        #     index_changed_signal=parent.menu_1_index_changed,
-        #     text_changed_signal=parent.menu_1_text_changed,
-        #     activated_signal=parent.menu_1_activated
-        # )
+        self.gui_widgets['menu_1_combobox'] = UI_ComboBox(
+            parent=self.gui_widgets['card_card'],
+            position=(254, 304),
+            width=150,
+            texts=('Seleccione una opción', 'Select an option'),
+            options=self.test_options,
+            set=4,
+            editable=False,
+            language=self.language_value,
+            index_changed_signal=parent.menu_1_index_changed,
+            text_changed_signal=parent.menu_1_text_changed,
+            activated_signal=parent.menu_1_activated
+        )
 
-        # # -------------
-        # # Radio Buttons
-        # # -------------
-        # self.gui_widgets['radiobuttons_1_label'] = UI_Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(258, 344),
-        #     width=140,
-        #     align='left',
-        #     font_size=16,
-        #     texts=('Botones Radio', 'Radio Buttons'),
-        #     language=self.language_value
-        # )
+        # -------------
+        # Radio Buttons
+        # -------------
+        self.gui_widgets['radiobuttons_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(258, 344),
+            width=140,
+            align='left',
+            font_size=16,
+            texts=('Botones Radio', 'Radio Buttons'),
+            language=self.language_value
+        )
 
-        # self.gui_widgets['radiobuttons_1_groupbox'] = QButtonGroup()
+        self.gui_widgets['radiobuttons_1_groupbox'] = QButtonGroup()
 
-        # self.gui_widgets['option_1_radiobutton'] = UI_RadioButton(
-        #     parent=self.gui_widgets['card_card'],
-        #     state_changed_signal=parent.option_1_changed,
-        #     position=(254, 384),
-        #     width=150,
-        #     icon_name='bus',
-        #     texts=('Opción Bus', 'Option Bus'),
-        #     state=0,
-        #     group=self.gui_widgets['radiobuttons_1_groupbox'],
-        #     theme_style=self.theme_style,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['option_1_radiobutton'] = UI_RadioButton(
+            parent=self.gui_widgets['card_card'],
+            state_changed_signal=parent.option_1_changed,
+            position=(254, 384),
+            width=150,
+            icon_name='InkingTool',
+            texts=('Opción Bus', 'Option Bus'),
+            state=0,
+            group=self.gui_widgets['radiobuttons_1_groupbox'],
+            language=self.language_value
+        )
 
-        # self.gui_widgets['option_2_radiobutton'] = UI_RadioButton(
-        #     parent=self.gui_widgets['card_card'],
-        #     state_changed_signal=parent.option_2_changed,
-        #     position=(254, 424),
-        #     width=150,
-        #     icon_name='none',
-        #     texts=('Opción Carro', 'Option Car'),
-        #     state=0,
-        #     group=self.gui_widgets['radiobuttons_1_groupbox'],
-        #     theme_style=self.theme_style,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['option_2_radiobutton'] = UI_RadioButton(
+            parent=self.gui_widgets['card_card'],
+            state_changed_signal=parent.option_2_changed,
+            position=(254, 424),
+            width=150,
+            texts=('Opción Carro', 'Option Car'),
+            state=0,
+            group=self.gui_widgets['radiobuttons_1_groupbox'],
+            language=self.language_value
+        )
 
-        # self.gui_widgets['option_3_radiobutton'] = UI_RadioButton(
-        #     parent=self.gui_widgets['card_card'],
-        #     state_changed_signal=parent.option_3_changed,
-        #     position=(254, 464),
-        #     width=150,
-        #     icon_name='bicycle',
-        #     texts=('Opción Bicicleta', 'Option Bicycle'),
-        #     state=0,
-        #     theme_style=self.theme_style,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['option_3_radiobutton'] = UI_RadioButton(
+            parent=self.gui_widgets['card_card'],
+            state_changed_signal=parent.option_3_changed,
+            position=(254, 464),
+            width=150,
+            icon_name='KeyboardClassic',
+            texts=('Opción Bicicleta', 'Option Bicycle'),
+            state=0,
+            language=self.language_value
+        )
 
-        # # ------
-        # # Slider
-        # # ------
-        # self.gui_widgets['sliders_1_label'] = UI_Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(444, 64),
-        #     width=100,
-        #     align='left',
-        #     font_size=16,
-        #     texts=('Deslizador', 'Slider'),
-        #     language=self.language_value
-        # )
+        # ------
+        # Slider
+        # ------
+        self.gui_widgets['sliders_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(444, 64),
+            width=100,
+            align='left',
+            font_size=16,
+            texts=('Deslizador', 'Slider'),
+            language=self.language_value
+        )
 
-        # self.gui_widgets['bar_1_slider'] = UI_Slider(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(440, 104),
-        #     length=200,
-        #     orientation='horizontal',
-        #     range=(0, 1, 100),
-        #     value=50,
-        #     slider_moved_signal=parent.bar_1_slider_sliderMoved,
-        #     slider_released_signal=parent.bar_1_slider_sliderReleased
-        # )
+        self.gui_widgets['bar_1_slider'] = UI_Slider(
+            parent=self.gui_widgets['card_card'],
+            position=(440, 104),
+            length=200,
+            orientation='horizontal',
+            range=(0, 1, 100),
+            value=50,
+            slider_moved_signal=parent.bar_1_slider_sliderMoved,
+            slider_released_signal=parent.bar_1_slider_sliderReleased
+        )
 
-        # self.gui_widgets['bar_2_slider'] = UI_Slider(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(440, 144),
-        #     length=200,
-        #     orientation='vertical',
-        #     range=(0, 1, 100),
-        #     value=50,
-        #     slider_moved_signal=parent.bar_1_slider_sliderMoved,
-        #     slider_released_signal=parent.bar_1_slider_sliderReleased
-        # )
+        self.gui_widgets['bar_2_slider'] = UI_Slider(
+            parent=self.gui_widgets['card_card'],
+            position=(440, 144),
+            length=200,
+            orientation='vertical',
+            range=(0, 1, 100),
+            value=50,
+            slider_moved_signal=parent.bar_1_slider_sliderMoved,
+            slider_released_signal=parent.bar_1_slider_sliderReleased
+        )
         
         # # -------------
         # # Toggle Switch
