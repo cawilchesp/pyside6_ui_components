@@ -569,6 +569,55 @@ UI_DateEdit::down-arrow {
     height: 16
 }
 
+UI_TimeEdit {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: hsl(200, 100%, 50%);
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 40px;
+    background-color: hsl(0, 0%, 93%);
+    color: hsl(0, 0%, 13%);
+    margin: 4px;
+}
+UI_TimeEdit:!focus {
+    border-bottom-color: hsl(0, 0%, 60%);
+}
+UI_TimeEdit::up-button {
+    border-radius: 4px;
+    subcontrol-origin: border;
+    subcontrol-position: center right;
+    width: 32px;
+    height: 22px;
+    right: 36px;
+    background-color: transparent
+}
+UI_TimeEdit::up-button:hover {
+    background-color: hsl(0, 0%, 85%)
+}
+UI_TimeEdit::up-arrow {
+    width: 16px;
+    height: 16px;
+    image: url(icons/chevron_up_black.png)
+}
+UI_TimeEdit::down-button {
+    border-radius: 4px;
+    subcontrol-origin: border;
+    subcontrol-position: center right;
+    width: 32px;
+    height: 22px;
+    right: 4px;
+    background-color: transparent
+}
+UI_TimeEdit::down-button:hover {
+    background-color: hsl(0, 0%, 85%)
+}
+UI_TimeEdit::down-arrow {
+    width: 16px;
+    height: 16px;
+    image: url(icons/chevron_down_black.png)
+}
+
 
 
 
