@@ -134,9 +134,6 @@ UI_DropDownButton QMenu {
     border-radius: 8px;
     background-color: hsl(0, 0%, 17%)
 }
-UI_DropDownButton QMenu::icon {
-    padding: 8px;
-}
 UI_DropDownButton QMenu::item {
     background-color: hsl(0, 0%, 20%);
     color: hsl(0, 0%, 98%);
