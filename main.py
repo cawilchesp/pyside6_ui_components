@@ -55,13 +55,6 @@ class MainWindow(QMainWindow):
             self.setStyleSheet(theme_qss.read())
 
         for key in self.ui.gui_widgets.keys():
-            # if isinstance(self.ui.gui_widgets[key], UI_DropDownButton):
-            #     self.ui.gui_widgets[key].set_icon(state) if self.ui.gui_widgets[key].icon_name is not None else None
-            #     for action in self.ui.gui_widgets[key].dropdown_menu.actions():
-            #         self.ui.gui_widgets[key].dropdown_menu.removeAction(action)
-            #     self.ui.gui_widgets[key].set_actions_menu(self.ui.gui_widgets[key].none_icons, state)
-            if isinstance(self.ui.gui_widgets[key], Union[UI_CheckBox, UI_RadioButton]):
-                self.ui.gui_widgets[key].set_icon(state) if self.ui.gui_widgets[key].icon_name is not None else None
             if isinstance(self.ui.gui_widgets[key], UI_Switch):
                 self.ui.gui_widgets[key].set_state(self.ui.gui_widgets[key].state, state)
             if isinstance(self.ui.gui_widgets[key], UI_PasswordBox):
