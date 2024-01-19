@@ -1,9 +1,9 @@
 from PySide6.QtWidgets import QPushButton, QToolButton, QMenu, QWidget
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QAction
+from PySide6.QtGui import QAction, QFont
 
+from components.icons import icons
 from icon_color import icon_color
-
 
 class UI_Button(QPushButton):
     """ Button component """
@@ -17,8 +17,6 @@ class UI_Button(QPushButton):
         icon_name: str = None,
         texts: tuple[str, str] = None,
         enabled: bool = True,
-        theme_color: str = 'blue',
-        theme_style: bool = True,
         language: str = 'es'
     ):
         """
@@ -33,8 +31,6 @@ class UI_Button(QPushButton):
             icon_name (str): Icon name
             texts (tuple[str, str]): Button texts (label_spanish, label_english)
             enabled (bool): Button enabled / disabled
-            theme_color (str): App theme color name
-            theme_style (bool): App theme style name
             language (str): App language
                 Options: 'es' = Español, 'en' = English
         """
@@ -43,32 +39,27 @@ class UI_Button(QPushButton):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
+        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
         self.type = type
         self.texts = texts
-        self.icon_name = icon_name
+        self.icon_code = icons[icon_name] if icon_name is not None else ''
 
-        self.set_icon(theme_style, theme_color) if icon_name is not None else None
-        self.set_language(language) if self.texts is not None else None
+        self.set_language(language)
         self.setProperty('type', self.type)
 
         self.clicked.connect(clicked_signal)
 
-    def set_icon(self, theme_style: bool, theme_color: str) -> None:
-        """ Change button icon """
-        if self.type == 'standard':
-            color = 'black' if theme_style else 'white'
-        elif self.type == 'accent':
-            color = 'black'
-        elif self.type in ['outlined', 'hyperlink']:
-            color = theme_color
-        colorized_icon = icon_color(color, self.icon_name)
-        self.setIcon(colorized_icon)
-
     def set_language(self, language: str) -> None:
         """ Change language of button text """
-        if language == 'es':   self.setText(self.texts[0])
-        elif language == 'en': self.setText(self.texts[1])
+        button_text = self.icon_code
+        space = ' ' if button_text != '' and self.texts is not None else ''
+        if self.texts is not None:
+            if language == 'es':
+                button_text = f"{button_text}{space}{self.texts[0]}"
+            elif language == 'en':
+                button_text = f"{button_text}{space}{self.texts[1]}"
+        self.setText(button_text)
 
 
 class UI_ToggleButton(QPushButton):
@@ -83,7 +74,6 @@ class UI_ToggleButton(QPushButton):
         texts: tuple[str, str] = None,
         state: bool = False,
         enabled: bool = True,
-        theme_style: bool = True,
         language: str = 'es'
     ):
         """
@@ -98,7 +88,6 @@ class UI_ToggleButton(QPushButton):
             state (bool): Button toggle State of activation
                 Options: True: On, False: Off
             enabled (bool): Button enabled / disabled
-            theme_style (bool): App theme style name
             language (str): App language
                 Options: 'es' = Español, 'en' = English
         """
@@ -107,30 +96,27 @@ class UI_ToggleButton(QPushButton):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
+        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
         self.setCheckable(True)
-        self.icon_name = icon_name
+        self.icon_code = icons[icon_name] if icon_name is not None else ''
         self.texts = texts
         self.state = state
         
-        self.set_icon(state, theme_style) if icon_name is not None else None
-        self.set_language(language) if self.texts is not None else None
+        self.set_language(language)
 
         self.clicked.connect(clicked_signal)
 
-    def set_icon(self, state: bool, theme_style: bool) -> None:
-        """ Change button icon """
-        if state:
-            color = 'black'
-        else:
-            color = 'black' if theme_style else 'white'
-        colorized_icon = icon_color(color, self.icon_name)
-        self.setIcon(colorized_icon)
-
     def set_language(self, language: str) -> None:
         """ Change language of button text """
-        if language == 'es':   self.setText(self.texts[0])
-        elif language == 'en': self.setText(self.texts[1])
+        button_text = self.icon_code
+        space = ' ' if button_text != '' and self.texts is not None else ''
+        if self.texts is not None:
+            if language == 'es':
+                button_text = f"{button_text}{space}{self.texts[0]}"
+            elif language == 'en':
+                button_text = f"{button_text}{space}{self.texts[1]}"
+        self.setText(button_text)
 
 
 class UI_ThemeButton(QPushButton):
@@ -157,6 +143,7 @@ class UI_ThemeButton(QPushButton):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(40, 40)
+        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
         
         self.set_state(state)
@@ -165,10 +152,8 @@ class UI_ThemeButton(QPushButton):
 
     def set_state(self, state: bool) -> None:
         """ Set button state and corresponding icon """
-        icon_name = 'light_mode' if state else 'dark_mode'
-        color = 'black'
-        colorized_icon = icon_color(color, icon_name)
-        self.setIcon(colorized_icon)
+        icon_code = icons['Brightness'] if state else icons['QuietHours']
+        self.setText(icon_code)
 
 
 class UI_DropDownButton(QToolButton):
@@ -206,45 +191,48 @@ class UI_DropDownButton(QToolButton):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
+        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setPopupMode(QToolButton.ToolButtonPopupMode.MenuButtonPopup)
         self.texts = texts
-        self.icon_name = icon_name
+        self.icon_code = icons[icon_name] if icon_name is not None else ''
         self.actions_list = actions_list
 
-        self.set_icon(theme_style) if icon_name is not None else None
-        self.set_language(language) if self.texts is not None else None
+        self.set_language(language)
         
         self.dropdown_menu = QMenu(self)
         self.dropdown_menu.setWindowFlags(self.dropdown_menu.windowFlags() | Qt.NoDropShadowWindowHint)
-        
-        self.none_icons = not any([item[2] for item in self.actions_list])
-        self.set_actions_menu(self.none_icons, theme_style)
-        menu_width = width-62 if self.none_icons else width-86
-        self.dropdown_menu.setStyleSheet(f"UI_DropDownButton QMenu::item {{ padding-right: {menu_width} }}")
+        self.dropdown_menu.setFont(QFont('Segoe Fluent Icons', 10))
+
+        self.set_actions_menu(language)
+        self.dropdown_menu.setStyleSheet(f"UI_DropDownButton QMenu::item {{ padding-right: {width-82} }}")
         
         self.clicked.connect(clicked_signal)
 
-    def set_icon(self, theme_style: bool) -> None:
-        """ Change button icon """
-        color = 'black' if theme_style else 'white'
-        colorized_icon = icon_color(color, self.icon_name)
-        self.setIcon(colorized_icon)
 
-    def set_actions_menu(self, none_icons: list, theme_style: bool) -> None:
+
+    def set_actions_menu(self, language: str) -> None:
         """ Set action buttons for drop down menu """
-        for name, action, icon_name in self.actions_list:
-            action_item = QAction(name)
+        for name_es, name_en, action, icon_name in self.actions_list:
+            icon_code = icons[icon_name] if icon_name is not None else ''
+            space = ' ' if icon_code != '' and name_es is not None else ''
+            if language == 'es':
+                action_name = f"{icon_code}{space}{name_es}"
+            elif language == 'en':
+                action_name = f"{icon_code}{space}{name_en}"
+            action_item = QAction(action_name)
             action_item.triggered.connect(action)
-            if not none_icons:
-                color = 'black' if theme_style else 'white'
-                colorized_icon = icon_color(color, icon_name)
-                action_item.setIcon(colorized_icon)
             self.dropdown_menu.insertAction(None, action_item)
         self.setMenu(self.dropdown_menu)
 
     def set_language(self, language: str) -> None:
-        """ Change language of button label """
-        if language == 'es':   self.setText(self.texts[0])
-        elif language == 'en': self.setText(self.texts[1])
+        """ Change language of button text """
+        button_text = self.icon_code
+        space = ' ' if button_text != '' and self.texts is not None else ''
+        if self.texts is not None:
+            if language == 'es':
+                button_text = f"{button_text}{space}{self.texts[0]}"
+            elif language == 'en':
+                button_text = f"{button_text}{space}{self.texts[1]}"
+        self.setText(button_text)
