@@ -1,7 +1,8 @@
 from PySide6.QtWidgets import QCheckBox, QWidget
 from PySide6.QtCore import Qt
+from PySide6.QtGui import QFont
 
-from icon_color import icon_color
+from components.icons import icons
 
 
 class UI_CheckBox(QCheckBox):
@@ -13,11 +14,10 @@ class UI_CheckBox(QCheckBox):
         position: tuple[int, int] = (8,8),
         width: int = 40,
         icon_name: str = None,
-        labels: tuple[str, str] = None,
+        texts: tuple[str, str] = None,
         tristate: bool = False,
         state: int = 0,
         enabled: bool = True,
-        theme_style: bool = True,
         language: str = 'es'
     ):
         """
@@ -27,13 +27,12 @@ class UI_CheckBox(QCheckBox):
             position (tuple[int, int]): Check box top left corner position (x, y)
             width (int): Check box width
             icon_name (str): Icon name
-            labels (tuple[str, str]): Check box labels (label_spanish, label_english)
+            texts (tuple[str, str]): Check box texts (label_spanish, label_english)
             tristate (bool): Check box tristate option
                 Options: True: On, False: Off
             state (bool): Check box toggle State of activation
                 Options: True: On, False: Off
             enabled (bool): Check box enabled / disabled
-            theme_style (bool): App theme style name
             language (str): App language
                 Options: 'es' = Español, 'en' = English
         """
@@ -43,24 +42,24 @@ class UI_CheckBox(QCheckBox):
         self.move(position[0], position[1])
         self.resize(width, 40)
         self.setTristate(tristate)
+        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
-        self.icon_name = icon_name
-        self.labels = labels
+        self.icon_code = icons[icon_name] if icon_name is not None else ''
+        self.texts = texts
         self.state = state
 
-        self.set_icon(theme_style) if icon_name is not None else None
-        self.set_language(language) if self.labels is not None else None
+        self.set_language(language)
         self.setCheckState(Qt.CheckState(self.state))
 
         self.stateChanged.connect(state_changed_signal)
-
-    def set_icon(self, theme_style: bool) -> None:
-        """ Change button icon """
-        color = 'black' if theme_style else 'white'
-        colorized_icon = icon_color(color, self.icon_name)
-        self.setIcon(colorized_icon)
     
     def set_language(self, language: str) -> None:
-        """ Change language of button label """
-        if language == 'es':   self.setText(self.labels[0])
-        elif language == 'en': self.setText(self.labels[1])
+        """ Change language of button text """
+        button_text = self.icon_code
+        space = ' ' if button_text != '' and self.texts is not None else ''
+        if self.texts is not None:
+            if language == 'es':
+                button_text = f"{button_text}{space}{self.texts[0]}"
+            elif language == 'en':
+                button_text = f"{button_text}{space}{self.texts[1]}"
+        self.setText(button_text)
