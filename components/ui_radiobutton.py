@@ -1,7 +1,8 @@
 from PySide6.QtWidgets import QRadioButton, QWidget, QButtonGroup
 from PySide6.QtCore import Qt
+from PySide6.QtGui import QFont
 
-from icon_color import icon_color
+from components.icons import icons
 
 
 class UI_RadioButton(QRadioButton):
@@ -17,7 +18,6 @@ class UI_RadioButton(QRadioButton):
         state: int = 0,
         enabled: bool = True,
         group: QButtonGroup = None,
-        theme_style: bool = True,
         language: str = 'es'
     ):
         """
@@ -31,7 +31,6 @@ class UI_RadioButton(QRadioButton):
             state (bool): Check box toggle State of activation
                 Options: True: On, False: Off
             enabled (bool): Check box enabled / disabled
-            theme_style (bool): App theme style name
             language (str): App language
                 Options: 'es' = Español, 'en' = English
         """
@@ -40,27 +39,26 @@ class UI_RadioButton(QRadioButton):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
+        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
-        self.icon_name = icon_name
+        self.icon_code = icons[icon_name] if icon_name is not None else ''
         self.texts = texts
         self.state = state
 
-        self.set_icon(theme_style) if icon_name is not None else None
-        self.set_language(language) if self.texts is not None else None
+        self.set_language(language)
         self.setChecked(self.state)
         group.addButton(self) if group is not None else None
 
         self.toggled.connect(state_changed_signal)
 
-
-    def set_icon(self, theme_style: bool) -> None:
-        """ Change button icon """
-        color = 'black' if theme_style else 'white'
-        colorized_icon = icon_color(color, self.icon_name)
-        self.setIcon(colorized_icon)
-
     
     def set_language(self, language: str) -> None:
-        """ Change language of radio button text """
-        if language == 'es':   self.setText(self.texts[0])
-        elif language == 'en': self.setText(self.texts[1])
+        """ Change language of button text """
+        button_text = self.icon_code
+        space = ' ' if button_text != '' and self.texts is not None else ''
+        if self.texts is not None:
+            if language == 'es':
+                button_text = f"{button_text}{space}{self.texts[0]}"
+            elif language == 'en':
+                button_text = f"{button_text}{space}{self.texts[1]}"
+        self.setText(button_text)
