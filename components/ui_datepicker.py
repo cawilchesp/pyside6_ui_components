@@ -1,5 +1,5 @@
-from PySide6.QtWidgets import QDateEdit, QWidget
-from PySide6.QtCore import QDate
+from PySide6.QtWidgets import QDateEdit, QTimeEdit, QWidget
+from PySide6.QtCore import QDate, QTime
 
 
 class UI_DateEdit(QDateEdit):
@@ -28,3 +28,36 @@ class UI_DateEdit(QDateEdit):
         
         self.setCalendarPopup(True)
         self.setDate(QDate.currentDate())
+
+
+class UI_TimeEdit(QTimeEdit):
+    """ Date Edit component """
+    def __init__(
+        self,
+        parent: QWidget,
+        position: tuple[int, int] = (8,8),
+        width: int = 96,
+        range: tuple[tuple[int,int,int], tuple[int,int,int]] = ((0,0,0), (23,59,59)),
+        enabled: bool = True
+    ):
+        """
+        Parameters
+        ----------
+            parent (QWidget): UI Parent object
+            position (tuple[int, int]): Time picker top left corner position (x, y)
+            width (int): Time picker width
+            range (tuple[int, int, int], tuple[int, int, int]): Time picker range (min, max) -> (hour, minute, second)
+            enabled (bool): Time picker enabled / disabled
+        """
+        super().__init__(parent)
+
+        self.parent = parent
+        self.move(position[0], position[1])
+        self.resize(width, 40)
+        self.setEnabled = enabled
+        
+        min_time = QTime(range[0][0], range[0][1], range[0][2])
+        max_time = QTime(range[1][0], range[1][1], range[1][2])
+
+        self.setTime(QTime.currentTime())
+        self.setTimeRange(min_time, max_time)
