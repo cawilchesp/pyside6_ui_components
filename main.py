@@ -55,15 +55,11 @@ class MainWindow(QMainWindow):
             self.setStyleSheet(theme_qss.read())
 
         for key in self.ui.gui_widgets.keys():
-            if isinstance(self.ui.gui_widgets[key], UI_Button) and self.ui.gui_widgets[key].type == 'standard':
-                self.ui.gui_widgets[key].set_icon(state, self.theme_color) if self.ui.gui_widgets[key].icon_name is not None else None
-            if isinstance(self.ui.gui_widgets[key], UI_ToggleButton):
-                self.ui.gui_widgets[key].set_icon(self.ui.gui_widgets[key].state, state) if self.ui.gui_widgets[key].icon_name is not None else None
-            if isinstance(self.ui.gui_widgets[key], UI_DropDownButton):
-                self.ui.gui_widgets[key].set_icon(state) if self.ui.gui_widgets[key].icon_name is not None else None
-                for action in self.ui.gui_widgets[key].dropdown_menu.actions():
-                    self.ui.gui_widgets[key].dropdown_menu.removeAction(action)
-                self.ui.gui_widgets[key].set_actions_menu(self.ui.gui_widgets[key].none_icons, state)
+            # if isinstance(self.ui.gui_widgets[key], UI_DropDownButton):
+            #     self.ui.gui_widgets[key].set_icon(state) if self.ui.gui_widgets[key].icon_name is not None else None
+            #     for action in self.ui.gui_widgets[key].dropdown_menu.actions():
+            #         self.ui.gui_widgets[key].dropdown_menu.removeAction(action)
+            #     self.ui.gui_widgets[key].set_actions_menu(self.ui.gui_widgets[key].none_icons, state)
             if isinstance(self.ui.gui_widgets[key], Union[UI_CheckBox, UI_RadioButton]):
                 self.ui.gui_widgets[key].set_icon(state) if self.ui.gui_widgets[key].icon_name is not None else None
             if isinstance(self.ui.gui_widgets[key], UI_Switch):
@@ -120,23 +116,11 @@ class MainWindow(QMainWindow):
 
     def toggle_1_button_clicked(self, state: bool) -> None:
         print(f'toggle 1 button state: {state}')
-        self.ui.gui_widgets['toggle_1_button'].set_icon(state, self.theme_style)
         self.ui.gui_widgets['toggle_1_button'].state = state
 
     def toggle_2_button_clicked(self, state: bool) -> None:
         print(f'toggle 2 button state: {state}')
-        self.ui.gui_widgets['toggle_2_button'].set_icon(state, self.theme_style)
         self.ui.gui_widgets['toggle_2_button'].state = state
-
-    def toggle_3_button_clicked(self, state: bool) -> None:
-        print(f'toggle 3 button state: {state}')
-        self.ui.gui_widgets['toggle_3_button'].set_icon(state, self.theme_style)
-        self.ui.gui_widgets['toggle_3_button'].state = state
-
-    def toggle_4_button_clicked(self, state: bool) -> None:
-        print(f'toggle 4 button state: {state}')
-        self.ui.gui_widgets['toggle_4_button'].set_icon(state, self.theme_style)
-        self.ui.gui_widgets['toggle_4_button'].state = state
 
     def dropdown_1_button_clicked(self) -> None:
         print(f'Botón Drop Down')
