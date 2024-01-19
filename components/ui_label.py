@@ -42,7 +42,7 @@ class UI_Label(QLabel):
 
         if font_size < 8: font_size = 8
         elif font_size > 24: font_size = 24
-        self.setFont(QFont('Segoe UI', font_size))
+        self.setFont(QFont('Segoe Fluent Icons', font_size))
 
         alignment_dict = {
             'left': Qt.AlignmentFlag.AlignLeft,
