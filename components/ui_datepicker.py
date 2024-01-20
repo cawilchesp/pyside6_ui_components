@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import QDateEdit, QTimeEdit, QWidget
 from PySide6.QtCore import QDate, QTime
+from PySide6.QtGui import QFont
 
 
 class UI_DateEdit(QDateEdit):
@@ -24,6 +25,7 @@ class UI_DateEdit(QDateEdit):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
+        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled = enabled
         
         self.setCalendarPopup(True)
@@ -54,6 +56,7 @@ class UI_TimeEdit(QTimeEdit):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
+        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled = enabled
         
         min_time = QTime(range[0][0], range[0][1], range[0][2])
