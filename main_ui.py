@@ -380,56 +380,56 @@ class Main_UI(QWidget):
             slider_released_signal=parent.bar_1_slider_sliderReleased
         )
         
-        # # -------------
-        # # Toggle Switch
-        # # -------------
-        # self.gui_widgets['switch_1_label'] = UI_Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(444, 344),
-        #     width=100,
-        #     align='left',
-        #     font_size=16,
-        #     texts=('Interruptor', 'Switch'),
-        #     language=self.language_value
-        # )
+        # -------------
+        # Toggle Switch
+        # -------------
+        self.gui_widgets['switch_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(444, 344),
+            width=100,
+            align='left',
+            font_size=16,
+            texts=('Interruptor', 'Switch'),
+            language=self.language_value
+        )
 
-        # self.gui_widgets['test1_switch'] = UI_Switch(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(444, 384),
-        #     state=False,
-        #     theme_style=self.theme_style,
-        #     clicked_signal=parent.on_test1_switch_clicked
-        # )
+        self.gui_widgets['test1_switch'] = UI_Switch(
+            parent=self.gui_widgets['card_card'],
+            position=(444, 384),
+            state=False,
+            theme_style=self.theme_style,
+            clicked_signal=parent.on_test1_switch_clicked
+        )
 
-        # # ----------
-        # # Text Boxes
-        # # ----------
-        # self.gui_widgets['textbox_1_label'] = UI_Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(660, 64),
-        #     width=100,
-        #     align='left',
-        #     font_size=16,
-        #     texts=('Cuadros de Texto', 'Text Boxes'),
-        #     language=self.language_value
-        # )
+        # ----------
+        # Text Boxes
+        # ----------
+        self.gui_widgets['textbox_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(660, 64),
+            width=100,
+            align='left',
+            font_size=16,
+            texts=('Cuadros de Texto', 'Text Boxes'),
+            language=self.language_value
+        )
 
-        # self.gui_widgets['text_1_textbox'] = UI_TextBox(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(656, 104),
-        #     width=170,
-        #     input='alphanumeric',
-        #     placeholder_texts=('Opción', 'Option'),
-        #     language=self.language_value
-        # )
+        self.gui_widgets['text_1_textbox'] = UI_TextBox(
+            parent=self.gui_widgets['card_card'],
+            position=(656, 104),
+            width=170,
+            input='alphanumeric',
+            placeholder_texts=('Opción', 'Option'),
+            language=self.language_value
+        )
 
-        # self.gui_widgets['text_2_passwordbox'] = UI_PasswordBox(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(656, 144),
-        #     width=170,
-        #     theme_style=self.theme_style,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['text_2_passwordbox'] = UI_PasswordBox(
+            parent=self.gui_widgets['card_card'],
+            position=(656, 144),
+            width=170,
+            theme_style=self.theme_style,
+            language=self.language_value
+        )
 
         # self.gui_widgets['text_3_emailbox'] = UI_EmailBox(
         #     parent=self.gui_widgets['card_card'],
