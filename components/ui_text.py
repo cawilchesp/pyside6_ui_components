@@ -1,8 +1,8 @@
 from PySide6.QtWidgets import QLineEdit, QWidget
-from PySide6.QtGui import QIcon, QRegularExpressionValidator
+from PySide6.QtGui import QFont, QAction, QRegularExpressionValidator
 from PySide6.QtCore import QRegularExpression
 
-from icon_color import icon_color
+from components.icons import icons
 
 
 class UI_TextBox(QLineEdit):
@@ -42,6 +42,7 @@ class UI_TextBox(QLineEdit):
         self.resize(width, 40)
         self.setClearButtonEnabled(True)
         self.setMaxLength(max_length)
+        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
         self.placeholder_texts = placeholder_texts
 
@@ -94,35 +95,28 @@ class UI_PasswordBox(QLineEdit):
         self.resize(width, 40)
         self.setClearButtonEnabled(True)
         self.setMaxLength(max_length)
+        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
         self.placeholder_texts = ('Ingrese la contraseña', 'Enter your password')
+
         self.password_visible = False
         self.setEchoMode(QLineEdit.EchoMode.Password)
-
-        self.toggle_password = self.addAction(QIcon('icons/none.png'), QLineEdit.ActionPosition.TrailingPosition)
-        self.toggle_password.triggered.connect(self.password_action)
-        
-        self.set_icon(theme_style)
+        self.action_item = QAction()
+        self.action_item.setFont(QFont('Segoe Fluent Icons', 10))
+        self.action_item.setIconText(icons['Hide'])
+        self.action_item.triggered.connect(self.password_action)
+        self.addAction(self.action_item, QLineEdit.ActionPosition.TrailingPosition)
+                
         self.set_language(language) if self.placeholder_texts is not None else None
-    
-    def set_icon(self, theme_style: bool) -> None:
-        """ Change button icon """
-        color = 'black' if theme_style else 'white'
-        self.visible_icon = icon_color(color, 'eye')
-        self.hidden_icon = icon_color(color, 'eye_off')
-        if self.password_visible:
-            self.toggle_password.setIcon(self.visible_icon)
-        else:
-            self.toggle_password.setIcon(self.hidden_icon)
 
     def password_action(self) -> None:
         self.password_visible = not self.password_visible
         if self.password_visible:
             self.setEchoMode(QLineEdit.EchoMode.Normal)
-            self.toggle_password.setIcon(self.visible_icon)
+            self.action_item.setText(icons['View'])
         else:
             self.setEchoMode(QLineEdit.EchoMode.Password)
-            self.toggle_password.setIcon(self.hidden_icon)
+            self.action_item.setText(icons['Hide'])
 
     def set_language(self, language: str) -> None:
         """ Change language of button label """
@@ -159,6 +153,7 @@ class UI_EmailBox(QLineEdit):
         self.resize(width, 40)
         self.setClearButtonEnabled(True)
         self.setMaxLength(max_length)
+        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
         self.placeholder_texts = ('Correo electrónico', 'E-mail')
 
@@ -203,6 +198,7 @@ class UI_IpAddressBox(QLineEdit):
         self.resize(width, 40)
         self.setClearButtonEnabled(True)
         self.setMaxLength(max_length)
+        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
         self.placeholder_texts = ('Dirección IP', 'IP Address')
 
