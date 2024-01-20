@@ -431,19 +431,19 @@ class Main_UI(QWidget):
             language=self.language_value
         )
 
-        # self.gui_widgets['text_3_emailbox'] = UI_EmailBox(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(656, 184),
-        #     width=170,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['text_3_emailbox'] = UI_EmailBox(
+            parent=self.gui_widgets['card_card'],
+            position=(656, 184),
+            width=170,
+            language=self.language_value
+        )
 
-        # self.gui_widgets['text_4_ipaddressbox'] = UI_IpAddressBox(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(656, 224),
-        #     width=170,
-        #     language=self.language_value
-        # )
+        self.gui_widgets['text_4_ipaddressbox'] = UI_IpAddressBox(
+            parent=self.gui_widgets['card_card'],
+            position=(656, 224),
+            width=170,
+            language=self.language_value
+        )
 
         # # ------------
         # # Number Boxes
