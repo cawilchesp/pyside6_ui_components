@@ -154,6 +154,7 @@ UI_DropDownButton QMenu::item:selected {
 UI_CheckBox {
     background-color: transparent;
     color: hsl(0, 0%, 13%);
+    margin: 4px
 }
 UI_CheckBox:disabled {
     background-color: hsl(0, 0%, 71%);
@@ -192,7 +193,7 @@ UI_CheckBox::indicator:indeterminate:hover {
 UI_ComboBox {
     border-width: 0px;
     border-radius: 4px;
-    padding: 6px;
+    padding-left: 12px;
     background-color: hsl(0, 0%, 93%);
     color: hsl(0, 0%, 13%);
     margin: 4px;
@@ -253,10 +254,11 @@ UI_ComboBox QListView::item:!selected {
 UI_RadioButton {
     background-color: transparent;
     color: hsl(0, 0%, 13%);
+    margin: 4px
 }
 UI_RadioButton:disabled {
     background-color: hsl(0, 0%, 71%);
-    color: hsl(0, 0%, 35%)
+    color: hsl(0, 0%, 35%);
 }
 UI_RadioButton::indicator {
     border-width: 1px;
