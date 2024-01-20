@@ -445,58 +445,58 @@ class Main_UI(QWidget):
             language=self.language_value
         )
 
-        # # ------------
-        # # Number Boxes
-        # # ------------
-        # self.gui_widgets['numberbox_1_label'] = UI_Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(660, 264),
-        #     width=170,
-        #     align='left',
-        #     font_size=16,
-        #     texts=('Cuadros de Números', 'Number Boxes'),
-        #     language=self.language_value
-        # )
+        # ------------
+        # Number Boxes
+        # ------------
+        self.gui_widgets['numberbox_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(660, 264),
+            width=170,
+            align='left',
+            font_size=16,
+            texts=('Cuadros de Números', 'Number Boxes'),
+            language=self.language_value
+        )
 
-        # self.gui_widgets['integer_1_numberbox'] = UI_NumberBox(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(656, 304),
-        #     width=170,
-        #     range=(0,1000,100000),
-        #     value=1000
-        # )
+        self.gui_widgets['integer_1_numberbox'] = UI_NumberBox(
+            parent=self.gui_widgets['card_card'],
+            position=(656, 304),
+            width=170,
+            range=(0,1000,100000),
+            value=1000
+        )
 
-        # self.gui_widgets['float_1_numberbox'] = UI_FloatBox(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(656, 344),
-        #     width=170,
-        # )
+        self.gui_widgets['float_1_numberbox'] = UI_FloatBox(
+            parent=self.gui_widgets['card_card'],
+            position=(656, 344),
+            width=170,
+        )
 
-        # # -----------
-        # # Date Picker
-        # # -----------
-        # self.gui_widgets['datepicker_1_label'] = UI_Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(660, 384),
-        #     width=170,
-        #     align='left',
-        #     font_size=16,
-        #     texts=('Selección de Fecha', 'Date Picker'),
-        #     language=self.language_value
-        # )
+        # -----------
+        # Date Picker
+        # -----------
+        self.gui_widgets['datepicker_1_label'] = UI_Label(
+            parent=self.gui_widgets['card_card'],
+            position=(660, 384),
+            width=170,
+            align='left',
+            font_size=16,
+            texts=('Selección de Fecha', 'Date Picker'),
+            language=self.language_value
+        )
 
-        # self.gui_widgets['date_1_datepicker'] = UI_DateEdit(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(656, 424),
-        #     width=150
-        # )
+        self.gui_widgets['date_1_datepicker'] = UI_DateEdit(
+            parent=self.gui_widgets['card_card'],
+            position=(656, 424),
+            width=150
+        )
 
-        # self.gui_widgets['time_1_timepicker'] = UI_TimeEdit(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(656, 464),
-        #     width=150,
-        #     range=((8,0,0),(16,59,59))
-        # )
+        self.gui_widgets['time_1_timepicker'] = UI_TimeEdit(
+            parent=self.gui_widgets['card_card'],
+            position=(656, 464),
+            width=150,
+            range=((8,0,0),(16,59,59))
+        )
 
         # self.gui_widgets['icon_1_label'] = UI_Label(
         #     parent=self.gui_widgets['card_card'],
