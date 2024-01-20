@@ -26,7 +26,7 @@ class UI_DateEdit(QDateEdit):
         self.move(position[0], position[1])
         self.resize(width, 40)
         self.setFont(QFont('Segoe Fluent Icons', 10))
-        self.setEnabled = enabled
+        self.setEnabled(enabled)
         
         self.setCalendarPopup(True)
         self.setDate(QDate.currentDate())
@@ -57,7 +57,7 @@ class UI_TimeEdit(QTimeEdit):
         self.move(position[0], position[1])
         self.resize(width, 40)
         self.setFont(QFont('Segoe Fluent Icons', 10))
-        self.setEnabled = enabled
+        self.setEnabled(enabled)
         
         min_time = QTime(range[0][0], range[0][1], range[0][2])
         max_time = QTime(range[1][0], range[1][1], range[1][2])
