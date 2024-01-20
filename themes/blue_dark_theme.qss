@@ -212,7 +212,7 @@ UI_ComboBox::drop-down:button {
 UI_ComboBox::down-arrow {
     width: 16;
     height: 16;
-    image: url(icons/chevron_down_white.png)
+    image: url(icons/chevron_down_white.png);
 }
 UI_ComboBox QListView {
     color: hsl(0, 0%, 98%);
