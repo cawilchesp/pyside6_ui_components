@@ -3,7 +3,6 @@ from PySide6.QtCore import Qt
 from PySide6.QtGui import QAction, QFont
 
 from components.icons import icons
-from icon_color import icon_color
 
 class UI_Button(QPushButton):
     """ Button component """
@@ -168,7 +167,6 @@ class UI_DropDownButton(QToolButton):
         icon_name: str = None,
         texts: tuple[str, str] = None,
         enabled: bool = True,
-        theme_style: bool = True,
         language: str = 'es'
     ):
         """
@@ -182,7 +180,6 @@ class UI_DropDownButton(QToolButton):
             texts (tuple[str, str]): Button texts (label_spanish, label_english)
             enabled (bool): Button enabled / disabled
             theme_color (str): App theme color name
-            theme_style (bool): App theme style name
             language (str): App language
                 Options: 'es' = Español, 'en' = English
         """
@@ -209,8 +206,6 @@ class UI_DropDownButton(QToolButton):
         self.dropdown_menu.setStyleSheet(f"UI_DropDownButton QMenu::item {{ padding-right: {width-82} }}")
         
         self.clicked.connect(clicked_signal)
-
-
 
     def set_actions_menu(self, language: str) -> None:
         """ Set action buttons for drop down menu """
