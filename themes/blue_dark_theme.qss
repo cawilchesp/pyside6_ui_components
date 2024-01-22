@@ -451,7 +451,6 @@ UI_IpAddressBox {
     color: hsl(0, 0%, 98%);
     margin: 4px;
 }
-
 UI_IpAddressBox:!focus {
     border-bottom-color: hsl(0, 0%, 60%);
 }
