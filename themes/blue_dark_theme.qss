@@ -111,6 +111,7 @@ UI_DropDownButton {
     background-color: hsl(0, 0%, 20%);
     color: hsl(0, 0%, 98%);
     padding-left: 12px;
+    padding-right: 40px;
     margin: 4px
 }
 UI_DropDownButton:disabled {
@@ -118,9 +119,16 @@ UI_DropDownButton:disabled {
     color: hsl(0, 0%, 35%)
 }
 UI_DropDownButton::menu-button {
+    border-radius: 4px;
+    subcontrol-origin: border;
+    subcontrol-position: center right;
     width: 32;
-    height: 32;
+    height: 22;
+    right: 4px;
     background-color: transparent
+}
+UI_DropDownButton::menu-button:hover {
+    background-color: hsl(0, 0%, 25%)
 }
 UI_DropDownButton::menu-arrow {
     width: 20px;
@@ -204,10 +212,17 @@ UI_ComboBox:disabled {
     background-color: hsl(0, 0%, 16%);
     color: hsl(0, 0%, 35%)
 }
-UI_ComboBox::drop-down:button {
+UI_ComboBox::drop-down {
+    border-radius: 4px;
+    subcontrol-origin: border;
+    subcontrol-position: center right;
     width: 32;
-    height: 32;
+    height: 22;
+    right: 4px;
     background-color: transparent
+}
+UI_ComboBox::drop-down:hover {
+    background-color: hsl(0, 0%, 25%)
 }
 UI_ComboBox::down-arrow {
     width: 16;
