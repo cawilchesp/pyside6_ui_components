@@ -199,6 +199,7 @@ UI_ComboBox {
     border-width: 0px;
     border-radius: 4px;
     padding-left: 12px;
+    padding-right: 40px;
     background-color: hsl(0, 0%, 20%);
     color: hsl(0, 0%, 98%);
     margin: 4px;
@@ -374,7 +375,7 @@ UI_Switch QToolButton[side=right] {
 UI_Switch QToolButton:hover {
     padding: 0px;
 }
-UI_Switch QToolButton[side=left]:!checked {
+UI_Switch QToolButton[side=left] {
     border-width: 1px;
     border-style: solid;
     border-color: hsl(0, 0%, 90%);
@@ -382,7 +383,7 @@ UI_Switch QToolButton[side=left]:!checked {
     border-top-left-radius: 10;
     border-bottom-left-radius: 10;
 }
-UI_Switch QToolButton[side=right]:!checked{
+UI_Switch QToolButton[side=right] {
     border-width: 1px;
     border-style: solid;
     border-color: hsl(0, 0%, 90%);
@@ -390,15 +391,8 @@ UI_Switch QToolButton[side=right]:!checked{
     border-top-right-radius: 10;
     border-bottom-right-radius: 10;
 }
-UI_Switch QToolButton[side=left]:checked {
-    border-top-left-radius: 10;
-    border-bottom-left-radius: 10;
+UI_Switch QToolButton:checked {
     background-color: hsl(200, 100%, 50%);
-}
-UI_Switch QToolButton[side=right]:checked{
-    border-top-right-radius: 10;
-    border-bottom-right-radius: 10;
-    background-color: hsl(200, 100%, 50%)
 }
 UI_Switch QToolButton:disabled {
     background-color: hsl(0, 0%, 71%)
