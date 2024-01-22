@@ -203,7 +203,6 @@ class Main_UI(QWidget):
                 ['Mujer', 'Woman', parent.action_4, None],
                 ['Colegio', 'School', parent.action_5, 'Education']
             ],
-            theme_style=self.theme_style,
             language=self.language_value,
             clicked_signal=parent.dropdown_1_button_clicked
         )
