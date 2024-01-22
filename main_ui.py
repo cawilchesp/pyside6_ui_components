@@ -396,7 +396,6 @@ class Main_UI(QWidget):
             parent=self.gui_widgets['card_card'],
             position=(444, 384),
             state=False,
-            theme_style=self.theme_style,
             clicked_signal=parent.on_test1_switch_clicked
         )
 
