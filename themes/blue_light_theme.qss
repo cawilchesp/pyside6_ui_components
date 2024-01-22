@@ -365,15 +365,11 @@ UI_Switch {
 }
 UI_Switch QToolButton {
     background-color: transparent;
-}
-UI_Switch QToolButton[side=left] {
-    padding: 3px;
-}
-UI_Switch QToolButton[side=right] {
-    padding: 3px;
+    color: hsl(0, 0%, 20%);
+    padding-bottom: 0px
 }
 UI_Switch QToolButton:hover {
-    padding: 0px;
+    font-size: 14px;
 }
 UI_Switch QToolButton[side=left] {
     border-width: 1px;
