@@ -55,8 +55,8 @@ class MainWindow(QMainWindow):
             self.setStyleSheet(theme_qss.read())
 
         for key in self.ui.gui_widgets.keys():
-            if isinstance(self.ui.gui_widgets[key], UI_Switch):
-                self.ui.gui_widgets[key].set_state(self.ui.gui_widgets[key].state, state)
+            # if isinstance(self.ui.gui_widgets[key], UI_Switch):
+            #     self.ui.gui_widgets[key].set_state(self.ui.gui_widgets[key].state, state)
             if isinstance(self.ui.gui_widgets[key], UI_PasswordBox):
                 self.ui.gui_widgets[key].set_icon(state)
                 
@@ -195,10 +195,10 @@ class MainWindow(QMainWindow):
     # Switch Functions
     # ----------------
     def on_test1_switch_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['test1_switch'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['test1_switch'].set_state(state)
         
     def on_test2_switch_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['test2_switch'].set_state(state, self.theme_style)
+        self.ui.gui_widgets['test2_switch'].set_state(state)
 
 
 
