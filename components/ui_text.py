@@ -218,17 +218,9 @@ class UI_IpAddressBox(QLineEdit):
         self.setMaxLength(max_length)
         self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
-        self.placeholder_texts = ('Dirección IP', 'IP Address')
-
-        # setInputmask
+        self.setInputMask('000.000.000.000')
+        self.setText('0.0.0.0')
 
         input_pattern = r"(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
         reg_exp = QRegularExpressionValidator(QRegularExpression(input_pattern))
         self.setValidator(reg_exp)
-
-        self.set_language(language) if self.placeholder_texts is not None else None
-
-    def set_language(self, language: str) -> None:
-        """ Change language of button label """
-        if language == 'es':   self.setPlaceholderText(self.placeholder_texts[0])
-        elif language == 'en': self.setPlaceholderText(self.placeholder_texts[1])
