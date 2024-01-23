@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QLabel, QWidget
+from PySide6.QtWidgets import QLabel, QWidget, QFrame
 from PySide6.QtGui import QFont
 from PySide6.QtCore import Qt
 
@@ -89,7 +89,6 @@ class UI_IconLabel(QLabel):
         
         self.set_icon_label(self.icon_name, theme_color)
         
-
     def set_icon_label(self, icon_name: str, color_name: str) -> None:
         """ Update icon corresponding to the theme """
         self.icon_name = icon_name
@@ -122,7 +121,33 @@ class UI_ColorLabel(QLabel):
 
         self.set_color_label(color)
 
-
     def set_color_label(self, color: str) -> None:
         """ Apply custom background color to label indicator """
         self.setStyleSheet(f"UI_ColorLabel {{ background-color: {color} }}")
+
+
+class UI_ImageLabel(QLabel):
+    """ Image Label component """
+    def __init__(
+        self,
+        parent: QWidget,
+        position: tuple[int, int] = (8,8),
+        size: tuple[int, int] = (96,96),
+        scaled_image: bool = True,
+    ):
+        """
+        Parameters
+        ----------
+            position (tuple[int, int]): Image label top left corner position (x, y)
+            size (tuple[int, int]): Image label size (width, height)
+            scaled_image (bool): Scale image to fit to label
+                Options: True: Fit, False: Original size
+        """
+        super().__init__(parent)
+
+        self.parent = parent
+        self.move(position[0], position[1])
+        self.resize(size[0], size[1])
+
+        self.setScaledContents(scaled_image)
+        self.setFrameStyle(QFrame.Shape.Box)
