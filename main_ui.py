@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QWidget, QButtonGroup
 
 from components.ui_window import UI_Window
 from components.ui_card import UI_Card
-from components.ui_label import UI_Label, UI_IconLabel, UI_ColorLabel
+from components.ui_label import UI_Label, UI_IconLabel, UI_ColorLabel, UI_ImageLabel
 from components.ui_button import UI_Button, UI_ToggleButton, UI_ThemeButton, UI_DropDownButton
 from components.ui_checkbox import UI_CheckBox
 from components.ui_combobox import UI_ComboBox
@@ -14,9 +14,13 @@ from components.ui_text import UI_TextBox, UI_PasswordBox, UI_EmailBox, UI_IpAdd
 from components.ui_numberbox import UI_NumberBox, UI_FloatBox
 from components.ui_datepicker import UI_DateEdit, UI_TimeEdit
 
+from components.ui_divider import MD3Divider
+
+
+
+
+
 from components.md3_chip import MD3Chip
-from components.md3_divider import MD3Divider
-from components.md3_imagelabel import MD3ImageLabel
 from components.md3_segmentedbutton import MD3SegmentedButton
 
 import yaml
@@ -496,14 +500,73 @@ class Main_UI(QWidget):
             range=((8,0,0),(16,59,59))
         )
 
-        # self.gui_widgets['icon_1_label'] = UI_Label(
+        # # ------
+        # # Labels
+        # # ------
+        # self.gui_widgets['icon1_label'] = MD3Label(
         #     parent=self.gui_widgets['card_card'],
-        #     position=(660, 504),
-        #     width=40,
-        #     align='center',
-        #     font_size=16,
-        #     texts=('\ue701', '\ue701'),
+        #     position=(136, 228),
+        #     type='icon',
+        #     icon_name='delete',
+        #     theme_color=self.theme_color
+        # )
+
+        # self.gui_widgets['subtitle1_label'] = MD3Label(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(176, 228),
+        #     width=100,
+        #     type='subtitle',
+        #     align='left',
+        #     labels=('Eliminar', 'Delete'),
+        #     theme_color=self.theme_color,
         #     language=self.language_value
+        # )
+        
+        # self.gui_widgets['subtitle2_label'] = MD3Label(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(176, 248),
+        #     width=100,
+        #     type='subtitle',
+        #     align='center',
+        #     labels=('Eliminar', 'Delete'),
+        #     theme_color=self.theme_color,
+        #     language=self.language_value
+        # )
+
+        # self.gui_widgets['subtitle3_label'] = MD3Label(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(176, 268),
+        #     width=100,
+        #     type='subtitle',
+        #     align='right',
+        #     labels=('Eliminar', 'Delete'),
+        #     theme_color=self.theme_color,
+        #     language=self.language_value
+        # )
+        
+        # self.gui_widgets['color1_label'] = MD3Label(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(284, 228),
+        #     type='color',
+        #     color='#ff8888',
+        #     theme_color=self.theme_color
+        # )
+        
+        # self.gui_widgets['value1_label'] = MD3Label(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(324, 228),
+        #     width=100,
+        #     type='value',
+        #     align='center',
+        #     border_color='#ff8888',
+        #     theme_color=self.theme_color
+        # )
+
+        # self.gui_widgets['image1_label'] = MD3ImageLabel(
+        #     parent=self.gui_widgets['card_card'],
+        #     position=(124, 288),
+        #     size=(300, 32),
+        #     scaled_image=True
         # )
 
 
@@ -695,67 +758,7 @@ class Main_UI(QWidget):
         # )
         
 
-        # # ------
-        # # Labels
-        # # ------
-        # self.gui_widgets['icon1_label'] = MD3Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(136, 228),
-        #     type='icon',
-        #     icon_name='delete',
-        #     theme_color=self.theme_color
-        # )
-
-        # self.gui_widgets['subtitle1_label'] = MD3Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(176, 228),
-        #     width=100,
-        #     type='subtitle',
-        #     align='left',
-        #     labels=('Eliminar', 'Delete'),
-        #     theme_color=self.theme_color,
-        #     language=self.language_value
-        # )
         
-        # self.gui_widgets['subtitle2_label'] = MD3Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(176, 248),
-        #     width=100,
-        #     type='subtitle',
-        #     align='center',
-        #     labels=('Eliminar', 'Delete'),
-        #     theme_color=self.theme_color,
-        #     language=self.language_value
-        # )
-
-        # self.gui_widgets['subtitle3_label'] = MD3Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(176, 268),
-        #     width=100,
-        #     type='subtitle',
-        #     align='right',
-        #     labels=('Eliminar', 'Delete'),
-        #     theme_color=self.theme_color,
-        #     language=self.language_value
-        # )
-        
-        # self.gui_widgets['color1_label'] = MD3Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(284, 228),
-        #     type='color',
-        #     color='#ff8888',
-        #     theme_color=self.theme_color
-        # )
-        
-        # self.gui_widgets['value1_label'] = MD3Label(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(324, 228),
-        #     width=100,
-        #     type='value',
-        #     align='center',
-        #     border_color='#ff8888',
-        #     theme_color=self.theme_color
-        # )
 
         
 
@@ -776,12 +779,3 @@ class Main_UI(QWidget):
         #     orientation='vertical'
         # )
         
-        # # -----------
-        # # Image Label
-        # # -----------
-        # self.gui_widgets['image1_label'] = MD3ImageLabel(
-        #     parent=self.gui_widgets['card_card'],
-        #     position=(124, 288),
-        #     size=(300, 32),
-        #     scaled_image=True
-        # )
