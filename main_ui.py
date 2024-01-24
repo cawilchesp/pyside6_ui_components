@@ -14,7 +14,7 @@ from components.ui_text import UI_TextBox, UI_PasswordBox, UI_EmailBox, UI_IpAdd
 from components.ui_numberbox import UI_NumberBox, UI_FloatBox
 from components.ui_datepicker import UI_DateEdit, UI_TimeEdit
 
-from components.ui_divider import MD3Divider
+from components.ui_divider import UI_Divider
 
 
 
@@ -500,9 +500,9 @@ class Main_UI(QWidget):
             range=((8,0,0),(16,59,59))
         )
 
-        # # ------
-        # # Labels
-        # # ------
+        # ------
+        # Labels
+        # ------
         # self.gui_widgets['icon1_label'] = MD3Label(
         #     parent=self.gui_widgets['card_card'],
         #     position=(136, 228),
