@@ -77,7 +77,7 @@ class Main_UI(QWidget):
 
         self.gui_widgets['card_label'] = UI_Label(
             parent=self.gui_widgets['card_card'],
-            position=(16, 16),
+            position=(16, 7),
             width=150,
             align='left',
             font_size=24,
