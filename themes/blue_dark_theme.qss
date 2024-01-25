@@ -12,12 +12,12 @@ UI_Card {
 
 /* Labels */
 UI_Label {
-    border-width: 0px;
+    border-width: 1px;
     border-style: solid;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     background-color: transparent;
     color: hsl(0, 0%, 98%);
-    padding: 0px;
+    padding: 0px
 }
 UI_IconLabel {
     border-width: 0px;
