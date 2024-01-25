@@ -12,7 +12,7 @@ class UI_Label(QLabel):
         parent: QWidget,
         texts: tuple[str, str],
         position: tuple[int, int] = (16, 16),
-        width: int = 32,
+        width: int = 40,
         align: str = 'left',
         border_color: str = None,
         font_size: int = 9,
@@ -29,7 +29,6 @@ class UI_Label(QLabel):
                 Options: 'center', 'left', 'right'
             border_color (str): Label border color in hexadecimal format: '#RRGGBB'
             font_size (int): Label font size
-            theme_color (str): App theme color name
             language (str): App language
                 Options: 'es' = Español, 'en' = English
         """
@@ -37,7 +36,8 @@ class UI_Label(QLabel):
 
         self.parent = parent
         self.move(position[0], position[1])
-        self.resize(width, 32)
+        # self.resize(width, 40)
+        self.setContentsMargins(0,0,0,0)
         self.texts = texts
 
         if font_size < 8: font_size = 8
@@ -50,7 +50,7 @@ class UI_Label(QLabel):
             'right': Qt.AlignmentFlag.AlignRight
         }
         label_H_alignment = alignment_dict[align]
-        self.setAlignment(label_H_alignment | Qt.AlignmentFlag.AlignVCenter)
+        self.setAlignment(label_H_alignment | Qt.AlignmentFlag.AlignBottom)
         
         if border_color is not None:
             self.setStyleSheet(f"UI_Label {{ border-width: 2px; border-color: {border_color} }}")
@@ -61,6 +61,7 @@ class UI_Label(QLabel):
         """ Change language of label text """
         if language == 'es':   self.setText(self.texts[0])
         elif language == 'en': self.setText(self.texts[1])
+        
 
 
 class UI_IconLabel(QLabel):
