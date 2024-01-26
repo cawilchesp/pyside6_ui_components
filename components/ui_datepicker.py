@@ -1,4 +1,5 @@
-from PySide6.QtWidgets import QDateEdit, QTimeEdit, QWidget
+from typing import Optional
+from PySide6.QtWidgets import QDateEdit, QTimeEdit, QCalendarWidget, QWidget
 from PySide6.QtCore import QDate, QTime
 from PySide6.QtGui import QFont
 
@@ -64,3 +65,22 @@ class UI_TimeEdit(QTimeEdit):
 
         self.setTime(QTime.currentTime())
         self.setTimeRange(min_time, max_time)
+
+
+class UI_Calendar(QCalendarWidget):
+    """ Calendar component """
+    def __init__(
+        self,
+        parent: QWidget,
+        position: tuple[int, int] = (8,8),
+    ):
+        """
+        Parameters
+        ----------
+            parent (QWidget): UI Parent object
+            position (tuple[int, int]): Calendar top left corner position (x, y)
+        """
+        super().__init__(parent)
+        
+        self.parent = parent
+        self.move(position[0], position[1])
