@@ -107,12 +107,6 @@ class UI_PasswordBox(QLineEdit):
         self.toggle_password.triggered.connect(self.password_action)
         self.set_icon(theme_style)
 
-        # icon_code = icons['Hide']
-        # self.action_item = QAction(f"{icon_code}")
-        # self.action_item.setFont(QFont('Segoe Fluent Icons', 10))
-        # self.action_item.triggered.connect(self.password_action)
-        # self.addAction(self.action_item, QLineEdit.ActionPosition.TrailingPosition)
-                
         self.set_language(language) if self.placeholder_texts is not None else None
 
     def set_icon(self, theme_style: bool) -> None:
@@ -130,11 +124,9 @@ class UI_PasswordBox(QLineEdit):
         if self.password_visible:
             self.setEchoMode(QLineEdit.EchoMode.Normal)
             self.toggle_password.setIcon(self.visible_icon)
-            # self.action_item.setText(f"{icons['View']}")
         else:
             self.setEchoMode(QLineEdit.EchoMode.Password)
             self.toggle_password.setIcon(self.hidden_icon)
-            # self.action_item.setText(f"{icons['Hide']}")
 
     def set_language(self, language: str) -> None:
         """ Change language of button label """
