@@ -1,4 +1,3 @@
-from typing import Optional
 from PySide6.QtWidgets import QDateEdit, QTimeEdit, QCalendarWidget, QWidget
 from PySide6.QtCore import QDate, QTime
 from PySide6.QtGui import QFont
@@ -84,3 +83,5 @@ class UI_Calendar(QCalendarWidget):
         
         self.parent = parent
         self.move(position[0], position[1])
+        self.resize(300, 350)
+        self.setVerticalHeaderFormat(QCalendarWidget.VerticalHeaderFormat.NoVerticalHeader)
