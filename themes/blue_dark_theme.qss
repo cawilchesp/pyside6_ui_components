@@ -632,9 +632,6 @@ UI_TimeEdit::down-arrow {
     image: url(icons/chevron_down_white.png)
 }
 
-
-
-
 UI_Calendar QWidget{
     background-color: hsl(0, 0%, 20%);
     color: hsl(0, 0%, 93%);
@@ -655,6 +652,10 @@ UI_Calendar QTableView {
     color: hsl(0, 0%, 93%);
 }
 UI_Calendar QAbstractItemView {
+    selection-background-color: hsl(200, 100%, 50%);
+    selection-color: hsl(0, 0%, 13%);
+}
+UI_Calendar QSpinBox {
     selection-background-color: hsl(200, 100%, 50%);
     selection-color: hsl(0, 0%, 13%);
 }
