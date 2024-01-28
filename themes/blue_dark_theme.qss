@@ -635,6 +635,33 @@ UI_TimeEdit::down-arrow {
 
 
 
+UI_Calendar QWidget{
+    background-color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 93%);
+    height: 40px
+}
+UI_Calendar QToolButton{
+    background-color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 93%);
+    icon-size: 20px;
+}
+UI_Calendar QMenu {
+    background-color: green;
+    color: red;
+    height: 200px
+}
+UI_Calendar QTableView {
+    background-color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 93%);
+}
+UI_Calendar QAbstractItemView {
+    selection-background-color: hsl(200, 100%, 50%);
+    selection-color: hsl(0, 0%, 13%);
+}
+
+
+
+
 
 
 
