@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QDateEdit, QTimeEdit, QCalendarWidget, QWidget
-from PySide6.QtCore import QDate, QTime
-from PySide6.QtGui import QFont
+from PySide6.QtCore import QDate, QTime, Qt
+from PySide6.QtGui import QFont, QTextCharFormat, QBrush, QColor
 
 
 class UI_DateEdit(QDateEdit):
@@ -85,3 +85,9 @@ class UI_Calendar(QCalendarWidget):
         self.move(position[0], position[1])
         self.resize(300, 350)
         self.setVerticalHeaderFormat(QCalendarWidget.VerticalHeaderFormat.NoVerticalHeader)
+        format = QTextCharFormat()
+        format.setBackground(QBrush(QColor.fromHslF(0, 0, 0.2)))
+        format.setForeground(QBrush(QColor.fromHslF(0, 0, 0.93)))
+        format.setFont(QFont('Segoe Fluent Icons', 10))
+        self.setHeaderTextFormat(format)
+
