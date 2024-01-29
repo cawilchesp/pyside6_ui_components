@@ -693,7 +693,7 @@ UI_Calendar QToolButton#qt_calendar_monthbutton {
 UI_Calendar QToolButton#qt_calendar_monthbutton:hover{
     background-color: hsl(0, 0%, 25%);
 }
-UI_Calendar QToolButton#qt_calendar_monthbutton::menu-button {
+UI_Calendar QToolButton#qt_calendar_monthbutton::menu-indicator {
     border-radius: 4px;
     subcontrol-origin: border;
     subcontrol-position: center right;
@@ -737,7 +737,7 @@ UI_Calendar QToolButton#qt_calendar_yearbutton {
     border-radius: 4px;
     background-color: transparent;
     color: hsl(0, 0%, 98%);
-    width: 77px;
+    width: 113px;
     height: 29px;
     margin-top: 9px;
     margin-bottom: 9px;
@@ -745,9 +745,56 @@ UI_Calendar QToolButton#qt_calendar_yearbutton {
 UI_Calendar QToolButton#qt_calendar_yearbutton:hover{
     background-color: hsl(0, 0%, 25%);
 }
-
-
-
+UI_Calendar QSpinBox {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: hsl(200, 100%, 50%);
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 40px;
+    background-color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 98%);
+    height: 29px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+UI_Calendar QSpinBox:!focus {
+    border-bottom-color: hsl(0, 0%, 60%);
+}
+UI_Calendar QSpinBox::up-button {
+    border-radius: 4px;
+    subcontrol-origin: border;
+    subcontrol-position: center right;
+    width: 32px;
+    height: 22px;
+    right: 36px;
+    background-color: transparent
+}
+UI_Calendar QSpinBox::up-button:hover {
+    background-color: hsl(0, 0%, 25%)
+}
+UI_Calendar QSpinBox::up-arrow {
+    width: 16px;
+    height: 16px;
+    image: url(icons/chevron_up_white.png)
+}
+UI_Calendar QSpinBox::down-button {
+    border-radius: 4px;
+    subcontrol-origin: border;
+    subcontrol-position: center right;
+    width: 32px;
+    height: 22px;
+    right: 4px;
+    background-color: transparent
+}
+UI_Calendar QSpinBox::down-button:hover {
+    background-color: hsl(0, 0%, 25%)
+}
+UI_Calendar QSpinBox::down-arrow {
+    width: 16px;
+    height: 16px;
+    image: url(icons/chevron_down_white.png)
+}
 
 
 
@@ -760,46 +807,6 @@ UI_Calendar QAbstractItemView {
     selection-background-color: hsl(200, 100%, 50%);
     selection-color: hsl(0, 0%, 13%);
 }
-UI_Calendar QSpinBox {
-    background-color: hsl(200, 100%, 50%);
-    color: hsl(0, 0%, 13%);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
