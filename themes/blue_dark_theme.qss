@@ -636,21 +636,10 @@ UI_TimeEdit::down-arrow {
 
 
 
-UI_Calendar QWidget {
+UI_Calendar QWidget#qt_calendar_navigationbar {
     background-color: hsl(0, 0%, 20%);
     color: hsl(0, 0%, 93%);
 }
-UI_Calendar QToolButton {
-    background-color: hsl(0, 0%, 20%);
-    color: hsl(0, 0%, 93%);
-    icon-size: 16px;
-}
-
-
-
-
-
-
 UI_Calendar QToolButton#qt_calendar_prevmonth {
     border-radius: 4px;
     background-color: transparent;
@@ -693,7 +682,7 @@ UI_Calendar QToolButton#qt_calendar_monthbutton {
 UI_Calendar QToolButton#qt_calendar_monthbutton:hover{
     background-color: hsl(0, 0%, 25%);
 }
-UI_Calendar QToolButton#qt_calendar_monthbutton::menu-indicator {
+UI_Calendar QToolButton#qt_calendar_monthbutton::menu-button {
     border-radius: 4px;
     subcontrol-origin: border;
     subcontrol-position: center right;
@@ -721,13 +710,15 @@ UI_Calendar QMenu::item {
     background-color: hsl(0, 0%, 20%);
     color: hsl(0, 0%, 98%);
     height: 32px;
-    padding-left: 12px
+    padding-left: 4px;
+    padding-right: 4px
 }
 UI_Calendar QMenu::item::selected {
     border-color: hsl(0, 0%, 20%);
     border-radius: 4px;
     background-color: hsl(0, 0%, 25%);
-    padding-left: 12px
+    padding-left: 4px;
+    padding-right: 4px
 }
 
 
