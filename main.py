@@ -11,6 +11,7 @@ from components.ui_radiobutton import UI_RadioButton
 from components.ui_switch import UI_Switch
 
 from components.ui_text import UI_TextBox, UI_PasswordBox
+from components.ui_datepicker import UI_Calendar
 
 from icon_color import icon_color
 
@@ -57,6 +58,8 @@ class MainWindow(QMainWindow):
         for key in self.ui.gui_widgets.keys():
             if isinstance(self.ui.gui_widgets[key], UI_PasswordBox):
                 self.ui.gui_widgets[key].set_icon(state)
+            if isinstance(self.ui.gui_widgets[key], UI_Calendar):
+                self.ui.gui_widgets[key].set_header(state)
                 
         self.ui.gui_widgets['theme_button'].set_state(state)
 
