@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QDateEdit, QTimeEdit, QCalendarWidget, QWidget
+from PySide6.QtWidgets import QDateEdit, QTimeEdit, QCalendarWidget, QWidget, QToolButton, QMenu
 from PySide6.QtCore import QDate, QTime, Qt
 from PySide6.QtGui import QFont, QTextCharFormat, QBrush, QColor
 
@@ -72,6 +72,7 @@ class UI_Calendar(QCalendarWidget):
         self,
         parent: QWidget,
         position: tuple[int, int] = (8,8),
+        theme_style: bool = False
     ):
         """
         Parameters
@@ -86,9 +87,19 @@ class UI_Calendar(QCalendarWidget):
         self.resize(300, 350)
         self.setVerticalHeaderFormat(QCalendarWidget.VerticalHeaderFormat.NoVerticalHeader)
         
-        # Day header format
+        month_menu = self.findChild(QMenu)
+        month_menu.setWindowFlags(month_menu.windowFlags() | Qt.NoDropShadowWindowHint)
+        
+        self.set_header(theme_style)
+
+    def set_header(self, theme_style: bool) -> None:
+        """ Change header format """
         format = QTextCharFormat()
-        format.setBackground(QBrush(QColor.fromHslF(0, 0, 0.2)))
-        format.setForeground(QBrush(QColor.fromHslF(0, 0, 0.93)))
         format.setFont(QFont('Segoe Fluent Icons', 10))
+        if theme_style:
+            format.setBackground(QBrush(QColor.fromHslF(0, 0, 0.93)))
+            format.setForeground(QBrush(QColor.fromHslF(0, 0, 0.13)))
+        else:
+            format.setBackground(QBrush(QColor.fromHslF(0, 0, 0.2)))
+            format.setForeground(QBrush(QColor.fromHslF(0, 0, 0.93)))
         self.setHeaderTextFormat(format)
