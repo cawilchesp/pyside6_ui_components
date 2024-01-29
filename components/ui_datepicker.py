@@ -85,9 +85,10 @@ class UI_Calendar(QCalendarWidget):
         self.move(position[0], position[1])
         self.resize(300, 350)
         self.setVerticalHeaderFormat(QCalendarWidget.VerticalHeaderFormat.NoVerticalHeader)
+        
+        # Day header format
         format = QTextCharFormat()
         format.setBackground(QBrush(QColor.fromHslF(0, 0, 0.2)))
         format.setForeground(QBrush(QColor.fromHslF(0, 0, 0.93)))
         format.setFont(QFont('Segoe Fluent Icons', 10))
         self.setHeaderTextFormat(format)
-
