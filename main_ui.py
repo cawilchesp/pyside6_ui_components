@@ -503,6 +503,7 @@ class Main_UI(QWidget):
         self.gui_widgets['calendar_1_calendar'] = UI_Calendar(
             parent=self.gui_widgets['card_card'],
             position=(890, 64),
+            theme_style=self.theme_style
         )
 
         # ------
