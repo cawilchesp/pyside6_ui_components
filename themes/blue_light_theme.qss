@@ -636,9 +636,36 @@ UI_TimeEdit::down-arrow {
 
 
 
-
-
-
+UI_Calendar QWidget#qt_calendar_navigationbar {
+    background-color: hsl(0, 0%, 93%);
+    color: hsl(0, 0%, 13%);
+}
+UI_Calendar QToolButton#qt_calendar_prevmonth {
+    border-radius: 4px;
+    background-color: transparent;
+    width: 29px;
+    height: 29px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    margin-left: 4px;
+    qproperty-icon: url(icons/chevron_left_black.png);
+}
+UI_Calendar QToolButton#qt_calendar_prevmonth:hover {
+    background-color: hsl(0, 0%, 85%);
+}
+UI_Calendar QToolButton#qt_calendar_nextmonth  {
+    border-radius: 4px;
+    background-color: transparent;
+    width: 29px;
+    height: 29px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    margin-right: 4px;
+    qproperty-icon: url(icons/chevron_right_black.png)
+}
+UI_Calendar QToolButton#qt_calendar_nextmonth:hover {
+    background-color: hsl(0, 0%, 85%);
+}
 
 
 
