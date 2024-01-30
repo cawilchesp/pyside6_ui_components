@@ -632,10 +632,7 @@ UI_TimeEdit::down-arrow {
     image: url(icons/chevron_down_black.png)
 }
 
-
-
-
-
+/* Calendar */
 UI_Calendar QWidget#qt_calendar_navigationbar {
     background-color: hsl(0, 0%, 93%);
     color: hsl(0, 0%, 13%);
