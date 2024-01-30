@@ -103,3 +103,4 @@ class UI_Calendar(QCalendarWidget):
             format.setBackground(QBrush(QColor.fromHslF(0, 0, 0.2)))
             format.setForeground(QBrush(QColor.fromHslF(0, 0, 0.93)))
         self.setHeaderTextFormat(format)
+        
