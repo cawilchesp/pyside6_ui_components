@@ -659,10 +659,6 @@ UI_Calendar QToolButton#qt_calendar_nextmonth  {
 UI_Calendar QToolButton#qt_calendar_nextmonth:hover {
     background-color: hsl(0, 0%, 25%);
 }
-
-
-
-
 UI_Calendar QToolButton#qt_calendar_monthbutton {
     border-radius: 4px;
     background-color: transparent;
@@ -713,10 +709,6 @@ UI_Calendar QMenu::item::selected {
     padding-left: 4px;
     padding-right: 4px
 }
-
-
-
-
 UI_Calendar QToolButton#qt_calendar_yearbutton {
     border-radius: 4px;
     background-color: transparent;
