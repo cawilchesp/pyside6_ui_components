@@ -564,10 +564,6 @@ UI_DateEdit {
 UI_DateEdit:!focus {
     border-bottom-color: hsl(0, 0%, 60%);
 }
-/* UI_DateEdit:disabled {
-    background-color: hsl(0, 0%, 71%);
-    color: hsl(0, 0%, 29%)
-} */
 UI_DateEdit::drop-down {
     border-radius: 4px;
     subcontrol-origin: border;
