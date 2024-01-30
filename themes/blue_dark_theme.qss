@@ -736,7 +736,7 @@ UI_Calendar QToolButton#qt_calendar_yearbutton {
 UI_Calendar QToolButton#qt_calendar_yearbutton:hover{
     background-color: hsl(0, 0%, 25%);
 }
-UI_Calendar QSpinBox {
+UI_Calendar QSpinBox#qt_calendar_yearedit {
     border-bottom-width: 2px;
     border-bottom-style: solid;
     border-bottom-color: hsl(200, 100%, 50%);
@@ -749,10 +749,10 @@ UI_Calendar QSpinBox {
     margin-top: 9px;
     margin-bottom: 9px;
 }
-UI_Calendar QSpinBox:!focus {
+UI_Calendar QSpinBox#qt_calendar_yearedit:!focus {
     border-bottom-color: hsl(0, 0%, 60%);
 }
-UI_Calendar QSpinBox::up-button {
+UI_Calendar QSpinBox#qt_calendar_yearedit::up-button {
     border-radius: 4px;
     subcontrol-origin: border;
     subcontrol-position: center right;
@@ -761,15 +761,15 @@ UI_Calendar QSpinBox::up-button {
     right: 36px;
     background-color: transparent
 }
-UI_Calendar QSpinBox::up-button:hover {
+UI_Calendar QSpinBox#qt_calendar_yearedit::up-button:hover {
     background-color: hsl(0, 0%, 25%)
 }
-UI_Calendar QSpinBox::up-arrow {
+UI_Calendar QSpinBox#qt_calendar_yearedit::up-arrow {
     width: 16px;
     height: 16px;
     image: url(icons/chevron_up_white.png)
 }
-UI_Calendar QSpinBox::down-button {
+UI_Calendar QSpinBox#qt_calendar_yearedit::down-button {
     border-radius: 4px;
     subcontrol-origin: border;
     subcontrol-position: center right;
@@ -778,25 +778,31 @@ UI_Calendar QSpinBox::down-button {
     right: 4px;
     background-color: transparent
 }
-UI_Calendar QSpinBox::down-button:hover {
+UI_Calendar QSpinBox#qt_calendar_yearedit::down-button:hover {
     background-color: hsl(0, 0%, 25%)
 }
-UI_Calendar QSpinBox::down-arrow {
+UI_Calendar QSpinBox#qt_calendar_yearedit::down-arrow {
     width: 16px;
     height: 16px;
     image: url(icons/chevron_down_white.png)
 }
-
-
-
-
 UI_Calendar QTableView {
     background-color: hsl(0, 0%, 20%);
     color: hsl(0, 0%, 93%);
+    outline: 0px
 }
-UI_Calendar QAbstractItemView {
-    selection-background-color: hsl(200, 100%, 50%);
-    selection-color: hsl(0, 0%, 13%);
+UI_Calendar QTableView::item:selected {
+    border-radius: 21px;
+    background-color: hsl(200, 100%, 50%);
+    color: hsl(0, 0%, 13%);
+}
+UI_Calendar QTableView::item:hover {
+    border-width: 2px;
+    border-style: solid;
+    border-color: hsl(200, 100%, 50%);
+    border-radius: 21px;
+    background-color: transparent;
+    color: hsl(0, 0%, 93%);
 }
 
 
