@@ -790,13 +790,13 @@ UI_Calendar QTableView::item:selected {
     background-color: hsl(200, 100%, 50%);
     color: hsl(0, 0%, 13%);
 }
-UI_Calendar QTableView::item:!selected {
-    color: hsl(0, 0%, 93%);
-}
 UI_Calendar QTableView::item:focus {
     border-radius: 21px;
     background-color: hsl(200, 100%, 50%);
     color: hsl(0, 0%, 13%);
+}
+UI_Calendar QAbstractItemView:!enabled {
+    color: hsl(0, 0%, 60%);
 }
 
 
