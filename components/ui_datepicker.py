@@ -72,6 +72,7 @@ class UI_Calendar(QCalendarWidget):
         self,
         parent: QWidget,
         position: tuple[int, int] = (8,8),
+        theme_color: str = 'blue',
         theme_style: bool = False
     ):
         """
@@ -91,6 +92,7 @@ class UI_Calendar(QCalendarWidget):
         month_menu.setWindowFlags(month_menu.windowFlags() | Qt.NoDropShadowWindowHint)
         
         self.set_header(theme_style)
+        self.set_weekend_color(theme_color)        
 
     def set_header(self, theme_style: bool) -> None:
         """ Change header format """
@@ -103,4 +105,18 @@ class UI_Calendar(QCalendarWidget):
             format.setBackground(QBrush(QColor.fromHslF(0, 0, 0.2)))
             format.setForeground(QBrush(QColor.fromHslF(0, 0, 0.93)))
         self.setHeaderTextFormat(format)
-        
+
+    def set_weekend_color(self, theme_color: str) -> None:
+        """ Change weekend days text color """        
+        colors = {
+            'blue': [200/360, 1.0, 0.50],
+            'yellow': [48/360, 1.0, 0.67],
+            # 'red': [],
+            # 'green': []
+        }
+        h, s, l = colors[theme_color]
+        format = QTextCharFormat()
+        format.setFont(QFont('Segoe Fluent Icons', 10))
+        format.setForeground(QBrush(QColor.fromHslF(h, s, l)))
+        self.setWeekdayTextFormat(Qt.DayOfWeek.Saturday, format)
+        self.setWeekdayTextFormat(Qt.DayOfWeek.Sunday, format)
