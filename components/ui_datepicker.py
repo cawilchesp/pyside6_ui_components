@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QDateEdit, QTimeEdit, QCalendarWidget, QWidget, QToolButton, QMenu
+from PySide6.QtWidgets import QDateEdit, QTimeEdit, QCalendarWidget, QWidget, QMenu
 from PySide6.QtCore import QDate, QTime, Qt
 from PySide6.QtGui import QFont, QTextCharFormat, QBrush, QColor
 
@@ -90,9 +90,9 @@ class UI_Calendar(QCalendarWidget):
         
         month_menu = self.findChild(QMenu)
         month_menu.setWindowFlags(month_menu.windowFlags() | Qt.NoDropShadowWindowHint)
-        
+
         self.set_header(theme_style)
-        self.set_weekend_color(theme_color)        
+        self.set_weekend_color(theme_color)
 
     def set_header(self, theme_style: bool) -> None:
         """ Change header format """
