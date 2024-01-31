@@ -30,6 +30,7 @@ class UI_DateEdit(QDateEdit):
         
         self.setCalendarPopup(True)
         self.setDate(QDate.currentDate())
+        self.setCalendarWidget(UI_Calendar(self))
 
 
 class UI_TimeEdit(QTimeEdit):
