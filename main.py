@@ -1,23 +1,13 @@
-from PySide6 import QtWidgets
 from PySide6.QtWidgets import QApplication, QMainWindow
-from PySide6.QtGui import QIcon
-from typing import Union
 
 from main_ui import Main_UI
 
-from components.ui_button import UI_Button, UI_ToggleButton, UI_DropDownButton
-from components.ui_checkbox import UI_CheckBox
-from components.ui_radiobutton import UI_RadioButton
-from components.ui_switch import UI_Switch
-
-from components.ui_text import UI_TextBox, UI_PasswordBox
-from components.ui_datepicker import UI_Calendar
-
-from icon_color import icon_color
+from components.ui_text import UI_PasswordBox
+from components.ui_datetimepicker import UI_CalendarView
 
 import sys
 import yaml
-from icecream import ic
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -58,7 +48,7 @@ class MainWindow(QMainWindow):
         for key in self.ui.gui_widgets.keys():
             if isinstance(self.ui.gui_widgets[key], UI_PasswordBox):
                 self.ui.gui_widgets[key].set_icon(state)
-            if isinstance(self.ui.gui_widgets[key], UI_Calendar):
+            if isinstance(self.ui.gui_widgets[key], UI_CalendarView):
                 self.ui.gui_widgets[key].set_header(state)
                 
         self.ui.gui_widgets['theme_button'].set_state(state)
