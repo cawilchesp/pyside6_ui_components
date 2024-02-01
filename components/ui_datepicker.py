@@ -30,7 +30,8 @@ class UI_DateEdit(QDateEdit):
         
         self.setCalendarPopup(True)
         self.setDate(QDate.currentDate())
-        self.setCalendarWidget(UI_Calendar(parent=parent, size=(300,350)))
+
+        self.setCalendarWidget(UI_Calendar(self))
 
 
 class UI_TimeEdit(QTimeEdit):
@@ -73,7 +74,6 @@ class UI_Calendar(QCalendarWidget):
         self,
         parent: QWidget,
         position: tuple[int, int] = (8,8),
-        size: tuple[int, int] = (300, 350),
         theme_color: str = 'blue',
         theme_style: bool = False
     ):
@@ -87,9 +87,11 @@ class UI_Calendar(QCalendarWidget):
         
         self.parent = parent
         self.move(position[0], position[1])
-        self.resize(size[0], size[1])
+        self.setMinimumSize(300, 350)
+        self.setMaximumSize(300, 350)
         self.setVerticalHeaderFormat(QCalendarWidget.VerticalHeaderFormat.NoVerticalHeader)
-        
+        self.setWindowFlags(self.windowFlags() | Qt.NoDropShadowWindowHint)
+
         month_menu = self.findChild(QMenu)
         month_menu.setWindowFlags(month_menu.windowFlags() | Qt.NoDropShadowWindowHint)
 
