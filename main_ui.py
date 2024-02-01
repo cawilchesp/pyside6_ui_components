@@ -12,7 +12,7 @@ from components.ui_switch import UI_Switch
 
 from components.ui_text import UI_TextBox, UI_PasswordBox, UI_EmailBox, UI_IpAddressBox
 from components.ui_numberbox import UI_NumberBox, UI_FloatBox
-from components.ui_datepicker import UI_DateEdit, UI_TimeEdit, UI_Calendar
+from components.ui_datetimepicker import UI_DateEdit, UI_TimeEdit, UI_CalendarView
 
 from components.ui_divider import UI_Divider
 
@@ -500,7 +500,7 @@ class Main_UI(QWidget):
             range=((8,0,0),(16,59,59))
         )
 
-        self.gui_widgets['calendar_1_calendar'] = UI_Calendar(
+        self.gui_widgets['calendar_1_calendar'] = UI_CalendarView(
             parent=self.gui_widgets['card_card'],
             position=(890, 64),
             theme_color=self.theme_color,
