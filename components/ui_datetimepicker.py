@@ -169,16 +169,20 @@ class UI_DatePicker(QFrame):
 
         today = QDate.currentDate()        
 
-        day_button = QToolButton(parent=self)
-        month_button = QToolButton(parent=self)
-        year_button = QToolButton(parent=self)
+        day_button = QToolButton(self)
+        day_button.setObjectName('date_day_button')
+        month_button = QToolButton(self)
+        month_button.setObjectName('date_month_button')
+        year_button = QToolButton(self)
+        year_button.setObjectName('date_year_button')
 
         day_button.move(4,4)
         day_button.resize(80,32)
         day_button.setText(str(today.day()))
-        month_button.move(84,4)
-        month_button.resize(132,32)
+        month_button.move(83,4)
+        month_button.resize(134,32)
         month_button.setText(month_names[today.month()])
         year_button.move(216,4)
         year_button.resize(80,32)
         year_button.setText(str(today.year()))
+
