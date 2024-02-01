@@ -634,7 +634,7 @@ UI_Calendar QWidget {
     border-style: solid;
     border-color: hsl(0, 0%, 20%);
     border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-bottom-right-radius: 8px
 }
 UI_Calendar QWidget#qt_calendar_navigationbar {
     border-width: 2px;
