@@ -629,14 +629,14 @@ UI_TimeEdit::down-arrow {
 }
 
 /* Calendar */
-QCalendarWidget QWidget {
+UI_CalendarView QWidget {
     border-width: 2px;
     border-style: solid;
     border-color: hsl(0, 0%, 20%);
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px
 }
-QCalendarWidget QWidget#qt_calendar_navigationbar {
+UI_CalendarView QWidget#qt_calendar_navigationbar {
     border-width: 2px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -645,7 +645,7 @@ QCalendarWidget QWidget#qt_calendar_navigationbar {
     background-color: hsl(0, 0%, 20%);
     color: hsl(0, 0%, 93%);
 }
-QCalendarWidget QToolButton#qt_calendar_prevmonth {
+UI_CalendarView QToolButton#qt_calendar_prevmonth {
     border-radius: 6px;
     background-color: transparent;
     width: 29px;
@@ -655,10 +655,10 @@ QCalendarWidget QToolButton#qt_calendar_prevmonth {
     margin-left: 4px;
     qproperty-icon: url(icons/chevron_left_white.png);
 }
-QCalendarWidget QToolButton#qt_calendar_prevmonth:hover {
+UI_CalendarView QToolButton#qt_calendar_prevmonth:hover {
     background-color: hsl(0, 0%, 25%);
 }
-QCalendarWidget QToolButton#qt_calendar_nextmonth {
+UI_CalendarView QToolButton#qt_calendar_nextmonth {
     border-radius: 6px;
     background-color: transparent;
     width: 29px;
@@ -668,10 +668,10 @@ QCalendarWidget QToolButton#qt_calendar_nextmonth {
     margin-right: 4px;
     qproperty-icon: url(icons/chevron_right_white.png)
 }
-QCalendarWidget QToolButton#qt_calendar_nextmonth:hover {
+UI_CalendarView QToolButton#qt_calendar_nextmonth:hover {
     background-color: hsl(0, 0%, 25%);
 }
-QCalendarWidget QToolButton#qt_calendar_monthbutton {
+UI_CalendarView QToolButton#qt_calendar_monthbutton {
     border-radius: 6px;
     background-color: transparent;
     color: hsl(0, 0%, 98%);
@@ -682,10 +682,10 @@ QCalendarWidget QToolButton#qt_calendar_monthbutton {
     padding-left: 12px;
     padding-right: 30px
 }
-QCalendarWidget QToolButton#qt_calendar_monthbutton:hover{
+UI_CalendarView QToolButton#qt_calendar_monthbutton:hover{
     background-color: hsl(0, 0%, 25%);
 }
-QCalendarWidget QToolButton#qt_calendar_monthbutton::menu-indicator {
+UI_CalendarView QToolButton#qt_calendar_monthbutton::menu-indicator {
     border-radius: 4px;
     subcontrol-origin: border;
     subcontrol-position: center right;
@@ -695,10 +695,10 @@ QCalendarWidget QToolButton#qt_calendar_monthbutton::menu-indicator {
     background-color: transparent;
     image: url(icons/chevron_down_white.png)
 }
-QCalendarWidget QToolButton#qt_calendar_monthbutton::menu-indicator:hover {
+UI_CalendarView QToolButton#qt_calendar_monthbutton::menu-indicator:hover {
     background-color: hsl(0, 0%, 30%);
 }
-QCalendarWidget QMenu {
+UI_CalendarView QMenu {
     border-width: 4px;
     border-style: solid;
     border-color: hsl(0, 0%, 20%);
@@ -706,7 +706,7 @@ QCalendarWidget QMenu {
     background-color: hsl(0, 0%, 17%);
     margin: 4px
 }
-QCalendarWidget QMenu::item {
+UI_CalendarView QMenu::item {
     background-color: hsl(0, 0%, 20%);
     color: hsl(0, 0%, 98%);
     width: 90px;
@@ -714,14 +714,14 @@ QCalendarWidget QMenu::item {
     padding-left: 4px;
     padding-right: 4px
 }
-QCalendarWidget QMenu::item::selected {
+UI_CalendarView QMenu::item::selected {
     border-color: hsl(0, 0%, 20%);
     border-radius: 4px;
     background-color: hsl(0, 0%, 25%);
     padding-left: 4px;
     padding-right: 4px
 }
-QCalendarWidget QToolButton#qt_calendar_yearbutton {
+UI_CalendarView QToolButton#qt_calendar_yearbutton {
     border-radius: 6px;
     background-color: transparent;
     color: hsl(0, 0%, 98%);
@@ -730,10 +730,10 @@ QCalendarWidget QToolButton#qt_calendar_yearbutton {
     margin-top: 9px;
     margin-bottom: 9px;
 }
-QCalendarWidget QToolButton#qt_calendar_yearbutton:hover{
+UI_CalendarView QToolButton#qt_calendar_yearbutton:hover{
     background-color: hsl(0, 0%, 25%);
 }
-QCalendarWidget QSpinBox#qt_calendar_yearedit {
+UI_CalendarView QSpinBox#qt_calendar_yearedit {
     border-bottom-width: 2px;
     border-bottom-style: solid;
     border-bottom-color: hsl(200, 100%, 50%);
@@ -746,10 +746,10 @@ QCalendarWidget QSpinBox#qt_calendar_yearedit {
     margin-top: 9px;
     margin-bottom: 9px;
 }
-QCalendarWidget QSpinBox#qt_calendar_yearedit:!focus {
+UI_CalendarView QSpinBox#qt_calendar_yearedit:!focus {
     border-bottom-color: hsl(0, 0%, 60%);
 }
-QCalendarWidget QSpinBox#qt_calendar_yearedit::up-button {
+UI_CalendarView QSpinBox#qt_calendar_yearedit::up-button {
     border-radius: 4px;
     subcontrol-origin: border;
     subcontrol-position: center right;
@@ -758,15 +758,15 @@ QCalendarWidget QSpinBox#qt_calendar_yearedit::up-button {
     right: 36px;
     background-color: transparent
 }
-QCalendarWidget QSpinBox#qt_calendar_yearedit::up-button:hover {
+UI_CalendarView QSpinBox#qt_calendar_yearedit::up-button:hover {
     background-color: hsl(0, 0%, 25%)
 }
-QCalendarWidget QSpinBox#qt_calendar_yearedit::up-arrow {
+UI_CalendarView QSpinBox#qt_calendar_yearedit::up-arrow {
     width: 16px;
     height: 16px;
     image: url(icons/chevron_up_white.png)
 }
-QCalendarWidget QSpinBox#qt_calendar_yearedit::down-button {
+UI_CalendarView QSpinBox#qt_calendar_yearedit::down-button {
     border-radius: 4px;
     subcontrol-origin: border;
     subcontrol-position: center right;
@@ -775,35 +775,53 @@ QCalendarWidget QSpinBox#qt_calendar_yearedit::down-button {
     right: 4px;
     background-color: transparent
 }
-QCalendarWidget QSpinBox#qt_calendar_yearedit::down-button:hover {
+UI_CalendarView QSpinBox#qt_calendar_yearedit::down-button:hover {
     background-color: hsl(0, 0%, 25%)
 }
-QCalendarWidget QSpinBox#qt_calendar_yearedit::down-arrow {
+UI_CalendarView QSpinBox#qt_calendar_yearedit::down-arrow {
     width: 16px;
     height: 16px;
     image: url(icons/chevron_down_white.png)
 }
-QCalendarWidget QTableView {
+UI_CalendarView QTableView {
     background-color: hsl(0, 0%, 20%);
     color: hsl(0, 0%, 93%);
     outline: 0px
 }
-QCalendarWidget QTableView::item:selected {
+UI_CalendarView QTableView::item:selected {
     border-radius: 20px;
     background-color: hsl(200, 100%, 50%);
     color: hsl(0, 0%, 13%);
 }
-QCalendarWidget QTableView::item:focus {
+UI_CalendarView QTableView::item:focus {
     border-radius: 20px;
     background-color: hsl(200, 100%, 50%);
     color: hsl(0, 0%, 13%);
 }
-QCalendarWidget QAbstractItemView:!enabled {
+UI_CalendarView QAbstractItemView:!enabled {
     color: hsl(0, 0%, 60%);
 }
 
-
-
+UI_DatePicker QFrame {
+    background-color: transparent;
+    color: hsl(0, 0%, 98%);
+}
+UI_DatePicker QToolButton {
+    border-width: 1px;
+    border-style: solid;
+    border-color: hsl(0, 0%, 25%);
+    border-radius: 0px;
+    background-color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 98%);
+}
+UI_DatePicker QToolButton#date_day_button {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px
+}
+UI_DatePicker QToolButton#date_year_button {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px
+}
 
 
 
