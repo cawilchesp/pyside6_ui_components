@@ -12,7 +12,7 @@ from components.ui_switch import UI_Switch
 
 from components.ui_text import UI_TextBox, UI_PasswordBox, UI_EmailBox, UI_IpAddressBox
 from components.ui_numberbox import UI_NumberBox, UI_FloatBox
-from components.ui_datetimepicker import UI_DateEdit, UI_TimeEdit, UI_CalendarView
+from components.ui_datetimepicker import UI_DateEdit, UI_TimeEdit, UI_CalendarView, UI_DatePicker
 
 from components.ui_divider import UI_Divider
 
@@ -474,10 +474,10 @@ class Main_UI(QWidget):
             width=170,
         )
 
-        # -----------
-        # Date Picker
-        # -----------
-        self.gui_widgets['datepicker_1_label'] = UI_Label(
+        # -----------------
+        # Date Time Pickers
+        # -----------------
+        self.gui_widgets['datetimepicker_1_label'] = UI_Label(
             parent=self.gui_widgets['card_card'],
             position=(660, 64),
             width=170,
@@ -487,13 +487,13 @@ class Main_UI(QWidget):
             language=self.language_value
         )
 
-        self.gui_widgets['date_1_datepicker'] = UI_DateEdit(
+        self.gui_widgets['dateedit_1_datepicker'] = UI_DateEdit(
             parent=self.gui_widgets['card_card'],
             position=(656, 104),
             width=150
         )
 
-        self.gui_widgets['time_1_timepicker'] = UI_TimeEdit(
+        self.gui_widgets['timeedit_1_timepicker'] = UI_TimeEdit(
             parent=self.gui_widgets['card_card'],
             position=(656, 144),
             width=150,
@@ -506,6 +506,12 @@ class Main_UI(QWidget):
             theme_color=self.theme_color,
             theme_style=self.theme_style
         )
+
+        self.gui_widgets['datepicker_1_datepicker'] = UI_DatePicker(
+            parent=self.gui_widgets['card_card'],
+            position=(890, 422),
+        )
+
 
         # ------
         # Labels
