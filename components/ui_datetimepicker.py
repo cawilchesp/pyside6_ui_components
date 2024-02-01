@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QDateEdit, QTimeEdit, QCalendarWidget, QWidget, QMenu
+from PySide6.QtWidgets import QDateEdit, QTimeEdit, QCalendarWidget, QWidget, QMenu, QFrame, QToolButton
 from PySide6.QtCore import QDate, QTime, Qt
 from PySide6.QtGui import QFont, QTextCharFormat, QBrush, QColor
 
@@ -69,7 +69,7 @@ class UI_TimeEdit(QTimeEdit):
 
 
 class UI_CalendarView(QCalendarWidget):
-    """ Calendar component """
+    """ Calendar View component """
     def __init__(
         self,
         parent: QWidget,
@@ -82,6 +82,8 @@ class UI_CalendarView(QCalendarWidget):
         ----------
             parent (QWidget): UI Parent object
             position (tuple[int, int]): Calendar top left corner position (x, y)
+            theme_color (str): App theme color name
+            theme_style (bool): App theme style name
         """
         super().__init__(parent)
         
@@ -124,3 +126,59 @@ class UI_CalendarView(QCalendarWidget):
         format.setForeground(QBrush(QColor.fromHslF(h, s, l)))
         self.setWeekdayTextFormat(Qt.DayOfWeek.Saturday, format)
         self.setWeekdayTextFormat(Qt.DayOfWeek.Sunday, format)
+
+
+class UI_DatePicker(QFrame):
+    """ Date Picker component """
+    def __init__(
+        self,
+        parent: QWidget,
+        position: tuple[int, int] = (8,8),
+        enabled: bool = True,
+    ):
+        """
+        Parameters
+        ----------
+            parent (QWidget): UI Parent object
+            position (tuple[int, int]): Calendar top left corner position (x, y)
+            theme_color (str): App theme color name
+            theme_style (bool): App theme style name
+        """
+        super().__init__(parent)
+
+        self.parent = parent
+        self.move(position[0], position[1])
+        self.resize(300, 40)
+        self.setEnabled(enabled)
+        self.setFont(QFont('Segoe Fluent Icons', 10))
+
+        month_names = {
+            1: 'Enero',
+            2: 'Febrero',
+            3: 'Marzo',
+            4: 'Abril',
+            5: 'Mayo',
+            6: 'Junio',
+            7: 'Julio',
+            8: 'Agosto',
+            9: 'Septiembre',
+            10: 'Octubre',
+            11: 'Noviembre',
+            12: 'Diciembre'
+        }
+
+        today = QDate.currentDate()        
+
+        day_button = QToolButton(parent=self)
+        month_button = QToolButton(parent=self)
+        year_button = QToolButton(parent=self)
+
+        day_button.move(4,4)
+        day_button.resize(80,32)
+        day_button.setText(str(today.day()))
+        month_button.move(84,4)
+        month_button.resize(132,32)
+        month_button.setText(month_names[today.month()])
+        year_button.move(216,4)
+        year_button.resize(80,32)
+        year_button.setText(str(today.year()))
