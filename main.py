@@ -4,7 +4,7 @@ from main_ui import Main_UI
 
 from components.ui_text import UI_PasswordBox
 from components.ui_datetimepicker import UI_CalendarView
-from themes.colors import dark_colors, light_colors, theme_colors
+from themes.colors import dark_colors, light_colors, theme_colors, icons
 
 import sys
 import yaml
@@ -40,9 +40,11 @@ class MainWindow(QMainWindow):
         for color_name, color_value in style_colors.items():
             style_qss = style_qss.replace(color_name, color_value)
         
-        
         for color_name, color_value in theme_colors[self.theme_color].items():
             style_qss = style_qss.replace(color_name, color_value)
+
+        for icon_name, icon_value in icons[self.theme_style].items():
+            style_qss = style_qss.replace(icon_name, icon_value)
 
         self.setStyleSheet(style_qss)
 
@@ -51,30 +53,31 @@ class MainWindow(QMainWindow):
     # Theme Button Function
     # ---------------------
     def theme_button_clicked(self) -> None:
-        """
-        Theme toggle control
-        """
+        """ Theme toggle control """
         state = not self.theme_style
-        theme = 'light' if state else 'dark'
+        style_colors = light_colors if state else dark_colors
 
+        with open('themes/style.qss', 'r') as qss_file:
+            style_qss = qss_file.read()
+        
+        for color_name, color_value in style_colors.items():
+            style_qss = style_qss.replace(color_name, color_value)
+        
+        for color_name, color_value in theme_colors[self.theme_color].items():
+            style_qss = style_qss.replace(color_name, color_value)
 
+        for icon_name, icon_value in icons[state].items():
+            style_qss = style_qss.replace(icon_name, icon_value)
 
+        self.setStyleSheet(style_qss)
 
-        # theme_qss_file = f"themes/{self.theme_color}_{theme}_theme.qss"
-        # with open(theme_qss_file, "r") as theme_qss:
-        #     self.setStyleSheet(theme_qss.read())
-
-        # for key in self.ui.gui_widgets.keys():
-        #     if isinstance(self.ui.gui_widgets[key], UI_PasswordBox):
-        #         self.ui.gui_widgets[key].set_icon(state)
+        for key in self.ui.gui_widgets.keys():
+            if isinstance(self.ui.gui_widgets[key], UI_PasswordBox):
+                self.ui.gui_widgets[key].set_icon(state)
         #     if isinstance(self.ui.gui_widgets[key], UI_CalendarView):
         #         self.ui.gui_widgets[key].set_header(state)
                 
-        # self.ui.gui_widgets['theme_button'].set_state(state)
-
-
-
-
+        self.ui.gui_widgets['theme_button'].set_state(state)
 
         # Save settings
         self.theme_style = state
