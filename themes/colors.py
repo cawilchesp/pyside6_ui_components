@@ -37,13 +37,19 @@ icons = {
     True: {
         '@chevron_down': 'chevron_down_black.png',
         '@chevron_up': 'chevron_up_black.png',
+        '@chevron_left': 'chevron_left_black.png',
+        '@chevron_right': 'chevron_right_black.png',
         '@done': 'done_white.png',
         '@minus': 'minus_white.png',
+        '@calendar': 'calendar_black.png',
     },
     False: {
         '@chevron_down': 'chevron_down_white.png',
         '@chevron_up': 'chevron_up_white.png',
+        '@chevron_left': 'chevron_left_white.png',
+        '@chevron_right': 'chevron_right_white.png',
         '@done': 'done_black.png',
         '@minus': 'minus_black.png',
+        '@calendar': 'calendar_white.png',
     }
 }
