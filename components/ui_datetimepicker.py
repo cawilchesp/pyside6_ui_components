@@ -117,7 +117,7 @@ class UI_CalendarView(QCalendarWidget):
         colors = {
             'blue': [200/360, 1.0, 0.50],
             'yellow': [48/360, 1.0, 0.67],
-            # 'red': [],
+            'red': [0, 0.9, 0.40],
             # 'green': []
         }
         h, s, l = colors[theme_color]
