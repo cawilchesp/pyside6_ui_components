@@ -4,10 +4,12 @@ from main_ui import Main_UI
 
 from components.ui_text import UI_PasswordBox
 from components.ui_datetimepicker import UI_CalendarView
+from themes.colors import dark_colors, light_colors, theme_colors
 
 import sys
 import yaml
 
+from icecream import ic
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -27,9 +29,22 @@ class MainWindow(QMainWindow):
         # Generación de UI
         # ----------------
         self.ui = Main_UI(self)
-        theme_file = f"themes/{self.theme_color}_light_theme.qss" if self.theme_style else f"themes/{self.theme_color}_dark_theme.qss"
-        with open(theme_file, "r") as theme_qss:
-            self.setStyleSheet(theme_qss.read())
+
+        # -----------
+        # Apply Theme
+        # -----------
+        with open('themes/style.qss', 'r') as qss_file:
+            style_qss = qss_file.read()
+        
+        style_colors = light_colors if self.theme_style else dark_colors
+        for color_name, color_value in style_colors.items():
+            style_qss = style_qss.replace(color_name, color_value)
+        
+        
+        for color_name, color_value in theme_colors[self.theme_color].items():
+            style_qss = style_qss.replace(color_name, color_value)
+
+        self.setStyleSheet(style_qss)
 
 
     # ---------------------
@@ -41,17 +56,25 @@ class MainWindow(QMainWindow):
         """
         state = not self.theme_style
         theme = 'light' if state else 'dark'
-        theme_qss_file = f"themes/{self.theme_color}_{theme}_theme.qss"
-        with open(theme_qss_file, "r") as theme_qss:
-            self.setStyleSheet(theme_qss.read())
 
-        for key in self.ui.gui_widgets.keys():
-            if isinstance(self.ui.gui_widgets[key], UI_PasswordBox):
-                self.ui.gui_widgets[key].set_icon(state)
-            if isinstance(self.ui.gui_widgets[key], UI_CalendarView):
-                self.ui.gui_widgets[key].set_header(state)
+
+
+
+        # theme_qss_file = f"themes/{self.theme_color}_{theme}_theme.qss"
+        # with open(theme_qss_file, "r") as theme_qss:
+        #     self.setStyleSheet(theme_qss.read())
+
+        # for key in self.ui.gui_widgets.keys():
+        #     if isinstance(self.ui.gui_widgets[key], UI_PasswordBox):
+        #         self.ui.gui_widgets[key].set_icon(state)
+        #     if isinstance(self.ui.gui_widgets[key], UI_CalendarView):
+        #         self.ui.gui_widgets[key].set_header(state)
                 
-        self.ui.gui_widgets['theme_button'].set_state(state)
+        # self.ui.gui_widgets['theme_button'].set_state(state)
+
+
+
+
 
         # Save settings
         self.theme_style = state
