@@ -551,15 +551,14 @@ UI_FloatBox::down-arrow {
 }
 
 /* Date Pickers */
-/*
 UI_DateEdit {
     border-bottom-width: 2px;
     border-bottom-style: solid;
-    border-bottom-color: hsl(200, 100%, 50%);
+    border-bottom-color: @theme_active;
     border-radius: 4px;
     padding-left: 10px;
-    background-color: hsl(0, 0%, 20%);
-    color: hsl(0, 0%, 98%);
+    background-color: @background_widget;
+    color: @text_active;
     margin: 4px;
 }
 UI_DateEdit:!focus {
@@ -575,7 +574,7 @@ UI_DateEdit::drop-down {
     background-color: transparent
 }
 UI_DateEdit::down-arrow {
-    image: url(icons/calendar_white.png);
+    image: url(icons/@calendar);
     width: 16;
     height: 16
 }
@@ -583,12 +582,12 @@ UI_DateEdit::down-arrow {
 UI_TimeEdit {
     border-bottom-width: 2px;
     border-bottom-style: solid;
-    border-bottom-color: hsl(200, 100%, 50%);
+    border-bottom-color: @theme_active;
     border-radius: 4px;
     padding-left: 10px;
     padding-right: 40px;
-    background-color: hsl(0, 0%, 20%);
-    color: hsl(0, 0%, 98%);
+    background-color: @background_widget;
+    color: @text_active;
     margin: 4px;
 }
 UI_TimeEdit:!focus {
@@ -604,12 +603,12 @@ UI_TimeEdit::up-button {
     background-color: transparent
 }
 UI_TimeEdit::up-button:hover {
-    background-color: hsl(0, 0%, 25%)
+    background-color: @background_hover
 }
 UI_TimeEdit::up-arrow {
     width: 16px;
     height: 16px;
-    image: url(icons/chevron_up_white.png)
+    image: url(icons/@chevron_up)
 }
 UI_TimeEdit::down-button {
     border-radius: 4px;
@@ -621,19 +620,19 @@ UI_TimeEdit::down-button {
     background-color: transparent
 }
 UI_TimeEdit::down-button:hover {
-    background-color: hsl(0, 0%, 25%)
+    background-color: @background_hover
 }
 UI_TimeEdit::down-arrow {
     width: 16px;
     height: 16px;
-    image: url(icons/chevron_down_white.png)
+    image: url(icons/@chevron_down)
 }
 
- Calendar 
+/* Calendar */
 UI_CalendarView QWidget {
     border-width: 2px;
     border-style: solid;
-    border-color: hsl(0, 0%, 20%);
+    border-color: @background_widget;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px
 }
@@ -643,8 +642,8 @@ UI_CalendarView QWidget#qt_calendar_navigationbar {
     border-top-right-radius: 8px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    background-color: hsl(0, 0%, 20%);
-    color: hsl(0, 0%, 93%);
+    background-color: @background_widget;
+    color: @text_active;
 }
 UI_CalendarView QToolButton#qt_calendar_prevmonth {
     border-radius: 6px;
@@ -654,10 +653,10 @@ UI_CalendarView QToolButton#qt_calendar_prevmonth {
     margin-top: 9px;
     margin-bottom: 9px;
     margin-left: 4px;
-    qproperty-icon: url(icons/chevron_left_white.png);
+    qproperty-icon: url(icons/@chevron_left);
 }
 UI_CalendarView QToolButton#qt_calendar_prevmonth:hover {
-    background-color: hsl(0, 0%, 25%);
+    background-color: @background_hover;
 }
 UI_CalendarView QToolButton#qt_calendar_nextmonth {
     border-radius: 6px;
@@ -667,15 +666,15 @@ UI_CalendarView QToolButton#qt_calendar_nextmonth {
     margin-top: 9px;
     margin-bottom: 9px;
     margin-right: 4px;
-    qproperty-icon: url(icons/chevron_right_white.png)
+    qproperty-icon: url(icons/@chevron_right)
 }
 UI_CalendarView QToolButton#qt_calendar_nextmonth:hover {
-    background-color: hsl(0, 0%, 25%);
+    background-color: @background_hover;
 }
 UI_CalendarView QToolButton#qt_calendar_monthbutton {
     border-radius: 6px;
     background-color: transparent;
-    color: hsl(0, 0%, 98%);
+    color: @text_active;
     width: 77px;
     height: 29px;
     margin-top: 9px;
@@ -684,65 +683,65 @@ UI_CalendarView QToolButton#qt_calendar_monthbutton {
     padding-right: 30px
 }
 UI_CalendarView QToolButton#qt_calendar_monthbutton:hover{
-    background-color: hsl(0, 0%, 25%);
+    background-color: @background_hover;
 }
 UI_CalendarView QToolButton#qt_calendar_monthbutton::menu-indicator {
     border-radius: 4px;
     subcontrol-origin: border;
     subcontrol-position: center right;
-    width: 22;
-    height: 22;
+    width: 22px;
+    height: 22px;
     right: 4px;
     background-color: transparent;
-    image: url(icons/chevron_down_white.png)
+    image: url(icons/@chevron_down);
 }
 UI_CalendarView QToolButton#qt_calendar_monthbutton::menu-indicator:hover {
-    background-color: hsl(0, 0%, 30%);
+    background-color: @border_handle;
 }
 UI_CalendarView QMenu {
     border-width: 4px;
     border-style: solid;
-    border-color: hsl(0, 0%, 20%);
+    border-color: @background_widget;
     border-radius: 8px;
-    background-color: hsl(0, 0%, 17%);
-    margin: 4px
+    background-color: @background_card;
+    margin: 4px;
 }
 UI_CalendarView QMenu::item {
-    background-color: hsl(0, 0%, 20%);
-    color: hsl(0, 0%, 98%);
+    background-color: @background_widget;
+    color: @text_active;
     width: 90px;
     height: 32px;
     padding-left: 4px;
-    padding-right: 4px
+    padding-right: 4px;
 }
 UI_CalendarView QMenu::item::selected {
-    border-color: hsl(0, 0%, 20%);
+    border-color: @background_widget;
     border-radius: 4px;
-    background-color: hsl(0, 0%, 25%);
+    background-color: @background_hover;
     padding-left: 4px;
-    padding-right: 4px
+    padding-right: 4px;
 }
 UI_CalendarView QToolButton#qt_calendar_yearbutton {
     border-radius: 6px;
     background-color: transparent;
-    color: hsl(0, 0%, 98%);
+    color: @text_active;
     width: 113px;
     height: 29px;
     margin-top: 9px;
     margin-bottom: 9px;
 }
 UI_CalendarView QToolButton#qt_calendar_yearbutton:hover{
-    background-color: hsl(0, 0%, 25%);
+    background-color: @background_hover;
 }
 UI_CalendarView QSpinBox#qt_calendar_yearedit {
     border-bottom-width: 2px;
     border-bottom-style: solid;
-    border-bottom-color: hsl(200, 100%, 50%);
+    border-bottom-color: @theme_active;
     border-radius: 4px;
     padding-left: 10px;
     padding-right: 30px;
-    background-color: hsl(0, 0%, 20%);
-    color: hsl(0, 0%, 98%);
+    background-color: @background_widget;
+    color: @text_active;
     height: 29px;
     margin-top: 9px;
     margin-bottom: 9px;
@@ -757,15 +756,15 @@ UI_CalendarView QSpinBox#qt_calendar_yearedit::up-button {
     width: 32px;
     height: 22px;
     right: 36px;
-    background-color: transparent
+    background-color: transparent;
 }
 UI_CalendarView QSpinBox#qt_calendar_yearedit::up-button:hover {
-    background-color: hsl(0, 0%, 25%)
+    background-color: @background_hover;
 }
 UI_CalendarView QSpinBox#qt_calendar_yearedit::up-arrow {
     width: 16px;
     height: 16px;
-    image: url(icons/chevron_up_white.png)
+    image: url(icons/@chevron_up);
 }
 UI_CalendarView QSpinBox#qt_calendar_yearedit::down-button {
     border-radius: 4px;
@@ -774,49 +773,50 @@ UI_CalendarView QSpinBox#qt_calendar_yearedit::down-button {
     width: 32px;
     height: 22px;
     right: 4px;
-    background-color: transparent
+    background-color: transparent;
 }
 UI_CalendarView QSpinBox#qt_calendar_yearedit::down-button:hover {
-    background-color: hsl(0, 0%, 25%)
+    background-color: @background_hover;
 }
 UI_CalendarView QSpinBox#qt_calendar_yearedit::down-arrow {
     width: 16px;
     height: 16px;
-    image: url(icons/chevron_down_white.png)
+    image: url(icons/@chevron_down)
 }
 UI_CalendarView QTableView {
-    background-color: hsl(0, 0%, 20%);
-    color: hsl(0, 0%, 93%);
+    background-color: @background_widget;
+    color: @text_active;
     outline: 0px
 }
 UI_CalendarView QTableView::item:selected {
     border-radius: 20px;
-    background-color: hsl(200, 100%, 50%);
-    color: hsl(0, 0%, 13%);
+    background-color: @theme_active;
+    color: @background_full;
 }
 UI_CalendarView QTableView::item:focus {
     border-radius: 20px;
-    background-color: hsl(200, 100%, 50%);
-    color: hsl(0, 0%, 13%);
+    background-color: @theme_active;
+    color: @background_full;
 }
 UI_CalendarView QAbstractItemView:!enabled {
-    color: hsl(0, 0%, 60%);
+    color: @slider_page;
 }
 
 UI_DatePicker QFrame {
     background-color: transparent;
-    color: hsl(0, 0%, 98%);
+    color: @text_active;
 }
 UI_DatePicker QToolButton {
     border-width: 1px;
     border-style: solid;
-    border-color: hsl(0, 0%, 25%);
+    border-color: @background_hover;
     border-radius: 0px;
-    background-color: hsl(0, 0%, 20%);
-    color: hsl(0, 0%, 98%);
+    background-color: @background_widget;
+    color: @text_active;
 }
 UI_DatePicker QToolButton:hover {
-    background-color: hsl(0, 0%, 25%);
+    background-color: @background_hover;
+
 }
 UI_DatePicker QToolButton#date_day_button {
     border-top-left-radius: 4px;
@@ -841,6 +841,7 @@ UI_DatePicker QToolButton#date_year_button {
 
 
 
+/*
  Segmented Button 
 MD3SegmentedButton {
     border: 1px solid hsl(204, 86%, 53%);
