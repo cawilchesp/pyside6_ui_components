@@ -74,8 +74,8 @@ class MainWindow(QMainWindow):
         for key in self.ui.gui_widgets.keys():
             if isinstance(self.ui.gui_widgets[key], UI_PasswordBox):
                 self.ui.gui_widgets[key].set_icon(state)
-        #     if isinstance(self.ui.gui_widgets[key], UI_CalendarView):
-        #         self.ui.gui_widgets[key].set_header(state)
+            if isinstance(self.ui.gui_widgets[key], UI_CalendarView):
+                self.ui.gui_widgets[key].set_header(state)
                 
         self.ui.gui_widgets['theme_button'].set_state(state)
 
