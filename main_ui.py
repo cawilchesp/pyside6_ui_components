@@ -499,18 +499,19 @@ class Main_UI(QWidget):
             width=150,
             range=((8,0,0),(16,59,59))
         )
+        
+        self.gui_widgets['datepicker_1_datepicker'] = UI_DatePicker(
+            parent=self.gui_widgets['card_card'],
+            position=(656, 184),
+        )
 
         self.gui_widgets['calendar_1_calendar'] = UI_CalendarView(
             parent=self.gui_widgets['card_card'],
-            position=(890, 64),
+            position=(960, 64),
             theme_color=self.theme_color,
             theme_style=self.theme_style
         )
 
-        self.gui_widgets['datepicker_1_datepicker'] = UI_DatePicker(
-            parent=self.gui_widgets['card_card'],
-            position=(890, 422),
-        )
 
 
         # ------
