@@ -39,7 +39,6 @@ class UI_RadioButton(QRadioButton):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
-        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
         self.icon_code = icons[icon_name] if icon_name is not None else ''
         self.texts = texts
