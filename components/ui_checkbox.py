@@ -42,7 +42,6 @@ class UI_CheckBox(QCheckBox):
         self.move(position[0], position[1])
         self.resize(width, 40)
         self.setTristate(tristate)
-        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
         self.icon_code = icons[icon_name] if icon_name is not None else ''
         self.texts = texts
