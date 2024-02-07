@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QPushButton, QToolButton, QMenu, QWidget
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QAction, QFont
+from PySide6.QtGui import QAction
 
 from components.icons import icons
 
@@ -38,7 +38,6 @@ class UI_Button(QPushButton):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
-        self.setFont(QFont('Segoe Fluent Icons', 12))
         self.setEnabled(enabled)
         self.type = type
         self.texts = texts
@@ -95,7 +94,6 @@ class UI_ToggleButton(QPushButton):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
-        self.setFont(QFont('Segoe Fluent Icons', 12))
         self.setEnabled(enabled)
         self.setCheckable(True)
         self.icon_code = icons[icon_name] if icon_name is not None else ''
@@ -142,7 +140,6 @@ class UI_ThemeButton(QPushButton):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(40, 40)
-        self.setFont(QFont('Segoe Fluent Icons', 12))
         self.setEnabled(enabled)
         
         self.set_state(state)
@@ -188,7 +185,6 @@ class UI_DropDownButton(QToolButton):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
-        self.setFont(QFont('Segoe Fluent Icons', 12))
         self.setEnabled(enabled)
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setPopupMode(QToolButton.ToolButtonPopupMode.MenuButtonPopup)
@@ -200,7 +196,6 @@ class UI_DropDownButton(QToolButton):
         
         self.dropdown_menu = QMenu(self)
         self.dropdown_menu.setWindowFlags(self.dropdown_menu.windowFlags() | Qt.NoDropShadowWindowHint)
-        self.dropdown_menu.setFont(QFont('Segoe Fluent Icons', 12))
 
         self.set_actions_menu(language)
         self.dropdown_menu.setStyleSheet(f"UI_DropDownButton QMenu::item {{ padding-right: {width-82} }}")
