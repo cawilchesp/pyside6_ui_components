@@ -25,7 +25,6 @@ class UI_DateEdit(QDateEdit):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
-        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
         
         self.setCalendarPopup(True)
@@ -58,7 +57,6 @@ class UI_TimeEdit(QTimeEdit):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
-        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
         
         min_time = QTime(range[0][0], range[0][1], range[0][2])
@@ -150,7 +148,6 @@ class UI_DatePicker(QFrame):
         self.move(position[0], position[1])
         self.resize(300, 40)
         self.setEnabled(enabled)
-        self.setFont(QFont('Segoe Fluent Icons', 10))
 
         month_names = {
             1: 'Enero',
@@ -185,4 +182,4 @@ class UI_DatePicker(QFrame):
         year_button.move(216,4)
         year_button.resize(80,32)
         year_button.setText(str(today.year()))
-
+        
