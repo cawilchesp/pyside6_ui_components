@@ -28,7 +28,6 @@ class UI_NumberBox(QSpinBox):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
-        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
 
         self.setMinimum(range[0])
@@ -63,7 +62,6 @@ class UI_FloatBox(QDoubleSpinBox):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
-        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
 
         self.setMinimum(range[0])
