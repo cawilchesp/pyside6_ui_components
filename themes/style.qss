@@ -420,6 +420,8 @@ UI_TextBox {
     background-color: @background_widget;
     color: @text_active;
     margin: 4px;
+    font-family: "Segoe Fluent Icons";
+    font-size: 16px;
 }
 UI_TextBox:!focus {
     border-bottom-color: @slider_page;
@@ -434,6 +436,8 @@ UI_PasswordBox {
     background-color: @background_widget;
     color: @text_active;
     margin: 4px;
+    font-family: "Segoe Fluent Icons";
+    font-size: 16px;
 }
 UI_PasswordBox:!focus {
     border-bottom-color: @slider_page;
@@ -448,6 +452,8 @@ UI_EmailBox {
     background-color: @background_widget;
     color: @text_active;
     margin: 4px;
+    font-family: "Segoe Fluent Icons";
+    font-size: 16px;
 }
 UI_EmailBox:!focus {
     border-bottom-color: @slider_page;
@@ -462,6 +468,8 @@ UI_IpAddressBox {
     background-color: @background_widget;
     color: @text_active;
     margin: 4px;
+    font-family: "Segoe Fluent Icons";
+    font-size: 16px;
 }
 UI_IpAddressBox:!focus {
     border-bottom-color: @slider_page;
@@ -478,6 +486,8 @@ UI_NumberBox {
     background-color: @background_widget;
     color: @text_active;
     margin: 4px;
+    font-family: "Segoe Fluent Icons";
+    font-size: 16px;
 }
 UI_NumberBox:!focus {
     border-bottom-color: @slider_page;
@@ -527,6 +537,8 @@ UI_FloatBox {
     background-color: @background_widget;
     color: @text_active;
     margin: 4px;
+    font-family: "Segoe Fluent Icons";
+    font-size: 16px;
 }
 UI_FloatBox:!focus {
     border-bottom-color: @slider_page;
@@ -576,6 +588,8 @@ UI_DateEdit {
     background-color: @background_widget;
     color: @text_active;
     margin: 4px;
+    font-family: "Segoe Fluent Icons";
+    font-size: 16px;
 }
 UI_DateEdit:!focus {
     border-bottom-color: @slider_page;
@@ -605,6 +619,8 @@ UI_TimeEdit {
     background-color: @background_widget;
     color: @text_active;
     margin: 4px;
+    font-family: "Segoe Fluent Icons";
+    font-size: 16px;
 }
 UI_TimeEdit:!focus {
     border-bottom-color: @slider_page;
@@ -650,7 +666,9 @@ UI_CalendarView QWidget {
     border-style: solid;
     border-color: @background_widget;
     border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px
+    border-bottom-right-radius: 8px;
+    font-family: "Segoe Fluent Icons";
+    font-size: 12px;
 }
 UI_CalendarView QWidget#qt_calendar_navigationbar {
     border-width: 2px;
@@ -829,6 +847,8 @@ UI_DatePicker QToolButton {
     border-radius: 0px;
     background-color: @background_widget;
     color: @text_active;
+    font-family: "Segoe Fluent Icons";
+    font-size: 16px;
 }
 UI_DatePicker QToolButton:hover {
     background-color: @background_hover;
