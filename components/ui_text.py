@@ -97,7 +97,6 @@ class UI_PasswordBox(QLineEdit):
         self.resize(width, 40)
         self.setClearButtonEnabled(True)
         self.setMaxLength(max_length)
-        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
         self.placeholder_texts = ('Ingrese la contraseña', 'Enter your password')
 
@@ -163,7 +162,6 @@ class UI_EmailBox(QLineEdit):
         self.resize(width, 40)
         self.setClearButtonEnabled(True)
         self.setMaxLength(max_length)
-        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
         self.placeholder_texts = ('Correo electrónico', 'E-mail')
 
@@ -208,7 +206,6 @@ class UI_IpAddressBox(QLineEdit):
         self.resize(width, 40)
         self.setClearButtonEnabled(True)
         self.setMaxLength(max_length)
-        self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
         self.setInputMask('000.000.000.000')
         self.setText('0.0.0.0')
