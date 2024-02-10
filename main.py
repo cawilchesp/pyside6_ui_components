@@ -246,14 +246,6 @@ class MainWindow(QMainWindow):
     #     self.ui.gui_widgets['right_segmented2_button'].set_state(state, self.theme_color)
 
 
-    
-
-
-
-
-
-
-
     # # ---------------
     # # Chips Functions
     # # ---------------
@@ -276,10 +268,6 @@ class MainWindow(QMainWindow):
     #     self.ui.gui_widgets['chip6_button'].set_state(state, self.theme_color)
 
 
-    
-    
-
-    
     # # --------------------
     # # Text Field Functions
     # # --------------------
