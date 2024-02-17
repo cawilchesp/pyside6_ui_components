@@ -503,6 +503,7 @@ class Main_UI(QWidget):
         self.gui_widgets['datepicker_1_datepicker'] = UI_DatePicker(
             parent=self.gui_widgets['card_card'],
             position=(656, 184),
+            language=self.language_value
         )
 
         self.gui_widgets['calendar_1_calendar'] = UI_CalendarView(
