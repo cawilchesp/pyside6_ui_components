@@ -508,7 +508,7 @@ class Main_UI(QWidget):
 
         self.gui_widgets['calendar_1_calendar'] = UI_CalendarView(
             parent=self.gui_widgets['card_card'],
-            position=(960, 64),
+            position=(656, 232),
             theme_color=self.theme_color,
             theme_style=self.theme_style
         )
