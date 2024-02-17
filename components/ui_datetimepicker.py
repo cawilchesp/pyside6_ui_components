@@ -198,11 +198,10 @@ class UI_DatePicker(QFrame):
             3: ('2023','2023'),
             4: ('2024','2024')
         }
-        print(today.day()-1)
 
         self.day_button = UI_ComboBox(
             parent=self,
-            position=(4,4),
+            position=(0, 0),
             width=80,
             texts=('Día', 'Day'),
             options=day_options,
@@ -211,20 +210,20 @@ class UI_DatePicker(QFrame):
         )
         self.month_button = UI_ComboBox(
             parent=self,
-            position=(83,4),
-            width=134,
-            texts=('Día', 'Day'),
+            position=(72,0),
+            width=140,
+            texts=('Mes', 'Month'),
             options=self.month_names,
-            # set=4,
+            set=today.month()-1,
             language=language
         )
         self.year_button = UI_ComboBox(
             parent=self,
-            position=(216,4),
-            width=80,
-            texts=('Día', 'Day'),
+            position=(204,0),
+            width=96,
+            texts=('Año', 'Year'),
             options=year_options,
-            # set=4,
+            set=today.year()-2020,
             language=language
         )
 
