@@ -53,11 +53,11 @@ class UI_ComboBox(QComboBox):
 
         self.setMaxVisibleItems(5)
         self.setSizeAdjustPolicy(QComboBox.SizeAdjustPolicy.AdjustToMinimumContentsLengthWithIcon)
-        self.setCurrentIndex(set)
         self.setEditable(editable)
         self.setInsertPolicy(QComboBox.InsertPolicy.NoInsert)
 
         self.set_language(language)
+        self.setCurrentIndex(set)
         
         self.currentIndexChanged.connect(index_changed_signal)
         self.currentTextChanged.connect(text_changed_signal)
