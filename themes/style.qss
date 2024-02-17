@@ -840,7 +840,7 @@ UI_DatePicker QFrame {
     background-color: transparent;
     color: @text_active;
 }
-UI_DatePicker QToolButton {
+/* UI_DatePicker QComboBox {
     border-width: 1px;
     border-style: solid;
     border-color: @background_hover;
@@ -850,19 +850,69 @@ UI_DatePicker QToolButton {
     font-family: "Segoe Fluent Icons";
     font-size: 16px;
 }
-UI_DatePicker QToolButton:hover {
+UI_DatePicker QComboBox:hover {
     background-color: @background_hover;
 
 }
-UI_DatePicker QToolButton#date_day_button {
+UI_DatePicker QComboBox#date_day_button {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px
 }
-UI_DatePicker QToolButton#date_year_button {
+UI_DatePicker QComboBox#date_year_button {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px
 }
-
+UI_DatePicker QComboBox::drop-down {
+    border-radius: 4px;
+    subcontrol-origin: border;
+    subcontrol-position: center right;
+    width: 32;
+    height: 22;
+    right: 4px;
+    background-color: transparent
+}
+UI_DatePicker QComboBox::drop-down:hover {
+    background-color: @background_hover;
+}
+UI_DatePicker QComboBox::down-arrow {
+    width: 16;
+    height: 16;
+    image: url(icons/@chevron_down);
+}
+UI_DatePicker QComboBox QListView {
+    color: @text_active;
+    margin: 0px;
+    outline: 0px;
+    font-family: "Segoe Fluent Icons";
+    font-size: 16px;
+}
+UI_DatePicker QComboBox QListView:active {
+    border-width: 3px;
+    border-style: solid;
+    border-color: @background_widget;
+    border-radius: 10px;
+    background-color: @background_card;
+    margin: -3px;
+}
+UI_DatePicker QComboBox QListView::item {
+    height: 24;
+}
+UI_DatePicker QComboBox QListView::item:selected {
+    border-left-width: 4px;
+    border-left-style: solid;
+    border-left-color: @theme_active;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: @background_hover;
+    color: @text_active;
+    margin: 4px;
+}
+UI_DatePicker QComboBox QListView::item:!selected {
+    border-width: 4px;
+    border-style: solid;
+    border-color: @background_widget;
+    margin: 4px;
+} */
 
 
 
