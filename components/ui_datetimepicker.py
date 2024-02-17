@@ -1,6 +1,8 @@
-from PySide6.QtWidgets import QDateEdit, QTimeEdit, QCalendarWidget, QWidget, QMenu, QFrame, QToolButton
+from PySide6.QtWidgets import QDateEdit, QTimeEdit, QCalendarWidget, QWidget, QMenu, QFrame
 from PySide6.QtCore import QDate, QTime, Qt
 from PySide6.QtGui import QFont, QTextCharFormat, QBrush, QColor
+
+from components.ui_combobox import UI_ComboBox
 
 
 class UI_DateEdit(QDateEdit):
@@ -133,6 +135,7 @@ class UI_DatePicker(QFrame):
         parent: QWidget,
         position: tuple[int, int] = (8,8),
         enabled: bool = True,
+        language: str = 'es',
     ):
         """
         Parameters
@@ -149,37 +152,84 @@ class UI_DatePicker(QFrame):
         self.resize(300, 40)
         self.setEnabled(enabled)
 
-        month_names = {
-            1: 'Enero',
-            2: 'Febrero',
-            3: 'Marzo',
-            4: 'Abril',
-            5: 'Mayo',
-            6: 'Junio',
-            7: 'Julio',
-            8: 'Agosto',
-            9: 'Septiembre',
-            10: 'Octubre',
-            11: 'Noviembre',
-            12: 'Diciembre'
+        self.month_names = {
+            0: ['Enero','January'],
+            1: ['Febrero','February'],
+            2: ['Marzo','March'],
+            3: ['Abril','April'],
+            4: ['Mayo','May'],
+            5: ['Junio','June'],
+            6: ['Julio','July'],
+            7: ['Agosto','August'],
+            8: ['Septiembre','September'],
+            9: ['Octubre','October'],
+            10: ['Noviembre','November'],
+            11: ['Diciembre','December']
         }
 
-        today = QDate.currentDate()        
+        today = QDate.currentDate()
 
-        day_button = QToolButton(self)
-        day_button.setObjectName('date_day_button')
-        month_button = QToolButton(self)
-        month_button.setObjectName('date_month_button')
-        year_button = QToolButton(self)
-        year_button.setObjectName('date_year_button')
+        day_options = {
+            0: ('1','1'),
+            1: ('2','2'),
+            2: ('3','3'),
+            3: ('4','4'),
+            4: ('5','5'),
+            5: ('6','6'),
+            6: ('7','7'),
+            7: ('8','8'),
+            8: ('9','9'),
+            9: ('10','10'),
+            10: ('11','11'),
+            11: ('12','12'),
+            12: ('13','13'),
+            13: ('14','14'),
+            14: ('15','15'),
+            15: ('16','16'),
+            16: ('17','17'),
+            17: ('18','18'),
+            18: ('19','19'),
+        }
 
-        day_button.move(4,4)
-        day_button.resize(80,32)
-        day_button.setText(str(today.day()))
-        month_button.move(83,4)
-        month_button.resize(134,32)
-        month_button.setText(month_names[today.month()])
-        year_button.move(216,4)
-        year_button.resize(80,32)
-        year_button.setText(str(today.year()))
+        year_options = {
+            0: ('2020','2020'),
+            1: ('2021','2021'),
+            2: ('2022','2022'),
+            3: ('2023','2023'),
+            4: ('2024','2024')
+        }
+        print(today.day()-1)
+
+        self.day_button = UI_ComboBox(
+            parent=self,
+            position=(4,4),
+            width=80,
+            texts=('Día', 'Day'),
+            options=day_options,
+            set=today.day()-1,
+            language=language
+        )
+        self.month_button = UI_ComboBox(
+            parent=self,
+            position=(83,4),
+            width=134,
+            texts=('Día', 'Day'),
+            options=self.month_names,
+            # set=4,
+            language=language
+        )
+        self.year_button = UI_ComboBox(
+            parent=self,
+            position=(216,4),
+            width=80,
+            texts=('Día', 'Day'),
+            options=year_options,
+            # set=4,
+            language=language
+        )
+
+
+
+
+
         
