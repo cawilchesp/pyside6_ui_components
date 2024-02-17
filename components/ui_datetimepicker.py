@@ -152,6 +152,7 @@ class UI_DatePicker(QFrame):
         self.resize(300, 40)
         self.setEnabled(enabled)
 
+        today = QDate.currentDate()
         self.month_names = {
             0: ['Enero','January'],
             1: ['Febrero','February'],
@@ -167,37 +168,9 @@ class UI_DatePicker(QFrame):
             11: ['Diciembre','December']
         }
 
-        today = QDate.currentDate()
-
-        day_options = {
-            0: ('1','1'),
-            1: ('2','2'),
-            2: ('3','3'),
-            3: ('4','4'),
-            4: ('5','5'),
-            5: ('6','6'),
-            6: ('7','7'),
-            7: ('8','8'),
-            8: ('9','9'),
-            9: ('10','10'),
-            10: ('11','11'),
-            11: ('12','12'),
-            12: ('13','13'),
-            13: ('14','14'),
-            14: ('15','15'),
-            15: ('16','16'),
-            16: ('17','17'),
-            17: ('18','18'),
-            18: ('19','19'),
-        }
-
-        year_options = {
-            0: ('2020','2020'),
-            1: ('2021','2021'),
-            2: ('2022','2022'),
-            3: ('2023','2023'),
-            4: ('2024','2024')
-        }
+        day_options = {i: [str(day), str(day)] for i, day in enumerate(range(1, today.daysInMonth()+1))}
+        
+        year_options = {i: [str(year), str(year)] for i, year in enumerate(range(1970, 2050))}
 
         self.day_button = UI_ComboBox(
             parent=self,
@@ -208,24 +181,27 @@ class UI_DatePicker(QFrame):
             set=today.day()-1,
             language=language
         )
+        self.day_button.setObjectName('datepicker_day_button')
         self.month_button = UI_ComboBox(
             parent=self,
-            position=(72,0),
-            width=140,
+            position=(71,0),
+            width=142,
             texts=('Mes', 'Month'),
             options=self.month_names,
             set=today.month()-1,
             language=language
         )
+        self.month_button.setObjectName('datepicker_month_button')
         self.year_button = UI_ComboBox(
             parent=self,
             position=(204,0),
             width=96,
             texts=('Año', 'Year'),
             options=year_options,
-            set=today.year()-2020,
+            set=today.year()-1970,
             language=language
         )
+        self.year_button.setObjectName('datepicker_year_button')
 
 
 
