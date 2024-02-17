@@ -840,6 +840,22 @@ UI_DatePicker QFrame {
     background-color: transparent;
     color: @text_active;
 }
+UI_DatePicker UI_ComboBox {
+    border-width: 1px;
+    border-style: solid;
+    border-color: @slider_page
+}
+UI_DatePicker UI_ComboBox#datepicker_day_button {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+UI_DatePicker UI_ComboBox#datepicker_month_button {
+    border-radius: 0px;
+}
+UI_DatePicker UI_ComboBox#datepicker_year_button {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
 
 
 
