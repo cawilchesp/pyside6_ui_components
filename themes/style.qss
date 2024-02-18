@@ -836,8 +836,8 @@ UI_CalendarView QAbstractItemView:!enabled {
     color: @slider_page;
 }
 
-UI_DatePicker QFrame {
-    background-color: @background_card;
+UI_DatePicker {
+    background-color: transparent;
     color: @text_active;
 }
 UI_DatePicker UI_ComboBox {
