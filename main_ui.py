@@ -12,7 +12,7 @@ from components.ui_switch import UI_Switch
 
 from components.ui_text import UI_TextBox, UI_PasswordBox, UI_EmailBox, UI_IpAddressBox
 from components.ui_numberbox import UI_NumberBox, UI_FloatBox
-from components.ui_datetimepicker import UI_DateEdit, UI_TimeEdit, UI_CalendarView, UI_DatePicker
+from components.ui_datetimepicker import UI_DateEdit, UI_TimeEdit, UI_CalendarView, UI_DatePicker, UI_TimePicker
 
 from components.ui_divider import UI_Divider
 
@@ -506,9 +506,15 @@ class Main_UI(QWidget):
             language=self.language_value
         )
 
+        self.gui_widgets['timepicker_1_timepicker'] = UI_TimePicker(
+            parent=self.gui_widgets['card_card'],
+            position=(656, 224),
+            language=self.language_value
+        )
+
         self.gui_widgets['calendar_1_calendar'] = UI_CalendarView(
             parent=self.gui_widgets['card_card'],
-            position=(656, 232),
+            position=(656, 272),
             theme_color=self.theme_color,
             theme_style=self.theme_style
         )
