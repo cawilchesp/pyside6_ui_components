@@ -857,6 +857,24 @@ UI_DatePicker UI_ComboBox#datepicker_year_button {
     border-bottom-left-radius: 0px;
 }
 
+UI_TimePicker {
+    background-color: transparent;
+    color: @text_active;
+}
+UI_TimePicker UI_ComboBox {
+    border-width: 1px;
+    border-style: solid;
+    border-color: @slider_page;
+}
+UI_TimePicker UI_ComboBox#timepicker_hour_button {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+UI_TimePicker UI_ComboBox#timepicker_minute_button {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
 /* Scroll Bar */
 QScrollBar {
     background-color: @background_hover;
