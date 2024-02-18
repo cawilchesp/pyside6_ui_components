@@ -4,6 +4,7 @@ from PySide6.QtGui import QFont, QTextCharFormat, QBrush, QColor
 
 from components.ui_combobox import UI_ComboBox
 
+from icecream import ic
 
 class UI_DateEdit(QDateEdit):
     """ Date Edit component """
@@ -151,6 +152,7 @@ class UI_DatePicker(QFrame):
         self.move(position[0], position[1])
         self.resize(300, 40)
         self.setEnabled(enabled)
+        self.language = language
 
         today = QDate.currentDate()
         self.month_names = {
@@ -179,7 +181,7 @@ class UI_DatePicker(QFrame):
             texts=('Día', 'Day'),
             options=day_options,
             set=today.day()-1,
-            language=language
+            language=self.language
         )
         self.day_button.setObjectName('datepicker_day_button')
         self.month_button = UI_ComboBox(
@@ -189,7 +191,8 @@ class UI_DatePicker(QFrame):
             texts=('Mes', 'Month'),
             options=self.month_names,
             set=today.month()-1,
-            language=language
+            language=self.language,
+            activated_signal=self.dayMonth
         )
         self.month_button.setObjectName('datepicker_month_button')
         self.year_button = UI_ComboBox(
@@ -199,12 +202,17 @@ class UI_DatePicker(QFrame):
             texts=('Año', 'Year'),
             options=year_options,
             set=today.year()-1970,
-            language=language
+            language=self.language
         )
         self.year_button.setObjectName('datepicker_year_button')
 
-
-
-
-
+    def dayMonth(self, index: int) -> None:
+        current_year = self.year_button.currentIndex() + 1970
+        temp_date = QDate(current_year, index+1, 1)
         
+        self.day_button.clear()
+        day_options = {i: [str(day), str(day)] for i, day in enumerate(range(1, temp_date.daysInMonth()+1))}
+
+        self.day_button.options = day_options
+        self.day_button.set_language(self.language)
+        self.day_button.setCurrentIndex(0)
