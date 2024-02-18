@@ -857,6 +857,86 @@ UI_DatePicker UI_ComboBox#datepicker_year_button {
     border-bottom-left-radius: 0px;
 }
 
+/* Scroll Bar */
+QScrollBar {
+    background-color: @background_hover;
+}
+QScrollBar:horizontal {
+    height: 12px;
+    margin: 0px 12px 0px 12px;
+}
+QScrollBar:vertical {
+    width: 12px;
+    margin: 12px 0px 12px 0px;
+}
+QScrollBar::handle {
+    border-radius: 1px;
+    background-color: @text_active;
+}
+QScrollBar::handle:horizontal {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+QScrollBar::handle:vertical {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+QScrollBar::handle:hover {
+    border-radius: 3px;
+    background-color: @text_active;
+}
+QScrollBar::handle:horizontal:hover {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+QScrollBar::handle:vertical:hover {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+QScrollBar::sub-line {
+    background-color: @background_hover;
+    width: 12px;
+    height: 12px;
+}
+QScrollBar::sub-line:horizontal {
+    border-top-right-radius:6px;
+    border-bottom-right-radius:6px;
+    image: url(icons/@chevron_right);
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+    border-top-left-radius:6px;
+    border-top-right-radius:6px;
+    image: url(icons/@chevron_up);
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-page {
+    background-color: @background_hover;
+}
+QScrollBar::add-line {
+    background-color: @background_hover;
+    width: 12px;
+    height: 12px;
+}
+QScrollBar::add-line:horizontal {
+    border-top-left-radius:6px;
+    border-bottom-left-radius:6px;
+    image: url(icons/@chevron_left);
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical {
+    border-bottom-left-radius:6px;
+    border-bottom-right-radius:6px;
+    image: url(icons/@chevron_down);
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::add-page {
+    background-color: @background_hover;
+}
 
 
 
