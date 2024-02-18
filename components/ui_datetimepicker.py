@@ -178,7 +178,6 @@ class UI_DatePicker(QFrame):
             parent=self,
             position=(0, 0),
             width=80,
-            texts=('Día', 'Day'),
             options=day_options,
             set=today.day()-1,
             language=self.language
@@ -188,7 +187,6 @@ class UI_DatePicker(QFrame):
             parent=self,
             position=(71,0),
             width=142,
-            texts=('Mes', 'Month'),
             options=self.month_names,
             set=today.month()-1,
             language=self.language,
@@ -199,7 +197,6 @@ class UI_DatePicker(QFrame):
             parent=self,
             position=(204,0),
             width=96,
-            texts=('Año', 'Year'),
             options=year_options,
             set=today.year()-1970,
             language=self.language
@@ -216,3 +213,54 @@ class UI_DatePicker(QFrame):
         self.day_button.options = day_options
         self.day_button.set_language(self.language)
         self.day_button.setCurrentIndex(0)
+
+
+
+class UI_TimePicker(QFrame):
+    """ Time Picker component """
+    def __init__(
+        self,
+        parent: QWidget,
+        position: tuple[int, int] = (8,8),
+        enabled: bool = True,
+        language: str = 'es',
+    ):
+        """
+        Parameters
+        ----------
+            parent (QWidget): UI Parent object
+            position (tuple[int, int]): Calendar top left corner position (x, y)
+            theme_color (str): App theme color name
+            theme_style (bool): App theme style name
+        """
+        super().__init__(parent)
+
+        self.parent = parent
+        self.move(position[0], position[1])
+        self.resize(164, 40)
+        self.setEnabled(enabled)
+        self.language = language
+
+        now = QTime.currentTime()
+
+        hour_options = {i: [str(hour), str(hour)] for i, hour in enumerate(range(0, 24))}
+        minute_options = {i: [str(minute), str(minute)] for i, minute in enumerate(range(0, 60))}
+
+        self.hour_button = UI_ComboBox(
+            parent=self,
+            position=(0, 0),
+            width=80,
+            options=hour_options,
+            set=now.hour()-1,
+            language=self.language
+        )
+        self.hour_button.setObjectName('timepicker_hour_button')
+        self.minute_button = UI_ComboBox(
+            parent=self,
+            position=(71,0),
+            width=80,
+            options=minute_options,
+            set=now.minute()-1,
+            language=self.language
+        )
+        self.minute_button.setObjectName('timepicker_minute_button')
