@@ -875,6 +875,13 @@ UI_TimePicker UI_ComboBox#timepicker_minute_button {
     border-bottom-left-radius: 0px;
 }
 
+/* Divider  */
+UI_Divider {
+    border-width: 1px;
+    border-style: solid;
+    border-color: @border_handle
+}
+
 /* Scroll Bar */
 QScrollBar {
     background-color: @background_hover;
@@ -1022,17 +1029,11 @@ MD3Chip:disabled {
     color: hsl(0, 0%, 29%)
 }
 
- Divider 
-MD3Divider {
-    border: 1px solid hsl(204, 86%, 53%);
-    background-color: transparent
-}
 
- Image Label 
-MD3ImageLabel {
-    border: 1px solid hsl(204, 86%, 53%);
-    background-color: transparent
-}
+
+
+
+
 
  Info Message Dialog 
 InfoMessageApp QLabel#dialog_title {
