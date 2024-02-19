@@ -968,74 +968,7 @@ QScrollBar::add-page {
 
 
 
-
-
-
-
-
-
-
-
-/*
- Segmented Button 
-MD3SegmentedButton {
-    border: 1px solid hsl(204, 86%, 53%);
-    padding: 0 8 0 8;
-    background-color: transparent;
-    color: hsl(204, 86%, 53%)
-}
-MD3SegmentedButton[left=true] {
-    border-top-left-radius: 16;
-    border-bottom-left-radius: 16;
-}
-MD3SegmentedButton[center=true] {
-    border-radius: 0;
-}
-MD3SegmentedButton[right=true] {
-    border-top-right-radius: 16;
-    border-bottom-right-radius: 16;
-}
-MD3SegmentedButton:checked {
-    background-color: hsl(204, 86%, 53%);
-    color: hsl(0, 0%, 4%)
-}
-MD3SegmentedButton:hover {
-    background-color: hsl(348, 100%, 61%);
-}
-MD3SegmentedButton:disabled {
-    background-color: hsl(0, 0%, 71%);
-    color: hsl(0, 0%, 29%)
-}
-
-
-
- Chip 
-MD3Chip {
-    border: 1px solid hsl(204, 86%, 53%);
-    border-radius: 8;
-    padding: 0 8 0 8;
-    background-color: transparent;
-    color: hsl(204, 86%, 53%)
-}
-MD3Chip:checked {
-    background-color: hsl(204, 86%, 53%);
-    color: hsl(0, 0%, 4%)
-}
-MD3Chip:hover {
-    background-color: hsl(348, 100%, 61%);
-}
-MD3Chip:disabled {
-    background-color: hsl(0, 0%, 71%);
-    color: hsl(0, 0%, 29%)
-}
-
-
-
-
-
-
-
- Info Message Dialog 
+ /* Info Message Dialog 
 InfoMessageApp QLabel#dialog_title {
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
