@@ -109,15 +109,6 @@ class MainWindow(QMainWindow):
         with open(self.settings_file, 'w') as file:
             yaml.dump(self.config, file)
 
-
-
-
-
-
-
-
-
-
     # ----------------
     # Button Functions
     # ----------------
@@ -213,66 +204,6 @@ class MainWindow(QMainWindow):
     # ----------------
     def on_test1_switch_clicked(self, state: bool) -> None:
         self.ui.gui_widgets['test1_switch'].set_state(state)
-
-
-
-
-
-    # # --------------------------
-    # # Segmented Button Functions
-    # # --------------------------
-    # def on_left_segmented1_button_clicked(self, state: bool) -> None:
-    #     self.ui.gui_widgets['left_segmented1_button'].set_state(state, self.theme_color)
-        
-    # def on_center1_segmented1_button_clicked(self, state: bool) -> None:
-    #     self.ui.gui_widgets['center1_segmented1_button'].set_state(state, self.theme_color)
-
-    # def on_center2_segmented1_button_clicked(self, state: bool) -> None:
-    #     self.ui.gui_widgets['center2_segmented1_button'].set_state(state, self.theme_color)
-
-    # def on_right_segmented1_button_clicked(self, state: bool) -> None:
-    #     self.ui.gui_widgets['right_segmented1_button'].set_state(state, self.theme_color)
-
-    # def on_left_segmented2_button_clicked(self, state: bool) -> None:
-    #     self.ui.gui_widgets['left_segmented2_button'].set_state(state, self.theme_color)
-
-    # def on_center1_segmented2_button_clicked(self, state: bool) -> None:
-    #     self.ui.gui_widgets['center1_segmented2_button'].set_state(state, self.theme_color)
-
-    # def on_center2_segmented2_button_clicked(self, state: bool) -> None:
-    #     self.ui.gui_widgets['center2_segmented2_button'].set_state(state, self.theme_color)
-
-    # def on_right_segmented2_button_clicked(self, state:bool) -> None:
-    #     self.ui.gui_widgets['right_segmented2_button'].set_state(state, self.theme_color)
-
-
-    # # ---------------
-    # # Chips Functions
-    # # ---------------
-    # def on_chip1_clicked(self, state: bool) -> None:
-    #     self.ui.gui_widgets['chip1_button'].set_state(state, self.theme_color)
-
-    # def on_chip2_clicked(self, state: bool) -> None:
-    #     self.ui.gui_widgets['chip2_button'].set_state(state, self.theme_color)
-
-    # def on_chip3_clicked(self, state: bool) -> None:
-    #     self.ui.gui_widgets['chip3_button'].set_state(state, self.theme_color)
-
-    # def on_chip4_clicked(self, state: bool) -> None:
-    #     self.ui.gui_widgets['chip4_button'].set_state(state, self.theme_color)
-
-    # def on_chip5_clicked(self, state: bool) -> None:
-    #     self.ui.gui_widgets['chip5_button'].set_state(state, self.theme_color)
-
-    # def on_chip6_clicked(self, state: bool) -> None:
-    #     self.ui.gui_widgets['chip6_button'].set_state(state, self.theme_color)
-
-
-    # # --------------------
-    # # Text Field Functions
-    # # --------------------
-    # def on_text8_field_return_pressed(self) -> None:
-    #     print(f'Text 8 Value: {self.ui.gui_widgets["test8_textfield"].text_field.text()}')
 
 
 if __name__=="__main__":
