@@ -519,6 +519,20 @@ class Main_UI(QWidget):
             theme_style=self.theme_style
         )
 
+        self.gui_widgets['divider_1'] = UI_Divider(
+            parent=self.gui_widgets['card_card'],
+            position=(980, 64),
+            length=50,
+            orientation='horizontal'
+        )
+        
+        self.gui_widgets['divider_2'] = UI_Divider(
+            parent=self.gui_widgets['card_card'],
+            position=(980, 72),
+            length=50,
+            orientation='vertical'
+        )
+
 
 
         # ------
