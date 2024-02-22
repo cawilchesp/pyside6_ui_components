@@ -274,8 +274,7 @@ UI_RadioButton {
     background-color: transparent;
     color: @text_active;
     margin: 4px;
-    font-family: "Segoe Fluent Icons";
-    font-size: 16px;
+    icon-size: 24px;
 }
 UI_RadioButton:disabled {
     background-color: @background_disable;
