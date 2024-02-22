@@ -2,12 +2,9 @@ from PySide6.QtWidgets import QPushButton, QToolButton, QMenu, QWidget
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QAction, QColor
 
-from components.icons import icons
-
 import qtawesome as qta
 from themes.colors import light_colors, dark_colors, theme_colors
 
-from icecream import ic
 
 class UI_Button(QPushButton):
     """ Button component """
@@ -215,36 +212,38 @@ class UI_DropDownButton(QToolButton):
         self.actions_list = actions_list
 
         self.set_language(language)
+        self.set_icon(self.parent.parent.theme_style)
         
         self.dropdown_menu = QMenu(self)
         self.dropdown_menu.setWindowFlags(self.dropdown_menu.windowFlags() | Qt.NoDropShadowWindowHint)
-
-        self.set_actions_menu(language)
+        self.set_actions_menu(self.parent.parent.theme_style, language)
         self.dropdown_menu.setStyleSheet(f"UI_DropDownButton QMenu::item {{ padding-right: {width-82} }}")
         
         self.clicked.connect(clicked_signal)
 
-    def set_actions_menu(self, language: str) -> None:
+    def set_icon(self, style: bool) -> None:
+        if self.icon_name is not None:
+            h, s, l = light_colors['@text_active'] if style else dark_colors['@text_active']
+            icon = qta.icon(f"mdi6.{self.icon_name}", color=QColor.fromHslF(h/360, s/100, l/100))
+            self.setIcon(icon)
+
+    def set_actions_menu(self, style: bool, language: str) -> None:
         """ Set action buttons for drop down menu """
         for name_es, name_en, action, icon_name in self.actions_list:
-            icon_code = icons[icon_name] if icon_name is not None else ''
-            space = ' ' if icon_code != '' and name_es is not None else ''
-            if language == 'es':
-                action_name = f"{icon_code}{space}{name_es}"
-            elif language == 'en':
-                action_name = f"{icon_code}{space}{name_en}"
-            action_item = QAction(action_name)
+            if language == 'es': action_name = name_es
+            elif language == 'en': action_name = name_en
+            if icon_name is not None:
+                h, s, l = light_colors['@text_active'] if style else dark_colors['@text_active']
+                icon = qta.icon(f"mdi6.{icon_name}", color=QColor.fromHslF(h/360, s/100, l/100))
+                action_item = QAction(icon, action_name)
+            else:
+                action_item = QAction(action_name)
             action_item.triggered.connect(action)
             self.dropdown_menu.insertAction(None, action_item)
         self.setMenu(self.dropdown_menu)
 
     def set_language(self, language: str) -> None:
         """ Change language of button text """
-        button_text = self.icon_code
-        space = ' ' if button_text != '' and self.texts is not None else ''
         if self.texts is not None:
-            if language == 'es':
-                button_text = f"{button_text}{space}{self.texts[0]}"
-            elif language == 'en':
-                button_text = f"{button_text}{space}{self.texts[1]}"
-        self.setText(button_text)
+            if language == 'es': self.setText(self.texts[0])
+            elif language == 'en': self.setText(self.texts[1])
