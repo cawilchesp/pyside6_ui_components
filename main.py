@@ -2,6 +2,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow
 
 from main_ui import Main_UI
 
+from components.ui_button import UI_Button
 from components.ui_text import UI_PasswordBox
 from components.ui_datetimepicker import UI_CalendarView
 from themes.colors import dark_colors, light_colors, theme_colors, icons
@@ -38,10 +39,10 @@ class MainWindow(QMainWindow):
         
         style_colors = light_colors if self.theme_style else dark_colors
         for color_name, color_value in style_colors.items():
-            style_qss = style_qss.replace(color_name, color_value)
+            style_qss = style_qss.replace(color_name, f"hsl({color_value[0]}, {color_value[1]}%, {color_value[2]}%)")
         
         for color_name, color_value in theme_colors[self.theme_color].items():
-            style_qss = style_qss.replace(color_name, color_value)
+            style_qss = style_qss.replace(color_name, f"hsl({color_value[0]}, {color_value[1]}%, {color_value[2]}%)")
 
         for icon_name, icon_value in icons[self.theme_style].items():
             style_qss = style_qss.replace(icon_name, icon_value)
@@ -61,17 +62,21 @@ class MainWindow(QMainWindow):
             style_qss = qss_file.read()
         
         for color_name, color_value in style_colors.items():
-            style_qss = style_qss.replace(color_name, color_value)
+            style_qss = style_qss.replace(color_name, f"hsl({color_value[0]}, {color_value[1]}%, {color_value[2]}%)")
         
         for color_name, color_value in theme_colors[self.theme_color].items():
-            style_qss = style_qss.replace(color_name, color_value)
+            style_qss = style_qss.replace(color_name, f"hsl({color_value[0]}, {color_value[1]}%, {color_value[2]}%)")
 
         for icon_name, icon_value in icons[state].items():
             style_qss = style_qss.replace(icon_name, icon_value)
 
         self.setStyleSheet(style_qss)
+        
+        self.theme_style = state
 
         for key in self.ui.gui_widgets.keys():
+            if isinstance(self.ui.gui_widgets[key], UI_Button):
+                self.ui.gui_widgets[key].set_icon()
             if isinstance(self.ui.gui_widgets[key], UI_PasswordBox):
                 self.ui.gui_widgets[key].set_icon(state)
             if isinstance(self.ui.gui_widgets[key], UI_CalendarView):
@@ -80,7 +85,6 @@ class MainWindow(QMainWindow):
         self.ui.gui_widgets['theme_button'].set_state(state)
 
         # Save settings
-        self.theme_style = state
         self.config['THEME_STYLE'] = state
         with open(self.settings_file, 'w') as file:
             yaml.dump(self.config, file)
