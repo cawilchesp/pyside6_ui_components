@@ -4,7 +4,6 @@ from PySide6.QtGui import QFont, QTextCharFormat, QBrush, QColor
 
 from components.ui_combobox import UI_ComboBox
 
-from icecream import ic
 
 class UI_DateEdit(QDateEdit):
     """ Date Edit component """
@@ -213,7 +212,6 @@ class UI_DatePicker(QFrame):
         self.day_button.options = day_options
         self.day_button.set_language(self.language)
         self.day_button.setCurrentIndex(0)
-
 
 
 class UI_TimePicker(QFrame):
