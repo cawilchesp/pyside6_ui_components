@@ -114,6 +114,7 @@ UI_DropDownButton {
     padding-left: 12px;
     padding-right: 40px;
     margin: 4px;
+    icon-size: 24px;
 }
 UI_DropDownButton:disabled {
     background-color: @background_disable;
@@ -142,6 +143,7 @@ UI_DropDownButton QMenu {
     border-color: @background_widget;
     border-radius: 8px;
     background-color: @background_card;
+    icon-size: 24px;
 }
 UI_DropDownButton QMenu::item {
     background-color: @background_widget;
@@ -161,8 +163,7 @@ UI_CheckBox {
     background-color: transparent;
     color: @text_active;
     margin: 4px;
-    font-family: "Segoe Fluent Icons";
-    font-size: 16px;
+    icon-size: 24px;
 }
 UI_CheckBox:disabled {
     background-color: @background_disable;
