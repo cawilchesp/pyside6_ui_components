@@ -1,8 +1,9 @@
 from PySide6.QtWidgets import QLineEdit, QWidget
-from PySide6.QtGui import QFont, QIcon, QRegularExpressionValidator
+from PySide6.QtGui import QFont, QIcon, QRegularExpressionValidator, QColor
 from PySide6.QtCore import QRegularExpression
 
-from icon_color import icon_color
+import qtawesome as qta
+from themes.colors import light_colors, dark_colors
 
 
 class UI_TextBox(QLineEdit):
@@ -73,7 +74,6 @@ class UI_PasswordBox(QLineEdit):
         width: int = 64,
         max_length: int = 32767,
         enabled: bool = True,
-        theme_style: bool = True,
         language: str = 'es'
     ):
         """
@@ -84,7 +84,6 @@ class UI_PasswordBox(QLineEdit):
             width (int): Password box width
             max_length (int): Number of characters allowed
             enabled (bool): Password box enabled / disabled
-            theme_style (bool): App theme style name
             language (str): App language
                 Options: 'es' = Español, 'en' = English
         """
@@ -102,15 +101,15 @@ class UI_PasswordBox(QLineEdit):
         self.setEchoMode(QLineEdit.EchoMode.Password)
         self.toggle_password = self.addAction(QIcon('icons/none.png'), QLineEdit.ActionPosition.TrailingPosition)
         self.toggle_password.triggered.connect(self.password_action)
-        self.set_icon(theme_style)
+        self.set_icon(self.parent.parent.theme_style)
 
         self.set_language(language) if self.placeholder_texts is not None else None
 
-    def set_icon(self, theme_style: bool) -> None:
+    def set_icon(self, style: bool) -> None:
         """ Change button icon """
-        color = 'black' if theme_style else 'white'
-        self.visible_icon = icon_color(color, 'eye')
-        self.hidden_icon = icon_color(color, 'eye_off')
+        h, s, l = light_colors['@text_active'] if style else dark_colors['@text_active']
+        self.visible_icon = qta.icon('mdi6.eye-outline', color=QColor.fromHslF(h/360, s/100, l/100))
+        self.hidden_icon = qta.icon('mdi6.eye-off-outline', color=QColor.fromHslF(h/360, s/100, l/100))
         if self.password_visible:
             self.toggle_password.setIcon(self.visible_icon)
         else:
