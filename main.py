@@ -5,6 +5,7 @@ from main_ui import Main_UI
 from components.ui_button import UI_Button, UI_ThemeButton, UI_ToggleButton, UI_DropDownButton
 from components.ui_checkbox import UI_CheckBox
 from components.ui_radiobutton import UI_RadioButton
+from components.ui_switch import UI_Switch
 from components.ui_text import UI_PasswordBox
 from components.ui_datetimepicker import UI_CalendarView
 from themes.colors import dark_colors, light_colors, theme_colors, icons
@@ -76,7 +77,7 @@ class MainWindow(QMainWindow):
         self.setStyleSheet(style_qss)
         
         for key in self.ui.gui_widgets.keys():
-            if isinstance(self.ui.gui_widgets[key], Union[UI_Button, UI_ThemeButton, UI_ToggleButton, UI_CheckBox, UI_RadioButton, UI_PasswordBox]):
+            if isinstance(self.ui.gui_widgets[key], Union[UI_Button, UI_ThemeButton, UI_ToggleButton, UI_CheckBox, UI_RadioButton]):
                 self.ui.gui_widgets[key].set_icon(state)
             if isinstance(self.ui.gui_widgets[key], UI_DropDownButton):
                 self.ui.gui_widgets[key].set_icon(state)
@@ -85,6 +86,8 @@ class MainWindow(QMainWindow):
                 self.ui.gui_widgets[key].set_actions_menu(state, self.language_value)
             if isinstance(self.ui.gui_widgets[key], UI_CalendarView):
                 self.ui.gui_widgets[key].set_header(state)
+            if isinstance(self.ui.gui_widgets[key], UI_Switch):
+                self.ui.gui_widgets[key].set_state(state, self.ui.gui_widgets[key].state)
             
 
         # Save settings
@@ -217,7 +220,8 @@ class MainWindow(QMainWindow):
     # Switch Functions
     # ----------------
     def on_test1_switch_clicked(self, state: bool) -> None:
-        self.ui.gui_widgets['test1_switch'].set_state(state)
+        self.ui.gui_widgets['test1_switch'].state = state
+        self.ui.gui_widgets['test1_switch'].set_state(self.theme_style, state)
 
 
 if __name__=="__main__":
