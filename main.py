@@ -2,7 +2,8 @@ from PySide6.QtWidgets import QApplication, QMainWindow
 
 from main_ui import Main_UI
 
-from components.ui_button import UI_Button, UI_ThemeButton, UI_ToggleButton
+from components.ui_button import UI_Button, UI_ThemeButton, UI_ToggleButton, UI_DropDownButton
+from components.ui_checkbox import UI_CheckBox
 from components.ui_text import UI_PasswordBox
 from components.ui_datetimepicker import UI_CalendarView
 from themes.colors import dark_colors, light_colors, theme_colors, icons
@@ -73,12 +74,17 @@ class MainWindow(QMainWindow):
 
         self.setStyleSheet(style_qss)
         
-
         for key in self.ui.gui_widgets.keys():
-            if isinstance(self.ui.gui_widgets[key], Union[UI_Button, UI_ThemeButton, UI_ToggleButton, UI_PasswordBox]):
+            if isinstance(self.ui.gui_widgets[key], Union[UI_Button, UI_ThemeButton, UI_ToggleButton, UI_CheckBox, UI_PasswordBox]):
                 self.ui.gui_widgets[key].set_icon(state)
+            if isinstance(self.ui.gui_widgets[key], UI_DropDownButton):
+                self.ui.gui_widgets[key].set_icon(state)
+                for action in self.ui.gui_widgets[key].menu().actions():
+                    self.ui.gui_widgets[key].menu().removeAction(action)
+                self.ui.gui_widgets[key].set_actions_menu(state, self.language_value)
             if isinstance(self.ui.gui_widgets[key], UI_CalendarView):
                 self.ui.gui_widgets[key].set_header(state)
+            
 
         # Save settings
         self.theme_style = state
@@ -104,6 +110,10 @@ class MainWindow(QMainWindow):
         for key in self.ui.gui_widgets.keys():
             if hasattr(self.ui.gui_widgets[key], 'set_language'):
                 self.ui.gui_widgets[key].set_language(index)
+            if isinstance(self.ui.gui_widgets[key], UI_DropDownButton):
+                for action in self.ui.gui_widgets[key].menu().actions():
+                    self.ui.gui_widgets[key].menu().removeAction(action)
+                self.ui.gui_widgets[key].set_actions_menu(self.theme_style, index)
         
         self.language_value = index
         self.config['LANGUAGE'] = index
