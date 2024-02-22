@@ -50,14 +50,13 @@ class UI_Button(QPushButton):
 
         self.set_language(language)
         self.setProperty('type', self.type)
-        self.set_icon()
+        self.set_icon(self.parent.parent.theme_style)
 
         self.clicked.connect(clicked_signal)
 
-    def set_icon(self) -> None:
+    def set_icon(self, style: bool) -> None:
         if self.icon_name is not None:
             color = self.parent.parent.theme_color
-            style = self.parent.parent.theme_style
             button_types = {
                 'standard': (light_colors['@text_active'], dark_colors['@text_active']),
                 'accent': (light_colors['@background_full'], dark_colors['@background_full']),
@@ -67,7 +66,6 @@ class UI_Button(QPushButton):
             h, s, l = button_types[self.type][0] if style else button_types[self.type][1]
             icon = qta.icon(f"mdi6.{self.icon_name}", color=QColor.fromHslF(h/360, s/100, l/100))
             self.setIcon(icon)
-
 
     def set_language(self, language: str) -> None:
         """ Change language of button text """
@@ -112,24 +110,30 @@ class UI_ToggleButton(QPushButton):
         self.resize(width, 40)
         self.setEnabled(enabled)
         self.setCheckable(True)
-        self.icon_code = icons[icon_name] if icon_name is not None else ''
         self.texts = texts
+        self.icon_name = icon_name
         self.state = state
         
         self.set_language(language)
+        self.set_icon(self.parent.parent.theme_style)
 
         self.clicked.connect(clicked_signal)
 
+    def set_icon(self, style: bool) -> None:
+        if self.icon_name is not None:
+            button_types = {
+                False: (light_colors['@text_active'], dark_colors['@text_active']),
+                True: (light_colors['@background_full'], dark_colors['@background_full']),
+            }
+            h, s, l = button_types[self.state][0] if style else button_types[self.state][1]
+            icon = qta.icon(f"mdi6.{self.icon_name}", color=QColor.fromHslF(h/360, s/100, l/100))
+            self.setIcon(icon)
+
     def set_language(self, language: str) -> None:
         """ Change language of button text """
-        button_text = self.icon_code
-        space = ' ' if button_text != '' and self.texts is not None else ''
         if self.texts is not None:
-            if language == 'es':
-                button_text = f"{button_text}{space}{self.texts[0]}"
-            elif language == 'en':
-                button_text = f"{button_text}{space}{self.texts[1]}"
-        self.setText(button_text)
+            if language == 'es': self.setText(self.texts[0])
+            elif language == 'en': self.setText(self.texts[1])
 
 
 class UI_ThemeButton(QPushButton):
