@@ -70,9 +70,8 @@ class UI_IconLabel(QLabel):
     def __init__(
         self,
         parent: QWidget,
+        icon_name: str,
         position: tuple[int, int] = (16, 16),
-        icon_name: str = None,
-        theme_color: str = 'blue'
     ):
         """
         Parameters
