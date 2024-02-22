@@ -62,7 +62,6 @@ class UI_ComboBox(QComboBox):
         self.currentIndexChanged.connect(index_changed_signal)
         self.currentTextChanged.connect(text_changed_signal)
         self.activated.connect(activated_signal)
-        
 
     def set_language(self, language: str) -> None:
         """ Change language of options text """
