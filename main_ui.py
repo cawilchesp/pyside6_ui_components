@@ -312,7 +312,7 @@ class Main_UI(QWidget):
             state_changed_signal=parent.option_1_changed,
             position=(242, 104),
             width=150,
-            icon_name='InkingTool',
+            icon_name='account',
             texts=('Opción Bus', 'Option Bus'),
             state=0,
             group=self.gui_widgets['radiobuttons_1_groupbox'],
@@ -335,7 +335,7 @@ class Main_UI(QWidget):
             state_changed_signal=parent.option_3_changed,
             position=(242, 184),
             width=150,
-            icon_name='KeyboardClassic',
+            icon_name='account',
             texts=('Opción Bicicleta', 'Option Bicycle'),
             state=0,
             language=self.language_value
