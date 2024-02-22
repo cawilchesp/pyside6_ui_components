@@ -2,13 +2,14 @@ from PySide6.QtWidgets import QApplication, QMainWindow
 
 from main_ui import Main_UI
 
-from components.ui_button import UI_Button
+from components.ui_button import UI_Button, UI_ToggleButton
 from components.ui_text import UI_PasswordBox
 from components.ui_datetimepicker import UI_CalendarView
 from themes.colors import dark_colors, light_colors, theme_colors, icons
 
 import sys
 import yaml
+from typing import Union
 
 from icecream import ic
 
@@ -72,12 +73,9 @@ class MainWindow(QMainWindow):
 
         self.setStyleSheet(style_qss)
         
-        self.theme_style = state
 
         for key in self.ui.gui_widgets.keys():
-            if isinstance(self.ui.gui_widgets[key], UI_Button):
-                self.ui.gui_widgets[key].set_icon()
-            if isinstance(self.ui.gui_widgets[key], UI_PasswordBox):
+            if isinstance(self.ui.gui_widgets[key], Union[UI_Button, UI_ToggleButton, UI_PasswordBox]):
                 self.ui.gui_widgets[key].set_icon(state)
             if isinstance(self.ui.gui_widgets[key], UI_CalendarView):
                 self.ui.gui_widgets[key].set_header(state)
@@ -85,6 +83,7 @@ class MainWindow(QMainWindow):
         self.ui.gui_widgets['theme_button'].set_state(state)
 
         # Save settings
+        self.theme_style = state
         self.config['THEME_STYLE'] = state
         with open(self.settings_file, 'w') as file:
             yaml.dump(self.config, file)
@@ -122,10 +121,12 @@ class MainWindow(QMainWindow):
     def toggle_1_button_clicked(self, state: bool) -> None:
         print(f'toggle 1 button state: {state}')
         self.ui.gui_widgets['toggle_1_button'].state = state
+        self.ui.gui_widgets['toggle_1_button'].set_icon(self.theme_style)
 
     def toggle_2_button_clicked(self, state: bool) -> None:
         print(f'toggle 2 button state: {state}')
         self.ui.gui_widgets['toggle_2_button'].state = state
+        self.ui.gui_widgets['toggle_2_button'].set_icon(self.theme_style)
 
     def dropdown_1_button_clicked(self) -> None:
         print(f'Botón Drop Down')
