@@ -190,15 +190,15 @@ class Main_UI(QWidget):
         self.gui_widgets['dropdown_1_button'] = UI_DropDownButton(
             parent=self.gui_widgets['card_card'],
             position=(12, 304),
-            width=170,
-            icon_name='Bluetooth',
+            width=230,
+            icon_name='account',
             texts=('Botón Drop Down', 'Drop Down Button'),
             actions_list=[
-                ['Cámara', 'Camera', parent.action_1, 'Video'],
-                ['Carros', 'Cars', parent.action_2, 'Mail'],
+                ['Cámara', 'Camera', parent.action_1, 'account'],
+                ['Carros', 'Cars', parent.action_2, 'account'],
                 ['Hombre', 'Man', parent.action_3, None],
-                ['Mujer', 'Woman', parent.action_4, None],
-                ['Colegio', 'School', parent.action_5, 'Education']
+                ['Mujer', 'Woman', parent.action_4, 'account'],
+                ['Colegio', 'School', parent.action_5, 'account']
             ],
             language=self.language_value,
             clicked_signal=parent.dropdown_1_button_clicked
@@ -222,7 +222,7 @@ class Main_UI(QWidget):
             state_changed_signal=parent.option_1_changed,
             position=(12, 384),
             width=150,
-            icon_name='Camera',
+            icon_name='account',
             texts=('Opción Bus', 'Option Bus'),
             tristate=False,
             state=0,
@@ -234,7 +234,7 @@ class Main_UI(QWidget):
             state_changed_signal=parent.option_2_changed,
             position=(12, 424),
             width=150,
-            icon_name='Flashlight',
+            icon_name='account',
             tristate=True,
             state=1,
             language=self.language_value
