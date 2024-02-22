@@ -4,6 +4,7 @@ from main_ui import Main_UI
 
 from components.ui_button import UI_Button, UI_ThemeButton, UI_ToggleButton, UI_DropDownButton
 from components.ui_checkbox import UI_CheckBox
+from components.ui_radiobutton import UI_RadioButton
 from components.ui_text import UI_PasswordBox
 from components.ui_datetimepicker import UI_CalendarView
 from themes.colors import dark_colors, light_colors, theme_colors, icons
@@ -75,7 +76,7 @@ class MainWindow(QMainWindow):
         self.setStyleSheet(style_qss)
         
         for key in self.ui.gui_widgets.keys():
-            if isinstance(self.ui.gui_widgets[key], Union[UI_Button, UI_ThemeButton, UI_ToggleButton, UI_CheckBox, UI_PasswordBox]):
+            if isinstance(self.ui.gui_widgets[key], Union[UI_Button, UI_ThemeButton, UI_ToggleButton, UI_CheckBox, UI_RadioButton, UI_PasswordBox]):
                 self.ui.gui_widgets[key].set_icon(state)
             if isinstance(self.ui.gui_widgets[key], UI_DropDownButton):
                 self.ui.gui_widgets[key].set_icon(state)
