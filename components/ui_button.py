@@ -1,8 +1,13 @@
 from PySide6.QtWidgets import QPushButton, QToolButton, QMenu, QWidget
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QAction
+from PySide6.QtGui import QAction, QColor
 
 from components.icons import icons
+
+import qtawesome as qta
+from themes.colors import light_colors, dark_colors, theme_colors
+
+from icecream import ic
 
 class UI_Button(QPushButton):
     """ Button component """
@@ -10,7 +15,7 @@ class UI_Button(QPushButton):
         self,
         parent: QWidget,
         clicked_signal: callable,
-        position: tuple[int, int] = (8,8),
+        position: tuple[int, int] = (8, 8),
         width: int = 40,
         type: str = 'standard',
         icon_name: str = None,
@@ -41,23 +46,34 @@ class UI_Button(QPushButton):
         self.setEnabled(enabled)
         self.type = type
         self.texts = texts
-        self.icon_code = icons[icon_name] if icon_name is not None else ''
+        self.icon_name = icon_name
 
         self.set_language(language)
         self.setProperty('type', self.type)
+        self.set_icon()
 
         self.clicked.connect(clicked_signal)
 
+    def set_icon(self) -> None:
+        if self.icon_name is not None:
+            color = self.parent.parent.theme_color
+            style = self.parent.parent.theme_style
+            button_types = {
+                'standard': (light_colors['@text_active'], dark_colors['@text_active']),
+                'accent': (light_colors['@background_full'], dark_colors['@background_full']),
+                'outlined': (theme_colors[color]['@theme_active'], theme_colors[color]['@theme_active']),
+                'hyperlink': (theme_colors[color]['@theme_active'], theme_colors[color]['@theme_active'])
+            }
+            h, s, l = button_types[self.type][0] if style else button_types[self.type][1]
+            icon = qta.icon(f"mdi6.{self.icon_name}", color=QColor.fromHslF(h/360, s/100, l/100))
+            self.setIcon(icon)
+
+
     def set_language(self, language: str) -> None:
         """ Change language of button text """
-        button_text = self.icon_code
-        space = ' ' if button_text != '' and self.texts is not None else ''
         if self.texts is not None:
-            if language == 'es':
-                button_text = f"{button_text}{space}{self.texts[0]}"
-            elif language == 'en':
-                button_text = f"{button_text}{space}{self.texts[1]}"
-        self.setText(button_text)
+            if language == 'es': self.setText(self.texts[0])
+            elif language == 'en': self.setText(self.texts[1])
 
 
 class UI_ToggleButton(QPushButton):
@@ -148,8 +164,8 @@ class UI_ThemeButton(QPushButton):
 
     def set_state(self, state: bool) -> None:
         """ Set button state and corresponding icon """
-        icon_code = icons['Brightness'] if state else icons['QuietHours']
-        self.setText(icon_code)
+        icon_theme = qta.icon('ph.sun') if state else qta.icon('ph.moon')
+        self.setIcon(icon_theme)
 
 
 class UI_DropDownButton(QToolButton):
