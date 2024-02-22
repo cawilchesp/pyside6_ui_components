@@ -96,7 +96,7 @@ class Main_UI(QWidget):
             position=(12, 104),
             width=120,
             type='standard',
-            icon_name='Bluetooth',
+            icon_name='account',
             texts=('Estándar', 'Standard'),
             clicked_signal=parent.standard_button_clicked
         )
@@ -105,7 +105,7 @@ class Main_UI(QWidget):
             parent=self.gui_widgets['card_card'],
             position=(132, 104),
             type='standard',
-            icon_name='Bluetooth',
+            icon_name='account',
             clicked_signal=parent.standard_button_clicked
         )
 
@@ -122,7 +122,7 @@ class Main_UI(QWidget):
             parent=self.gui_widgets['card_card'],
             position=(132, 144),
             type='accent',
-            icon_name='Bluetooth',
+            icon_name='account',
             clicked_signal=parent.standard_button_clicked
         )
 
@@ -131,7 +131,7 @@ class Main_UI(QWidget):
             position=(12, 184),
             width=120,
             type='outlined',
-            icon_name='Bluetooth',
+            icon_name='account',
             texts=('Delineado', 'Outlined'),
             clicked_signal=parent.standard_button_clicked
         )
@@ -140,7 +140,7 @@ class Main_UI(QWidget):
             parent=self.gui_widgets['card_card'],
             position=(132, 184),
             type='outlined',
-            icon_name='Bluetooth',
+            icon_name='account',
             clicked_signal=parent.standard_button_clicked
         )
 
@@ -149,7 +149,7 @@ class Main_UI(QWidget):
             position=(12, 224),
             width=120,
             type='hyperlink',
-            icon_name='Bluetooth',
+            icon_name='account',
             texts=('Hipervínculo', 'Hyperlink'),
             clicked_signal=parent.standard_button_clicked
         )
@@ -158,7 +158,7 @@ class Main_UI(QWidget):
             parent=self.gui_widgets['card_card'],
             position=(132, 224),
             type='hyperlink',
-            icon_name='Bluetooth',
+            icon_name='account',
             clicked_signal=parent.standard_button_clicked
         )
 
