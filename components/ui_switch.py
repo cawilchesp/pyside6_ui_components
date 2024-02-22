@@ -1,8 +1,8 @@
 from PySide6.QtWidgets import QFrame, QToolButton, QWidget
-from PySide6.QtGui import QFont
+from PySide6.QtGui import QColor, QIcon
 
-from components.icons import icons
-
+import qtawesome as qta
+from themes.colors import light_colors, dark_colors
 
 class UI_Switch(QFrame):
     """
@@ -35,29 +35,34 @@ class UI_Switch(QFrame):
         self.left_switch = QToolButton(self)
         self.left_switch.setGeometry(0, 0, 20, 20)
         self.left_switch.setCheckable(True)
-        self.left_switch.setFont(QFont('Segoe Fluent Icons', 9))
         self.left_switch.setEnabled(enabled)
 
         self.right_switch = QToolButton(self)
         self.right_switch.setGeometry(20, 0, 20, 20)
         self.right_switch.setCheckable(True)
-        self.right_switch.setFont(QFont('Segoe Fluent Icons', 9))
         self.right_switch.setEnabled(enabled)
 
         self.left_switch.setProperty('side', 'left')
         self.right_switch.setProperty('side', 'right')
-        self.set_state(self.state)
+        self.set_state(self.parent.parent.theme_style, self.state)
 
         self.left_switch.clicked.connect(clicked_signal)
         self.right_switch.clicked.connect(clicked_signal)
         
-    def set_state(self, state: bool) -> None:
+    def set_state(self, style: bool, state: bool) -> None:
         """ Set button state and corresponding icon """
         self.left_switch.setChecked(state)
         self.right_switch.setChecked(state)
+
+        switch_states = {
+            False: (light_colors['@text_active'], dark_colors['@text_active']),
+            True: (light_colors['@background_full'], dark_colors['@background_full']),
+        }
+        h, s, l = switch_states[self.state][0] if style else switch_states[self.state][1]
+        icon = qta.icon('mdi6.circle', color=QColor.fromHslF(h/360, s/100, l/100))
         if state:
-            self.left_switch.setText("")
-            self.right_switch.setText(f"{icons['FullCircleMask']}")
+            self.left_switch.setIcon(QIcon("icons/none.png"))
+            self.right_switch.setIcon(icon)
         else:
-            self.left_switch.setText(f"{icons['FullCircleMask']}")
-            self.right_switch.setText("")
+            self.left_switch.setIcon(icon)
+            self.right_switch.setIcon(QIcon("icons/none.png"))
