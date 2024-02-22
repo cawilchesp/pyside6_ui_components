@@ -77,7 +77,7 @@ class MainWindow(QMainWindow):
         self.setStyleSheet(style_qss)
         
         for key in self.ui.gui_widgets.keys():
-            if isinstance(self.ui.gui_widgets[key], Union[UI_Button, UI_ThemeButton, UI_ToggleButton, UI_CheckBox, UI_RadioButton]):
+            if isinstance(self.ui.gui_widgets[key], Union[UI_Button, UI_ThemeButton, UI_ToggleButton, UI_CheckBox, UI_RadioButton, UI_PasswordBox]):
                 self.ui.gui_widgets[key].set_icon(state)
             if isinstance(self.ui.gui_widgets[key], UI_DropDownButton):
                 self.ui.gui_widgets[key].set_icon(state)
