@@ -121,11 +121,11 @@ class UI_ToggleButton(QPushButton):
 
     def set_icon(self, style: bool) -> None:
         if self.icon_name is not None:
-            button_types = {
+            button_states = {
                 False: (light_colors['@text_active'], dark_colors['@text_active']),
                 True: (light_colors['@background_full'], dark_colors['@background_full']),
             }
-            h, s, l = button_types[self.state][0] if style else button_types[self.state][1]
+            h, s, l = button_states[self.state][0] if style else button_states[self.state][1]
             icon = qta.icon(f"mdi6.{self.icon_name}", color=QColor.fromHslF(h/360, s/100, l/100))
             self.setIcon(icon)
 
@@ -162,14 +162,16 @@ class UI_ThemeButton(QPushButton):
         self.resize(40, 40)
         self.setEnabled(enabled)
         
-        self.set_state(state)
+        self.set_icon(state)
 
         self.clicked.connect(clicked_signal)
 
-    def set_state(self, state: bool) -> None:
+    def set_icon(self, state: bool) -> None:
         """ Set button state and corresponding icon """
-        icon_theme = qta.icon('ph.sun') if state else qta.icon('ph.moon')
-        self.setIcon(icon_theme)
+        h, s, l = light_colors['@background_full'] if state else dark_colors['@background_full']
+        icon_name = 'ph.sun' if state else 'ph.moon'
+        icon = qta.icon(f"{icon_name}", color=QColor.fromHslF(h/360, s/100, l/100))
+        self.setIcon(icon)
 
 
 class UI_DropDownButton(QToolButton):
@@ -209,7 +211,7 @@ class UI_DropDownButton(QToolButton):
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setPopupMode(QToolButton.ToolButtonPopupMode.MenuButtonPopup)
         self.texts = texts
-        self.icon_code = icons[icon_name] if icon_name is not None else ''
+        self.icon_name = icon_name
         self.actions_list = actions_list
 
         self.set_language(language)
