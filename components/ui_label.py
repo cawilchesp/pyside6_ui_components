@@ -1,8 +1,9 @@
 from PySide6.QtWidgets import QLabel, QWidget, QFrame
-from PySide6.QtGui import QFont
+from PySide6.QtGui import QFont, QColor
 from PySide6.QtCore import Qt
 
-from icon_color import icon_color
+import qtawesome as qta
+from themes.colors import light_colors, dark_colors
 
 
 class UI_Label(QLabel):
@@ -88,13 +89,13 @@ class UI_IconLabel(QLabel):
         self.resize(32, 32)
         self.icon_name = icon_name
         
-        self.set_icon_label(self.icon_name, theme_color)
+        self.set_icon(self.parent.parent.theme_style)
         
-    def set_icon_label(self, icon_name: str, color_name: str) -> None:
+    def set_icon(self, style: bool) -> None:
         """ Update icon corresponding to the theme """
-        self.icon_name = icon_name
-        colorized_icon = icon_color(color_name, icon_name)
-        self.setPixmap(colorized_icon.pixmap(24))
+        h, s, l = light_colors['@text_active'] if style else dark_colors['@text_active']
+        icon = qta.icon(f"mdi6.{self.icon_name}", color=QColor.fromHslF(h/360, s/100, l/100))
+        self.setPixmap(icon.pixmap(24))
 
 
 class UI_ColorLabel(QLabel):
