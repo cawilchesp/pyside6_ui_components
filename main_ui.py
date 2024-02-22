@@ -422,7 +422,6 @@ class Main_UI(QWidget):
             parent=self.gui_widgets['card_card'],
             position=(462, 144),
             width=170,
-            theme_style=self.theme_style,
             language=self.language_value
         )
 
