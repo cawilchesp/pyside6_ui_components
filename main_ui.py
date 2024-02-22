@@ -173,7 +173,7 @@ class Main_UI(QWidget):
             parent=self.gui_widgets['card_card'],
             position=(52, 264),
             width=150,
-            icon_name='Bluetooth',
+            icon_name='account',
             texts=('Botón Toggle', 'Toggle Button'),
             language=self.language_value,
             clicked_signal=parent.toggle_1_button_clicked
@@ -182,7 +182,7 @@ class Main_UI(QWidget):
         self.gui_widgets['toggle_2_button'] = UI_ToggleButton(
             parent=self.gui_widgets['card_card'],
             position=(202, 264),
-            icon_name='Bluetooth',
+            icon_name='account',
             language=self.language_value,
             clicked_signal=parent.toggle_2_button_clicked
         )
