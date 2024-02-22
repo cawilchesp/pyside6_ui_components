@@ -34,8 +34,7 @@ UI_ColorLabel {
 UI_Button {
     border-radius: 4px;
     margin: 4px;
-    font-family: "Segoe Fluent Icons";
-    font-size: 16px;
+    icon-size: 24px;
 }
 UI_Button[type=standard] {
     background-color: @background_widget;
@@ -75,8 +74,6 @@ UI_ToggleButton {
     background-color: @background_widget;
     color: @text_active;
     margin: 4px;
-    font-family: "Segoe Fluent Icons";
-    font-size: 16px;
 }
 UI_ToggleButton:checked {
     background-color: @theme_active;
@@ -99,8 +96,7 @@ UI_ThemeButton {
     background-color: @theme_active;
     color: @background_full;
     margin: 4px;
-    font-family: "Segoe Fluent Icons";
-    font-size: 16px;
+    icon-size: 24px;
 }
 UI_ThemeButton:hover {
     background-color: @theme_hover;
@@ -117,8 +113,6 @@ UI_DropDownButton {
     padding-left: 12px;
     padding-right: 40px;
     margin: 4px;
-    font-family: "Segoe Fluent Icons";
-    font-size: 16px;
 }
 UI_DropDownButton:disabled {
     background-color: @background_disable;
@@ -147,8 +141,6 @@ UI_DropDownButton QMenu {
     border-color: @background_widget;
     border-radius: 8px;
     background-color: @background_card;
-    font-family: "Segoe Fluent Icons";
-    font-size: 16px;
 }
 UI_DropDownButton QMenu::item {
     background-color: @background_widget;
@@ -213,8 +205,6 @@ UI_ComboBox {
     background-color: @background_widget;
     color: @text_active;
     margin: 4px;
-    font-family: "Segoe Fluent Icons";
-    font-size: 16px;
 }
 UI_ComboBox:editable {
     border-bottom-width: 2px;
