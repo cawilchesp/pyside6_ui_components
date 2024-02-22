@@ -1,5 +1,4 @@
 from PySide6.QtWidgets import QSpinBox, QDoubleSpinBox, QWidget
-from PySide6.QtGui import QFont
 
 
 class UI_NumberBox(QSpinBox):
