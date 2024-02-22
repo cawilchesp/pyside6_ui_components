@@ -74,6 +74,7 @@ UI_ToggleButton {
     background-color: @background_widget;
     color: @text_active;
     margin: 4px;
+    icon-size: 24px;
 }
 UI_ToggleButton:checked {
     background-color: @theme_active;
