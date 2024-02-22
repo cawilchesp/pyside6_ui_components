@@ -1,8 +1,6 @@
 from PySide6.QtWidgets import QLineEdit, QWidget
-from PySide6.QtGui import QFont, QIcon, QAction, QRegularExpressionValidator
+from PySide6.QtGui import QFont, QIcon, QRegularExpressionValidator
 from PySide6.QtCore import QRegularExpression
-
-from components.icons import icons
 
 from icon_color import icon_color
 
