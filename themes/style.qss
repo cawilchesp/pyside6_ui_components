@@ -240,8 +240,6 @@ UI_ComboBox QListView {
     color: @text_active;
     margin: 0px;
     outline: 0px;
-    font-family: "Segoe Fluent Icons";
-    font-size: 16px;
 }
 UI_ComboBox QListView:active {
     border-width: 3px;
