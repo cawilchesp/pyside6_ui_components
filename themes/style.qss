@@ -143,7 +143,6 @@ UI_DropDownButton QMenu {
     border-color: @background_widget;
     border-radius: 8px;
     background-color: @background_card;
-    icon-size: 24px;
 }
 UI_DropDownButton QMenu::item {
     background-color: @background_widget;
