@@ -156,6 +156,9 @@ UI_DropDownButton QMenu::item::selected {
     background-color: @background_hover;
     padding-left: 12px;
 }
+UI_DropDownButton QMenu::icon {
+    padding-left: 12px;
+}
 
 /* Check Box */
 UI_CheckBox {
