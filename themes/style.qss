@@ -242,15 +242,15 @@ UI_ComboBox QListView {
     outline: 0px;
 }
 UI_ComboBox QListView:active {
-    border-width: 3px;
+    border-width: 4px;
     border-style: solid;
-    border-color: @background_widget;
+    border-color: @background_card;
     border-radius: 10px;
-    background-color: @background_card;
-    margin: -3px;
+    background-color: @background_widget;
+    margin: -4px;
 }
 UI_ComboBox QListView::item {
-    height: 24;
+    height: 32;
 }
 UI_ComboBox QListView::item:selected {
     border-left-width: 4px;
@@ -266,6 +266,7 @@ UI_ComboBox QListView::item:!selected {
     border-width: 4px;
     border-style: solid;
     border-color: @background_widget;
+    background-color: @background_widget;
     margin: 4px;
 }
 
