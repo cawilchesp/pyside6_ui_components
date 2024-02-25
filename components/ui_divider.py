@@ -21,9 +21,6 @@ class UI_Divider(QFrame):
         """
         super().__init__(parent)
 
-        self.theme_style = self.parent.theme_style
-        self.theme_color = self.parent.theme_color
-
         self.parent = parent
         self.move(position[0], position[1])
         if orientation == 'horizontal':
@@ -33,3 +30,5 @@ class UI_Divider(QFrame):
             self.resize(1, length)
             self.setFrameShape(QFrame.Shape.VLine)
         self.setFrameShadow(QFrame.Shadow.Sunken)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
