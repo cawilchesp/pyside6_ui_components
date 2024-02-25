@@ -28,6 +28,8 @@ class UI_DateEdit(QDateEdit):
         self.move(position[0], position[1])
         self.resize(width, 40)
         self.setEnabled(enabled)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         
         self.setCalendarPopup(True)
         self.setDate(QDate.currentDate())
@@ -60,6 +62,8 @@ class UI_TimeEdit(QTimeEdit):
         self.move(position[0], position[1])
         self.resize(width, 40)
         self.setEnabled(enabled)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         
         min_time = QTime(range[0][0], range[0][1], range[0][2])
         max_time = QTime(range[1][0], range[1][1], range[1][2])
@@ -93,6 +97,8 @@ class UI_CalendarView(QCalendarWidget):
         self.setMaximumSize(300, 350)
         self.setVerticalHeaderFormat(QCalendarWidget.VerticalHeaderFormat.NoVerticalHeader)
         self.setWindowFlags(self.windowFlags() | Qt.NoDropShadowWindowHint)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
 
         month_menu = self.findChild(QMenu)
         month_menu.setWindowFlags(month_menu.windowFlags() | Qt.NoDropShadowWindowHint)
@@ -151,7 +157,10 @@ class UI_DatePicker(QFrame):
         self.move(position[0], position[1])
         self.resize(300, 40)
         self.setEnabled(enabled)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         self.language = language
+        
 
         today = QDate.currentDate()
         self.month_names = {
@@ -237,6 +246,8 @@ class UI_TimePicker(QFrame):
         self.move(position[0], position[1])
         self.resize(164, 40)
         self.setEnabled(enabled)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         self.language = language
 
         now = QTime.currentTime()
