@@ -40,12 +40,14 @@ class UI_RadioButton(QRadioButton):
         self.move(position[0], position[1])
         self.resize(width, 40)
         self.setEnabled(enabled)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         self.icon_name = icon_name
         self.texts = texts
         self.state = state
 
         self.set_language(language)
-        self.set_icon(self.parent.parent.theme_style)
+        self.set_icon(self.theme_style)
         self.setChecked(self.state)
         group.addButton(self) if group is not None else None
 
