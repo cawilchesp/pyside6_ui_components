@@ -44,12 +44,14 @@ class UI_CheckBox(QCheckBox):
         self.resize(width, 40)
         self.setTristate(tristate)
         self.setEnabled(enabled)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         self.icon_name = icon_name
         self.texts = texts
         self.state = state
 
         self.set_language(language)
-        self.set_icon(self.parent.parent.theme_style)
+        self.set_icon(self.theme_style)
         self.setCheckState(Qt.CheckState(self.state))
 
         self.stateChanged.connect(state_changed_signal)
