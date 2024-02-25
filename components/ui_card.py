@@ -23,3 +23,5 @@ class UI_Card(QFrame):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(size[0], size[1])
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
