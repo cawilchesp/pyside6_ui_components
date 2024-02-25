@@ -30,6 +30,8 @@ class UI_Switch(QFrame):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(40, 20)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         self.state = state
 
         self.left_switch = QToolButton(self)
@@ -44,7 +46,7 @@ class UI_Switch(QFrame):
 
         self.left_switch.setProperty('side', 'left')
         self.right_switch.setProperty('side', 'right')
-        self.set_state(self.parent.parent.theme_style, self.state)
+        self.set_state(self.theme_style, self.state)
 
         self.left_switch.clicked.connect(clicked_signal)
         self.right_switch.clicked.connect(clicked_signal)
