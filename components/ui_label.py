@@ -39,6 +39,8 @@ class UI_Label(QLabel):
         self.move(position[0], position[1])
         # self.resize(width, 40)
         self.setContentsMargins(0,0,0,0)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         self.texts = texts
 
         if font_size < 8: font_size = 8
@@ -86,9 +88,11 @@ class UI_IconLabel(QLabel):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(32, 32)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         self.icon_name = icon_name
         
-        self.set_icon(self.parent.parent.theme_style)
+        self.set_icon(self.theme_style)
         
     def set_icon(self, style: bool) -> None:
         """ Update icon corresponding to the theme """
