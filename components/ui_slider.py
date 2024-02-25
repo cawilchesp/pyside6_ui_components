@@ -46,6 +46,8 @@ class UI_Slider(QSlider):
         self.setMaximum(range[2])
         self.setValue(value)
         self.setEnabled(enabled)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
 
         self.sliderMoved.connect(slider_moved_signal)
         self.sliderReleased.connect(slider_released_signal)
