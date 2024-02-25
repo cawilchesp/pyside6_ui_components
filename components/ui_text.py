@@ -45,6 +45,8 @@ class UI_TextBox(QLineEdit):
         self.setMaxLength(max_length)
         self.setFont(QFont('Segoe Fluent Icons', 10))
         self.setEnabled(enabled)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         self.placeholder_texts = placeholder_texts
 
         patterns_dict = {
@@ -95,13 +97,15 @@ class UI_PasswordBox(QLineEdit):
         self.setClearButtonEnabled(True)
         self.setMaxLength(max_length)
         self.setEnabled(enabled)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         self.placeholder_texts = ('Ingrese la contraseña', 'Enter your password')
 
         self.password_visible = False
         self.setEchoMode(QLineEdit.EchoMode.Password)
         self.toggle_password = self.addAction(QIcon('icons/none.png'), QLineEdit.ActionPosition.TrailingPosition)
         self.toggle_password.triggered.connect(self.password_action)
-        self.set_icon(self.parent.parent.theme_style)
+        self.set_icon(self.theme_style)
 
         self.set_language(language) if self.placeholder_texts is not None else None
 
@@ -160,6 +164,8 @@ class UI_EmailBox(QLineEdit):
         self.setClearButtonEnabled(True)
         self.setMaxLength(max_length)
         self.setEnabled(enabled)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         self.placeholder_texts = ('Correo electrónico', 'E-mail')
 
         input_pattern = r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+"
@@ -201,6 +207,8 @@ class UI_IpAddressBox(QLineEdit):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         self.setClearButtonEnabled(True)
         self.setMaxLength(max_length)
         self.setEnabled(enabled)
