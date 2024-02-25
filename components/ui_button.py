@@ -41,19 +41,21 @@ class UI_Button(QPushButton):
         self.move(position[0], position[1])
         self.resize(width, 40)
         self.setEnabled(enabled)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         self.type = type
         self.texts = texts
         self.icon_name = icon_name
 
         self.set_language(language)
         self.setProperty('type', self.type)
-        self.set_icon(self.parent.parent.theme_style)
+        self.set_icon(self.theme_style)
 
         self.clicked.connect(clicked_signal)
 
     def set_icon(self, style: bool) -> None:
         if self.icon_name is not None:
-            color = self.parent.parent.theme_color
+            color = self.theme_color
             button_types = {
                 'standard': (light_colors['@text_active'], dark_colors['@text_active']),
                 'accent': (light_colors['@background_full'], dark_colors['@background_full']),
@@ -107,12 +109,14 @@ class UI_ToggleButton(QPushButton):
         self.resize(width, 40)
         self.setEnabled(enabled)
         self.setCheckable(True)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         self.texts = texts
         self.icon_name = icon_name
         self.state = state
         
         self.set_language(language)
-        self.set_icon(self.parent.parent.theme_style)
+        self.set_icon(self.theme_style)
 
         self.clicked.connect(clicked_signal)
 
@@ -158,6 +162,8 @@ class UI_ThemeButton(QPushButton):
         self.move(position[0], position[1])
         self.resize(40, 40)
         self.setEnabled(enabled)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         
         self.set_icon(state)
 
@@ -207,16 +213,18 @@ class UI_DropDownButton(QToolButton):
         self.setEnabled(enabled)
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
         self.setPopupMode(QToolButton.ToolButtonPopupMode.MenuButtonPopup)
+        self.theme_style = self.parent.theme_style
+        self.theme_color = self.parent.theme_color
         self.texts = texts
         self.icon_name = icon_name
         self.actions_list = actions_list
 
         self.set_language(language)
-        self.set_icon(self.parent.parent.theme_style)
+        self.set_icon(self.theme_style)
         
         self.dropdown_menu = QMenu(self)
         self.dropdown_menu.setWindowFlags(self.dropdown_menu.windowFlags() | Qt.NoDropShadowWindowHint)
-        self.set_actions_menu(self.parent.parent.theme_style, language)
+        self.set_actions_menu(self.theme_style, language)
         self.dropdown_menu.setStyleSheet(f"UI_DropDownButton QMenu::item {{ padding-right: {width-82} }}")
         
         self.clicked.connect(clicked_signal)
