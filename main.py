@@ -90,7 +90,6 @@ class MainWindow(QMainWindow):
             if isinstance(self.ui.gui_widgets[key], UI_Switch):
                 self.ui.gui_widgets[key].set_state(state, self.ui.gui_widgets[key].state)
             
-
         # Save settings
         self.theme_style = state
         self.config['THEME_STYLE'] = state
