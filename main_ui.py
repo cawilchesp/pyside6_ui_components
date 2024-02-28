@@ -1,4 +1,6 @@
 from PySide6.QtWidgets import QWidget, QButtonGroup
+from PySide6.QtCharts import QChart, QChartView, QLineSeries
+from PySide6.QtCore import QPoint
 
 from components.ui_window import UI_Window
 from components.ui_card import UI_Card
@@ -9,11 +11,10 @@ from components.ui_combobox import UI_ComboBox
 from components.ui_radiobutton import UI_RadioButton
 from components.ui_slider import UI_Slider
 from components.ui_switch import UI_Switch
-
 from components.ui_text import UI_TextBox, UI_PasswordBox, UI_EmailBox, UI_IpAddressBox
 from components.ui_numberbox import UI_NumberBox, UI_FloatBox
 from components.ui_datetimepicker import UI_DateEdit, UI_TimeEdit, UI_CalendarView, UI_DatePicker, UI_TimePicker
-
+from components.ui_chart import UI_Chart
 from components.ui_divider import UI_Divider
 
 import yaml
@@ -524,6 +525,25 @@ class Main_UI(QWidget):
             length=50,
             orientation='vertical'
         )
+
+        self.gui_widgets['line_chart'] = UI_Chart(
+            parent=self.gui_widgets['card_card'],
+            position=(980, 200),
+            size=(250, 250),
+            texts=('Gráfica de Línea','Line Chart'),
+            language=self.language_value
+        )
+
+        data_1 = [(0,1), (1,2), (2,4), (3,5), (4,1), (5,0)]
+        line1_series = QLineSeries(self.gui_widgets['line_chart'].chart_plot)
+        for point in data_1:
+            line1_series.append(QPoint(point[0], point[1]))
+        self.gui_widgets['line_chart'].chart_plot.addSeries(line1_series)
+
+        
+
+
+
 
 
 
