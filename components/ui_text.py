@@ -17,7 +17,9 @@ class UI_TextBox(QLineEdit):
         input: str = None,
         max_length: int = 32767,
         enabled: bool = True,
-        language: str = 'es'
+        language: str = 'es',
+        text_edited_signal: callable = None,
+        return_pressed_signal: callable = None
     ):
         """
         Parameters
@@ -60,6 +62,9 @@ class UI_TextBox(QLineEdit):
             self.setValidator(reg_exp)
 
         self.set_language(language) if self.placeholder_texts is not None else None
+
+        self.textEdited.connect(text_edited_signal)
+        self.returnPressed.connect(return_pressed_signal)
 
     def set_language(self, language: str) -> None:
         """ Change language of button label """
