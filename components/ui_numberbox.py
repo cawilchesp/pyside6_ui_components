@@ -10,7 +10,8 @@ class UI_NumberBox(QSpinBox):
         width: int = 64,
         range: tuple[int, int, int] = (0, 1, 100),
         value: int = 0,
-        enabled: bool = True
+        enabled: bool = True,
+        value_changed_signal: callable = None
     ):
         """
         Parameters
@@ -34,6 +35,8 @@ class UI_NumberBox(QSpinBox):
         self.setMaximum(range[2])
         self.setValue(value)
 
+        self.valueChanged.connect(value_changed_signal)
+
 
 class UI_FloatBox(QDoubleSpinBox):
     """ Float Box component """
@@ -44,7 +47,8 @@ class UI_FloatBox(QDoubleSpinBox):
         width: int = 64,
         range: tuple[float, float, float] = (0, 0.1, 1),
         value: float = 0.0,
-        enabled: bool = True
+        enabled: bool = True,
+        value_changed_signal: callable = None
     ):
         """
         Parameters
@@ -67,3 +71,5 @@ class UI_FloatBox(QDoubleSpinBox):
         self.setSingleStep(range[1])
         self.setMaximum(range[2])
         self.setValue(value)
+
+        self.valueChanged.connect(value_changed_signal)
