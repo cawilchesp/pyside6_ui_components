@@ -115,8 +115,10 @@ class UI_ToggleButton(QPushButton):
         self.icon_name = icon_name
         self.state = state
         
+        self.setChecked(self.state)
         self.set_language(language)
         self.set_icon(self.theme_style)
+
 
         self.clicked.connect(clicked_signal)
 
