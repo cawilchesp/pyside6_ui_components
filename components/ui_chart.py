@@ -1,10 +1,11 @@
 from PySide6.QtWidgets import QWidget
-from PySide6.QtCharts import QChartView, QChart, QLineSeries
-from PySide6.QtCore import QPoint
+from PySide6.QtCharts import QChartView, QChart, QValueAxis
+from PySide6.QtCore import Qt, QMargins
 
 import qtawesome as qta
 from themes.colors import light_colors, dark_colors
 
+from icecream import ic
 
 class UI_Chart(QChartView):
     """ Chart component """
@@ -34,9 +35,13 @@ class UI_Chart(QChartView):
         self.theme_style = self.parent.theme_style
         self.theme_color = self.parent.theme_color
         self.texts = texts
-
+        
         self.chart_plot = QChart()
+        self.chart_plot.setBackgroundVisible(False)
+        self.chart_plot.legend().setVisible(False)
+        self.chart_plot.setMargins(QMargins(0, 0, 0, 0))
         self.setChart(self.chart_plot)
+
 
         self.set_language(language)
 
