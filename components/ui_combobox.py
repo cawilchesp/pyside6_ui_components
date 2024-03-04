@@ -46,7 +46,7 @@ class UI_ComboBox(QComboBox):
         self.parent = parent
         self.move(position[0], position[1])
         self.resize(width, 40)
-        self.setEnabled = enabled
+        self.setEnabled(enabled)
         self.view().window().setWindowFlags(Qt.WindowType.Popup | Qt.WindowType.FramelessWindowHint | Qt.WindowType.NoDropShadowWindowHint)
         self.theme_style = self.parent.theme_style
         self.theme_color = self.parent.theme_color
